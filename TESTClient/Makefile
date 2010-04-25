@@ -2,9 +2,11 @@ TOOLCHAIN_DIR=/usr/local/toolchain_mipsel/bin/
 GPP=$(TOOLCHAIN_DIR)mipsel-linux-g++
 STRIP=$(TOOLCHAIN_DIR)mipsel-linux-strip
 
-INCS  = -I RebuildedInclude 
+TOP=..
 
-LIBS  = -L AsusLIB -L AsusRPC
+INCS = -I $(TOP)/RebuildedInclude
+
+LIBS  = -L $(TOP)/AsusLIB -L $(TOP)/AsusRPC
 LIBS += -Wl,--start-group
 
 LIBS += -lVoutUtil
@@ -44,4 +46,5 @@ SetupClass.o : SetupClass.cpp
 	$(GPP) -g $(INCS) -c SetupClass.cpp
 
 clean : 
-		rm -f SetupClass.o hello.o hello
+	rm -f SetupClass.o hello.o hello
+	rm -f *~
