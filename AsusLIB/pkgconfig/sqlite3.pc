@@ -1,0 +1,13 @@
+# Package Information for pkg-config
+
+prefix=/root/SourceCode/R3/Asus_1073_Release/system/branch_src_sharedMemory_integration/Utility/sqlite
+exec_prefix=${prefix}
+libdir=/root/SourceCode/R3/Asus_1073_Release/system/lib
+includedir=/root/SourceCode/R3/Asus_1073_Release/system/branch_src_sharedMemory_integration/Include/Utility/sqlite
+
+Name: SQLite
+Description: SQL database engine
+Version: 3.5
+Libs: -L${libdir} -lsqlite3
+Libs.private: -lpthread
+Cflags: -I${includedir}
