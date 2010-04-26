@@ -1,0 +1,10 @@
+ahi/
+directfb/
+!gfxdrivers.pro
+linuxfb/
+Makefile
+powervr/
+qvfb/
+!rtd/
+transformed/
+vnc/
