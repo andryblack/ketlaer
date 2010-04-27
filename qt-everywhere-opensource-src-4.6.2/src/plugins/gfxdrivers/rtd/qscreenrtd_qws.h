@@ -43,7 +43,6 @@
 #define QSCREENRTD_QWS_H
 
 #include <QtGui/qscreen_qws.h>
-//#include <QtGui/qvfbhdr.h>
 
 QT_BEGIN_HEADER
 
@@ -63,14 +62,9 @@ public:
     virtual bool initDevice();
     virtual bool connect(const QString &displaySpec);
     virtual void disconnect();
-    virtual void shutdownDevice();
     virtual void solidFill(const QColor &color, const QRegion &region);
     virtual void blit(const QImage &image, const QPoint &topLeft, const QRegion &region);
-    virtual void save();
-    virtual void restore();
     virtual void setMode(int nw,int nh,int nd);
-    virtual void setDirty(const QRect& r);
-    virtual void blank(bool);
 #ifdef QTOPIA_RTD_BRIGHTNESS
     static void setBrightness(int b);
 #endif

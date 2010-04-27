@@ -400,14 +400,14 @@ inline void qt_memconvert(quint32 *dest, const quint32 *src, int count)
   /* Duff's device */
   int n = (count + 7) / 8;
   switch (count & 0x07) {
-  case 0: do { *dest++ = ntohl(*src++);
-    case 7:      *dest++ = ntohl(*src++);
-    case 6:      *dest++ = ntohl(*src++);
-    case 5:      *dest++ = ntohl(*src++);
-    case 4:      *dest++ = ntohl(*src++);
-    case 3:      *dest++ = ntohl(*src++);
-    case 2:      *dest++ = ntohl(*src++);
-    case 1:      *dest++ = ntohl(*src++);
+  case 0: do { *dest++ = htonl(*src++);
+    case 7:      *dest++ = htonl(*src++);
+    case 6:      *dest++ = htonl(*src++);
+    case 5:      *dest++ = htonl(*src++);
+    case 4:      *dest++ = htonl(*src++);
+    case 3:      *dest++ = htonl(*src++);
+    case 2:      *dest++ = htonl(*src++);
+    case 1:      *dest++ = htonl(*src++);
     } while (--n > 0);
   }
 }
@@ -456,31 +456,11 @@ void QrtdScreen::blit(const QImage &image, const QPoint &topLeft, const QRegion 
   QWSDisplay::ungrab();
 }
 
-void QrtdScreen::shutdownDevice()
-{
-}
-
 void QrtdScreen::setMode(int ,int ,int)
 {
 }
 
-void QrtdScreen::save()
-{
-}
-
-void QrtdScreen::restore()
-{
-}
-
-void QrtdScreen::setDirty(const QRect&)
-{
-}
-
 void QrtdScreen::setBrightness(int)
-{
-}
-
-void QrtdScreen::blank(bool)
 {
 }
 
