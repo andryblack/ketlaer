@@ -25,7 +25,7 @@ LIBS += -lIOPluginCustom1 -lIOPluginCustom2 -lIOPluginCustom3
 LIBS += -lIOPluginFileLink -lFileIOPlugin -lHttpIOPlugin -lWMDRMPD
 LIBS += -lAudioUtil -lGeneralIFO -lfileaccess -ldvdaccess -lDVDCommon
 LIBS += -lvrauthoring -lebase -ltinyxml -ludfaccess -lneon -lFastCopy
-LIBS += -lCSS_344 -lz -lHDMIControl
+LIBS += -lCSS_344 -lz -lHDMIControl -lTimerSubsystem
 LIBS += -lsmw -lVDecoderMPEG2 -lFilterCommon -lstream
 LIBS += -lAEncoderSystem-rpc -lVEncoderSystem-rpc
 LIBS += -lAudioInFilter-rpc -lVideoInSystem-rpc
@@ -33,18 +33,21 @@ LIBS += -lpthread -ldl
 
 LIBS += -Wl,--end-group
 
-OBJS = hello.o firmware_debug.o SetupClass.o 
+OBJS = hello.o firmware_debug.o HDMI_thread.o hdmihelper.o SetupClass.o
 
 hello : $(OBJS)
 	$(GPP) -g -static $(OBJS) -o hello $(LIBS)
 
 
-hello.o : hello.cpp
+hello.o : hello.cpp SetupClass.h
 	$(GPP) -g $(INCS) -c hello.cpp
 
-SetupClass.o : SetupClass.cpp
+hdmihelper.o : hdmihelper.cpp SetupClass.h
+	$(GPP) -g $(INCS) -c hdmihelper.cpp
+
+SetupClass.o : SetupClass.cpp SetupClass.h
 	$(GPP) -g $(INCS) -c SetupClass.cpp
 
 clean : 
-	rm -f SetupClass.o hello.o hello
+	rm -f SetupClass.o hello.o hdmihelper.o hello
 	rm -f *~

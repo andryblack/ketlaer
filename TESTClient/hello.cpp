@@ -20,6 +20,7 @@
 #include <lib_HDMIControl.h>
 
 #include "SetupClass.h"
+#include "hdmihelper.h"
 
 void firmware_init();
 void firmware_uninit();
@@ -29,12 +30,10 @@ void sendDebugMemoryAndAllocateDumpMemory(long videoDumpSize, long audioDumpSize
 
 #define RESERVED_COLOR_KEY 0x842
 
-SetupClass      *g_ps = SetupClass::m_ptr;
 VoutUtil        *g_vo = NULL;
 HANDLE           g_hs = NULL;
 HANDLE           g_hd = NULL;
 VideoPlayback   *g_pb = NULL;
-HDMI_Controller *g_hi = NULL;
 
 VO_RECTANGLE rect;
 /*callbacks*/
@@ -52,6 +51,120 @@ extern "C" HRESULT *VIDEO_RPC_ToSystem_VideoHaltDone_0_svc(long *reserved, RPC_S
   return retval;
 }
 /***/
+
+static void LoadTvConfig()
+{
+  printf("LoadTVConfig..\n");
+  VO_COLOR bgColor;
+  bgColor.c1 = 0x00; // red
+  bgColor.c2 = 0x00; // green
+  bgColor.c3 = 0x00; // blue
+  bgColor.isRGB = true;
+  g_vo->SetBackground(bgColor, true);
+  short RGB2YUVcoeff[12] = {132, 258, 50, 948, 875,
+			    225, 225, 836, 988, 128, 128, 16};
+  g_vo->ConfigureOSD(VO_OSD_LPF_TYPE_DROP, RGB2YUVcoeff);
+  g_vo->SetDeintMode(VO_VIDEO_PLANE_V1, VO_DEINT_MODE_AUTO);
+  g_vo->SetDeintMode(VO_VIDEO_PLANE_V2, VO_DEINT_MODE_AUTO);
+  g_vo->SetBrightness(setup->GetBrightness());
+  g_vo->SetContrast(setup->GetContrast());
+  VO_RECTANGLE rectNTSC = { 0, 0, 720,  480  };
+  VO_RECTANGLE rectPAL  = { 0, 0, 720,  576  };
+  VO_RECTANGLE rect720  = { 0, 0, 1280, 720  };
+  VO_RECTANGLE rect1080 = { 0, 0, 1920, 1080 };
+  VO_RECTANGLE rect800x600 = { 0, 0, 800, 600 };
+  switch(setup->GetTvSystem()) {
+  case VIDEO_NTSC:
+    rect = rectNTSC;
+    break;
+  case VIDEO_PAL:
+    rect = rectPAL;
+    break;
+  case VIDEO_HD720_50HZ:
+    rect = rect720;
+    break;
+  case VIDEO_HD720_60HZ:
+    rect = rect720;
+    break;
+  case VIDEO_HD1080_50HZ:
+    rect = rect1080;
+    break;
+  case VIDEO_HD1080_60HZ:
+    rect = rect1080;
+    break;
+  case VIDEO_HD1080_24HZ:
+    rect = rect1080;
+    break;
+  case VIDEO_SVGA800x600:
+    rect = rect800x600;
+    break;
+  }
+  VO_RESCALE_MODE rescaleMode;
+  VO_TV_TYPE      tvType;
+  switch(setup->GetAspectRatio()) {
+  case PS_4_3:
+    tvType = VO_TV_TYPE_4_BY_3;
+    rescaleMode = VO_RESCALE_MODE_KEEP_AR_PS_CNTR;
+    break;
+  case LB_4_3:
+    tvType = VO_TV_TYPE_4_BY_3;
+    rescaleMode = VO_RESCALE_MODE_KEEP_AR_LB_CNTR;
+    break;
+  case Wide_16_9:
+  default:
+    tvType = VO_TV_TYPE_16_BY_9_AUTO;
+    rescaleMode = VO_RESCALE_MODE_KEEP_AR_AUTO;
+    break;
+  }
+  g_vo->SetTVtype(tvType);
+  CVideoOutFilter::SetSystemRescaleMode(rescaleMode);
+  g_vo->SetRescaleMode(VO_VIDEO_PLANE_V1, rescaleMode, rect);
+  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_NTSC, rectNTSC);
+  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_PAL, rectPAL);
+  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_HD720_50HZ, rect720);
+  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_HD720_60HZ, rect720);
+  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_HD1080_50HZ, rect1080);
+  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_HD1080_60HZ, rect1080);
+  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_SVGA800x600, rect800x600);
+  g_vo->ApplyVideoStandardSetup();
+  bgColor.c1 = 0x00; // red
+  bgColor.c2 = 0x00; // green
+  bgColor.c3 = 0xff; // blue
+  bgColor.isRGB = true;
+  g_vo->ApplyVoutDisplayWindowSetup(bgColor, 0);
+  g_vo->ConfigGraphicCanvas(VO_GRAPHIC_OSD,rect,rect,false);
+  setFormatSCART(setup->GetVideoOutput() == VOUT_RGB);
+  if (getHDMIPlugged()) {
+    HDMI_Controller hdmi;
+    switch(setup->GetSpdifMode()) {
+    case SPDIF_RAW:
+    case SPDIF_LPCM:
+      hdmi.Send_AudioMute(HDMI_SETAVM);
+      break;
+    case HDMI_RAW:
+    case HDMI_LPCM:
+      hdmi.Send_AudioMute(HDMI_CLRAVM);
+      break;
+    default:
+      break;
+    }
+  }
+}
+
+class MyHDMICallbacks : public HDMICallbacks {
+  virtual void TvSystemChanged() {
+    LoadTvConfig();
+  }
+};
+
+static void LoadAudioConfig()
+{
+  SetAudioSpeakerMode(setup->GetSpeakerOut());
+  SetAudioAGCMode(setup->GetAudioAGCMode());
+  SetAudioSPDIFMode(setup->GetSpdifMode());
+  SetAudioVolume(31); //volume is controlled by playback class
+  SetAudioForceChannelCtrl(31);//??
+}
 
 static void Init()
 {
@@ -88,62 +201,18 @@ static void Init()
   audio_firmware_configure();
   video_firmware_configure();
   g_vo = new VoutUtil();
-  VO_COLOR bgColor;
-  bgColor.c1 = 0x00; // red
-  bgColor.c2 = 0x00; // green
-  bgColor.c3 = 0x00; // blue
-  bgColor.isRGB = true;
-  g_vo->SetBackground( bgColor, true);
-  short RGB2YUVcoeff[12] = {132, 258, 50, 948, 875,
-			    225, 225, 836, 988, 128, 128, 16};
-  g_vo->ConfigureOSD(VO_OSD_LPF_TYPE_DROP, RGB2YUVcoeff);
-  g_vo->SetDeintMode(VO_VIDEO_PLANE_V1, VO_DEINT_MODE_AUTO);
-  g_vo->SetDeintMode(VO_VIDEO_PLANE_V2, VO_DEINT_MODE_AUTO);
-  g_vo->SetBrightness(32);
-  g_vo->SetContrast(32);
-  g_vo->SetTVtype(VO_TV_TYPE_16_BY_9_AUTO);
-  CVideoOutFilter::SetSystemRescaleMode(VO_RESCALE_MODE_KEEP_AR_AUTO);
-  VO_RECTANGLE rectNTSC = { 0, 0, 720,  480  };
-  VO_RECTANGLE rectPAL  = { 0, 0, 720,  576  };
-  VO_RECTANGLE rect720  = { 0, 0, 1280, 720  };
-  VO_RECTANGLE rect1080 = { 0, 0, 1920, 1080 };
-  VO_RECTANGLE rect800x600 = { 0, 0, 800, 600 };
-  //nonsense?
-  rect.x = 30512;
-  rect.y = 4108;
-  rect.width = 1;
-  rect.height = 0;
-  //
-  rect = rect720;
-  g_vo->SetRescaleMode(VO_VIDEO_PLANE_V1, VO_RESCALE_MODE_KEEP_AR_AUTO, rect);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_NTSC, rectNTSC);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_PAL, rectPAL);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_HD720_50HZ, rect720);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_HD720_60HZ, rect720);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_HD1080_50HZ, rect1080);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_HD1080_60HZ, rect1080);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_SVGA800x600, rect800x600);
-  g_vo->ApplyVideoStandardSetup();
-  bgColor.c1 = 0x00; // red
-  bgColor.c2 = 0x00; // green
-  bgColor.c3 = 0xff; // blue
-  bgColor.isRGB = true;
-  g_vo->ApplyVoutDisplayWindowSetup(bgColor, 0);
-  g_vo->ConfigGraphicCanvas(VO_GRAPHIC_OSD,rect720,rect720,false);
-  SetAudioSpeakerMode(TWO_CHANNEL);
-  SetAudioAGCMode(AUDIO_AGC_DRC_OFF);
-  SetAudioSPDIFMode(SPDIF_LPCM);
-  SetAudioVolume(31);
-  SetAudioForceChannelCtrl(31);
-  setFormatSCART(false);
+  LoadTvConfig();
+  LoadAudioConfig();
   board_codec_mute(false);
   board_dac_mute(false);
+  InitHDMI(new MyHDMICallbacks());
 }
 
 static void UnInit()
 {
   delete g_vo;
 
+  DeInitHDMI();
   firmware_uninit();
   board_uninit();
   DG_UnInit();
@@ -177,10 +246,6 @@ int main(int argc, char **argv)
 
   Init();
 
-  g_hi = new HDMI_Controller();
-  g_hi->Send_AudioMute(HDMI_SETAVM); //get spdif output
-
-#if 1
   g_hs = GetSurfaceHandle(rect.width, rect.height, Format_16);
 
   DG_DrawRectangle(g_hs,
@@ -205,12 +270,19 @@ int main(int argc, char **argv)
 		  0xff,
 		  ColorKey_Src,
 		  RESERVED_COLOR_KEY);
-#endif
 
   printf("load video..\n");
   g_pb = new VideoPlayback(MEDIATYPE_None);
-  g_pb->LoadMedia("file:///tmp/DATA/media/audio/Various/Sex Pistols - My Way.mp3");
-  //g_pb->LoadMedia("file:///tmp/DATA/media/video/kinder/lights.wmv");
+  char file[4096];
+  if (argc == 2) {
+    sprintf(file, "file://%s", argv[1]);
+  } else {
+    printf("no media file passed. using default.\n");
+    //strcpy(file, "file:///tmp/DATA/media/audio/Various/Sex Pistols - My Way.mp3");
+    strcpy(file, "file:///tmp/DATA/media/video/kinder/lights.wmv");
+  }
+  printf("play %s\n", file);
+  g_pb->LoadMedia(file);
   g_pb->m_pFManager->Run();
   g_pb->m_pFManager->SetRate(256);
   g_pb->m_pAudioOut->SetFocus();
@@ -229,7 +301,6 @@ int main(int argc, char **argv)
   }
 
   g_pb->m_pFManager->Stop();
-  sleep(2);
 
   UnInit();
 

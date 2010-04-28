@@ -105,7 +105,7 @@ typedef video_standard ENUM_VIDEO_STANDARD;
 
 enum _aspect_ratio {PS_4_3, LB_4_3, Wide_16_9, Wide_16_10, ASPECT_RATIO_MAX};
 
-enum ENUM_ASPECT_RATIO {ASPECT_RATIO_Forbidden, ASPECT_RATIO_SquareSample, ASPECT_RATIO_4_3, ASPECT_RATIO_16_9, ASPECT_RATIO_221_1, ASPECT_RATIO_Reserved};
+typedef _aspect_ratio ENUM_ASPECT_RATIO;
 
 enum video_output {VOUT_YUV, VOUT_RGB, VOUT_MAX};
 

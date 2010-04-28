@@ -1,4 +1,11 @@
 
+/*
+ * NEVER change function order in this classes, they have to be
+ * binary compatible with the library!
+ */
+
+#define setup SetupClass::m_ptr
+
 class _IPV4 {
 public:
   unsigned char ucIP[4];
@@ -6,1166 +13,1210 @@ public:
 
 typedef _IPV4 IPV4;
 
-#define TRACE \
-printf("SetupClass::%s(), %s:%d\n", __FUNCTION__, __FILE__, __LINE__)
+#define TRACEOK \
+printf("OK:SetupClass::%s(), %s:%d\n", __FUNCTION__, __FILE__, __LINE__)
+#define TRACENI \
+printf("NI:SetupClass::%s(), %s:%d\n", __FUNCTION__, __FILE__, __LINE__)
 
 /*system/Include/Application/AppClass/SetupClass.h*/
 class SetupClass {
+private:
+  ENUM_VIDEO_SYSTEM   video_system;
+  ENUM_VIDEO_STANDARD video_standard;
+  ENUM_ASPECT_RATIO   aspect_ratio;
+  int                 brightness;
+  int                 contrast;
+  ENUM_VIDEO_OUTPUT   video_output;
+  ENUM_SPEAKER_OUT    speaker_out;
+  ENUM_AUDIO_AGC_MODE agc_mode;
+  ENUM_SPDIF_MODE     spdif_mode;
+
 public:
   static SetupClass * m_ptr;
   SetupClass()
   {
-    TRACE;
+    /*USED*/
+    video_system   = VIDEO_HD720_50HZ;
+    video_standard = VIDEO_PROGRESSIVE;
+    aspect_ratio   = Wide_16_9;
+    brightness     = 31;
+    contrast       = 31;
+    video_output   = VOUT_YUV;
+    speaker_out    = TWO_CHANNEL;
+    agc_mode       = AUDIO_AGC_DRC_OFF;
+    spdif_mode     = HDMI_LPCM;
   }
   virtual ~SetupClass()
   {
-    TRACE;
   }
   virtual void Init()
   {
-    TRACE;
+    TRACENI;
   }
   virtual void Create()
   {
-    TRACE;
+    TRACENI;
   }
   virtual HRESULT Sync()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
   virtual HRESULT AutoSync()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
   virtual void RestoreFactoryDefault()
   {
-    TRACE;
+    TRACENI;
   }
-  virtual int SetNetWlan0ProfileCopy(int a1, int a2)
+  virtual int SetNetWlan0ProfileCopy(int, int)
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual int SetNetWlan0ProfileToDefault(int a1)
+  virtual int SetNetWlan0ProfileToDefault(int)
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  //static void SetInstance(SetupClass * );
-  //static void DeleteInstance();
-  //static SetupClass * GetInstance();
-  virtual RECTANGLE_DIMENSION GetDimension(ENUM_VIDEO_SYSTEM video_system)
+  virtual RECTANGLE_DIMENSION GetDimension(ENUM_VIDEO_SYSTEM)
   {
     RECTANGLE_DIMENSION ret;
-
-    TRACE;
+    TRACENI;
     memset(&ret, 0, sizeof(ret));
     return ret;
   }
   virtual ENUM_OSD_LANGUAGE GetOsdLanguage()
   {
-    TRACE;
+    TRACENI;
     return OSD_LANG_ENGLISH;
   }
-  virtual void SetOsdLanguage(ENUM_OSD_LANGUAGE a1)
+  virtual void SetOsdLanguage(ENUM_OSD_LANGUAGE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_AUDIO_LANGUAGE GetAudioLanguage()
   {
-    TRACE;
+    TRACENI;
     return AUDIO_LANG_ENGLISH;
   }
-  virtual void SetAudioLanguage(ENUM_AUDIO_LANGUAGE a1)
+  virtual void SetAudioLanguage(ENUM_AUDIO_LANGUAGE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_SUBTITLE_LANGUAGE GetSubtitleLanguage()
   {
-    TRACE;
+    TRACENI;
     return SUBTITLE_LANG_ENGLISH;
   }
-  virtual void SetSubtitleLanguage(ENUM_SUBTITLE_LANGUAGE a1)
+  virtual void SetSubtitleLanguage(ENUM_SUBTITLE_LANGUAGE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_MENU_LANGUAGE GetMenuLanguage()
   {
-    TRACE;
+    TRACENI;
     return MENU_LANG_ENGLISH;
   }
-  virtual void SetMenuLanguage(ENUM_MENU_LANGUAGE a1)
+  virtual void SetMenuLanguage(ENUM_MENU_LANGUAGE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_TEXT_ENCODING GetTextSubtitleEncoding()
   {
-    TRACE;
+    TRACENI;
     return TEXT_ENCODING_UTF8;
   }
-  virtual void SetTextSubtitleEncoding(ENUM_TEXT_ENCODING a1)
+  virtual void SetTextSubtitleEncoding(ENUM_TEXT_ENCODING)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetTextSubtitleYOffset()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetTextSubtitleYOffset(int a1)
+  virtual void SetTextSubtitleYOffset(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetTextSubtitleSize()
   {
-    TRACE;
+    TRACENI;
     return 10;
   }
-  virtual void SetTextSubtitleSize(int a1)
+  virtual void SetTextSubtitleSize(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_SUBTITLE_TEXT_COLOR GetTextSubtitleColor()
   {
-    TRACE;
+    TRACENI;
     return SUBTITLE_TEXT_WHITE;
   }
-  virtual void SetTextSubtitleColor(ENUM_SUBTITLE_TEXT_COLOR a1)
+  virtual void SetTextSubtitleColor(ENUM_SUBTITLE_TEXT_COLOR)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetTextSubtitleOffset()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetTextSubtitleOffset(int a1)
+  virtual void SetTextSubtitleOffset(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_VIDEO_SYSTEM GetTvSystem()
   {
-    TRACE;
-    return VIDEO_HD720_50HZ;
+    /*USED*/
+    TRACEOK;
+    return video_system;
   }
   virtual void SetTvSystem(ENUM_VIDEO_SYSTEM a1)
   {
-    TRACE;
+    /*USED*/
+    TRACEOK;
+    video_system = a1;
   }
   virtual ENUM_VIDEO_SYSTEM GetVideoSDSystem()
   {
-    TRACE;
+    TRACENI;
     return VIDEO_HD720_50HZ;
   }
-  virtual void SetVideoSDSystem(ENUM_VIDEO_SYSTEM a1)
+  virtual void SetVideoSDSystem(ENUM_VIDEO_SYSTEM)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_VIDEO_HD_SYSTEM GetVideoHDSystem()
   {
-    TRACE;
+    TRACENI;
     return VIDEO_HD_720P;
   }
-  virtual void SetVideoHDSystem(ENUM_VIDEO_HD_SYSTEM a1)
+  virtual void SetVideoHDSystem(ENUM_VIDEO_HD_SYSTEM)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetVideoSystem1080P24HZ()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetVideoSystem1080P24HZ(ENUM_ON_OFF a1)
+  virtual void SetVideoSystem1080P24HZ(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetErrorConcealmentLevel()
 
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetErrorConcealmentLevel(int a1)
+  virtual void SetErrorConcealmentLevel(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_TV_SYSTEM_AUTO_MODE GetTvSystemAutoMode()
   {
-    TRACE;
-    return TV_SYSTEM_AUTO_MODE_OFF;
+    TRACENI;
+    return TV_SYSTEM_AUTO_MODE_HDMI_EDID;
   }
-  virtual void SetTvSystemAutoMode(ENUM_TV_SYSTEM_AUTO_MODE a1)
+  virtual void SetTvSystemAutoMode(ENUM_TV_SYSTEM_AUTO_MODE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_VIDEO_STANDARD GetTvStandard()
   {
-    TRACE;
-    return VIDEO_PROGRESSIVE;
+    /*USED*/
+    TRACEOK;
+    return video_standard;
   }
   virtual void SetTvStandard(ENUM_VIDEO_STANDARD a1)
   {
-    TRACE;
+    /*USED*/
+    TRACEOK;
+    video_standard = a1;
   }
   virtual ENUM_VIDEO_REC_SYSTEM GetRecTvSystem()
   {
-    TRACE;
+    TRACENI;
     return VIDEO_REC_PAL;
   }
-  virtual void SetRecTvSystem(ENUM_VIDEO_REC_SYSTEM a1)
+  virtual void SetRecTvSystem(ENUM_VIDEO_REC_SYSTEM)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetAutoTvSystem()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetAutoTvSystem(ENUM_ON_OFF a1)
+  virtual void SetAutoTvSystem(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetVideoPreprocessing()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetVideoPreprocessing(ENUM_ON_OFF a1)
+  virtual void SetVideoPreprocessing(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetCopyProtection()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetCopyProtection(ENUM_ON_OFF a1)
+  virtual void SetCopyProtection(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_REC_QUALITY GetRecQuality()
   {
-    TRACE;
+    TRACENI;
     return RECORD_HQ;
   }
-  virtual void SetRecQuality(ENUM_REC_QUALITY a1)
+  virtual void SetRecQuality(ENUM_REC_QUALITY)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_AUTO_CHAPTER GetAutoChapter()
   {
-    TRACE;
+    TRACENI;
     return OFF;
   }
-  virtual void SetAutoChapter(ENUM_AUTO_CHAPTER a1)
+  virtual void SetAutoChapter(ENUM_AUTO_CHAPTER)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_REC_DEVICE GetRecDevice()
   {
-    TRACE;
+    TRACENI;
     return REC_TO_USB_AUTO;
   }
-  virtual void SetRecDevice(ENUM_REC_DEVICE a1)
+  virtual void SetRecDevice(ENUM_REC_DEVICE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_REC_DEVICE GetTimeShiftDevice()
   {
-    TRACE;
+    TRACENI;
     return REC_TO_USB_AUTO;
   }
-  virtual void SetTimeShiftDevice(ENUM_REC_DEVICE a1)
+  virtual void SetTimeShiftDevice(ENUM_REC_DEVICE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual char * GetLastRecFile()
   {
-    TRACE;
+    TRACENI;
     return "/tmp/LastRecFile";
   }
-  virtual void SetLastRecFile(char *a1)
+  virtual void SetLastRecFile(char*)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetAutoTimeshift()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetAutoTimeshift(ENUM_ON_OFF a1)
+  virtual void SetAutoTimeshift(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_SLIDE_SHOW_TIME GetSlideShowTime()
   {
-    TRACE;
+    TRACENI;
     return SLIDE_SHOW_2S;
   }
-  virtual void SetSlideShowTime(ENUM_SLIDE_SHOW_TIME a1)
+  virtual void SetSlideShowTime(ENUM_SLIDE_SHOW_TIME)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_TRANS_EFFECT GetTeansEffect()
   {
-    TRACE;
+    TRACENI;
     return TRANS_EFFECT_OFF;
   }
-  virtual void SetTeansEffect(ENUM_TRANS_EFFECT a1)
+  virtual void SetTeansEffect(ENUM_TRANS_EFFECT)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_MIX_PLAY GetMixPlay()
   {
-    TRACE;
+    TRACENI;
     return MIX_PLAY_OFF;
   }
-  virtual void SetMixPlay(ENUM_MIX_PLAY a1)
+  virtual void SetMixPlay(ENUM_MIX_PLAY)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_TIME_ZONE GetTimeZone()
   {
-    TRACE;
+    TRACENI;
     return BTN_TIME_ZONE01;
   }
-  virtual void SetTimeZone(ENUM_TIME_ZONE a1)
+  virtual void SetTimeZone(ENUM_TIME_ZONE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetDayLightSaving()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetDayLightSaving(ENUM_ON_OFF a1)
+  virtual void SetDayLightSaving(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetPowerSaving()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetPowerSaving(ENUM_ON_OFF a1)
+  virtual void SetPowerSaving(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetRatingIsBlockUnrated()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetRatingIsBlockUnrated(int a1)
+  virtual void SetRatingIsBlockUnrated(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetRatingIsEnable()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetRatingIsEnable(int a1)
+  virtual void SetRatingIsEnable(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_RATING_LEVEL GetRatingLevel()
   {
-    TRACE;
+    TRACENI;
     return RATING_OFF;
   }
-  virtual void SetRatingLevel(ENUM_RATING_LEVEL a1)
+  virtual void SetRatingLevel(ENUM_RATING_LEVEL)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_RATING_REGION GetRatingRegion()
   {
-    TRACE;
+    TRACENI;
     return RATING_DEFAULT;
   }
-  virtual void SetRatingRegion(ENUM_RATING_REGION a1)
+  virtual void SetRatingRegion(ENUM_RATING_REGION)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual unsigned char GetRatingType(ENUM_RATING_LEVEL a1)
+  virtual unsigned char GetRatingType(ENUM_RATING_LEVEL)
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetRatingType(ENUM_RATING_LEVEL a1, unsigned char a2)
+  virtual void SetRatingType(ENUM_RATING_LEVEL, unsigned char)
   {
-    TRACE;
+    TRACENI;
   }
   virtual OPENVCHIP_TABLE_INFO * GetOpenVChipTable()
   {
-    TRACE;
+    TRACENI;
     return NULL;
   }
   virtual OPEN_VCHIP_RATING_INFO * GetOpenVChipRatingInfo()
   {
-    TRACE;
+    TRACENI;
     return NULL;
   }
   virtual void SetOpenVChip()
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetRatingTimeout()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetRatingTimeout(int a1)
+  virtual void SetRatingTimeout(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetRatingPasswd()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetRatingPasswd(int a1)
+  virtual void SetRatingPasswd(int)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual bool IsRatingPasswdCorrect(int a1)
+  virtual bool IsRatingPasswdCorrect(int)
   {
-    TRACE;
+    TRACENI;
     return true;
   }
   virtual int GetTVRatingBitwiseValue()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetTVRatingBitwiseValue(int a1)
+  virtual void SetTVRatingBitwiseValue(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetTVxRatingBitwiseValue()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetTVxRatingBitwiseValue(int a1)
+  virtual void SetTVxRatingBitwiseValue(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual bool GetAutoPlay()
   {
-    TRACE;
+    TRACENI;
     return false;
   }
-  virtual void SetAutoPlay(bool a1)
+  virtual void SetAutoPlay(bool)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetSeamlessPlayback()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetSeamlessPlayback(ENUM_ON_OFF a1)
+  virtual void SetSeamlessPlayback(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ASPECT_RATIO GetAspectRatio()
   {
-    TRACE;
-    return ASPECT_RATIO_16_9;
+    /*USED*/
+    TRACEOK;
+    return aspect_ratio;
   }
   virtual void SetAspectRatio(ENUM_ASPECT_RATIO a1)
   {
-    TRACE;
+    /*USED*/
+    TRACEOK;
+    aspect_ratio = a1;
   }
   virtual int GetBrightness()
   {
-    TRACE;
-    return 25;
+    /*USED*/
+    TRACEOK;
+    return brightness;
   }
   virtual void SetBrightness(int a1)
   {
-    TRACE;
+    /*USED*/
+    TRACEOK;
+    brightness = a1;
   }
   virtual int GetContrast()
   {
-    TRACE;
-    return 25;
+    /*USED*/
+    TRACEOK;
+    return contrast;
   }
   virtual void SetContrast(int a1)
   {
-    TRACE;
+    /*USED*/
+    TRACEOK;
+    contrast = a1;
   }
   virtual ENUM_VIDEO_OUTPUT GetVideoOutput()
   {
-    TRACE;
-    return VOUT_YUV;
+    /*USED*/
+    TRACEOK;
+    return video_output;
   }
   virtual void SetVideoOutput(ENUM_VIDEO_OUTPUT a1)
   {
-    TRACE;
+    /*USED*/
+    TRACEOK;
+    video_output = a1;
   }
   virtual ENUM_ON_OFF GetVideoDNRMode()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetVideoDNRMode(ENUM_ON_OFF a1)
+  virtual void SetVideoDNRMode(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetVideoZoomOutMode()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetVideoZoomOutMode(ENUM_ON_OFF a1)
+  virtual void SetVideoZoomOutMode(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetCurrentHdmiTVVid()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetCurrentHdmiTVVid(int a1)
+  virtual void SetCurrentHdmiTVVid(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetAngleMark()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetAngleMark(ENUM_ON_OFF a1)
+  virtual void SetAngleMark(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_REGION_SETTING GetRegionCode()
   {
-    TRACE;
+    TRACENI;
     return REGION_CODE_ZERO;
   }
-  virtual void SetRegionCode(ENUM_REGION_SETTING a1)
+  virtual void SetRegionCode(ENUM_REGION_SETTING)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_SECURITY_SETTING GetSecuritySetting()
   {
-    TRACE;
+    TRACENI;
     return SECURITY_ANONYMOUS;
   }
-  virtual void SetSecuritySetting(ENUM_SECURITY_SETTING a1)
+  virtual void SetSecuritySetting(ENUM_SECURITY_SETTING)
   {
-    TRACE;
+    TRACENI;
   }
   virtual bool GetInitialFlag()
   {
-    TRACE;
+    TRACENI;
     return false;
   }
   virtual void SetInitialFlag(bool a1)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_SPEAKER_OUT GetSpeakerOut()
   {
-    TRACE;
-    return TWO_CHANNEL;
+    /*USED*/
+    TRACEOK;
+    return speaker_out;
   }
   virtual void SetSpeakerOut(ENUM_SPEAKER_OUT a1)
   {
-    TRACE;
+    /*USED*/
+    TRACEOK;
+    speaker_out = a1;
   }
   virtual ENUM_AUDIO_DIGITAL_OUTPUT_MODE GetHdmiAudioOutputMode()
   {
-    TRACE;
+    TRACENI;
     return AUDIO_DIGITAL_LPCM_DUAL_CH;
   }
-  virtual void SetHdmiAudioOutputMode(ENUM_AUDIO_DIGITAL_OUTPUT_MODE a1)
+  virtual void SetHdmiAudioOutputMode(ENUM_AUDIO_DIGITAL_OUTPUT_MODE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_AUDIO_DIGITAL_OUTPUT_MODE GetSpdifAudioOutputMode()
   {
-    TRACE;
+    TRACENI;
     return AUDIO_DIGITAL_LPCM_DUAL_CH;
   }
-  virtual void SetSpdifAudioOutputMode(ENUM_AUDIO_DIGITAL_OUTPUT_MODE a1)
+  virtual void SetSpdifAudioOutputMode(ENUM_AUDIO_DIGITAL_OUTPUT_MODE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_SPDIF_MODE GetSpdifMode()
   {
-    TRACE;
-    return SPDIF_LPCM;
+    /*USED*/
+    TRACENI;
+    return spdif_mode;
   }
   virtual void SetSpdifMode(ENUM_SPDIF_MODE a1)
   {
-    TRACE;
+    /*USED*/
+    TRACENI;
+    spdif_mode = a1;
   }
   virtual bool GetDolbyPrologicEnable()
   {
-    TRACE;
+    TRACENI;
     return false;
   }
-  virtual void SetDolbyPrologicEnable(bool a1)
+  virtual void SetDolbyPrologicEnable(bool)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_AUDIO_AGC_MODE GetAudioAGCMode()
   {
-    TRACE;
-    return AUDIO_AGC_DRC_OFF;
+    /*USED*/
+    TRACEOK;
+    return agc_mode;
   }
   virtual void SetAudioAGCMode(ENUM_AUDIO_AGC_MODE a1)
   {
-    TRACE;
+    /*USED*/
+    TRACEOK;
+    agc_mode = a1;
   }
-  virtual void SetSortingModeHDD(SortMode a1)
+  virtual void SetSortingModeHDD(SortMode)
   {
-    TRACE;
+    TRACENI;
   }
   virtual SortMode GetSortingModeHDD()
   {
-    TRACE;
+    TRACENI;
     return SORT_BY_NAME;
   }
-  virtual void SetSortingModeDISC(SortMode a1)
+  virtual void SetSortingModeDISC(SortMode)
   {
-    TRACE;
+    TRACENI;
   }
   virtual SortMode GetSortingModeDISC()
   {
-    TRACE;
+    TRACENI;
     return SORT_BY_NAME;
   }
-  virtual void SetKaraokeMode(ENUM_ON_OFF a1)
+  virtual void SetKaraokeMode(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetKaraokeMode()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
   virtual int GetMic1Volume()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetMic1Volume(int a1)
+  virtual void SetMic1Volume(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetMic2Volume()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetMic2Volume(int a1)
+  virtual void SetMic2Volume(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetMusicVolume()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetMusicVolume(int a1)
+  virtual void SetMusicVolume(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetMicEcho()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetMicEcho(int a1)
+  virtual void SetMicEcho(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual VOCAL_REMOVAL_MODE GetVocalRemovalMode()
   {
-    TRACE;
+    TRACENI;
     return ENUM_VOCAL_REMOVAL_NONE;
   }
-  virtual void SetVocalRemovalMode(VOCAL_REMOVAL_MODE a1)
+  virtual void SetVocalRemovalMode(VOCAL_REMOVAL_MODE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_KEY_SHIFT_STONE GetKeyShiftStone()
   {
-    TRACE;
+    TRACENI;
     return ENUM_KEY_SHIFT_STONE_0;
   }
-  virtual void SetKeyShiftStone(ENUM_KEY_SHIFT_STONE a1)
+  virtual void SetKeyShiftStone(ENUM_KEY_SHIFT_STONE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_EQUALIZER_MODE GetEqualizerMode()
   {
-    TRACE;
+    TRACENI;
     return ENUM_EQUALIZER_RESERVED;
   }
-  virtual void SetEqualizerMode(ENUM_EQUALIZER_MODE a1)
+  virtual void SetEqualizerMode(ENUM_EQUALIZER_MODE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual KARAOKE_REVERB_MODE GetReverbMode()
   {
-    TRACE;
+    TRACENI;
     return REVERB_OFF;
   }
-  virtual void SetReverbMode(KARAOKE_REVERB_MODE a1)
+  virtual void SetReverbMode(KARAOKE_REVERB_MODE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual SourceOption GetSource()
   {
-    TRACE;
+    TRACENI;
     return SOURCE_Tuner;
   }
-  virtual void SetSource(SourceOption a1)
+  virtual void SetSource(SourceOption)
   {
-    TRACE;
+    TRACENI;
   }
   virtual DeviceOption GetDevice()
   {
-    TRACE;
+    TRACENI;
     return DEVICE_HDD;
   }
-  virtual void SetDevice(DeviceOption a1)
+  virtual void SetDevice(DeviceOption)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetVolume()
   {
-    TRACE;
+    TRACENI;
     return 31;
   }
-  virtual void SetVolume(int a1)
+  virtual void SetVolume(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetCurrChannel()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetCurrChannel(int a1)
+  virtual void SetCurrChannel(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetCurDtvChannelIndex()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetCurDtvChannelIndex(int a1)
+  virtual void SetCurDtvChannelIndex(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual DTV_REGION GetDtvRegion()
   {
-    TRACE;
+    TRACENI;
     return DTV_REGION_DEFAULT;
   }
-  virtual void SetDtvRegion(DTV_REGION a1)
+  virtual void SetDtvRegion(DTV_REGION)
   {
-    TRACE;
+    TRACENI;
   }
   virtual RESUME_SETTING GetResumeMode()
   {
-    TRACE;
+    TRACENI;
     return RESUME_NONE;
   }
-  virtual void SetResumeMode(RESUME_SETTING a1)
+  virtual void SetResumeMode(RESUME_SETTING)
   {
-    TRACE;
+    TRACENI;
   }
   virtual unsigned int GetSignature(void **sig)
   {
     char *s = "GetSignature";
-    TRACE;
+    TRACENI;
     *sig = (void*)s;
     return strlen(s);
   }
-  virtual void SetSignature(void *a1, unsigned int a2)
+  virtual void SetSignature(void*, unsigned int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual unsigned int GetBookmark(void **book)
   {
     char *b = "GetBookmark";
-    TRACE;
+    TRACENI;
     *book = (void*)b;
     return strlen(b);
   }
-  virtual void SetBookmark(void *a1 , unsigned int a2)
+  virtual void SetBookmark(void*, unsigned int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual bool GetNetEth0Enable()
   {
-    TRACE;
+    TRACENI;
     return true;
   }
-  virtual void SetNetEth0Enable(bool a1)
+  virtual void SetNetEth0Enable(bool)
   {
-    TRACE;
+    TRACENI;
   }
   virtual bool GetNetEth0DHCPEnable()
   {
-    TRACE;
+    TRACENI;
     return true;
   }
-  virtual void SetNetEth0DHCPEnable(bool a1)
+  virtual void SetNetEth0DHCPEnable(bool)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual IPV4 * GetNetEth0IPAddr()
+  virtual IPV4 *GetNetEth0IPAddr()
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual void SetNetEth0IPAddr(IPV4 *a1)
+  virtual void SetNetEth0IPAddr(IPV4*)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual IPV4 * GetNetEth0Mask()
+  virtual IPV4 *GetNetEth0Mask()
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual void SetNetEth0Mask(IPV4 *a1)
+  virtual void SetNetEth0Mask(IPV4*)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual IPV4 * GetNetEth0Gateway()
+  virtual IPV4 *GetNetEth0Gateway()
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual void SetNetEth0Gateway(IPV4 *a1)
+  virtual void SetNetEth0Gateway(IPV4*)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual IPV4 * GetNetDNS()
+  virtual IPV4 *GetNetDNS()
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual void SetNetDNS(IPV4 *a1)
+  virtual void SetNetDNS(IPV4*)
   {
-    TRACE;
+    TRACENI;
   }
   virtual bool GetNetWlan0Enable()
   {
-    TRACE;
+    TRACENI;
     return false;
   }
-  virtual void SetNetWlan0Enable(bool a1)
+  virtual void SetNetWlan0Enable(bool)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetNetWlan0Profile()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetNetWlan0Profile(int a1)
+  virtual void SetNetWlan0Profile(int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetNetWlan0ProfilePreSetting()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetNetWlan0ProfilePreSetting(int a1)
+  virtual void SetNetWlan0ProfilePreSetting(int)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual char * GetNetWlan0ProfileName()
+  virtual char *GetNetWlan0ProfileName()
   {
-    TRACE;
+    TRACENI;
     return "GetNetWlan0ProfileName";
   }
-  virtual char * GetNetWlan0ProfileName(int a1)
+  virtual char *GetNetWlan0ProfileName(int)
   {
-    TRACE;
+    TRACENI;
     return "GetNetWlan0ProfileName_idx";
   }
-  virtual void SetNetWlan0ProfileName(char *a1, int a2)
+  virtual void SetNetWlan0ProfileName(char*, int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_WIRELESS_MODE GetNetWlan0Mode()
   {
-    TRACE;
+    TRACENI;
     return WL_MODE_INFRASTRUCTURE;
   }
-  virtual ENUM_WIRELESS_MODE GetNetWlan0Mode(int a1)
+  virtual ENUM_WIRELESS_MODE GetNetWlan0Mode(int)
   {
-    TRACE;
+    TRACENI;
     return WL_MODE_INFRASTRUCTURE;
   }
-  virtual void SetNetWlan0Mode(ENUM_WIRELESS_MODE a1, int a2)
+  virtual void SetNetWlan0Mode(ENUM_WIRELESS_MODE, int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual bool GetNetWlan0DHCPEnable()
   {
-    TRACE;
+    TRACENI;
     return true;
   }
-  virtual bool GetNetWlan0DHCPEnable(int a1)
+  virtual bool GetNetWlan0DHCPEnable(int)
   {
-    TRACE;
+    TRACENI;
     return true;
   }
-  virtual void SetNetWlan0DHCPEnable(bool a1, int a2)
+  virtual void SetNetWlan0DHCPEnable(bool, int)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual IPV4 * GetNetWlan0IPAddr()
+  virtual IPV4 *GetNetWlan0IPAddr()
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual IPV4 * GetNetWlan0IPAddr(int a1)
+  virtual IPV4 * GetNetWlan0IPAddr(int)
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual void SetNetWlan0IPAddr(IPV4 *a1, int a2)
+  virtual void SetNetWlan0IPAddr(IPV4*, int)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual IPV4 * GetNetWlan0Mask()
+  virtual IPV4 *GetNetWlan0Mask()
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual IPV4 * GetNetWlan0Mask(int a1)
+  virtual IPV4 *GetNetWlan0Mask(int)
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual void SetNetWlan0Mask(IPV4 *a1, int a2)
+  virtual void SetNetWlan0Mask(IPV4*, int)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual IPV4 * GetNetWlan0Gateway()
+  virtual IPV4 *GetNetWlan0Gateway()
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual IPV4 * GetNetWlan0Gateway(int a1)
+  virtual IPV4 *GetNetWlan0Gateway(int)
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
   virtual void SetNetWlan0Gateway(IPV4 *a1, int a2)
   {
-    TRACE;
+    TRACENI;
   }
   virtual IPV4 * GetNetWlan0DNS()
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual IPV4 * GetNetWlan0DNS(int a1)
+  virtual IPV4 *GetNetWlan0DNS(int)
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual void SetNetWlan0DNS(IPV4 *a1, int a2)
+  virtual void SetNetWlan0DNS(IPV4*, int)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual char * GetNetWlan0ApName()
+  virtual char *GetNetWlan0ApName()
   {
-    TRACE;
+    TRACENI;
     return "GetNetWlan0ApName";
   }
-  virtual char * GetNetWlan0ApName(int a1)
+  virtual char *GetNetWlan0ApName(int)
   {
-    TRACE;
+    TRACENI;
     return "GetNetWlan0ApName_idx";
   }
-  virtual void SetNetWlan0ApName(char *a1, int a2)
+  virtual void SetNetWlan0ApName(char*, int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_WIRELESS_SECURITY GetNetWlan0Security()
   {
-    TRACE;
+    TRACENI;
     return WL_SECURITY_OPEN;
   }
-  virtual ENUM_WIRELESS_SECURITY GetNetWlan0Security(int a1)
+  virtual ENUM_WIRELESS_SECURITY GetNetWlan0Security(int)
   {
-    TRACE;
+    TRACENI;
     return WL_SECURITY_OPEN;
   }
-  virtual void SetNetWlan0Security(ENUM_WIRELESS_SECURITY a1, int a2)
+  virtual void SetNetWlan0Security(ENUM_WIRELESS_SECURITY, int)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual char * GetNetWlan0WepKey()
+  virtual char *GetNetWlan0WepKey()
   {
-    TRACE;
+    TRACENI;
     return "GetNetWlan0WepKey";
   }
-  virtual char * GetNetWlan0WepKey(int a1)
+  virtual char *GetNetWlan0WepKey(int)
   {
-    TRACE;
+    TRACENI;
     return "GetNetWlan0WepKey_idx";
   }
-  virtual void SetNetWlan0WepKey(char *a1, int a2)
+  virtual void SetNetWlan0WepKey(char*, int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual int GetNetWlan0ActiveWepKey()
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual int GetNetWlan0ActiveWepKey(int a1)
+  virtual int GetNetWlan0ActiveWepKey(int)
   {
-    TRACE;
+    TRACENI;
     return 0;
   }
-  virtual void SetNetWlan0ActiveWepKey(int a1, int a2)
+  virtual void SetNetWlan0ActiveWepKey(int, int)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual IPV4 * GetNetWlan0DhcpdHostIP()
+  virtual IPV4 *GetNetWlan0DhcpdHostIP()
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual IPV4 * GetNetWlan0DhcpdHostIP(int a1)
+  virtual IPV4 *GetNetWlan0DhcpdHostIP(int)
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual void SetNetWlan0DhcpdHostIP(IPV4 *a1, int a2)
+  virtual void SetNetWlan0DhcpdHostIP(IPV4*, int)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual IPV4 * GetNetWlan0DhcpdStartIP()
+  virtual IPV4 *GetNetWlan0DhcpdStartIP()
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual IPV4 * GetNetWlan0DhcpdStartIP(int a1)
+  virtual IPV4 *GetNetWlan0DhcpdStartIP(int)
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual void SetNetWlan0DhcpdStartIP(IPV4 *a1, int a2)
+  virtual void SetNetWlan0DhcpdStartIP(IPV4*, int)
   {
-    TRACE;
+    TRACENI;
   }
-  virtual IPV4 * GetNetWlan0DhcpdEndIP()
+  virtual IPV4 *GetNetWlan0DhcpdEndIP()
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual IPV4 * GetNetWlan0DhcpdEndIP(int a1)
+  virtual IPV4 *GetNetWlan0DhcpdEndIP(int)
   {
     static IPV4 dummy;
-    TRACE;
+    TRACENI;
     return &dummy;
   }
-  virtual void SetNetWlan0DhcpdEndIP(IPV4 *a1, int a2)
+  virtual void SetNetWlan0DhcpdEndIP(IPV4*, int)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetScreenSaver()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetScreenSaver(ENUM_ON_OFF a1)
+  virtual void SetScreenSaver(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetKenBurns()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetKenBurns(ENUM_ON_OFF a1)
+  virtual void SetKenBurns(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_ON_OFF GetMoviePreview()
   {
-    TRACE;
+    TRACENI;
     return SET_OFF;
   }
-  virtual void SetMoviePreview(ENUM_ON_OFF a1)
+  virtual void SetMoviePreview(ENUM_ON_OFF)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_JUMP_DURATION GetJumpDuration()
   {
-    TRACE;
+    TRACENI;
     return JUMP_5_MIN;
   }
-  virtual void SetJumpDuration(ENUM_JUMP_DURATION a1)
+  virtual void SetJumpDuration(ENUM_JUMP_DURATION)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_DEFAULT_SUBTITLE GetDefaultSubtitle()
   {
-    TRACE;
+    TRACENI;
     return DEF_SUB_NONE;
   }
-  virtual void SetDefaultSubtitle(ENUM_DEFAULT_SUBTITLE a1)
+  virtual void SetDefaultSubtitle(ENUM_DEFAULT_SUBTITLE)
   {
-    TRACE;
+    TRACENI;
   }
   virtual ENUM_SLEEP_TIMER GetSleepTimer()
   {
-    TRACE;
+    TRACENI;
     return SLEEP_TIMER_OFF;
   }
-  virtual void SetSleepTimer(ENUM_SLEEP_TIMER a1)
+  virtual void SetSleepTimer(ENUM_SLEEP_TIMER)
   {
-    TRACE;
+    TRACENI;
   }
   virtual bool GetDivXCode(char **code)
   {
     char *c = "GetDivXCode";
-    TRACE;
+    TRACENI;
     *code = c;
     return true;
   }
-  virtual void SetDivXCode(char *a1)
+  virtual void SetDivXCode(char*)
   {
-    TRACE;
+    TRACENI;
   }
 };

@@ -25,8 +25,6 @@
 
 static HDMICallbacks *g_pHDMICallbacks = NULL;
 
-void *HDMI_thread(void *param);
-
 /*system/Include/Platform_Lib/Graphics/TimerHandler.h*/
 class _command_buffer;
 
@@ -35,8 +33,6 @@ public:
   virtual int HandleTimer(_command_buffer * );
   virtual ~TimerHandler();
 };
-
-
 
 /*system/Include/Platform_Lib/Graphics/user_cmd.h*/
 class _command_buffer {
@@ -131,8 +127,8 @@ void *MAIN_thread(void*)
       read(AbstractAP::control_pipe[0], &(cmd.length), 14);
       if (cmd.type == 125) {
 	/* is this ok? on my DVI it does not work!
-	   SetupClass::m_ptr->SetTvSystem((ENUM_VIDEO_SYSTEM)cmd.parm[0]);
-	   SetupClass::m_ptr->SetTvStandard((ENUM_VIDEO_STANDARD)cmd.parm[1]);
+	   setup->SetTvSystem((ENUM_VIDEO_SYSTEM)cmd.parm[0]);
+	   setup->SetTvStandard((ENUM_VIDEO_STANDARD)cmd.parm[1]);
 	*/
 	if (g_pHDMICallbacks) {
 	  g_pHDMICallbacks->TvSystemChanged();
@@ -146,8 +142,10 @@ void *MAIN_thread(void*)
   return NULL;
 }
 
-pthread_t thread_id_MAIN = (pthread_t)-1;
-pthread_t thread_id_HDMI = (pthread_t)-1;
+extern void *HDMI_thread(void *param);
+
+static pthread_t thread_id_MAIN = (pthread_t)-1;
+static pthread_t thread_id_HDMI = (pthread_t)-1;
 
 void InitHDMI(HDMICallbacks *pCallbacks)
 {
