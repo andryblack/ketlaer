@@ -47,13 +47,14 @@ IrMapFile::~IrMapFile()
    
    for (i=0;i<IR_Table_Elem;i++)
    {
-      free(IR_Table[i]);
+      if (IR_Table[i]!=NULL) free(IR_Table[i]);
    }
    for (i=0;i<QT_Table_Elem;i++)
    {
-      free(QT_Table[i]);
+      if (QT_Table[i]!=NULL) free(QT_Table[i]);
    }
-   free(IR_Table);
+   if (IR_Table!=NULL) free(IR_Table);
+   if (QT_Table!=NULL) free(QT_Table);
    IR_Table_Elem=0;
    QT_Table_Elem=0;
 };
@@ -182,7 +183,11 @@ int IrMapFile::GetQtValueKey(char *Key)
 bool IrMapFile::CreateIRDefaultFile()
 {
     FILE * f;
-
+    struct stat st;
+    if(stat("/remotes",&st) != 0)
+    {
+        mkdir("remotes",0777);
+    };
     f = fopen(FileName, "wb");
     if (f != NULL)
     {
@@ -266,7 +271,11 @@ bool IrMapFile::CreateIRDefaultFile()
 bool IrMapFile::CreateQTDefaultFile()
 {
     FILE * f;
-
+    struct stat st;
+    if(stat("/remotes",&st) != 0)
+    {
+        mkdir("remotes",0777);
+    };
     f = fopen(_QTFileName, "wb");
     if (f != NULL)
     {
