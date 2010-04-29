@@ -1,0 +1,107 @@
+libconfig_la-scanner.lo libconfig_la-scanner.o: scanner.c \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/stdio.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/features.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_config.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/sys/cdefs.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/include/stddef.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/types.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/kernel_types.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/pthreadtypes.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/sched.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_stdio.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/wchar.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/wchar.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/include/stdarg.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/stdio_lim.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/string.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/errno.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/errno.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/errno_values.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/stdlib.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/sys/types.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/time.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/endian.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/endian.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/sys/select.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/select.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/sigset.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/time.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/sys/sysmacros.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/alloca.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/ctype.h \
+  /usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_touplow.h \
+  grammar.h wincompat.h parsectx.h libconfig.h strbuf.h scanctx.h
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/stdio.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/features.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_config.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/sys/cdefs.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/include/stddef.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/types.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/kernel_types.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/pthreadtypes.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/sched.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_stdio.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/wchar.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/wchar.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/include/stdarg.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/stdio_lim.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/string.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/errno.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/errno.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/errno_values.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/stdlib.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/sys/types.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/time.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/endian.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/endian.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/sys/select.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/select.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/sigset.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/time.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/sys/sysmacros.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/alloca.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/ctype.h:
+
+/usr/local/toolchain_mipsel/bin/../lib/gcc/mipsel-linux-uclibc/3.4.4/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_touplow.h:
+
+grammar.h:
+
+wincompat.h:
+
+parsectx.h:
+
+libconfig.h:
+
+strbuf.h:
+
+scanctx.h:

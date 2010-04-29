@@ -19,8 +19,10 @@
 #include <lib_PlaybackAppClass.h>
 #include <lib_HDMIControl.h>
 
-#include "SetupClass.h"
-#include "hdmihelper.h"
+#include <SetupClass.h>
+#include <hdmihelper.h>
+#include <ConfigFile.h>
+#include <RemoteMap.h>
 
 void firmware_init();
 void firmware_uninit();
@@ -34,6 +36,10 @@ VoutUtil        *g_vo = NULL;
 HANDLE           g_hs = NULL;
 HANDLE           g_hd = NULL;
 VideoPlayback   *g_pb = NULL;
+
+/*Configuration file class*/
+ConfigFile Config;
+IrMapFile RemoteConfig;
 
 VO_RECTANGLE rect;
 /*callbacks*/
