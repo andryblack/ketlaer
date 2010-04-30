@@ -32,13 +32,20 @@ class ConfigFile
             ConfigFile(const char* aFileName="settings.conf");
             ~ConfigFile();
               
-            int            ScreenSize;
-            char           RemoteType[21];
+
             bool           FileLoaded;
-             
+            int            GetTvSystem();
+            char           *GetRemoteType();
+            int            GetAspectRatio();
+            int            GetVideoStandardPI(); 
 
    private:
-            char           FileName[255];
+            char           FileName[255];            
+            int            ScreenSize;
+            char           RemoteType[21];
+            int            VideoStandardPI;
+            int            AspectRatio;
+            
             
             bool CreateDefaultFile();
             bool ReadFile(); 
