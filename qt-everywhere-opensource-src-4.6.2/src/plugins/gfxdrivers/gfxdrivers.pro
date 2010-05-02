@@ -7,5 +7,3 @@ contains(gfx-plugins, vnc)	    :SUBDIRS += vnc
 contains(gfx-plugins, transformed)  :SUBDIRS += transformed
 contains(gfx-plugins, svgalib)      :SUBDIRS += svgalib
 contains(gfx-plugins, powervr)      :SUBDIRS += powervr
-contains(gfx-plugins, rtd)          :SUBDIRS += rtd
-

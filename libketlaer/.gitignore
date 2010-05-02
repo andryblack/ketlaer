@@ -1,0 +1,4 @@
+*.o
+*.a
+!firmware_debug.o
+!HDMI_thread.o

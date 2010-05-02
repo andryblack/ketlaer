@@ -4,7 +4,7 @@
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
-** This file is part of the plugins of the Qt Toolkit.
+** This file is part of the QtGui module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
 ** Commercial Usage
@@ -39,47 +39,45 @@
 **
 ****************************************************************************/
 
-#include <qscreendriverplugin_qws.h>
-#include <qscreenrtd_qws.h>
-#include <qstringlist.h>
+#ifndef QKBDRTD_QWS_H
+#define QKBDRTD_QWS_H
 
-#ifndef QT_NO_LIBRARY
+#include <QtGui/qkbd_qws.h>
+
+QT_BEGIN_HEADER
+
 QT_BEGIN_NAMESPACE
 
-class ScreenRtdDriver : public QScreenDriverPlugin
-{
-public:
-    ScreenRtdDriver();
+QT_MODULE(Gui)
 
-    QStringList keys() const;
-    QScreen *create(const QString&, int displayId);
+#ifndef QT_NO_QWS_KEYBOARD
+
+#ifndef QT_NO_QWS_KBD_RTD
+
+class QSocketNotifier;
+class IrMapFile;
+
+class QrtdKeyboardHandler : public QObject, public QWSKeyboardHandler
+{
+    Q_OBJECT
+public:
+    QrtdKeyboardHandler();
+    virtual ~QrtdKeyboardHandler();
+
+private Q_SLOTS:
+    void readKey();
+
+private:
+    int        m_fd;
+    IrMapFile *m_map;
 };
 
-ScreenRtdDriver::ScreenRtdDriver()
-: QScreenDriverPlugin()
-{
-  printf("plugin loaded.\n");
-}
+#endif // QT_NO_QWS_KBD_RTD
 
-QStringList ScreenRtdDriver::keys() const
-{
-  printf("plugin keys.\n");
-  QStringList list;
-  list << "RTD";
-  return list;
-}
-
-QScreen* ScreenRtdDriver::create(const QString& driver, int displayId)
-{
-  printf("plugin create.\n");
-  if (driver.toLower() == "rtd")
-    return new QrtdScreen(displayId);
-  printf("fail!\n");
-  return 0;
-}
-
-Q_EXPORT_STATIC_PLUGIN(ScreenRtdDriver)
-Q_EXPORT_PLUGIN2(qscreenrtd, ScreenRtdDriver)
+#endif // QT_NO_QWS_KEYBOARD
 
 QT_END_NAMESPACE
-#endif //QT_NO_LIBRARY
+
+QT_END_HEADER
+
+#endif // QKBDRTD_QWS_H

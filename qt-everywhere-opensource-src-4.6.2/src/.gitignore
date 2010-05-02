@@ -2,7 +2,7 @@
 activeqt/
 corelib/
 dbus/
-gui/
+!gui/
 Makefile
 multimedia/
 network/

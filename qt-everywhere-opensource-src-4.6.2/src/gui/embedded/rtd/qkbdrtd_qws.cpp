@@ -39,39 +39,62 @@
 **
 ****************************************************************************/
 
-#ifndef QKBDRTD_QWS_H
-#define QKBDRTD_QWS_H
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/ioctl.h>
 
-#include <QtGui/qkbd_qws.h>
+#include <qrtdhdr.h>
+#include <qkbdrtd_qws.h>
 
-QT_BEGIN_HEADER
+#ifndef QT_NO_QWS_KEYBOARD
+#ifndef QT_NO_QWS_KBD_RTD
+
+#include <qwindowsystem_qws.h>
+#include <qsocketnotifier.h>
+#include <qapplication.h>
+#include <private/qcore_unix_p.h> // overrides QT_OPEN
+
+#include <lib_ir.h>
+#include <RemoteMap.h>
 
 QT_BEGIN_NAMESPACE
 
-QT_MODULE(Gui)
-
-#ifndef QT_NO_QWS_KEYBOARD
-
-#ifndef QT_NO_QWS_KBD_RTD
-
-class QSocketNotifier;
-
-class QrtdKeyboardHandler : public QObject, public QWSKeyboardHandler
+QrtdKeyboardHandler::QrtdKeyboardHandler()
+    : QObject()
 {
-    Q_OBJECT
-public:
-    QrtdKeyboardHandler();
-    virtual ~QrtdKeyboardHandler();
+  m_map = new IrMapFile();
+  m_fd = open("/dev/venus_irrp", O_RDWR);
+  ioctl(m_fd, VENUS_IR_IOC_FLUSH_IRRP, NULL);
+  ioctl(m_fd, VENUS_IR_IOC_SET_PROTOCOL, IR_PROTOCOL_NEC);
+  ioctl(m_fd, VENUS_IR_IOC_SET_DEBOUNCE, 100); 
+  QSocketNotifier *notifier;
+  notifier = new QSocketNotifier(m_fd, QSocketNotifier::Read, this);
+  connect(notifier, SIGNAL(activated(int)), this, SLOT(readKey()));
+}
 
-private:
-};
+QrtdKeyboardHandler::~QrtdKeyboardHandler()
+{
+}
 
-#endif // QT_NO_QWS_KBD_RTD
+void QrtdKeyboardHandler::readKey()
+{
+  int key, qt_key;
 
-#endif // QT_NO_QWS_KEYBOARD
+  read(m_fd, &key, sizeof(key));
+  if (key != 0) {
+    qt_key = m_map->GetQtKey(key);
+    printf("irkey=%08lx qtkey=%08lx\n", key, qt_key);
+    if (qt_key != -1) {
+      processKeyEvent(0, key, Qt::NoModifier, true, false);
+    }
+  }
+}
 
 QT_END_NAMESPACE
 
-QT_END_HEADER
-
-#endif // QKBDRTD_QWS_H
+#endif // QT_NO_QWS_KBD_RTD
+#endif // QT_NO_QWS_KEYBOARD

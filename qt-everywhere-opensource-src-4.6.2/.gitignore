@@ -28,6 +28,8 @@ Makefile
 .moc/
 .obj/
 .pch/
+.uic/
+.rcc/
 plugins/
 projects.pro
 qmake/
