@@ -43,6 +43,8 @@ ConfigFile::ConfigFile(const char* aFileName)
         //Initialisation of required data.
         strcpy(RemoteType,"EKAH110");
         ScreenSize=0;
+        AspectRatio=0;
+        VideoStandardPI=0;
         
         LoadFile();
 };
@@ -109,20 +111,35 @@ bool ConfigFile::CreateDefaultFile()
         fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
         fprintf(f,"//  Config output format.                                                     //\n");
         fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//  ScreenSize = 0, 1, 2, 3, 4                                                //\n");
+        fprintf(f,"//  ScreenSize = 0, 1, 2, 3, 4, 5, 6    (Monitor/TV init Size)                //\n");
         fprintf(f,"//      0 =   NTSC = { 0, 0, 720,  480  };                                    //\n");
         fprintf(f,"//      1 =   PAL  = { 0, 0, 720,  576  };                                    //\n");
-        fprintf(f,"//      2 =   720p  = { 0, 0, 1280, 720  };                                   //\n");
-        fprintf(f,"//      3 =   1080p = { 0, 0, 1920, 1080 };                                   //\n");
-        fprintf(f,"//      4 =   800x600 = { 0, 0, 800, 600 };                                   //\n");
+        fprintf(f,"//      2 =   HD_720 = { 0, 0, 1280, 720  }; 50HZ  Only have progressive!     //\n");
+        fprintf(f,"//      3 =   HD_720 = { 0, 0, 1280, 720  }; 60HZ                             //\n");
+        fprintf(f,"//      4 =   HD_1080 = { 0, 0, 1920, 1080 }; 50HZ                            //\n");
+        fprintf(f,"//      5 =   HD_1080 = { 0, 0, 1920, 1080 }; 60Hz                            //\n");
+        fprintf(f,"//      6 =   800x600 = { 0, 0, 800, 600 };                                   //\n");
+        fprintf(f,"//                                                                            //\n");
+        fprintf(f,"//  VideoStandardPI = 0, 1                                                    //\n");
+        fprintf(f,"//      0 =   Interlaced                                                      //\n");
+        fprintf(f,"//      1 =   Progressive                                                     //\n");
+        fprintf(f,"//                                                                            //\n");
+        fprintf(f,"//  AspectRatio = 0, 1, 2, 3                                                  //\n");
+        fprintf(f,"//      0 =   4/3  (PS)                                                       //\n");
+        fprintf(f,"//      1 =   4/3  (LB)                                                       //\n");
+        fprintf(f,"//      2 =   16/9                                                            //\n");
+        fprintf(f,"//      3 =   zoom                                                            //\n");
+        fprintf(f,"//                                                                            //\n");
         fprintf(f,"//                                                                            //\n");
         fprintf(f,"//                                                                            //\n");
         fprintf(f,"//                                                                            //\n");
         fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
         fprintf(f,"\n");
+        fprintf(f,"ScreenSize = 3;\n");
+        fprintf(f,"VideoStandardPI = 1;\n");
+        fprintf(f,"AspectRatio = 3;\n");
         fprintf(f,"\n");
-        fprintf(f,"ScreenSize = 1;\n");
-        fprintf(f,"\n");
+        fprintf(f,"\n");        
         fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
         fprintf(f,"//                                                                            //\n");
         fprintf(f,"//  Remote type :                                                             //\n");
@@ -175,7 +192,7 @@ bool ConfigFile::ReadFile()
        printf("Loading configuration file... \n\n");
        if (config_lookup_int(&cfg, "ScreenSize", &int_v))
        {
-         if (int_v!=0) ScreenSize=0;
+         if ((int_v<0)||(int_v>6)) ScreenSize=0; else ScreenSize=int_v;
          printf("Screen size is set to %d \n",ScreenSize);
        }
        else
@@ -193,7 +210,27 @@ bool ConfigFile::ReadFile()
          fprintf(stderr, "'Remote' setting in configuration file is wrong.\n");
          goto EXIT_READFILE;
        }
-
+       if (config_lookup_int(&cfg, "VideoStandardPI", &int_v))
+       {
+         if ((int_v<0)||(int_v>1)) VideoStandardPI=0; else VideoStandardPI=int_v;
+         printf("VideoStandardPI is set to %d \n",VideoStandardPI);
+       }
+       else
+       {
+         fprintf(stderr, "'VideoStandardPI' setting in configuration file is wrong.\n");
+         goto EXIT_READFILE;
+       }
+       if (config_lookup_int(&cfg, "AspectRatio", &int_v))
+       {
+         if ((int_v<0)||(int_v>3)) AspectRatio=0; else AspectRatio=int_v;
+         printf("AspectRatio is set to %d \n",AspectRatio);
+       }
+       else
+       {
+         fprintf(stderr, "'AspectRatio' setting in configuration file is wrong.\n");
+         goto EXIT_READFILE;
+       }
+       
 
     }
     else
@@ -217,3 +254,27 @@ EXIT_READFILE:
   return false;
   
 };
+
+char * ConfigFile::GetRemoteType()
+{
+   if (FileLoaded) return strdup(RemoteType);
+   return NULL;
+}
+
+int ConfigFile::GetTvSystem()
+{
+   if (FileLoaded) return ScreenSize;
+   return 0;
+}
+
+int ConfigFile::GetAspectRatio()
+{
+   if (FileLoaded) return AspectRatio;
+   return 0;
+}
+
+int ConfigFile::GetVideoStandardPI()
+{
+   if (FileLoaded) return VideoStandardPI;
+   return 0;
+}

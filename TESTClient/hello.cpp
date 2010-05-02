@@ -3,6 +3,8 @@
 #include <memory.h>
 #include <unistd.h>
 #include <assert.h>
+#include <sys/stat.h>
+#include <ctype.h>
 
 #include <lib_RPC.h>
 #include <lib_OSAL.h>
@@ -246,9 +248,72 @@ HANDLE GetSurfaceHandle (int width, int height, PIXEL_FORMAT pixFormat)
   return ret;
 }
 
+char MovieFile[256]={ 0 };
+void GetOptions (int argc, char **argv)
+{
+       char *filename = NULL;
+       int c;
+       struct stat buf;
+       opterr = 0;
+     
+       while ((c = getopt (argc, argv, "f:u:h")) != -1)
+         switch (c)
+           {
+           case 'f':
+             filename = optarg;
+             if (!stat(filename,&buf))
+             {
+                strcpy(MovieFile,"file://");
+                strcat(MovieFile,filename);
+                printf("Trying to play '%s'.\n",filename);
+             }
+             else
+             {
+                fprintf (stderr,"File '%s' doesn't exist.\n",filename);
+             }
+             break;
+           case 'u':
+             filename = optarg;
+             if (strstr(filename,"http://"))
+             {  
+                strcpy(MovieFile,filename);
+                printf("Trying to play '%s'.\n",filename);
+             }
+             else
+             {
+                fprintf (stderr,"Not valid adress format! Please use 'http://your_url/your_movie_file'.\nYou entered '%s'.\n",filename);
+             }
+             break;
+           case 'h':
+             printf("Use : '-f your_file' to auto start it.\nUse : '-u your_html_address' to stram it.\n ");
+             break;
+           case '?':
+             if (optopt == 'c')
+               fprintf (stderr, "Option -%c requires an argument.\n", optopt);
+             else if (isprint (optopt))
+               fprintf (stderr, "Unknown option `-%c'.\n", optopt);
+             else
+               fprintf (stderr,
+                        "Unknown option character `\\x%x'.\n",
+                        optopt);
+               printf("Use : '-f your_file' to auto start it.\nUse : '-u your_html_address' to stram it.\n ");
+             return;
+           default:
+             abort ();
+           }
+}
+
+void SetConfigValues()
+{
+   setup->SetTvSystem((ENUM_VIDEO_SYSTEM) Config.GetTvSystem());
+   setup->SetTvStandard((ENUM_VIDEO_STANDARD) Config.GetVideoStandardPI());
+   setup->SetAspectRatio((ENUM_ASPECT_RATIO) Config.GetAspectRatio());
+}
+
 int main(int argc, char **argv)
 {
-  int ret;
+  GetOptions(argc,argv);
+  SetConfigValues();
 
   Init();
 
@@ -279,16 +344,13 @@ int main(int argc, char **argv)
 
   printf("load video..\n");
   g_pb = new VideoPlayback(MEDIATYPE_None);
-  char file[4096];
-  if (argc == 2) {
-    sprintf(file, "file://%s", argv[1]);
-  } else {
+  if (strcmp(MovieFile,"") == 0) {
     printf("no media file passed. using default.\n");
-    //strcpy(file, "file:///tmp/DATA/media/audio/Various/Sex Pistols - My Way.mp3");
-    strcpy(file, "file:///tmp/DATA/media/video/kinder/lights.wmv");
+    //strcpy(MovieFile, "file:///tmp/DATA/media/audio/Various/Sex Pistols - My Way.mp3");
+    strcpy(MovieFile, "file:///tmp/DATA/media/video/kinder/lights.wmv");
   }
-  printf("play %s\n", file);
-  g_pb->LoadMedia(file);
+  printf("play %s\n", MovieFile);
+  g_pb->LoadMedia(MovieFile);
   g_pb->m_pFManager->Run();
   g_pb->m_pFManager->SetRate(256);
   g_pb->m_pAudioOut->SetFocus();
