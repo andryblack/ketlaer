@@ -1,4 +1,4 @@
-3rdparty/
+!3rdparty/
 activeqt/
 corelib/
 dbus/
