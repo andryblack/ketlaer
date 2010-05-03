@@ -21,7 +21,7 @@ qkbddriverfactory_qws.cpp
 qkbddriverfactory_qws.h
 qkbddriverplugin_qws.cpp
 qkbddriverplugin_qws.h
-qkbdlinuxinput_qws.cpp
+!qkbdlinuxinput_qws.cpp
 qkbdlinuxinput_qws.h
 qkbdqnx_qws.cpp
 qkbdqnx_qws.h

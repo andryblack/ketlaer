@@ -30,7 +30,7 @@ Makefile
 .pch/
 .uic/
 .rcc/
-plugins/
+!plugins/
 projects.pro
 qmake/
 .qmake.cache

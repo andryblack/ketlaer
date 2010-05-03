@@ -78,6 +78,8 @@ QrtdKeyboardHandler::QrtdKeyboardHandler()
 
 QrtdKeyboardHandler::~QrtdKeyboardHandler()
 {
+  delete m_map;
+  close(m_fd);
 }
 
 void QrtdKeyboardHandler::readKey()

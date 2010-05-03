@@ -52,6 +52,8 @@ QT_MODULE(Gui)
 
 #ifndef QT_NO_QWS_RTD
 
+#define RTDBLIT
+
 class QrtdScreenPrivate;
 
 class Q_GUI_EXPORT QrtdScreen : public QScreen
@@ -59,11 +61,14 @@ class Q_GUI_EXPORT QrtdScreen : public QScreen
 public:
     explicit QrtdScreen(int display_id);
     virtual ~QrtdScreen();
-    virtual bool initDevice();
     virtual bool connect(const QString &displaySpec);
     virtual void disconnect();
+    virtual bool initDevice();
+    virtual bool supportsDepth(int) const;
     virtual void solidFill(const QColor &color, const QRegion &region);
+#ifdef RTDBLIT
     virtual void blit(const QImage &image, const QPoint &topLeft, const QRegion &region);
+#endif
     virtual void setMode(int nw,int nh,int nd);
 #ifdef QTOPIA_RTD_BRIGHTNESS
     static void setBrightness(int b);

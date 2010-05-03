@@ -302,14 +302,10 @@ QrtdScreenPrivate::~QrtdScreenPrivate()
 #ifndef QT_NO_QWS_KEYBOARD
   delete keyboard;
 #endif
-  if (hSurface)
-    DG_CloseSurface(hSurface);
-  if (hDisplay)
-    DG_ReleaseDisplayHandle(hDisplay);
 }
 
 QrtdScreen::QrtdScreen(int display_id)
-    : QScreen(display_id), d_ptr(new QrtdScreenPrivate)
+  : QScreen(display_id, BGRPixel), d_ptr(new QrtdScreenPrivate)
 {
   printf("QrtdScreen::QrtdScreen()\n");
   data = 0;
@@ -436,6 +432,9 @@ bool QrtdScreen::connect(const QString &displaySpec)
 
 void QrtdScreen::disconnect()
 {
+  data = 0;
+  DG_ReleaseDisplayHandle(d_ptr->hDisplay);
+  DG_CloseSurface(d_ptr->hSurface);
   UnInit();
 }
 
@@ -453,9 +452,14 @@ bool QrtdScreen::initDevice()
   qwsServer->setDefaultKeyboard("None");
 #endif
 #ifndef QT_NO_QWS_CURSOR
-  //QScreenCursor::initSoftwareCursor();
+  QScreenCursor::initSoftwareCursor();
 #endif
   return true;
+}
+
+bool QrtdScreen::supportsDepth(int d) const
+{
+  return d == 32;
 }
 
 void QrtdScreen::solidFill( const QColor &color, const QRegion &region)
@@ -478,74 +482,90 @@ void QrtdScreen::solidFill( const QColor &color, const QRegion &region)
   QWSDisplay::ungrab();
 }
 
-inline void qt_memconvert(quint32 *dest, const quint32 *src, int count)
+#ifdef RTDBLIT
+
+template <class DST, class SRC>
+inline void qt_memconvert(DST *dest, const SRC *src, int count)
 {
   /* Duff's device */
   int n = (count + 7) / 8;
   switch (count & 0x07) {
   case 0: do { *dest++ = htonl(*src++);
-    case 7:      *dest++ = htonl(*src++);
-    case 6:      *dest++ = htonl(*src++);
-    case 5:      *dest++ = htonl(*src++);
-    case 4:      *dest++ = htonl(*src++);
-    case 3:      *dest++ = htonl(*src++);
-    case 2:      *dest++ = htonl(*src++);
-    case 1:      *dest++ = htonl(*src++);
-    } while (--n > 0);
+  case 7:      *dest++ = htonl(*src++);
+  case 6:      *dest++ = htonl(*src++);
+  case 5:      *dest++ = htonl(*src++);
+  case 4:      *dest++ = htonl(*src++);
+  case 3:      *dest++ = htonl(*src++);
+  case 2:      *dest++ = htonl(*src++);
+  case 1:      *dest++ = htonl(*src++);
+             } while (--n > 0);
   }
 }
 
-inline void qt_rectconvert(quint32 *dest, const quint32 *src,
+template <class DST, class SRC>
+inline void qt_rectconvert(DST *dest, const SRC *src,
                            int x, int y, int width, int height,
                            int dstStride, int srcStride)
 {
   char *d = (char*)(dest + x) + y * dstStride;
   const char *s = (char*)(src);
   for (int i = 0; i < height; ++i) {
-    qt_memconvert((quint32*)d, (const quint32*)s, width);
+    qt_memconvert<DST,SRC>((DST*)d, (const SRC*)s, width);
     d += dstStride;
     s += srcStride;
   }
 }
 
-void QrtdScreen::blit(const QImage &image, const QPoint &topLeft, const QRegion &region)
+template <typename DST, typename SRC>
+inline void blit_template(QScreen *screen, const QImage &image,
+                          const QPoint &topLeft, const QRegion &region)
 {
-  QWSDisplay::grab();
-  quint32 *dest = reinterpret_cast<quint32*>(base());
-  const int screenStride = linestep();
+  DST *dest = reinterpret_cast<DST*>(screen->base());
+  const int screenStride = screen->linestep();
   const int imageStride = image.bytesPerLine();
 
   if (region.rectCount() == 1) {
     const QRect r = region.boundingRect();
-    const quint32 *src = reinterpret_cast<const quint32*>(image.scanLine(r.y()))
+    const SRC *src = reinterpret_cast<const SRC*>(image.scanLine(r.y()))
       + r.x();
-    qt_rectconvert(dest, src,
-		   r.x() + topLeft.x(), r.y() + topLeft.y(),
-		   r.width(), r.height(),
-		   screenStride, imageStride);
+    qt_rectconvert<DST, SRC>(dest, src,
+			     r.x() + topLeft.x(), r.y() + topLeft.y(),
+			     r.width(), r.height(),
+			     screenStride, imageStride);
   } else {
     const QVector<QRect> rects = region.rects();
 
     for (int i = 0; i < rects.size(); ++i) {
       const QRect r = rects.at(i);
-      const quint32 *src = reinterpret_cast<const quint32*>(image.scanLine(r.y()))
+      const SRC *src = reinterpret_cast<const SRC*>(image.scanLine(r.y()))
 	+ r.x();
-      qt_rectconvert(dest, src,
-		     r.x() + topLeft.x(), r.y() + topLeft.y(),
-		     r.width(), r.height(),
-		     screenStride, imageStride);
+      qt_rectconvert<DST, SRC>(dest, src,
+			       r.x() + topLeft.x(), r.y() + topLeft.y(),
+			       r.width(), r.height(),
+			       screenStride, imageStride);
     }
   }
+}
+
+void QrtdScreen::blit(const QImage &img, const QPoint &topLeft, const QRegion &reg)
+{
+  QWSDisplay::grab();
+  const QRect bound = (region() & QRect(topLeft, img.size())).boundingRect();
+  blit_template<quint32, quint32>(this, img, topLeft-offset(),
+				  (reg & bound).translated(-topLeft));
   QWSDisplay::ungrab();
 }
+#endif
 
 void QrtdScreen::setMode(int ,int ,int)
 {
 }
 
+#ifdef QTOPIA_RTD_BRIGHTNESS
 void QrtdScreen::setBrightness(int)
 {
 }
+#endif
 
 /*callbacks*/
 extern "C" HRESULT *AUDIO_RPC_ToSystem_AudioHaltDone_0_svc(long *, RPC_STRUCT *, HRESULT *retval)
