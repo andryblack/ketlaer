@@ -122,7 +122,7 @@ void *MAIN_thread(void*)
   pfds[0].fd = AbstractAP::control_pipe[0];
   pfds[0].events = POLLIN;
   while(!g_stopMAIN) {
-    if(poll(pfds, 1, 10) <= 0) {
+    if(poll(pfds, 1, 100) <= 0) {
       if(GetLatestTimer(&cmd, NULL) == true) {
 	ProcessTimer(&cmd);
       }
@@ -160,7 +160,7 @@ void InitHDMI(HDMICallbacks *pCallbacks)
   g_stopMAIN = false;
   pthread_create(&thread_id_MAIN, NULL, MAIN_thread, (void *)NULL);
   pthread_create(&thread_id_HDMI, NULL, HDMI_thread, (void *)NULL);
-  sleep(5);
+  sleep(2);
 }
 
 void DeInitHDMI()
