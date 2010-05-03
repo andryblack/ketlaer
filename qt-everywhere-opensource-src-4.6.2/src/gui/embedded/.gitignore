@@ -66,8 +66,8 @@ qscreenproxy_qws.cpp
 qscreenproxy_qws.h
 qscreenqnx_qws.cpp
 qscreenqnx_qws.h
-qscreen_qws.cpp
-qscreen_qws.h
+!qscreen_qws.cpp
+!qscreen_qws.h
 qscreentransformed_qws.cpp
 qscreentransformed_qws.h
 qscreenvfb_qws.cpp
