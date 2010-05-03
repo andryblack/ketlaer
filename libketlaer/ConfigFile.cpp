@@ -82,6 +82,7 @@ ConfigFile::ConfigFile(const char* aFileName)
    VideoStandardPI=0;
         
    LoadFile();
+   SetConfigValues();
 };
 
 ConfigFile::~ConfigFile()
