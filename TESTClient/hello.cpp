@@ -303,17 +303,12 @@ void GetOptions (int argc, char **argv)
            }
 }
 
-void SetConfigValues()
-{
-   setup->SetTvSystem((ENUM_VIDEO_SYSTEM) Config.GetTvSystem());
-   setup->SetTvStandard((ENUM_VIDEO_STANDARD) Config.GetVideoStandardPI());
-   setup->SetAspectRatio((ENUM_ASPECT_RATIO) Config.GetAspectRatio());
-}
-
 int main(int argc, char **argv)
 {
   GetOptions(argc,argv);
-  SetConfigValues();
+  /*Configuration file class*/
+  ConfigFile Config;
+  IrMapFile RemoteConfig;  
 
   Init();
 

@@ -29,10 +29,30 @@
 
 IrMapFile::IrMapFile(const char* aRemoteType)
 {
+   struct stat st;
+   char *   str;
+   str=getenv("KETLAER_DIR");
+   if (str==NULL) strcpy(KetlaerFolder, _QTDefaultBaseFolder); else strcpy(KetlaerFolder, str);
+   if(stat(KetlaerFolder,&st) != 0)
+   {
+        strcpy(KetlaerFolder, _QTDefaultBaseFolder);
+        if(stat(KetlaerFolder,&st) != 0)
+        {
+            //hum KETLAER_DIR is false or not set and the actual rep is not the standard one
+            getcwd(KetlaerFolder,sizeof(KetlaerFolder));
+        };
+   }; 
+   strcat(KetlaerFolder,"/etc");
+   if(stat(KetlaerFolder,&st) != 0)
+   {
+        if (mkdir(KetlaerFolder,0777)!=0) fprintf(stderr,"[RemoteMap]Error while creating %s\n",KetlaerFolder) ;
+   };
    strncpy(RemoteType,aRemoteType,20);
-   strcpy(FileName,"remotes/");
+   strcpy(FileName,KetlaerFolder);
+   strcat(FileName,"/remotes/");
    strcat(FileName,RemoteType);
    strcat(FileName,".map");
+   printf("[RemoteMap]Remote file is '%s'\n",FileName);
    IR_Protocol=0;
    IR_Table_Elem=0;
    QT_Table_Elem=0;
@@ -92,19 +112,19 @@ bool IrMapFile::LoadFiles()
             }
             else
             {
-               fprintf(stderr,"Error while reading IR default setting file !\n");
+               fprintf(stderr,"[RemoteMap]Error while reading IR default setting file !\n");
                return false;
             }
          }
          else
          {  
-            fprintf(stderr,"Error while creating default IR setting file !\n");
+            fprintf(stderr,"[RemoteMap]Error while creating default IR setting file !\n");
             return false;
          };
       }
       else
       {
-         fprintf(stderr,"Error file '%s' not found!\n",FileName);
+         fprintf(stderr,"[RemoteMap]Error file '%s' not found!\n",FileName);
          return false;
       }     
    }
@@ -116,7 +136,7 @@ bool IrMapFile::LoadFiles()
       }
       else
       {
-          fprintf(stderr,"Error while reading IR file '%s'!\n",FileName);
+          fprintf(stderr,"[RemoteMap]Error while reading IR file '%s'!\n",FileName);
           return false;
       }
    }
@@ -130,13 +150,13 @@ bool IrMapFile::LoadFiles()
          }
          else
          {
-            fprintf(stderr,"Error while reading '%s' default setting file !\n",_QTFileName);
+            fprintf(stderr,"[RemoteMap]Error while reading '%s' default setting file !\n",_QTFileName);
             return false;
          }
        }
        else
        {  
-          fprintf(stderr,"Error while creating '%s' default setting file !\n",_QTFileName);
+          fprintf(stderr,"[RemoteMap]Error while creating '%s' default setting file !\n",_QTFileName);
           return false;
        };     
    }
@@ -148,7 +168,7 @@ bool IrMapFile::LoadFiles()
       }
       else
       {
-          fprintf(stderr,"Error while reading '%s' default setting file  !\n",_QTFileName);
+          fprintf(stderr,"[RemoteMap]Error while reading '%s' default setting file  !\n",_QTFileName);
           return false;
       }
    }
@@ -184,9 +204,12 @@ bool IrMapFile::CreateIRDefaultFile()
 {
     FILE * f;
     struct stat st;
-    if(stat("/remotes",&st) != 0)
+    char    dir[1024];
+    strcpy(dir,KetlaerFolder);
+    strcat(dir,"/remotes");
+    if(stat(dir,&st) != 0)
     {
-        mkdir("remotes",0777);
+        if (mkdir(dir,0777)!=0) fprintf(stderr,"[RemoteMap]Error while creating '%s'\n",dir) ;
     };
     f = fopen(FileName, "wb");
     if (f != NULL)
@@ -262,7 +285,7 @@ bool IrMapFile::CreateIRDefaultFile()
     }
     else
     {
-      fprintf(stderr,"Error while trying to write default remote file.\n");
+      fprintf(stderr,"[RemoteMap]Error while trying to write default remote file.\n");
       return false;
     }
     return true;
@@ -333,7 +356,7 @@ bool IrMapFile::CreateQTDefaultFile()
     }
     else
     {
-      fprintf(stderr,"Error while trying to write default QtEvent.qtm file.\n");
+      fprintf(stderr,"[RemoteMap]Error while trying to write default QtEvent.qtm file.\n");
       return false;
     }
     return true;
@@ -366,7 +389,7 @@ bool IrMapFile::ReadIRFile()
   {
     if (strcmp(str,namebuffer)==0)
     { 
-      printf("Loading IR configuration file... \n");
+      printf("[RemoteMap]Loading IR configuration file... \n");
       if (config_lookup_int(&cfg, "protocol", &int_v))
       {
          IR_Protocol=int_v;
@@ -396,13 +419,13 @@ bool IrMapFile::ReadIRFile()
          }
          else
          {
-            fprintf(stderr,"Cannot found appropriate IR protocol in %s!\n",FileName);
+            fprintf(stderr,"[RemoteMap]Cannot found appropriate IR protocol in %s!\n",FileName);
             goto EXIT_READFILE1;
          }
       }
       else
       {
-         fprintf(stderr,"Cannot found appropriate IR setting in %s!\n",FileName);
+         fprintf(stderr,"[RemoteMap]Cannot found appropriate IR setting in %s!\n",FileName);
          goto EXIT_READFILE1;
       }
 
@@ -452,7 +475,7 @@ bool IrMapFile::ReadQTFile()
   {
     if (strcmp(str,"QT_Event V1")==0)
     { 
-      printf("Loading QT configuration file... \n");
+      printf("[RemoteMap]Loading QT configuration file... \n");
       setting = config_lookup(&cfg, "qt_event");
       if(setting != NULL)
       {
@@ -479,7 +502,7 @@ bool IrMapFile::ReadQTFile()
       }
       else
       {
-         fprintf(stderr,"Cannot found appropriate QT setting in %s!\n",_QTFileName);
+         fprintf(stderr,"[RemoteMap]Cannot found appropriate QT setting in %s!\n",_QTFileName);
          goto EXIT_READFILE2;
       }
 

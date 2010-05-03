@@ -32,26 +32,71 @@
 #include <libconfig.h>
 #include <ConfigFile.h>
 
+#include <lib_RPC.h>
+#include <lib_OSAL.h>
+#include <lib_GPIO.h>
+#include <lib_DirectGraphics.h>
+#include <lib_DrawScale.h>
+#include <lib_MoveDataEngine.h>
+#include <lib_StreamingEngine.h>
+#include <lib_setupdef.h>
+#include <lib_Board.h>
+#include <lib_stream.h>
+#include <lib_AudioUtil.h>
+#include <lib_VoutUtil.h>
+#include <lib_PlaybackAppClass.h>
+#include <lib_HDMIControl.h>
+
+#include <SetupClass.h>
 
 ConfigFile::ConfigFile(const char* aFileName)
 {
-
+   struct stat st;
+   char *   str;
+   str=getenv("KETLAER_DIR");
+   if (str==NULL) strcpy(KetlaerFolder, _QTDefaultBaseFolder); else strcpy(KetlaerFolder, str);
+   if(stat(KetlaerFolder,&st) != 0)
+   {
+        strcpy(KetlaerFolder, _QTDefaultBaseFolder);
+        if(stat(KetlaerFolder,&st) != 0)
+        {
+            //hum KETLAER_DIR is false or not set and the actual rep is not the standard one
+            getcwd(KetlaerFolder,sizeof(KetlaerFolder));
+        };
+   }; 
+   strcat(KetlaerFolder,"/etc");
+   if(stat(KetlaerFolder,&st) != 0)
+   {
+        if (mkdir(KetlaerFolder,0777)!=0) fprintf(stderr,"[ConfigFile]Error while creating %s\n",KetlaerFolder) ;
+   };
         
-        FileLoaded=false;
-        strcpy(FileName,aFileName);
+   FileLoaded=false;
+   strcpy(FileName, KetlaerFolder);
+   strcat(FileName,"/");
+   strcat(FileName,aFileName);
+   printf("[ConfigFile]Remote file is '%s'\n",FileName);
+   //Initialisation of required data.
+   strcpy(RemoteType,"EKAH110");
+   ScreenSize=0;
+   AspectRatio=0;
+   VideoStandardPI=0;
         
-        //Initialisation of required data.
-        strcpy(RemoteType,"EKAH110");
-        ScreenSize=0;
-        AspectRatio=0;
-        VideoStandardPI=0;
-        
-        LoadFile();
+   LoadFile();
 };
 
 ConfigFile::~ConfigFile()
 {
 };
+
+void ConfigFile::SetConfigValues()
+{
+   if (FileLoaded)
+   { 
+      setup->SetTvSystem((ENUM_VIDEO_SYSTEM) GetTvSystem());
+      setup->SetTvStandard((ENUM_VIDEO_STANDARD) GetVideoStandardPI());
+      setup->SetAspectRatio((ENUM_ASPECT_RATIO) GetAspectRatio());
+   }
+}
 
 bool ConfigFile::LoadFile()
 {        
@@ -69,12 +114,12 @@ bool ConfigFile::LoadFile()
          }
          else
          {
-            fprintf(stderr,"Error while reading default setting file !\n");
+            fprintf(stderr,"[ConfigFile]Error while reading default setting file !\n");
          }
        }
        else
        {  
-          fprintf(stderr,"Error while creating setting file !\n");
+          fprintf(stderr,"[ConfigFile]Error while creating setting file !\n");
        };     
     }
     else
@@ -85,7 +130,7 @@ bool ConfigFile::LoadFile()
       }
       else
       {
-          fprintf(stderr,"Error while reading default setting file !\n");
+          fprintf(stderr,"[ConfigFile]Error while reading default setting file !\n");
       }
     }   
 };
@@ -177,7 +222,7 @@ bool ConfigFile::ReadFile()
   /* Read the file. If there is an error, report it and exit. */
   if(! config_read_file(&cfg, FileName))
   {
-    fprintf(stderr, "%s:%d - %s\n", config_error_file(&cfg),
+    fprintf(stderr,"[ConfigFile]%s:%d - %s\n", config_error_file(&cfg),
             config_error_line(&cfg), config_error_text(&cfg));
     config_destroy(&cfg);
     return false;
@@ -189,45 +234,45 @@ bool ConfigFile::ReadFile()
   {
     if (strcmp(str,"RTD1073 CONFIG")==0)
     { 
-       printf("Loading configuration file... \n\n");
+       printf("[ConfigFile]Loading configuration file... \n\n");
        if (config_lookup_int(&cfg, "ScreenSize", &int_v))
        {
          if ((int_v<0)||(int_v>6)) ScreenSize=0; else ScreenSize=int_v;
-         printf("Screen size is set to %d \n",ScreenSize);
+         printf("[ConfigFile]Screen size is set to %d \n",ScreenSize);
        }
        else
        {
-         fprintf(stderr, "'ScreenSize' setting in configuration file is wrong.\n");
+         fprintf(stderr,"[ConfigFile]'ScreenSize' setting in configuration file is wrong.\n");
          goto EXIT_READFILE;
        }
        if (config_lookup_string(&cfg, "Remote", &str))
        {
          if (strcmp(str,"")!=0) strncpy(RemoteType,str,20);
-         printf("Remote is set to %s \n",RemoteType);
+         printf("[ConfigFile]Remote is set to %s \n",RemoteType);
        }
        else
        {
-         fprintf(stderr, "'Remote' setting in configuration file is wrong.\n");
+         fprintf(stderr,"[ConfigFile]'Remote' setting in configuration file is wrong.\n");
          goto EXIT_READFILE;
        }
        if (config_lookup_int(&cfg, "VideoStandardPI", &int_v))
        {
          if ((int_v<0)||(int_v>1)) VideoStandardPI=0; else VideoStandardPI=int_v;
-         printf("VideoStandardPI is set to %d \n",VideoStandardPI);
+         printf("[ConfigFile]VideoStandardPI is set to %d \n",VideoStandardPI);
        }
        else
        {
-         fprintf(stderr, "'VideoStandardPI' setting in configuration file is wrong.\n");
+         fprintf(stderr,"[ConfigFile]'VideoStandardPI' setting in configuration file is wrong.\n");
          goto EXIT_READFILE;
        }
        if (config_lookup_int(&cfg, "AspectRatio", &int_v))
        {
          if ((int_v<0)||(int_v>3)) AspectRatio=0; else AspectRatio=int_v;
-         printf("AspectRatio is set to %d \n",AspectRatio);
+         printf("[ConfigFile]AspectRatio is set to %d \n",AspectRatio);
        }
        else
        {
-         fprintf(stderr, "'AspectRatio' setting in configuration file is wrong.\n");
+         fprintf(stderr,"[ConfigFile]'AspectRatio' setting in configuration file is wrong.\n");
          goto EXIT_READFILE;
        }
        
@@ -235,14 +280,14 @@ bool ConfigFile::ReadFile()
     }
     else
     {
-       fprintf(stderr, "'name' setting in configuration file is wrong --> '%s'.\n",str);
+       fprintf(stderr,"[ConfigFile]'name' setting in configuration file is wrong --> '%s'.\n",str);
        goto EXIT_READFILE;
     }
     
   }
   else
   {
-    fprintf(stderr, "No 'name' setting in configuration file.\n");
+    fprintf(stderr,"[ConfigFile]No 'name' setting in configuration file.\n");
     goto EXIT_READFILE;
   }
 

@@ -24,6 +24,7 @@
 ****************************************************************************/
 #ifndef CONFIGFILE_H
 #define CONFIGFILE_H
+#define _QTDefaultBaseFolder "/usr/local/etc/ketlaer"
 class ConfigFile
 {
         
@@ -38,6 +39,7 @@ class ConfigFile
             char           *GetRemoteType();
             int            GetAspectRatio();
             int            GetVideoStandardPI(); 
+            void           SetConfigValues();
 
    private:
             char           FileName[255];            
@@ -45,6 +47,7 @@ class ConfigFile
             char           RemoteType[21];
             int            VideoStandardPI;
             int            AspectRatio;
+            char           KetlaerFolder[1024];
             
             
             bool CreateDefaultFile();

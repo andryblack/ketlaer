@@ -21,6 +21,7 @@
 #define REMOTEMAPFILE_H
 
 #define _QTFileName "remotes/QTEvent.qtm"
+#define _QTDefaultBaseFolder "/usr/local/etc/ketlaer"
 class IrMapFile
 {
    public:
@@ -54,6 +55,7 @@ class IrMapFile
            char            RemoteType[21];
            int             IR_Protocol;
            char            FileName[255];
+           char            KetlaerFolder[1024];
 
            int    GetQtValueKey(char *Key);
            bool   ReadIRFile();
