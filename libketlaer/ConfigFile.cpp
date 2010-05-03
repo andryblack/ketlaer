@@ -91,12 +91,12 @@ ConfigFile::~ConfigFile()
 
 void ConfigFile::SetConfigValues()
 {
-   if (FileLoaded)
+   if (FileLoaded==true)
    { 
       setup->SetTvSystem((ENUM_VIDEO_SYSTEM) GetTvSystem());
       setup->SetTvStandard((ENUM_VIDEO_STANDARD) GetVideoStandardPI());
       setup->SetAspectRatio((ENUM_ASPECT_RATIO) GetAspectRatio());
-   }
+   } else printf("[ConfigFile]Error! Settings not applied.\n");
 }
 
 bool ConfigFile::LoadFile()
