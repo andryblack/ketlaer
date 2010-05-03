@@ -61,12 +61,15 @@
 #include <lib_ir.h>
 #include <RemoteMap.h>
 
+static IrMapFile *g_pIrMap = NULL;
+
 QT_BEGIN_NAMESPACE
 
 QrtdKeyboardHandler::QrtdKeyboardHandler()
     : QObject()
 {
-  m_map = new IrMapFile();
+  if (!g_pIrMap)
+    g_pIrMap = new IrMapFile();
   m_fd = open("/dev/venus_irrp", O_RDWR);
   ioctl(m_fd, VENUS_IR_IOC_FLUSH_IRRP, NULL);
   ioctl(m_fd, VENUS_IR_IOC_SET_PROTOCOL, IR_PROTOCOL_NEC);
@@ -78,7 +81,6 @@ QrtdKeyboardHandler::QrtdKeyboardHandler()
 
 QrtdKeyboardHandler::~QrtdKeyboardHandler()
 {
-  delete m_map;
   close(m_fd);
 }
 
@@ -88,7 +90,7 @@ void QrtdKeyboardHandler::readKey()
 
   read(m_fd, &key, sizeof(key));
   if (key != 0) {
-    qt_key = m_map->GetQtKey(key);
+    qt_key = g_pIrMap->GetQtKey(key);
     printf("irkey=%08lx qtkey=%08lx\n", key, qt_key);
     if (qt_key != -1) {
       processKeyEvent(0, key, Qt::NoModifier, true, false);

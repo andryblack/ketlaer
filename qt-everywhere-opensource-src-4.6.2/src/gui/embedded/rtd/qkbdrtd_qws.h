@@ -68,8 +68,7 @@ private Q_SLOTS:
     void readKey();
 
 private:
-    int        m_fd;
-    IrMapFile *m_map;
+    int m_fd;
 };
 
 #endif // QT_NO_QWS_KBD_RTD

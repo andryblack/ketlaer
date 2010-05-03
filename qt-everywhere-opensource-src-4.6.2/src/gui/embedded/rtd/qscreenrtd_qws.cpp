@@ -96,6 +96,8 @@ void sendDebugMemoryAndAllocateDumpMemory(long videoDumpSize, long audioDumpSize
 static VoutUtil     *g_vo = NULL;
 static VO_RECTANGLE  rect;
 
+static ConfigFile *g_pConfig = NULL;
+
 static void LoadTvConfig()
 {
   printf("LoadTVConfig..\n");
@@ -213,9 +215,11 @@ static void LoadAudioConfig()
 
 static void Init()
 {
-  ConfigFile   Config; //loads config to setupclass
   CLNT_STRUCT  clnt;
   HRESULT     *res = NULL;
+
+  if (!g_pConfig)
+    g_pConfig = new ConfigFile(); //loads config to SetupClass
 
   pli_setThreadName("MAIN");
   pli_init();
