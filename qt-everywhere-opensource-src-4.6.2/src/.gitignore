@@ -1,6 +1,6 @@
 !3rdparty/
 activeqt/
-corelib/
+!corelib/
 dbus/
 !gui/
 Makefile
