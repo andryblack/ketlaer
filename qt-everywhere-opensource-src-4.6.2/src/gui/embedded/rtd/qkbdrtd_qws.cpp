@@ -86,15 +86,20 @@ QrtdKeyboardHandler::~QrtdKeyboardHandler()
 
 void QrtdKeyboardHandler::readKey()
 {
-  int key, qt_key;
+  int irkey, keycode, unicode;
 
-  read(m_fd, &key, sizeof(key));
-  if (key != 0) {
-    qt_key = g_pIrMap->GetQtKey(key);
-    printf("irkey=%08lx qtkey=%08lx\n", key, qt_key);
-    if (qt_key != -1) {
-      processKeyEvent(0, key, Qt::NoModifier, true, false);
-    }
+  read(m_fd, &irkey, sizeof(irkey));
+  if (irkey != 0) {
+    keycode = g_pIrMap->GetQtKey(irkey);
+    printf("irkey=%08lx qtkey=%08lx\n", irkey, keycode);
+    if (keycode >= Qt::Key_A && keycode <= Qt::Key_Z)
+      unicode = keycode - Qt::Key_A + 'a';
+    else if (keycode >= Qt::Key_0 && keycode <= Qt::Key_9)
+      unicode = keycode - Qt::Key_0 + '0';    
+    else
+      unicode = 0xffff;
+    processKeyEvent(unicode, keycode, Qt::NoModifier, true, false);
+    processKeyEvent(unicode, keycode, Qt::NoModifier, false, false);
   }
 }
 
