@@ -489,7 +489,7 @@ void QrtdScreen::solidFill( const QColor &color, const QRegion &region)
 #ifdef RTDBLIT
 
 template <class DST, class SRC>
-inline void qt_memconvert(DST *dest, const SRC *src, int count)
+static inline void rtd_memconvert(DST *dest, const SRC *src, int count)
 {
   /* Duff's device */
   int n = (count + 7) / 8;
@@ -507,22 +507,24 @@ inline void qt_memconvert(DST *dest, const SRC *src, int count)
 }
 
 template <class DST, class SRC>
-inline void qt_rectconvert(DST *dest, const SRC *src,
-                           int x, int y, int width, int height,
-                           int dstStride, int srcStride)
+static inline void rtd_rectconvert(DST *dest, const SRC *src,
+				   int x, int y, int width, int height,
+				   int dstStride, int srcStride)
 {
   char *d = (char*)(dest + x) + y * dstStride;
   const char *s = (char*)(src);
   for (int i = 0; i < height; ++i) {
-    qt_memconvert<DST,SRC>((DST*)d, (const SRC*)s, width);
+    rtd_memconvert<DST,SRC>((DST*)d, (const SRC*)s, width);
     d += dstStride;
     s += srcStride;
   }
 }
 
 template <typename DST, typename SRC>
-inline void blit_template(QScreen *screen, const QImage &image,
-                          const QPoint &topLeft, const QRegion &region)
+static inline void rtd_blit_template(QScreen *screen, 
+				     const QImage &image,
+				     const QPoint &topLeft, 
+				     const QRegion &region)
 {
   DST *dest = reinterpret_cast<DST*>(screen->base());
   const int screenStride = screen->linestep();
@@ -532,10 +534,10 @@ inline void blit_template(QScreen *screen, const QImage &image,
     const QRect r = region.boundingRect();
     const SRC *src = reinterpret_cast<const SRC*>(image.scanLine(r.y()))
       + r.x();
-    qt_rectconvert<DST, SRC>(dest, src,
-			     r.x() + topLeft.x(), r.y() + topLeft.y(),
-			     r.width(), r.height(),
-			     screenStride, imageStride);
+    rtd_rectconvert<DST, SRC>(dest, src,
+			      r.x() + topLeft.x(), r.y() + topLeft.y(),
+			      r.width(), r.height(),
+			      screenStride, imageStride);
   } else {
     const QVector<QRect> rects = region.rects();
 
@@ -543,10 +545,10 @@ inline void blit_template(QScreen *screen, const QImage &image,
       const QRect r = rects.at(i);
       const SRC *src = reinterpret_cast<const SRC*>(image.scanLine(r.y()))
 	+ r.x();
-      qt_rectconvert<DST, SRC>(dest, src,
-			       r.x() + topLeft.x(), r.y() + topLeft.y(),
-			       r.width(), r.height(),
-			       screenStride, imageStride);
+      rtd_rectconvert<DST, SRC>(dest, src,
+				r.x() + topLeft.x(), r.y() + topLeft.y(),
+				r.width(), r.height(),
+				screenStride, imageStride);
     }
   }
 }
@@ -555,8 +557,8 @@ void QrtdScreen::blit(const QImage &img, const QPoint &topLeft, const QRegion &r
 {
   QWSDisplay::grab();
   const QRect bound = (region() & QRect(topLeft, img.size())).boundingRect();
-  blit_template<quint32, quint32>(this, img, topLeft-offset(),
-				  (reg & bound).translated(-topLeft));
+  rtd_blit_template<quint32, quint32>(this, img, topLeft-offset(),
+				      (reg & bound).translated(-topLeft));
   QWSDisplay::ungrab();
 }
 #endif
