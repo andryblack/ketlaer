@@ -34,7 +34,7 @@ qfilesystemwatcher_symbian.cpp
 qfilesystemwatcher_symbian_p.h
 qfilesystemwatcher_win.cpp
 qfilesystemwatcher_win_p.h
-qfsfileengine.cpp
+!qfsfileengine.cpp
 qfsfileengine.h
 qfsfileengine_iterator.cpp
 qfsfileengine_iterator_p.h
