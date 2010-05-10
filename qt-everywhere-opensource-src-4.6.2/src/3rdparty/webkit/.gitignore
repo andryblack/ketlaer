@@ -2,5 +2,5 @@ ChangeLog
 JavaScriptCore
 VERSION
 !WebCore
-WebKit
+!WebKit
 !WebKit.pri
