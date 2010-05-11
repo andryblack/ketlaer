@@ -207,14 +207,4 @@ embedded {
                 HEADERS += embedded/qmouseqnx_qws.h
                 SOURCES += embedded/qmouseqnx_qws.cpp
         }
-#
-# RTD drivers
-#
-	HEADERS += embedded/rtd/qkbdrtd_qws.h embedded/rtd/qmousertd_qws.h 
-	HEADERS += embedded/rtd/qscreenrtd_qws.h embedded/rtd/qrtdhdr.h
-	SOURCES += embedded/rtd/qkbdrtd_qws.cpp embedded/rtd/qmousertd_qws.cpp
-	SOURCES += embedded/rtd/qscreenrtd_qws.cpp
-	INCLUDEPATH += $$QT_SOURCE_TREE/src/gui/embedded/rtd
-	INCLUDEPATH += $$QT_SOURCE_TREE/../RebuildedInclude
-	INCLUDEPATH += $$QT_SOURCE_TREE/../libketlaer
 }

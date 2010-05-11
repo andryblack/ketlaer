@@ -57,9 +57,6 @@
 #ifndef QT_NO_QWS_VNC
 #include "qscreenvnc_qws.h"
 #endif
-#ifndef QT_NO_QWS_RTD
-#include "qscreenrtd_qws.h"
-#endif
 
 QT_BEGIN_NAMESPACE
 
@@ -134,10 +131,6 @@ QScreen *QScreenDriverFactory::create(const QString& key, int displayId)
 #ifndef QT_NO_QWS_VNC
     if (driver == QLatin1String("vnc"))
         return new QVNCScreen(displayId);
-#endif
-#ifndef QT_NO_QWS_VNC
-    if (driver == QLatin1String("rtd"))
-        return new QrtdScreen(displayId);
 #endif
 #ifndef QT_NO_QWS_MULTISCREEN
     if (driver == QLatin1String("multi"))
