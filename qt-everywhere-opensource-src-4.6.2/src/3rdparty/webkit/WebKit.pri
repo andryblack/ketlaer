@@ -138,3 +138,6 @@ defineTest(addExtraCompilerWithHeader) {
     return(true)
 }
 
+linux-ketlaer {
+	LIBS += $(KETLAER_DIR)/libm2/libm2.a
+}
