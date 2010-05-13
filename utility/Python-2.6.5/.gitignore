@@ -1,0 +1,11 @@
+hostpython
+*.a
+*.o
+*.pyc
+*.so
+Makefile
+Makefile.pre
+config.log
+config.status
+pyconfig.h
+python

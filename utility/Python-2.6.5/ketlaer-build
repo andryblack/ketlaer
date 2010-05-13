@@ -1,0 +1,18 @@
+
+#
+# build host python
+#
+make distclean
+./configure --prefix=$KETLAER/python
+
+make python Parser/pgen
+mv python hostpython
+mv Parser/pgen Parser/hostpgen
+
+#
+# build target python
+#
+make distclean
+INSTALL=/usr/bin/install-sh CC=mipsel-linux-gcc CXX=mipsel-linux-g++ AR=mipsel-linux-ar RANLIB=mipsel-linux-ranlib ./configure --host=mipsel-linux --build=i686-pc-linuc --prefix=$KETLAER/python 
+
+make INSTALL=/usr/bin/install-sh HOSTPYTHON=./hostpython HOSTPGEN=./Parser/hostpgen BLDSHARED="mipsel-linux-gcc -shared" CROSS_COMPILE=mipsel-linux- CROSS_COMPILE_TARGET=yes install
