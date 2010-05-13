@@ -1,0 +1,13 @@
+#
+# build cross version
+#
+CROSS_COMPILE=yes python configure.py --debug -p linux-ketlaer -d $KETLAER/python/lib/python2.6/site-packages -e $KETLAER/python/include/python2.6
+make clean
+make install
+
+#
+# build host version
+#
+python configure.py
+make clean
+make install
