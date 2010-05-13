@@ -1,3 +1,0 @@
-rm -f include/Qt/qconfig.h
-rm -f include/QtCore/qconfig.h
-./configure -opensource -confirm-license -embedded mips -xplatform qws/linux-ketlaer -prefix /usr/local/etc/ketlaer -release -no-audio-backend -qt-libtiff -qt-libpng -qt-libmng -qt-libjpeg -qt-zlib -no-openssl -no-cups -no-dbus -no-iconv -no-multimedia -no-phonon -no-phonon-backend -no-svg -no-javascript-jit -no-script -no-declarative -no-qt3support -depths 8,16,32 -qt-gfx-vnc -qt-kbd-linuxinput -qt-mouse-linuxinput -no-gfx-transformed -no-gfx-qvfb -no-gfx-multiscreen -no-mouse-linuxtp -no-mouse-pc -no-exceptions -optimized-qmake 

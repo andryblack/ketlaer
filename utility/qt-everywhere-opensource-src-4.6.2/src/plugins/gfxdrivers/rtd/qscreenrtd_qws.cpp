@@ -240,10 +240,8 @@ static void Init()
   unsigned long videoPhyAddr;
   pli_allocContinuousMemoryMesg("DBF", 4, (BYTE**)&audioDebugFlag, &audioPhyAddr);
   pli_allocContinuousMemoryMesg("DBF", 4, (BYTE**)&videoDebugFlag, &videoPhyAddr);
-#define AUDIO_DEBUG_FLAG        0x00000001
-#define VIDEO_DEBUG_FLAG        0x00000001
-  pli_IPCWriteULONG((BYTE*)audioDebugFlag, AUDIO_DEBUG_FLAG);
-  pli_IPCWriteULONG((BYTE*)videoDebugFlag, VIDEO_DEBUG_FLAG);
+  pli_IPCWriteULONG((BYTE*)audioDebugFlag, 1);
+  pli_IPCWriteULONG((BYTE*)videoDebugFlag, 1);
   clnt = prepareCLNT(NONBLOCK_MODE | USE_POLL_BUF | SEND_AUDIO_CPU, D_PROGRAM, D_VERSION);
   set_debug_flag_0((int*)&audioPhyAddr, &clnt);
   clnt = prepareCLNT(NONBLOCK_MODE | USE_POLL_BUF | SEND_VIDEO_CPU, D_PROGRAM, D_VERSION);

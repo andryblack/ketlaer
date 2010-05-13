@@ -113,7 +113,7 @@ AS = as
 AUTOCONF = ${SHELL} /root/src/ketlaer/Utility/config/aux-build/missing --run autoconf
 AUTOHEADER = ${SHELL} /root/src/ketlaer/Utility/config/aux-build/missing --run autoheader
 AUTOMAKE = ${SHELL} /root/src/ketlaer/Utility/config/aux-build/missing --run automake-1.11
-AWK = gawk
+AWK = mawk
 CC = mipsel-linux-gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
@@ -154,7 +154,7 @@ LN_S = ln -s
 LTLIBOBJS = 
 MAKEINFO = ${SHELL} /root/src/ketlaer/Utility/config/aux-build/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
-NM = /usr/local/toolchain_mipsel/bin/mipsel-linux-nm -B
+NM = /usr/local/toolchain_mipsel/usr/bin/mipsel-linux-nm -B
 NMEDIT = 
 OBJDUMP = mipsel-linux-objdump
 OBJEXT = o

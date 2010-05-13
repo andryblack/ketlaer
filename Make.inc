@@ -12,6 +12,7 @@ INCLUDES = -I $(TOP)/RebuildedInclude -I $(TOP)/libketlaer \
 
 LDFLAGS = -L $(TOP)/AsusLIB -L $(TOP)/AsusRPC
 
-CFLAGS = $(INCLUDES)
-CXXFLAGS = $(INCLUDES)
+
+CFLAGS = $(INCLUDES) 
+CXXFLAGS = $(INCLUDES) --no-rtti --no-exceptions
 
