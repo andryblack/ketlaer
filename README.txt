@@ -23,7 +23,7 @@ Build order:
 
 utility/config
 utility/libm2
-utility/libketlaer
+libketlaer
 
 (Now you can build TESTClient, if you are in a hurry)
 
