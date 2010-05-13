@@ -1,0 +1,5 @@
+./ketlaer-configure
+make -i confclean
+./ketlaer-configure
+make -i
+make -i install
