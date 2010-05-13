@@ -6,7 +6,7 @@ configure
 configure.exe
 demos/
 doc/
-examples/
+!examples/
 !.gitignore
 include/
 INSTALL
