@@ -78,6 +78,11 @@ Run stopall.
 Run it with python program.py -qws -display DISPLAY. See above
 for the possible values of DISPLAY.
 
+WebKit:
+=======
+
+Run examples/webkit/fancybrowser.
+
 
 BUGS:
 =====
