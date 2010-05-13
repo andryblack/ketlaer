@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html><head><title>QGLShaderProgram Class Reference</title><style>h3.fn,span.fn { margin-left: 1cm; text-indent: -1cm }
+a:link { color: #004faf; text-decoration: none }
+a:visited { color: #672967; text-decoration: none }
+td.postheader { font-family: sans-serif }
+tr.address { font-family: sans-serif }
+body { background: #ffffff; color: black; }
+</style></head><body><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr /><td align="left" valign="top" width="32"><img align="left" border="0" height="32" src="images/rb-logo.png" width="32" /></td><td width="1">&#160;&#160;</td><td class="postheader" valign="center"><a href="../pyqt4ref.html"><font color="#004faf">Home</font></a>&#160;&#183; <a href="classes.html"><font color="#004faf">All Classes</font></a>&#160;&#183; <a href="modules.html"><font color="#004faf">Modules</font></a></td></table><h1 align="center">QGLShaderProgram Class Reference<br /><sup><sup>[<a href="qtopengl.html">QtOpenGL</a> module]</sup></sup></h1><p>The QGLShaderProgram class allows OpenGL shader programs to be linked and used. <a href="#details">More...</a></p>
+<p>Inherits <a href="qobject.html">QObject</a>.</p><h3>Methods</h3><ul><li><div class="fn" /><b><a href="qglshaderprogram.html#QGLShaderProgram">__init__</a></b> (<i>self</i>, QObject&#160;<i>parent</i>&#160;=&#160;None)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#QGLShaderProgram-2">__init__</a></b> (<i>self</i>, QGLContext, QObject&#160;<i>parent</i>&#160;=&#160;None)</li><li><div class="fn" />bool <b><a href="qglshaderprogram.html#addShader">addShader</a></b> (<i>self</i>, QGLShader)</li><li><div class="fn" />bool <b><a href="qglshaderprogram.html#addShaderFromSourceCode">addShaderFromSourceCode</a></b> (<i>self</i>, QGLShader.ShaderType, QByteArray)</li><li><div class="fn" />bool <b><a href="qglshaderprogram.html#addShaderFromSourceCode-2">addShaderFromSourceCode</a></b> (<i>self</i>, QGLShader.ShaderType, QString)</li><li><div class="fn" />bool <b><a href="qglshaderprogram.html#addShaderFromSourceFile">addShaderFromSourceFile</a></b> (<i>self</i>, QGLShader.ShaderType, QString)</li><li><div class="fn" />int <b><a href="qglshaderprogram.html#attributeLocation">attributeLocation</a></b> (<i>self</i>, QByteArray)</li><li><div class="fn" />int <b><a href="qglshaderprogram.html#attributeLocation-2">attributeLocation</a></b> (<i>self</i>, QString)</li><li><div class="fn" />bool <b><a href="qglshaderprogram.html#bind">bind</a></b> (<i>self</i>)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#bindAttributeLocation">bindAttributeLocation</a></b> (<i>self</i>, QByteArray, int)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#bindAttributeLocation-2">bindAttributeLocation</a></b> (<i>self</i>, QString, int)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#disableAttributeArray">disableAttributeArray</a></b> (<i>self</i>, int)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#disableAttributeArray-2">disableAttributeArray</a></b> (<i>self</i>, str)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#enableAttributeArray">enableAttributeArray</a></b> (<i>self</i>, int)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#enableAttributeArray-2">enableAttributeArray</a></b> (<i>self</i>, str)</li><li><div class="fn" />bool <b><a href="qglshaderprogram.html#isLinked">isLinked</a></b> (<i>self</i>)</li><li><div class="fn" />bool <b><a href="qglshaderprogram.html#link">link</a></b> (<i>self</i>)</li><li><div class="fn" />QString <b><a href="qglshaderprogram.html#log">log</a></b> (<i>self</i>)</li><li><div class="fn" />int <b><a href="qglshaderprogram.html#programId">programId</a></b> (<i>self</i>)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#release">release</a></b> (<i>self</i>)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#removeAllShaders">removeAllShaders</a></b> (<i>self</i>)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#removeShader">removeShader</a></b> (<i>self</i>, QGLShader)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a></b> (<i>self</i>, int, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-2">setAttributeValue</a></b> (<i>self</i>, int, float, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-3">setAttributeValue</a></b> (<i>self</i>, int, float, float, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-4">setAttributeValue</a></b> (<i>self</i>, int, float, float, float, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-5">setAttributeValue</a></b> (<i>self</i>, int, QVector2D)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-6">setAttributeValue</a></b> (<i>self</i>, int, QVector3D)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-7">setAttributeValue</a></b> (<i>self</i>, int, QVector4D)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-8">setAttributeValue</a></b> (<i>self</i>, int, QColor)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-9">setAttributeValue</a></b> (<i>self</i>, str, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-10">setAttributeValue</a></b> (<i>self</i>, str, float, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-11">setAttributeValue</a></b> (<i>self</i>, str, float, float, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-12">setAttributeValue</a></b> (<i>self</i>, str, float, float, float, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-13">setAttributeValue</a></b> (<i>self</i>, str, QVector2D)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-14">setAttributeValue</a></b> (<i>self</i>, str, QVector3D)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-15">setAttributeValue</a></b> (<i>self</i>, str, QVector4D)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setAttributeValue-16">setAttributeValue</a></b> (<i>self</i>, str, QColor)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue">setUniformValue</a></b> (<i>self</i>, int, int)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-2">setUniformValue</a></b> (<i>self</i>, int, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-3">setUniformValue</a></b> (<i>self</i>, int, float, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-4">setUniformValue</a></b> (<i>self</i>, int, float, float, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-5">setUniformValue</a></b> (<i>self</i>, int, float, float, float, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-6">setUniformValue</a></b> (<i>self</i>, int, QVector2D)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-7">setUniformValue</a></b> (<i>self</i>, int, QVector3D)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-8">setUniformValue</a></b> (<i>self</i>, int, QVector4D)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-9">setUniformValue</a></b> (<i>self</i>, int, QColor)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-10">setUniformValue</a></b> (<i>self</i>, int, QPoint)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-11">setUniformValue</a></b> (<i>self</i>, int, QPointF)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-12">setUniformValue</a></b> (<i>self</i>, int, QSize)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-13">setUniformValue</a></b> (<i>self</i>, int, QSizeF)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-14">setUniformValue</a></b> (<i>self</i>, int, QMatrix2x2)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-15">setUniformValue</a></b> (<i>self</i>, int, QMatrix2x3)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-16">setUniformValue</a></b> (<i>self</i>, int, QMatrix2x4)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-17">setUniformValue</a></b> (<i>self</i>, int, QMatrix3x2)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-18">setUniformValue</a></b> (<i>self</i>, int, QMatrix3x3)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-19">setUniformValue</a></b> (<i>self</i>, int, QMatrix3x4)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-20">setUniformValue</a></b> (<i>self</i>, int, QMatrix4x2)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-21">setUniformValue</a></b> (<i>self</i>, int, QMatrix4x3)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-22">setUniformValue</a></b> (<i>self</i>, int, QMatrix4x4)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-23">setUniformValue</a></b> (<i>self</i>, int, QTransform)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-24">setUniformValue</a></b> (<i>self</i>, str, int)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-25">setUniformValue</a></b> (<i>self</i>, str, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-26">setUniformValue</a></b> (<i>self</i>, str, float, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-27">setUniformValue</a></b> (<i>self</i>, str, float, float, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-28">setUniformValue</a></b> (<i>self</i>, str, float, float, float, float)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-29">setUniformValue</a></b> (<i>self</i>, str, QVector2D)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-30">setUniformValue</a></b> (<i>self</i>, str, QVector3D)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-31">setUniformValue</a></b> (<i>self</i>, str, QVector4D)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-32">setUniformValue</a></b> (<i>self</i>, str, QColor)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-33">setUniformValue</a></b> (<i>self</i>, str, QPoint)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-34">setUniformValue</a></b> (<i>self</i>, str, QPointF)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-35">setUniformValue</a></b> (<i>self</i>, str, QSize)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-36">setUniformValue</a></b> (<i>self</i>, str, QSizeF)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-37">setUniformValue</a></b> (<i>self</i>, str, QMatrix2x2)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-38">setUniformValue</a></b> (<i>self</i>, str, QMatrix2x3)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-39">setUniformValue</a></b> (<i>self</i>, str, QMatrix2x4)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-40">setUniformValue</a></b> (<i>self</i>, str, QMatrix3x2)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-41">setUniformValue</a></b> (<i>self</i>, str, QMatrix3x3)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-42">setUniformValue</a></b> (<i>self</i>, str, QMatrix3x4)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-43">setUniformValue</a></b> (<i>self</i>, str, QMatrix4x2)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-44">setUniformValue</a></b> (<i>self</i>, str, QMatrix4x3)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-45">setUniformValue</a></b> (<i>self</i>, str, QMatrix4x4)</li><li><div class="fn" /><b><a href="qglshaderprogram.html#setUniformValue-46">setUniformValue</a></b> (<i>self</i>, str, QTransform)</li><li><div class="fn" />list-of-QGLShader <b><a href="qglshaderprogram.html#shaders">shaders</a></b> (<i>self</i>)</li><li><div class="fn" />int <b><a href="qglshaderprogram.html#uniformLocation">uniformLocation</a></b> (<i>self</i>, QByteArray)</li><li><div class="fn" />int <b><a href="qglshaderprogram.html#uniformLocation-2">uniformLocation</a></b> (<i>self</i>, QString)</li></ul><h3>Static Methods</h3><ul><li><div class="fn" />bool <b><a href="qglshaderprogram.html#hasOpenGLShaderPrograms">hasOpenGLShaderPrograms</a></b> (QGLContext&#160;<i>context</i>&#160;=&#160;None)</li></ul><a name="details" /><hr /><h2>Detailed Description</h2><p>The QGLShaderProgram class allows OpenGL shader programs to be linked and used.</p>
+<a name="introduction" />
+<h3>Introduction</h3>
+<p>This class supports shader programs written in the OpenGL Shading Language (GLSL) and in the OpenGL/ES Shading Language (GLSL/ES).</p>
+<p><a href="qglshader.html">QGLShader</a> and QGLShaderProgram shelter the programmer from the details of compiling and linking vertex and fragment shaders.</p>
+<p>The following example creates a vertex shader program using the supplied source <tt>code</tt>. Once compiled and linked, the shader program is activated in the current <a href="qglcontext.html">QGLContext</a> by calling <a href="qglshaderprogram.html#bind">QGLShaderProgram.bind</a>():</p>
+<pre> QGLShader shader(QGLShader.Vertex);
+ shader.compileSourceCode(code);
+
+ QGLShaderProgram program(context);
+ program.addShader(shader);
+ program.link();
+
+ program.bind();</pre>
+<a name="writing-portable-shaders" />
+<h3>Writing portable shaders</h3>
+<p>Shader programs can be difficult to reuse across OpenGL implementations because of varying levels of support for standard vertex attributes and uniform variables. In particular, GLSL/ES lacks all of the standard variables that are present on desktop OpenGL systems: <tt>gl_Vertex</tt>, <tt>gl_Normal</tt>, <tt>gl_Color</tt>, and so on. Desktop OpenGL lacks the variable qualifiers <tt>highp</tt>, <tt>mediump</tt>, and <tt>lowp</tt>.</p>
+<p>The QGLShaderProgram class makes the process of writing portable shaders easier by prefixing all shader programs with the following lines on desktop OpenGL:</p>
+<pre> #define highp
+ #define mediump
+ #define lowp</pre>
+<p>This makes it possible to run most GLSL/ES shader programs on desktop systems. The programmer should restrict themselves to just features that are present in GLSL/ES, and avoid standard variable names that only work on the desktop.</p>
+<a name="simple-shader-example" />
+<h3>Simple shader example</h3>
+<pre> program.addShaderFromSourceCode(QGLShader.Vertex,
+     "attribute highp vec4 vertex;\n"
+     "attribute mediump mat4 matrix;\n"
+     "void main(void)\n"
+     "{\n"
+     "   gl_Position = matrix * vertex;\n"
+     "}");
+ program.addShaderFromSourceCode(QGLShader.Fragment,
+     "uniform mediump vec4 color;\n"
+     "void main(void)\n"
+     "{\n"
+     "   gl_FragColor = color;\n"
+     "}");
+ program.link();
+ program.bind();
+
+ int vertexLocation = program.attributeLocation("vertex");
+ int matrixLocation = program.attributeLocation("matrix");
+ int colorLocation = program.uniformLocation("color");</pre>
+<p>With the above shader program active, we can draw a green triangle as follows:</p>
+<pre> static GLfloat const triangleVertices[] = {
+     60.0f,  10.0f,  0.0f,
+     110.0f, 110.0f, 0.0f,
+     10.0f,  110.0f, 0.0f
+ };
+
+ QColor color(0, 255, 0, 255);
+
+ QMatrix4x4 pmvMatrix;
+ pmvMatrix.ortho(rect());
+
+ program.enableAttributeArray(vertexLocation);
+ program.setAttributeArray(vertexLocation, triangleVertices, 3);
+ program.setUniformValue(matrixLocation, pmvMatrix);
+ program.setUniformValue(colorLocation, color);
+
+ glDrawArrays(GL_TRIANGLES, 0, 3);
+
+ program.disableAttributeArray(vertexLocation);</pre>
+<a name="binary-shaders-and-programs" />
+<h3>Binary shaders and programs</h3>
+<p>Binary shaders may be specified using <tt>glShaderBinary()</tt> on the return value from <a href="qglshader.html#shaderId">QGLShader.shaderId</a>(). The <a href="qglshader.html">QGLShader</a> instance containing the binary can then be added to the shader program with <a href="qglshaderprogram.html#addShader">addShader</a>() and linked in the usual fashion with <a href="qglshaderprogram.html#link">link</a>().</p>
+<p>Binary programs may be specified using <tt>glProgramBinaryOES()</tt> on the return value from <a href="qglshaderprogram.html#programId">programId</a>(). Then the application should call <a href="qglshaderprogram.html#link">link</a>(), which will notice that the program has already been specified and linked, allowing other operations to be performed on the shader program.</p>
+<p>See also <a href="qglshader.html">QGLShader</a>.</p>
+<hr /><h2>Method Documentation</h2><h3 class="fn"><a name="QGLShaderProgram" />QGLShaderProgram.__init__ (<i>self</i>, <a href="qobject.html">QObject</a>&#160;<i>parent</i>&#160;=&#160;None)</h3><p>The <i>parent</i> argument, if not None, causes <i>self</i> to be owned by Qt instead of PyQt.</p><p>Constructs a new shader program and attaches it to <i>parent</i>. The program will be invalid until <a href="qglshaderprogram.html#addShader">addShader</a>() is called.</p>
+<p>The shader program will be associated with the current <a href="qglcontext.html">QGLContext</a>.</p>
+<p>See also <a href="qglshaderprogram.html#addShader">addShader</a>().</p>
+<h3 class="fn"><a name="QGLShaderProgram-2" />QGLShaderProgram.__init__ (<i>self</i>, <a href="qglcontext.html">QGLContext</a>, <a href="qobject.html">QObject</a>&#160;<i>parent</i>&#160;=&#160;None)</h3><p>The <i>parent</i> argument, if not None, causes <i>self</i> to be owned by Qt instead of PyQt.</p><p>Constructs a new shader program and attaches it to <i>parent</i>. The program will be invalid until <a href="qglshaderprogram.html#addShader">addShader</a>() is called.</p>
+<p>The shader program will be associated with <i>context</i>.</p>
+<p>See also <a href="qglshaderprogram.html#addShader">addShader</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/~QGLShaderProgram" />
+<h3 class="fn"><a name="addShader" />bool QGLShaderProgram.addShader (<i>self</i>, <a href="qglshader.html">QGLShader</a>)</h3><p>Adds a compiled <i>shader</i> to this shader program. Returns true if the shader could be added, or false otherwise.</p>
+<p>Ownership of the <i>shader</i> object remains with the caller. It will not be deleted when this <a href="qglshaderprogram.html">QGLShaderProgram</a> instance is deleted. This allows the caller to add the same shader to multiple shader programs.</p>
+<p>See also <a href="qglshaderprogram.html#addShaderFromSourceCode">addShaderFromSourceCode</a>(), <a href="qglshaderprogram.html#addShaderFromSourceFile">addShaderFromSourceFile</a>(), <a href="qglshaderprogram.html#removeShader">removeShader</a>(), <a href="qglshaderprogram.html#link">link</a>(), and <a href="qglshaderprogram.html#removeAllShaders">removeAllShaders</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/addShaderFromSourceCode" />
+<h3 class="fn"><a name="addShaderFromSourceCode" />bool QGLShaderProgram.addShaderFromSourceCode (<i>self</i>, <a href="qglshader-shadertype.html">QGLShader.ShaderType</a>, <a href="qbytearray.html">QByteArray</a>)</h3><p>Compiles <i>source</i> as a shader of the specified <i>type</i> and adds it to this shader program. Returns true if compilation was successful, false otherwise. The compilation errors and warnings will be made available via <a href="qglshaderprogram.html#log">log</a>().</p>
+<p>This function is intended to be a short-cut for quickly adding vertex and fragment shaders to a shader program without creating an instance of <a href="qglshader.html">QGLShader</a> first.</p>
+<p>See also <a href="qglshaderprogram.html#addShader">addShader</a>(), <a href="qglshaderprogram.html#addShaderFromSourceFile">addShaderFromSourceFile</a>(), <a href="qglshaderprogram.html#removeShader">removeShader</a>(), <a href="qglshaderprogram.html#link">link</a>(), <a href="qglshaderprogram.html#log">log</a>(), and <a href="qglshaderprogram.html#removeAllShaders">removeAllShaders</a>().</p>
+<h3 class="fn"><a name="addShaderFromSourceCode-2" />bool QGLShaderProgram.addShaderFromSourceCode (<i>self</i>, <a href="qglshader-shadertype.html">QGLShader.ShaderType</a>, QString)</h3><p>This is an overloaded function.</p>
+<p>Compiles <i>source</i> as a shader of the specified <i>type</i> and adds it to this shader program. Returns true if compilation was successful, false otherwise. The compilation errors and warnings will be made available via <a href="qglshaderprogram.html#log">log</a>().</p>
+<p>This function is intended to be a short-cut for quickly adding vertex and fragment shaders to a shader program without creating an instance of <a href="qglshader.html">QGLShader</a> first.</p>
+<p>See also <a href="qglshaderprogram.html#addShader">addShader</a>(), <a href="qglshaderprogram.html#addShaderFromSourceFile">addShaderFromSourceFile</a>(), <a href="qglshaderprogram.html#removeShader">removeShader</a>(), <a href="qglshaderprogram.html#link">link</a>(), <a href="qglshaderprogram.html#log">log</a>(), and <a href="qglshaderprogram.html#removeAllShaders">removeAllShaders</a>().</p>
+<h3 class="fn"><a name="addShaderFromSourceFile" />bool QGLShaderProgram.addShaderFromSourceFile (<i>self</i>, <a href="qglshader-shadertype.html">QGLShader.ShaderType</a>, QString)</h3><p>Compiles the contents of <i>fileName</i> as a shader of the specified <i>type</i> and adds it to this shader program. Returns true if compilation was successful, false otherwise. The compilation errors and warnings will be made available via <a href="qglshaderprogram.html#log">log</a>().</p>
+<p>This function is intended to be a short-cut for quickly adding vertex and fragment shaders to a shader program without creating an instance of <a href="qglshader.html">QGLShader</a> first.</p>
+<p>See also <a href="qglshaderprogram.html#addShader">addShader</a>() and <a href="qglshaderprogram.html#addShaderFromSourceCode">addShaderFromSourceCode</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/attributeLocation" />
+<h3 class="fn"><a name="attributeLocation" />int QGLShaderProgram.attributeLocation (<i>self</i>, <a href="qbytearray.html">QByteArray</a>)</h3><p>Returns the location of the attribute <i>name</i> within this shader program's parameter list. Returns -1 if <i>name</i> is not a valid attribute for this shader program.</p>
+<p>See also <a href="qglshaderprogram.html#uniformLocation">uniformLocation</a>() and <a href="qglshaderprogram.html#bindAttributeLocation">bindAttributeLocation</a>().</p>
+<h3 class="fn"><a name="attributeLocation-2" />int QGLShaderProgram.attributeLocation (<i>self</i>, QString)</h3><p>This is an overloaded function.</p>
+<p>Returns the location of the attribute <i>name</i> within this shader program's parameter list. Returns -1 if <i>name</i> is not a valid attribute for this shader program.</p>
+<p>See also <a href="qglshaderprogram.html#uniformLocation">uniformLocation</a>() and <a href="qglshaderprogram.html#bindAttributeLocation">bindAttributeLocation</a>().</p>
+<h3 class="fn"><a name="bind" />bool QGLShaderProgram.bind (<i>self</i>)</h3><p>Binds this shader program to the active <a href="qglcontext.html">QGLContext</a> and makes it the current shader program. Any previously bound shader program is released. This is equivalent to calling <tt>glUseProgram()</tt> on <a href="qglshaderprogram.html#programId">programId</a>(). Returns true if the program was successfully bound; false otherwise. If the shader program has not yet been linked, or it needs to be re-linked, this function will call <a href="qglshaderprogram.html#link">link</a>().</p>
+<p>See also <a href="qglshaderprogram.html#link">link</a>() and <a href="qglshaderprogram.html#release">release</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/bindAttributeLocation" />
+<h3 class="fn"><a name="bindAttributeLocation" />QGLShaderProgram.bindAttributeLocation (<i>self</i>, <a href="qbytearray.html">QByteArray</a>, int)</h3><p>Binds the attribute <i>name</i> to the specified <i>location</i>. This function can be called before or after the program has been linked. Any attributes that have not been explicitly bound when the program is linked will be assigned locations automatically.</p>
+<p>See also <a href="qglshaderprogram.html#attributeLocation">attributeLocation</a>().</p>
+<h3 class="fn"><a name="bindAttributeLocation-2" />QGLShaderProgram.bindAttributeLocation (<i>self</i>, QString, int)</h3><p>This is an overloaded function.</p>
+<p>Binds the attribute <i>name</i> to the specified <i>location</i>. This function can be called before or after the program has been linked. Any attributes that have not been explicitly bound when the program is linked will be assigned locations automatically.</p>
+<p>See also <a href="qglshaderprogram.html#attributeLocation">attributeLocation</a>().</p>
+<h3 class="fn"><a name="disableAttributeArray" />QGLShaderProgram.disableAttributeArray (<i>self</i>, int)</h3><p>Disables the vertex array at <i>location</i> in this shader program that was enabled by a previous call to <a href="qglshaderprogram.html#enableAttributeArray">enableAttributeArray</a>().</p>
+<p>See also <a href="qglshaderprogram.html#enableAttributeArray">enableAttributeArray</a>(), <a href="qglshaderprogram.html#setAttributeArray">setAttributeArray</a>(), <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>(), and <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="disableAttributeArray-2" />QGLShaderProgram.disableAttributeArray (<i>self</i>, str)</h3><p>This is an overloaded function.</p>
+<p>Disables the vertex array called <i>name</i> in this shader program that was enabled by a previous call to <a href="qglshaderprogram.html#enableAttributeArray">enableAttributeArray</a>().</p>
+<p>See also <a href="qglshaderprogram.html#enableAttributeArray">enableAttributeArray</a>(), <a href="qglshaderprogram.html#setAttributeArray">setAttributeArray</a>(), <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>(), and <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/enableAttributeArray" />
+<h3 class="fn"><a name="enableAttributeArray" />QGLShaderProgram.enableAttributeArray (<i>self</i>, int)</h3><p>Enables the vertex array at <i>location</i> in this shader program so that the value set by <a href="qglshaderprogram.html#setAttributeArray">setAttributeArray</a>() on <i>location</i> will be used by the shader program.</p>
+<p>See also <a href="qglshaderprogram.html#disableAttributeArray">disableAttributeArray</a>(), <a href="qglshaderprogram.html#setAttributeArray">setAttributeArray</a>(), <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>(), and <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="enableAttributeArray-2" />QGLShaderProgram.enableAttributeArray (<i>self</i>, str)</h3><p>This is an overloaded function.</p>
+<p>Enables the vertex array called <i>name</i> in this shader program so that the value set by <a href="qglshaderprogram.html#setAttributeArray">setAttributeArray</a>() on <i>name</i> will be used by the shader program.</p>
+<p>See also <a href="qglshaderprogram.html#disableAttributeArray">disableAttributeArray</a>(), <a href="qglshaderprogram.html#setAttributeArray">setAttributeArray</a>(), <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>(), and <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<a name="//apple_ref/cpp/clm/QGLShaderProgram/hasOpenGLShaderPrograms" />
+<h3 class="fn"><a name="hasOpenGLShaderPrograms" />bool QGLShaderProgram.hasOpenGLShaderPrograms (<a href="qglcontext.html">QGLContext</a>&#160;<i>context</i>&#160;=&#160;None)</h3><p>Returns true if shader programs written in the OpenGL Shading Language (GLSL) are supported on this system; false otherwise.</p>
+<p>The <i>context</i> is used to resolve the GLSL extensions. If <i>context</i> is null, then <a href="qglcontext.html#currentContext">QGLContext.currentContext</a>() is used.</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/isLinked" />
+<h3 class="fn"><a name="isLinked" />bool QGLShaderProgram.isLinked (<i>self</i>)</h3><p>Returns true if this shader program has been linked; false otherwise.</p>
+<p>See also <a href="qglshaderprogram.html#link">link</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/link" />
+<h3 class="fn"><a name="link" />bool QGLShaderProgram.link (<i>self</i>)</h3><p>Links together the shaders that were added to this program with <a href="qglshaderprogram.html#addShader">addShader</a>(). Returns true if the link was successful or false otherwise. If the link failed, the error messages can be retrieved with <a href="qglshaderprogram.html#log">log</a>().</p>
+<p>Subclasses can override this function to initialize attributes and uniform variables for use in specific shader programs.</p>
+<p>If the shader program was already linked, calling this function again will force it to be re-linked.</p>
+<p>See also <a href="qglshaderprogram.html#addShader">addShader</a>() and <a href="qglshaderprogram.html#log">log</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/log" />
+<h3 class="fn"><a name="log" />QString QGLShaderProgram.log (<i>self</i>)</h3><p>Returns the errors and warnings that occurred during the last <a href="qglshaderprogram.html#link">link</a>() or <a href="qglshaderprogram.html#addShader">addShader</a>() with explicitly specified source code.</p>
+<p>See also <a href="qglshaderprogram.html#link">link</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/programId" />
+<h3 class="fn"><a name="programId" />int QGLShaderProgram.programId (<i>self</i>)</h3><p>Returns the OpenGL identifier associated with this shader program.</p>
+<p>See also <a href="qglshader.html#shaderId">QGLShader.shaderId</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/release" />
+<h3 class="fn"><a name="release" />QGLShaderProgram.release (<i>self</i>)</h3><p>Releases the active shader program from the current <a href="qglcontext.html">QGLContext</a>. This is equivalent to calling <tt>glUseProgram(0)</tt>.</p>
+<p>See also <a href="qglshaderprogram.html#bind">bind</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/removeAllShaders" />
+<h3 class="fn"><a name="removeAllShaders" />QGLShaderProgram.removeAllShaders (<i>self</i>)</h3><p>Removes all of the shaders that were added to this program previously. The <a href="qglshader.html">QGLShader</a> objects for the shaders will not be deleted if they were constructed externally. <a href="qglshader.html">QGLShader</a> objects that are constructed internally by <a href="qglshaderprogram.html">QGLShaderProgram</a> will be deleted.</p>
+<p>See also <a href="qglshaderprogram.html#addShader">addShader</a>() and <a href="qglshaderprogram.html#removeShader">removeShader</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/removeShader" />
+<h3 class="fn"><a name="removeShader" />QGLShaderProgram.removeShader (<i>self</i>, <a href="qglshader.html">QGLShader</a>)</h3><p>Removes <i>shader</i> from this shader program. The object is not deleted.</p>
+<p>See also <a href="qglshaderprogram.html#addShader">addShader</a>(), <a href="qglshaderprogram.html#link">link</a>(), and <a href="qglshaderprogram.html#removeAllShaders">removeAllShaders</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/setAttributeArray" />
+<h3 class="fn"><a name="setAttributeValue" />QGLShaderProgram.setAttributeValue (<i>self</i>, int, float)</h3><p>Sets the attribute at <i>location</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-2" />QGLShaderProgram.setAttributeValue (<i>self</i>, int, float, float)</h3><p>Sets the attribute at <i>location</i> in the current context to the 2D vector (<i>x</i>, <i>y</i>).</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-3" />QGLShaderProgram.setAttributeValue (<i>self</i>, int, float, float, float)</h3><p>Sets the attribute at <i>location</i> in the current context to the 3D vector (<i>x</i>, <i>y</i>, <i>z</i>).</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-4" />QGLShaderProgram.setAttributeValue (<i>self</i>, int, float, float, float, float)</h3><p>Sets the attribute at <i>location</i> in the current context to the 4D vector (<i>x</i>, <i>y</i>, <i>z</i>, <i>w</i>).</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-5" />QGLShaderProgram.setAttributeValue (<i>self</i>, int, <a href="qvector2d.html">QVector2D</a>)</h3><p>Sets the attribute at <i>location</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-6" />QGLShaderProgram.setAttributeValue (<i>self</i>, int, <a href="qvector3d.html">QVector3D</a>)</h3><p>Sets the attribute at <i>location</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-7" />QGLShaderProgram.setAttributeValue (<i>self</i>, int, <a href="qvector4d.html">QVector4D</a>)</h3><p>Sets the attribute at <i>location</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-8" />QGLShaderProgram.setAttributeValue (<i>self</i>, int, <a href="qcolor.html">QColor</a>)</h3><p>Sets the attribute at <i>location</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-9" />QGLShaderProgram.setAttributeValue (<i>self</i>, str, float)</h3><p>Sets the attribute at <i>location</i> in the current context to the contents of <i>values</i>, which contains <i>columns</i> elements, each consisting of <i>rows</i> elements. The <i>rows</i> value should be 1, 2, 3, or 4. This function is typically used to set matrix values and column vectors.</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-10" />QGLShaderProgram.setAttributeValue (<i>self</i>, str, float, float)</h3><p>This is an overloaded function.</p>
+<p>Sets the attribute called <i>name</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-11" />QGLShaderProgram.setAttributeValue (<i>self</i>, str, float, float, float)</h3><p>This is an overloaded function.</p>
+<p>Sets the attribute called <i>name</i> in the current context to the 2D vector (<i>x</i>, <i>y</i>).</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-12" />QGLShaderProgram.setAttributeValue (<i>self</i>, str, float, float, float, float)</h3><p>This is an overloaded function.</p>
+<p>Sets the attribute called <i>name</i> in the current context to the 3D vector (<i>x</i>, <i>y</i>, <i>z</i>).</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-13" />QGLShaderProgram.setAttributeValue (<i>self</i>, str, <a href="qvector2d.html">QVector2D</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the attribute called <i>name</i> in the current context to the 4D vector (<i>x</i>, <i>y</i>, <i>z</i>, <i>w</i>).</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-14" />QGLShaderProgram.setAttributeValue (<i>self</i>, str, <a href="qvector3d.html">QVector3D</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the attribute called <i>name</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-15" />QGLShaderProgram.setAttributeValue (<i>self</i>, str, <a href="qvector4d.html">QVector4D</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the attribute called <i>name</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setAttributeValue-16" />QGLShaderProgram.setAttributeValue (<i>self</i>, str, <a href="qcolor.html">QColor</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the attribute called <i>name</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setUniformValue">setUniformValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue" />QGLShaderProgram.setUniformValue (<i>self</i>, int, int)</h3><p>Sets the uniform variable at <i>location</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-2" />QGLShaderProgram.setUniformValue (<i>self</i>, int, float)</h3><p>Sets the uniform variable at <i>location</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-3" />QGLShaderProgram.setUniformValue (<i>self</i>, int, float, float)</h3><p>Sets the uniform variable at <i>location</i> in the current context to <i>value</i>. This function should be used when setting sampler values.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-4" />QGLShaderProgram.setUniformValue (<i>self</i>, int, float, float, float)</h3><p>Sets the uniform variable at <i>location</i> in the current context to the 2D vector (<i>x</i>, <i>y</i>).</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-5" />QGLShaderProgram.setUniformValue (<i>self</i>, int, float, float, float, float)</h3><p>Sets the uniform variable at <i>location</i> in the current context to the 3D vector (<i>x</i>, <i>y</i>, <i>z</i>).</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-6" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qvector2d.html">QVector2D</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to the 4D vector (<i>x</i>, <i>y</i>, <i>z</i>, <i>w</i>).</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-7" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qvector3d.html">QVector3D</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-8" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qvector4d.html">QVector4D</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-9" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qcolor.html">QColor</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-10" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qpoint.html">QPoint</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to the red, green, blue, and alpha components of <i>color</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-11" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qpointf.html">QPointF</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to the x and y coordinates of <i>point</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-12" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qsize.html">QSize</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to the x and y coordinates of <i>point</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-13" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qsizef.html">QSizeF</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to the width and height of the given <i>size</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-14" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qmatrix2x2.html">QMatrix2x2</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to the width and height of the given <i>size</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-15" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qmatrix2x3.html">QMatrix2x3</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to a 2x2 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-16" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qmatrix2x4.html">QMatrix2x4</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to a 2x3 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-17" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qmatrix3x2.html">QMatrix3x2</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to a 2x4 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-18" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qmatrix3x3.html">QMatrix3x3</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to a 3x2 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-19" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qmatrix3x4.html">QMatrix3x4</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to a 3x3 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-20" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qmatrix4x2.html">QMatrix4x2</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to a 3x4 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-21" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qmatrix4x3.html">QMatrix4x3</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to a 4x2 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-22" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qmatrix4x4.html">QMatrix4x4</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to a 4x3 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-23" />QGLShaderProgram.setUniformValue (<i>self</i>, int, <a href="qtransform.html">QTransform</a>)</h3><p>Sets the uniform variable at <i>location</i> in the current context to a 4x4 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-24" />QGLShaderProgram.setUniformValue (<i>self</i>, str, int)</h3><p>Sets the uniform variable at <i>location</i> in the current context to a 3x3 transformation matrix <i>value</i> that is specified as a <a href="qtransform.html">QTransform</a> value.</p>
+<p>To set a <a href="qtransform.html">QTransform</a> value as a 4x4 matrix in a shader, use <tt>setUniformValue(location, QMatrix4x4(value))</tt>.</p>
+<h3 class="fn"><a name="setUniformValue-25" />QGLShaderProgram.setUniformValue (<i>self</i>, str, float)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-26" />QGLShaderProgram.setUniformValue (<i>self</i>, str, float, float)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-27" />QGLShaderProgram.setUniformValue (<i>self</i>, str, float, float, float)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to <i>value</i>. This function should be used when setting sampler values.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-28" />QGLShaderProgram.setUniformValue (<i>self</i>, str, float, float, float, float)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to the 2D vector (<i>x</i>, <i>y</i>).</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-29" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qvector2d.html">QVector2D</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to the 3D vector (<i>x</i>, <i>y</i>, <i>z</i>).</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-30" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qvector3d.html">QVector3D</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to the 4D vector (<i>x</i>, <i>y</i>, <i>z</i>, <i>w</i>).</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-31" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qvector4d.html">QVector4D</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-32" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qcolor.html">QColor</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-33" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qpoint.html">QPoint</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-34" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qpointf.html">QPointF</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to the red, green, blue, and alpha components of <i>color</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-35" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qsize.html">QSize</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable associated with <i>name</i> in the current context to the x and y coordinates of <i>point</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/setUniformValueArray" />
+<h3 class="fn"><a name="setUniformValue-36" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qsizef.html">QSizeF</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable associated with <i>name</i> in the current context to the x and y coordinates of <i>point</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-37" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qmatrix2x2.html">QMatrix2x2</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable associated with <i>name</i> in the current context to the width and height of the given <i>size</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-38" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qmatrix2x3.html">QMatrix2x3</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable associated with <i>name</i> in the current context to the width and height of the given <i>size</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-39" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qmatrix2x4.html">QMatrix2x4</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to a 2x2 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-40" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qmatrix3x2.html">QMatrix3x2</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to a 2x3 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-41" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qmatrix3x3.html">QMatrix3x3</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to a 2x4 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-42" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qmatrix3x4.html">QMatrix3x4</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to a 3x2 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-43" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qmatrix4x2.html">QMatrix4x2</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to a 3x3 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-44" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qmatrix4x3.html">QMatrix4x3</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to a 3x4 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-45" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qmatrix4x4.html">QMatrix4x4</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to a 4x2 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="setUniformValue-46" />QGLShaderProgram.setUniformValue (<i>self</i>, str, <a href="qtransform.html">QTransform</a>)</h3><p>This is an overloaded function.</p>
+<p>Sets the uniform variable called <i>name</i> in the current context to a 4x3 matrix <i>value</i>.</p>
+<p>See also <a href="qglshaderprogram.html#setAttributeValue">setAttributeValue</a>().</p>
+<h3 class="fn"><a name="shaders" />list-of-QGLShader QGLShaderProgram.shaders (<i>self</i>)</h3><p>Returns a list of all shaders that have been added to this shader program using <a href="qglshaderprogram.html#addShader">addShader</a>().</p>
+<p>See also <a href="qglshaderprogram.html#addShader">addShader</a>() and <a href="qglshaderprogram.html#removeShader">removeShader</a>().</p>
+<a name="//apple_ref/cpp/instm/QGLShaderProgram/uniformLocation" />
+<h3 class="fn"><a name="uniformLocation" />int QGLShaderProgram.uniformLocation (<i>self</i>, <a href="qbytearray.html">QByteArray</a>)</h3><p>Returns the location of the uniform variable <i>name</i> within this shader program's parameter list. Returns -1 if <i>name</i> is not a valid uniform variable for this shader program.</p>
+<p>See also <a href="qglshaderprogram.html#attributeLocation">attributeLocation</a>().</p>
+<h3 class="fn"><a name="uniformLocation-2" />int QGLShaderProgram.uniformLocation (<i>self</i>, QString)</h3><p>This is an overloaded function.</p>
+<p>Returns the location of the uniform variable <i>name</i> within this shader program's parameter list. Returns -1 if <i>name</i> is not a valid uniform variable for this shader program.</p>
+<p>See also <a href="qglshaderprogram.html#attributeLocation">attributeLocation</a>().</p>
+<address><hr /><div align="center"><table border="0" cellspacing="0" width="100%"><tr class="address"><td align="left" width="25%">PyQt&#160;4.7.3 for X11</td><td align="center" width="50%">Copyright &#169; <a href="http://www.riverbankcomputing.com">Riverbank&#160;Computing&#160;Ltd</a> and <a href="http://www.qtsoftware.com">Nokia</a> 2010</td><td align="right" width="25%">Qt&#160;4.6.2</td></tr></table></div></address></body></html>

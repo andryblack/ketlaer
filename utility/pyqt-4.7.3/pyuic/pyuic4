@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/local/bin/python /usr/local/etc/ketlaer/python/lib/python2.6/site-packages/PyQt4/uic/pyuic.py ${1+"$@"}

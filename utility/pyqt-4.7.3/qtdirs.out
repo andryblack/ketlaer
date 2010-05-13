@@ -1,0 +1,14 @@
+/usr/local/etc/ketlaer
+/usr/local/etc/ketlaer/include
+/usr/local/etc/ketlaer/lib
+/usr/local/etc/ketlaer/bin
+/usr/local/etc/ketlaer
+/usr/local/etc/ketlaer/plugins
+263682
+1048575
+Open Source
+shared
+PyQt_SessionManager
+PyQt_OpenSSL
+PyQt_NoPrintRangeBug
+PyQt_qreal_double

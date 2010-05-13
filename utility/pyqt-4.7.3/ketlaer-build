@@ -1,0 +1,4 @@
+rm -f qpy/*/*.a qpy/*/*.o
+python configure-ketlaer.py --confirm-license -q $KETLAER/bin/qmake -b $KETLAER/bin -d $KETLAER/python/lib/python2.6/site-packages
+make
+make install
