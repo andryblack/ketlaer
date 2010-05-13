@@ -44,7 +44,7 @@ to $KETLAER/lib with cp -d !!
 Runtime enviroment (on realtek):
 ================================
 
-Make a symbolic /usr/local/etc/ketlaer to point to a r/w mounted usb-drive 
+Make a symbolic link /usr/local/etc/ketlaer to point to a r/w mounted usb-drive 
 with the ketlaer build or a samba mount of the builded /usr/local/etc/ketlaer.  
 
 Set the following environment:
@@ -70,7 +70,7 @@ vnc	  (for vnc output)
 rtd	  (for tv/hdmi output)
 vnc:rtd	  (for both. colors will be wrong on vnc.)
 
-Starting a PqQt4 program:
+Starting a PyQt4 program:
 =========================
 
 Run stopall.
@@ -83,4 +83,4 @@ BUGS:
 =====
 
 - Qt will crash on shutdown of program. Seems to be related to toolchain.
-- Lots of others.
+- Lots of others still to discover :-)
