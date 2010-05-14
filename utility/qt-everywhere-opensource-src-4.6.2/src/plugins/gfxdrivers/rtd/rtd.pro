@@ -37,7 +37,7 @@ LIBS += -Wl,--end-group
 
 QTDIR_build:DESTDIR = $$QT_BUILD_TREE/plugins/gfxdrivers
 
-HEADERS = qkbdrtd_qws.h qmousertd_qws.h qrtdhdr.h qscreenrtd_qws.h
+HEADERS = qkbdrtd_qws.h qmousertd_qws.h qrtdhdr.h qscreenrtd_qws.h 
 SOURCES = main.cpp qkbdrtd_qws.cpp qmousertd_qws.cpp qscreenrtd_qws.cpp
 
 target.path += $$[QT_INSTALL_PLUGINS]/gfxdrivers
