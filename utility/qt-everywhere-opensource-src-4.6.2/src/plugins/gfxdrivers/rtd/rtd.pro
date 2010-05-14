@@ -30,7 +30,7 @@ LIBS += -lsmw -lVDecoderMPEG2 -lFilterCommon -lstream
 LIBS += -lAEncoderSystem-rpc -lVEncoderSystem-rpc
 LIBS += -lAudioInFilter-rpc -lVideoInSystem-rpc
 LIBS += $(KETLAER_DIR)/libketlaer/libketlaer.a
-LIBS += $(KETLAER_DIR)/Utility/config/lib/.libs/libconfig.a
+LIBS += $(KETLAER_DIR)/utility/config/lib/.libs/libconfig.a
 
 LIBS += -Wl,--end-group
 
