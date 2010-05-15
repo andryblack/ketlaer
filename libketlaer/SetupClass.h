@@ -276,4 +276,7 @@ public:
   virtual void SetSleepTimer(ENUM_SLEEP_TIMER);
   virtual bool GetDivXCode(char **code);
   virtual void SetDivXCode(char*);
+  /*
+   * HERE YOU CAN ADD NEW FUNCTIONS
+   */
 };
