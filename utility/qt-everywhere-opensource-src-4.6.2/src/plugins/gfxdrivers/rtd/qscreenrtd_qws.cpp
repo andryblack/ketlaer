@@ -65,6 +65,9 @@
 #include <qkbddriverfactory_qws.h>
 #include <qwsdisplay_qws.h>
 #include <qdebug.h>
+#include <qthread.h>
+#include <qlocalserver.h>
+#include <qlocalsocket.h>
 
 #include <lib_RPC.h>
 #include <lib_OSAL.h>
@@ -94,7 +97,7 @@ void video_firmware_configure();
 void sendDebugMemoryAndAllocateDumpMemory(long videoDumpSize, long audioDumpSize);
 
 static VoutUtil     *g_vo = NULL;
-static VO_RECTANGLE  rect;
+static VO_RECTANGLE rect;
 
 static ConfigFile *g_pConfig = NULL;
 
@@ -258,9 +261,8 @@ static void Init()
 
 static void UnInit()
 {
-  delete g_vo;
-
   DeInitHDMI();
+  delete g_vo;
   firmware_uninit();
   board_uninit();
   DG_UnInit();
@@ -272,30 +274,136 @@ static void UnInit()
 
 QT_BEGIN_NAMESPACE
 
-class QrtdScreenPrivate
+/***********************
+ * Playback Controller *
+ ***********************/
+
+#define CMD_BUFFER (PATH_MAX+128)
+
+class QrtdPlaybackServer : public QThread 
 {
+public:
+  void run();
+private:
+  void handleClient();
+  void handleRequest(char *arg, char *res);
+
+  QLocalServer  *server;
+  VideoPlayback *playback;
+};
+
+void QrtdPlaybackServer::handleRequest(char *arg, char *res)
+{
+  //Version
+  if (strncmp(arg, "Version ", 8) == 0) {
+    int version = -1;
+    sscanf(arg, "%*s %d", &version);
+    printf("client version %d\n", version);
+    sprintf(res, "OK\n");
+  }
+  //GetReservedColorKey
+  else if (strcmp(arg, "GetReservedColorKey") == 0) {
+    sprintf(res, "OK:%d\n", RESERVED_COLOR_KEY);
+  }
+  //LoadMedia
+  else if (strncmp(arg, "LoadMedia ", 10) == 0) {
+    int ret = playback->LoadMedia(arg+10);
+    playback->m_pFManager->SetRate(256);
+    playback->m_pAudioOut->SetFocus();
+    playback->m_pAudioOut->SetVolume(0);
+    playback->SetVideoOut(VO_VIDEO_PLANE_V1, 0, 0);
+    playback->ScanFileStart(false);
+    sprintf(res, "OK:%d\n", ret);
+  }
+  //Play
+  else if (strcmp(arg, "Play") == 0) {
+    int ret = playback->m_pFManager->Run();
+    sprintf(res, "OK:%d\n", ret);
+  }
+  //Pause
+  else if (strcmp(arg, "Pause") == 0) {
+    int ret = playback->m_pFManager->Pause();
+    sprintf(res, "OK:%d\n", ret);
+  }
+  //Stop
+  else if (strcmp(arg, "Stop") == 0) {
+    int ret = playback->m_pFManager->Stop();
+    sprintf(res, "OK:%d\n", ret);
+  }
+  //BAD
+  else {
+    sprintf(res, "BAD:%s\n", arg);
+  }
+}
+
+void QrtdPlaybackServer::handleClient()
+{
+  QLocalSocket *client = server->nextPendingConnection();
+  if (client) {
+    char arg[CMD_BUFFER];
+    char res[CMD_BUFFER];
+
+    client->waitForReadyRead();
+    client->readLine(arg, sizeof(arg));
+    int len = strlen(arg);
+    if (len) arg[len-1] = 0;
+    handleRequest(arg, res);
+    client->write(res, strlen(res));
+    client->flush();
+    delete client;
+  }
+}
+
+void QrtdPlaybackServer::run()
+{
+  server = new QLocalServer();
+  unlink("/tmp/.playback");
+  server->listen(".playback");
+  playback = new VideoPlayback(MEDIATYPE_None);
+  for(;;) {
+    server->waitForNewConnection(-1);
+    handleClient();
+  }
+}
+
+/****************
+ * Private Data *
+ ****************/
+
+class QrtdScreenPrivate : public QObject
+{
+  Q_OBJECT
+
 public:
   QrtdScreenPrivate();
   ~QrtdScreenPrivate();
 
-  QWSMouseHandler *mouse;
+  void ScreenConnect();
+  void ScreenDisconnect();
+
+private Q_SLOTS:
+  void handleRequest();
+
+public:
+  QWSMouseHandler    *mouse;
 #ifndef QT_NO_QWS_KEYBOARD
   QWSKeyboardHandler *keyboard;
 #endif
-
-  HANDLE hDisplay;
-  HANDLE hSurface;
+  void               *hDisplay;
+  void               *hSurface;
+  QrtdPlaybackServer *server;
 };
 
 QrtdScreenPrivate::QrtdScreenPrivate()
-    : mouse(0)
-
+  : QObject()
 {
+  mouse     = 0;
 #ifndef QT_NO_QWS_KEYBOARD
-  keyboard = 0;
+  keyboard  = 0;
 #endif
-  hDisplay = 0;
-  hSurface = 0;
+  hDisplay  = 0;
+  hSurface  = 0;
+  server    = 0;
 }
 
 QrtdScreenPrivate::~QrtdScreenPrivate()
@@ -306,10 +414,62 @@ QrtdScreenPrivate::~QrtdScreenPrivate()
 #endif
 }
 
+void QrtdScreenPrivate::ScreenConnect()
+{
+  SURFACEDESC desc;
+
+  memset(&desc, 0, sizeof(desc));
+  desc.dwSize      = sizeof(SURFACEDESC);
+  desc.dwWidth     = rect.width;
+  desc.dwHeight    = rect.height;
+  desc.dwColorKey  = RESERVED_COLOR_KEY;
+  desc.pixelFormat = Format_32;
+  desc.storageMode = 1;
+
+  hSurface = DG_CreateSurface(&desc);
+
+  DG_DrawRectangle(hSurface,
+		   0,
+		   0,
+		   rect.width,
+		   rect.height,
+		   RESERVED_COLOR_KEY,
+		   NULL);
+
+  hDisplay = DG_GetDisplayHandle();
+
+  DG_DisplayArea (hDisplay,
+		  0,
+		  0,
+		  rect.width,
+		  rect.height,
+		  hSurface,
+		  0,
+		  0,
+		  Alpha_Constant,
+		  0xff,
+		  ColorKey_Src,
+		  RESERVED_COLOR_KEY);
+  server = new QrtdPlaybackServer();
+  server->start();
+}
+
+void QrtdScreenPrivate::ScreenDisconnect()
+{
+  server->terminate();
+  server->wait();
+  delete server;
+  DG_ReleaseDisplayHandle(hDisplay);
+  DG_CloseSurface(hSurface);
+}
+
+/*************************
+ * Screen Implementation *
+ *************************/
+
 QrtdScreen::QrtdScreen(int display_id)
   : QScreen(display_id, BGRPixel), d_ptr(new QrtdScreenPrivate)
 {
-  printf("QrtdScreen::QrtdScreen()\n");
   data = 0;
 }
 
@@ -318,55 +478,10 @@ QrtdScreen::~QrtdScreen()
   delete d_ptr;
 }
 
-static HANDLE GetSurfaceHandle (int width, int height, PIXEL_FORMAT pixFormat)
-{
-  SURFACEDESC desc;
-  HANDLE ret;
-
-  // Create surface for bitmap memory which will be select to the psd->addr
-  memset(&desc, 0, sizeof(desc));
-  desc.dwSize = sizeof(SURFACEDESC);
-  desc.dwHeight = height;
-  desc.dwWidth =  width;
-  desc.dwColorKey = RESERVED_COLOR_KEY;
-  desc.pixelFormat = pixFormat;
-  desc.storageMode = 1;
-
-  ret = DG_CreateSurface(&desc);
-  return ret;
-}
-
 bool QrtdScreen::connect(const QString &displaySpec)
 {
   Init();
-
-  d_ptr->hSurface = GetSurfaceHandle(rect.width,
-				     rect.height,
-				     Format_32);
-
-  DG_DrawRectangle(d_ptr->hSurface,
-		   0,
-		   0,
-		   rect.width,
-		   rect.height,
-		   RESERVED_COLOR_KEY,
-		   NULL);
-
-  d_ptr->hDisplay = DG_GetDisplayHandle();
-
-  DG_DisplayArea (d_ptr->hDisplay,
-		  0,
-		  0,
-		  rect.width,
-		  rect.height,
-		  d_ptr->hSurface,
-		  0,
-		  0,
-		  Alpha_Constant,
-		  0xff,
-		  ColorKey_Src,
-		  RESERVED_COLOR_KEY);
-
+  d_ptr->ScreenConnect();
   data = (uchar*)DG_GetSurfaceRowDataPointer(d_ptr->hSurface);
 
   dw = w = rect.width;
@@ -435,8 +550,7 @@ bool QrtdScreen::connect(const QString &displaySpec)
 void QrtdScreen::disconnect()
 {
   data = 0;
-  DG_ReleaseDisplayHandle(d_ptr->hDisplay);
-  DG_CloseSurface(d_ptr->hSurface);
+  d_ptr->ScreenDisconnect();
   UnInit();
 }
 
