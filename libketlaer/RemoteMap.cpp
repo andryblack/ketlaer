@@ -31,14 +31,14 @@ IrMapFile::IrMapFile(const char* aRemoteType)
 {
    struct stat st;
    char *   str;
-   str=getenv("KETLAER_DIR");
+   str=getenv("KETLAER");
    if (str==NULL) strcpy(KetlaerFolder, _QTDefaultBaseFolder); else strcpy(KetlaerFolder, str);
    if(stat(KetlaerFolder,&st) != 0)
    {
         strcpy(KetlaerFolder, _QTDefaultBaseFolder);
         if(stat(KetlaerFolder,&st) != 0)
         {
-            //hum KETLAER_DIR is false or not set and the actual rep is not the standard one
+            //hum KETLAER is false or not set and the actual rep is not the standard one
             getcwd(KetlaerFolder,sizeof(KetlaerFolder));
         };
    }; 
