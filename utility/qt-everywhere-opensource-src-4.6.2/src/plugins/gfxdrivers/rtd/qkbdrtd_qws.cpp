@@ -72,7 +72,7 @@ QrtdKeyboardHandler::QrtdKeyboardHandler()
     g_pIrMap = new IrMapFile();
   m_fd = open("/dev/venus_irrp", O_RDWR);
   ioctl(m_fd, VENUS_IR_IOC_FLUSH_IRRP, NULL);
-  ioctl(m_fd, VENUS_IR_IOC_SET_PROTOCOL, IR_PROTOCOL_NEC);
+  ioctl(m_fd, VENUS_IR_IOC_SET_PROTOCOL, g_pIrMap->GetProtocol());
   ioctl(m_fd, VENUS_IR_IOC_SET_DEBOUNCE, 100); 
   QSocketNotifier *notifier;
   notifier = new QSocketNotifier(m_fd, QSocketNotifier::Read, this);

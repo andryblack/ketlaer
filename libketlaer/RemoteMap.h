@@ -20,49 +20,53 @@
 #ifndef REMOTEMAPFILE_H
 #define REMOTEMAPFILE_H
 
-#define _QTFileName "remotes/QTEvent.qtm"
+#define _QTFileName          "remotes/QTEvent.qtm"
 #define _QTDefaultBaseFolder "/usr/local/etc/ketlaer"
+
 class IrMapFile
 {
-   public:
-           IrMapFile(const char*aRemoteType="EKAH110");
-           ~IrMapFile();
-           
-           bool            IRFileLoaded, QTFileLoaded;
-           
-           
-           int    GetQtKey(int IrCode);
-           void   PrintTable();
-   private:
-   
-           typedef struct 
-           {
-              int          code;
-              char         event[20];
-           }sIR_Table;
-           sIR_Table       *pIR_Table;
-           sIR_Table       **IR_Table;
-           int             IR_Table_Elem;
-           
-           typedef struct 
-           {
-              char        key[20];
-              int         value;
-           }sQT_Table;
-           sQT_Table       **QT_Table;
-           int             QT_Table_Elem;
-           
-           char            RemoteType[21];
-           int             IR_Protocol;
-           char            FileName[255];
-           char            KetlaerFolder[1024];
+public:
 
-           int    GetQtValueKey(char *Key);
-           bool   ReadIRFile();
-           bool   CreateIRDefaultFile();
-           bool   ReadQTFile();
-           bool   CreateQTDefaultFile();
-           bool   LoadFiles();
+  IrMapFile(const char *aRemoteType="EKAH110");
+  ~IrMapFile();
+           
+  bool   IRFileLoaded;
+  bool   QTFileLoaded;
+           
+  int    GetQtKey(int IrCode);
+  int    GetProtocol();
+  void   PrintTable();
+
+private:
+   
+  typedef struct 
+  {
+    int          code;
+    char         event[20];
+  }sIR_Table;
+  sIR_Table  *pIR_Table;
+  sIR_Table **IR_Table;
+  int         IR_Table_Elem;
+           
+  typedef struct 
+  {
+    char        key[20];
+    int         value;
+  }sQT_Table;
+  sQT_Table **QT_Table;
+  int         QT_Table_Elem;
+           
+  char        RemoteType[21];
+  int         IR_Protocol;
+  char        FileName[255];
+  char        KetlaerFolder[1024];
+
+  int    GetQtValueKey(char *Key);
+  bool   ReadIRFile();
+  bool   CreateIRDefaultFile();
+  bool   ReadQTFile();
+  bool   CreateQTDefaultFile();
+  bool   LoadFiles();
            
 };
 #endif //REMOTEMAPFILE_H

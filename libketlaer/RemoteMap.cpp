@@ -187,6 +187,7 @@ int IrMapFile::GetQtKey(int IrCode)
    }
    return -1;
 };
+
 int IrMapFile::GetQtValueKey(char *Key)
 {
    int      i;
@@ -199,6 +200,11 @@ int IrMapFile::GetQtValueKey(char *Key)
    }
    return -1;
 };
+
+int IrMapFile::GetProtocol()
+{
+  return IR_Protocol;
+}
 
 bool IrMapFile::CreateIRDefaultFile()
 {
@@ -344,9 +350,13 @@ bool IrMapFile::CreateQTDefaultFile()
         fprintf(f,"  { key = \"key_Right\" ; value = \"01000014\"; },\n");
         fprintf(f,"  { key = \"key_Enter\" ; value = \"01000005\"; },\n");
         fprintf(f,"  { key = \"key_Home\" ; value = \"01000010\"; },\n");
+        fprintf(f,"  { key = \"key_PageUp\" ; value = \"01000016\"; },\n");
+        fprintf(f,"  { key = \"key_PageDown\" ; value = \"01000017\"; },\n");
+        fprintf(f,"  { key = \"key_Backspace\" ; value = \"01000002\"; },\n");
         fprintf(f,"  { key = \"key_PowerOff\" ; value = \"010000b7\"; },\n");
         fprintf(f,"  { key = \"key_MediaPlay\" ; value = \"01000080\"; },\n");
-        fprintf(f,"  { key = \"key_MediaStop\" ; value = \"01000081\"; },\n");
+        fprintf(f,"  { key = \"key_MediaNext\" ; value = \"01000083\"; },\n");
+        fprintf(f,"  { key = \"key_MediaStop\" ; value = \"01000082\"; },\n");
         fprintf(f,"  { key = \"key_VolumeUp\" ; value = \"01000072\"; },\n");
         fprintf(f,"  { key = \"key_VolumeDown\" ; value = \"01000070\"; },\n");
         fprintf(f,"  { key = \"key_VolumeMute\" ; value = \"01000071\"; }\n");
