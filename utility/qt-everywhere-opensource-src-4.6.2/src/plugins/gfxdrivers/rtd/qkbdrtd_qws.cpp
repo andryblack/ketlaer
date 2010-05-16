@@ -86,12 +86,12 @@ QrtdKeyboardHandler::~QrtdKeyboardHandler()
 
 void QrtdKeyboardHandler::readKey()
 {
-  int irkey, keycode, unicode;
+  int irkey = 0, keycode, unicode;
 
   read(m_fd, &irkey, sizeof(irkey));
   if (irkey != 0) {
     keycode = g_pIrMap->GetQtKey(irkey);
-    printf("irkey=%08lx qtkey=%08lx\n", irkey, keycode);
+    printf("irkey=%08x qtkey=%08x\n", irkey, keycode);
     if (keycode >= Qt::Key_A && keycode <= Qt::Key_Z)
       unicode = keycode - Qt::Key_A + 'a';
     else if (keycode >= Qt::Key_0 && keycode <= Qt::Key_9)

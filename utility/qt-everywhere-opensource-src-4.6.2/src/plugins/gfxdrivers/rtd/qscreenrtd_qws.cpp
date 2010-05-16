@@ -97,9 +97,8 @@ void video_firmware_configure();
 void sendDebugMemoryAndAllocateDumpMemory(long videoDumpSize, long audioDumpSize);
 
 static VoutUtil     *g_vo = NULL;
-static VO_RECTANGLE rect;
-
-static ConfigFile *g_pConfig = NULL;
+static VO_RECTANGLE  rect;
+static ConfigFile   *g_pConfig = NULL;
 
 static void LoadTvConfig()
 {
@@ -278,6 +277,35 @@ QT_BEGIN_NAMESPACE
  * Playback Controller *
  ***********************/
 
+static char *evcodes[] = {
+  "EV_FILE_EOF", "FE_RECORD_STOP", "FE_RECORD_VOBU", 
+  "FE_RECORD_CELL", "FE_RECORD_VOB", "FE_RECORD_FULL", "EV_DISK_FULL", 
+  "FE_RECORD_NOSIGNAL", "FE_RECORD_SIGNAL", "FE_RECORD_COPYFREEDATA", 
+  "FE_RECORD_COPYPROCTECTEDDATA", "FE_RECORD_NTSC", "FE_RECORD_PAL", 
+  "FE_RECORD_VIDEO_FORMAT_CHANGE", "FE_RECORD_NO_OUTPUT_SPACE", 
+  "FE_RECORD_OUTPUT_SPACE_AVAILABLE", "FE_RECORD_DISC_ERROR", 
+  "FE_Playback_ResetSpeed", "FE_Playback_VideoEOS", "FE_Playback_AudioEOS", 
+  "FE_Playback_IndexGenEOS", "FE_Playback_Completed", 
+  "FE_Playback_DomainChange", "FE_Playback_TitleChange", 
+  "FE_Playback_ChapterChange", "FE_Playback_TimeChange", 
+  "FE_Playback_RateChange", "FE_Playback_CommandUpdate", 
+  "FE_Playback_RequestTmpPml", "FE_Playback_SetAutoStop", 
+  "FE_Playback_JPEGDecEOS", "FE_Playback_ResetRepeatMode", 
+  "FE_Playback_FatalError", "FE_Playback_ReadError", 
+  "FE_Playback_BitstreamError", "FE_Playback_StreamingInfoUpdate", 
+  "FE_Playback_BufferingStart", "FE_Playback_BufferingRestart", 
+  "FE_Playback_BufferingEnd", "FE_Playback_SetAudioPreference", 
+  "FE_Playback_NoSignal", "FE_Playback_DRM_NOT_AUTH_USER", 
+  "FE_Playback_DRM_RENTAL_EXPIRED", "FE_Playback_DRM_REQUEST_RENTAL", 
+  "FE_Playback_AudioFatalError", "FE_Playback_BackwardToBeginning", 
+  "FE_Playback_UnsupportedFormat", "FE_Playback_InvalidFile", 
+  "FE_Playback_SpicFrame", "FE_Playback_ContentEncrypt", 
+  "FE_Timeshift_PlaybackCatchRecord", "FE_Timeshift_RecordCatchPlayback", 
+  "FE_Timeshift_LivePauseWrapAround", "FE_TRANSCODE_STOP", 
+  "FE_TRANSCODE_VE_STOP", "FE_TRANSCODE_AE_STOP"
+};
+
+
 #define CMD_BUFFER (PATH_MAX+128)
 
 class QrtdPlaybackServer : public QThread 
@@ -292,8 +320,17 @@ private:
   VideoPlayback *playback;
 };
 
+static int fixret(int r)
+{
+  if (r == S_OK) r = 0;
+  return r;
+}
+
 void QrtdPlaybackServer::handleRequest(char *arg, char *res)
 {
+  int ret = 0;
+  CPlaybackFlowManager *pFManager = playback->m_pFManager;
+
   //Version
   if (strncmp(arg, "Version ", 8) == 0) {
     int version = -1;
@@ -307,28 +344,76 @@ void QrtdPlaybackServer::handleRequest(char *arg, char *res)
   }
   //LoadMedia
   else if (strncmp(arg, "LoadMedia ", 10) == 0) {
-    int ret = playback->LoadMedia(arg+10);
+    ret = playback->LoadMedia(arg+10);
     playback->m_pFManager->SetRate(256);
     playback->m_pAudioOut->SetFocus();
     playback->m_pAudioOut->SetVolume(0);
     playback->SetVideoOut(VO_VIDEO_PLANE_V1, 0, 0);
     playback->ScanFileStart(false);
-    sprintf(res, "OK:%d\n", ret);
+    sprintf(res, "OK:%d\n", fixret(ret));
   }
   //Play
   else if (strcmp(arg, "Play") == 0) {
-    int ret = playback->m_pFManager->Run();
-    sprintf(res, "OK:%d\n", ret);
+    if (pFManager)
+      ret = pFManager->Run();
+    sprintf(res, "OK:%d\n", fixret(ret));
   }
   //Pause
   else if (strcmp(arg, "Pause") == 0) {
-    int ret = playback->m_pFManager->Pause();
-    sprintf(res, "OK:%d\n", ret);
+    if (pFManager)
+      ret = pFManager->Pause();
+    sprintf(res, "OK:%d\n", fixret(ret));
   }
   //Stop
   else if (strcmp(arg, "Stop") == 0) {
-    int ret = playback->m_pFManager->Stop();
-    sprintf(res, "OK:%d\n", ret);
+    if (pFManager)
+      ret = pFManager->Stop();
+    sprintf(res, "OK:%d\n", fixret(ret));
+  }
+  //GetEvent
+  else if (strncmp(arg, "GetEvent ", 9) == 0) {
+    int     timeoutms;
+    EVId    evid = -1;
+    EVCode  evcode = (EVCode)-1;
+    long    paramsize = 0;
+    long   *pparams = 0;;
+    long    evsubcode = 0;
+    char   *evname = "TIMEDOUT";
+
+    sscanf(arg, "%*s %d", &timeoutms);
+    if (pFManager) {
+      ret = pFManager->GetEvent(&evid, 
+				&evcode, 
+				&paramsize, 
+				&pparams,
+				timeoutms);
+      if (ret == S_OK) {
+	if (pparams) 
+	  evsubcode = *pparams;
+	if (evcode >= 0 && evcode <= FE_TRANSCODE_AE_STOP) 
+	  evname = evcodes[evcode];
+      }
+    }
+    else {
+      ret = -1;
+      usleep(timeoutms * 1000);
+    }
+    sprintf(res, 
+	    "OK:%d:%ld:%d:%s:%ld:%ld", 
+	    fixret(ret), 
+	    evid,
+	    evcode, 
+	    evname, 
+	    evsubcode,
+	    (long)pparams);
+  }
+  //FreeEvent
+  else if (strncmp(arg, "FreeEvent ", 10) == 0) {
+    EVId evid;
+    sscanf(arg, "%*s %ld", &evid);
+    if ((evid != -1) && pFManager)
+      pFManager->FreeEventParams(evid);
+    sprintf(res, "OK:0\n");
   }
   //BAD
   else {
@@ -370,19 +455,14 @@ void QrtdPlaybackServer::run()
  * Private Data *
  ****************/
 
-class QrtdScreenPrivate : public QObject
+class QrtdScreenPrivate
 {
-  Q_OBJECT
-
 public:
   QrtdScreenPrivate();
   ~QrtdScreenPrivate();
 
   void ScreenConnect();
   void ScreenDisconnect();
-
-private Q_SLOTS:
-  void handleRequest();
 
 public:
   QWSMouseHandler    *mouse;
@@ -395,7 +475,6 @@ public:
 };
 
 QrtdScreenPrivate::QrtdScreenPrivate()
-  : QObject()
 {
   mouse     = 0;
 #ifndef QT_NO_QWS_KEYBOARD
