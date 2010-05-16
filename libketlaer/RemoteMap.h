@@ -17,15 +17,14 @@
 **
 **
 ****************************************************************************/
-#ifndef REMOTEMAPFILE_H
-#define REMOTEMAPFILE_H
+#ifndef _h_libketlaer_RemoteMap_h
+#define _h_libketlaer_RemoteMap
 
-#define _QTFileName          "remotes/QTEvent.qtm"
-#define _QTDefaultBaseFolder "/usr/local/etc/ketlaer"
+#define DEFAULT_DIR  "/usr/local/etc/ketlaer"
 
 class IrMapFile
 {
-public:
+ public:
 
   IrMapFile(const char *aRemoteType="EKAH110");
   ~IrMapFile();
@@ -37,7 +36,7 @@ public:
   int    GetProtocol();
   void   PrintTable();
 
-private:
+ private:
    
   typedef struct 
   {
@@ -56,17 +55,14 @@ private:
   sQT_Table **QT_Table;
   int         QT_Table_Elem;
            
-  char        RemoteType[21];
-  int         IR_Protocol;
-  char        FileName[255];
-  char        KetlaerFolder[1024];
+  char RemoteType[21];
+  int  IR_Protocol;
 
   int    GetQtValueKey(char *Key);
-  bool   ReadIRFile();
-  bool   CreateIRDefaultFile();
-  bool   ReadQTFile();
-  bool   CreateQTDefaultFile();
-  bool   LoadFiles();
-           
+  bool   LoadFiles(char *dir);
+  bool   ReadIRFile(char *name);
+  bool   CreateIRDefaultFile(char *name);
+  bool   ReadQTFile(char *name);
+  bool   CreateQTDefaultFile(char *name);           
 };
 #endif //REMOTEMAPFILE_H

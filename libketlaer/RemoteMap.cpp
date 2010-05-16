@@ -17,11 +17,13 @@
 **
 **
 ****************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
 #include <unistd.h>
 #include <assert.h>
+#include <sys/param.h>
 #include <sys/stat.h>
 #include <ctype.h>
 #include <libconfig.h>
@@ -29,159 +31,117 @@
 
 IrMapFile::IrMapFile(const char* aRemoteType)
 {
-   struct stat st;
-   char *   str;
-   str=getenv("KETLAER");
-   if (str==NULL) strcpy(KetlaerFolder, _QTDefaultBaseFolder); else strcpy(KetlaerFolder, str);
-   if(stat(KetlaerFolder,&st) != 0)
-   {
-        strcpy(KetlaerFolder, _QTDefaultBaseFolder);
-        if(stat(KetlaerFolder,&st) != 0)
-        {
-            //hum KETLAER is false or not set and the actual rep is not the standard one
-            getcwd(KetlaerFolder,sizeof(KetlaerFolder));
-        };
-   }; 
-   strcat(KetlaerFolder,"/etc");
-   if(stat(KetlaerFolder,&st) != 0)
-   {
-        if (mkdir(KetlaerFolder,0777)!=0) fprintf(stderr,"[RemoteMap]Error while creating %s\n",KetlaerFolder) ;
-   };
-   strncpy(RemoteType,aRemoteType,20);
-   strcpy(FileName,KetlaerFolder);
-   strcat(FileName,"/remotes/");
-   strcat(FileName,RemoteType);
-   strcat(FileName,".map");
-   printf("[RemoteMap]Remote file is '%s'\n",FileName);
-   IR_Protocol=0;
-   IR_Table_Elem=0;
-   QT_Table_Elem=0;
-   IRFileLoaded=false;
-   QTFileLoaded=false;
-   LoadFiles();
+  struct stat st;
+  char *str;
+  char dir[PATH_MAX];
+
+  str=getenv("KETLAER");
+  snprintf(dir, sizeof(dir), "%s", str ? str : DEFAULT_DIR);
+  if(stat(dir,&st)) {
+    //hum KETLAER is false or not set and the actual rep is not the standard one
+    getcwd(dir,sizeof(dir));
+  }; 
+  strcat(dir,"/etc/remotes");
+  if(stat(dir,&st)) {
+    if (mkdir(dir,0777) != 0) 
+      perror(dir);
+  };
+  snprintf(RemoteType, sizeof(RemoteType), aRemoteType);
+  IR_Protocol=0;
+  IR_Table_Elem=0;
+  QT_Table_Elem=0;
+  IRFileLoaded=false;
+  QTFileLoaded=false;
+  LoadFiles(dir);
 };
 
 IrMapFile::~IrMapFile()
 {
-   int         i;
+  int i;
    
-   for (i=0;i<IR_Table_Elem;i++)
-   {
-      if (IR_Table[i]!=NULL) free(IR_Table[i]);
-   }
-   for (i=0;i<QT_Table_Elem;i++)
-   {
-      if (QT_Table[i]!=NULL) free(QT_Table[i]);
-   }
-   if (IR_Table!=NULL) free(IR_Table);
-   if (QT_Table!=NULL) free(QT_Table);
-   IR_Table_Elem=0;
-   QT_Table_Elem=0;
+  for (i=0;i<IR_Table_Elem;i++) {
+    if (IR_Table[i]!=NULL) free(IR_Table[i]);
+  }
+  for (i=0;i<QT_Table_Elem;i++) {
+    if (QT_Table[i]!=NULL) free(QT_Table[i]);
+  }
+  if (IR_Table!=NULL) free(IR_Table);
+  if (QT_Table!=NULL) free(QT_Table);
+  IR_Table_Elem=0;
+  QT_Table_Elem=0;
 };
 
 void IrMapFile::PrintTable()
 {
-   printf("=============================================================\n");
-   printf("==                    Remote map Table                     ==\n");
-   printf("=============================================================\n");
-   printf("==  %-15s  %-15s %15s       ==\n","Remote code", "Qt name", "Qt value");
-   printf("=============================================================\n");
-   int i;
-   for (i=0;i<IR_Table_Elem;i++)
-   {
-      printf("==  %-15X  %-15s %15X       ==\n", IR_Table[i]->code, IR_Table[i]->event, GetQtValueKey(IR_Table[i]->event));
-   };
-   printf("=============================================================\n");
+  printf("=============================================================\n");
+  printf("==                    Remote map Table                     ==\n");
+  printf("=============================================================\n");
+  printf("==  %-15s  %-15s %15s       ==\n","Remote code", "Qt name", "Qt value");
+  printf("=============================================================\n");
+  int i;
+  for (i=0;i<IR_Table_Elem;i++) {
+    printf("==  %-15X  %-15s %15X       ==\n", IR_Table[i]->code, IR_Table[i]->event, GetQtValueKey(IR_Table[i]->event));
+  };
+  printf("=============================================================\n");
 }
-bool IrMapFile::LoadFiles()
+
+bool IrMapFile::LoadFiles(char *dir)
 {
-   IRFileLoaded=false;
-   QTFileLoaded=false;
+  char name[PATH_MAX];
+  
+  IRFileLoaded=false;
+  QTFileLoaded=false;
    
-   struct stat buf;
+  struct stat buf;
+
+  //remote file
+
+  snprintf(name, sizeof(name), "%s/%s.map", dir, RemoteType);
    
-   if (stat(FileName,&buf))
-   {
-      if (strcmp(RemoteType,"EKAH110")==0)
-      {
-         if (CreateIRDefaultFile())
-         {
-            if (ReadIRFile())
-            {
-               IRFileLoaded=true;
-            }
-            else
-            {
-               fprintf(stderr,"[RemoteMap]Error while reading IR default setting file !\n");
-               return false;
-            }
-         }
-         else
-         {  
-            fprintf(stderr,"[RemoteMap]Error while creating default IR setting file !\n");
-            return false;
-         };
+  if (stat(name,&buf)) {
+    if (strcmp(RemoteType,"EKAH110")==0) {
+      if (!CreateIRDefaultFile(name)) {
+	perror(name);
+	fprintf(stderr, "[RemoteMap]Can not create IR default setting file!\n");
       }
-      else
-      {
-         fprintf(stderr,"[RemoteMap]Error file '%s' not found!\n",FileName);
-         return false;
-      }     
-   }
-   else
-   {
-      if (ReadIRFile())
-      {
-         IRFileLoaded=true;
-      }
-      else
-      {
-          fprintf(stderr,"[RemoteMap]Error while reading IR file '%s'!\n",FileName);
-          return false;
-      }
-   }
-   if (stat(_QTFileName,&buf))
-   {
-      if (CreateQTDefaultFile())
-      {
-         if (ReadQTFile())
-         {
-            QTFileLoaded=true;
-         }
-         else
-         {
-            fprintf(stderr,"[RemoteMap]Error while reading '%s' default setting file !\n",_QTFileName);
-            return false;
-         }
-       }
-       else
-       {  
-          fprintf(stderr,"[RemoteMap]Error while creating '%s' default setting file !\n",_QTFileName);
-          return false;
-       };     
-   }
-   else
-   {
-      if (ReadQTFile())
-      {
-         QTFileLoaded=true;
-      }
-      else
-      {
-          fprintf(stderr,"[RemoteMap]Error while reading '%s' default setting file  !\n",_QTFileName);
-          return false;
-      }
-   }
-   return true;
+    }
+  }
+
+  if (ReadIRFile(name)) {
+    IRFileLoaded=true;
+  }
+  else {
+    fprintf(stderr,"[RemoteMap]Error while reading IR default setting file !\n");
+    return false;
+  }
+
+  //event file
+
+  snprintf(name, sizeof(name), "%s/QTEvent.qtm",dir);
+
+  if (stat(name,&buf)) {
+    if (CreateQTDefaultFile(name)) {
+      perror(name);
+      fprintf(stderr,"[RemoteMap]Error while creating '%s' default setting file !\n",name);
+    }
+  }
+  if (ReadQTFile(name)) {
+    QTFileLoaded=true;
+  }
+  else {
+    fprintf(stderr,"[RemoteMap]Error while reading '%s' default setting file !\n",name);
+    return false;
+  }
+  return true;
 };
 
 int IrMapFile::GetQtKey(int IrCode)
 {
-   int      i;
-   for (i=0;i<IR_Table_Elem;i++)
+   int i;
+
+   for (i=0; i<IR_Table_Elem; i++)
    {
-      if (IR_Table[i]->code==IrCode)
-      {
+      if (IR_Table[i]->code==IrCode) {
          return GetQtValueKey(IR_Table[i]->event);
       }
    }
@@ -190,15 +150,15 @@ int IrMapFile::GetQtKey(int IrCode)
 
 int IrMapFile::GetQtValueKey(char *Key)
 {
-   int      i;
-   for (i=0;i<QT_Table_Elem;i++)
-   {
-      if (strcmp(QT_Table[i]->key,Key)==0)
-      {
-         return QT_Table[i]->value;
+  int i;
+
+  for (i=0; i<QT_Table_Elem; i++)
+    {
+      if (strcmp(QT_Table[i]->key,Key)==0) {
+	return QT_Table[i]->value;
       }
-   }
-   return -1;
+    }
+  return -1;
 };
 
 int IrMapFile::GetProtocol()
@@ -206,173 +166,160 @@ int IrMapFile::GetProtocol()
   return IR_Protocol;
 }
 
-bool IrMapFile::CreateIRDefaultFile()
+bool IrMapFile::CreateIRDefaultFile(char *name)
 {
-    FILE * f;
-    struct stat st;
-    char    dir[1024];
-    strcpy(dir,KetlaerFolder);
-    strcat(dir,"/remotes");
-    if(stat(dir,&st) != 0)
-    {
-        if (mkdir(dir,0777)!=0) fprintf(stderr,"[RemoteMap]Error while creating '%s'\n",dir) ;
-    };
-    f = fopen(FileName, "wb");
-    if (f != NULL)
-    {
+  FILE *f;
+
+  f = fopen(name, "w");
+  if (f != NULL) {
        
-/////////////////////////////////////////////////
-//           Default file settings             //
-/////////////////////////////////////////////////
-// Must be modified if structure change! 
+    /////////////////////////////////////////////////
+    //           Default file settings             //
+    /////////////////////////////////////////////////
+    // Must be modified if structure change! 
         
 
-        fprintf(f,"//Remote Map File\n");
-        fprintf(f,"\n");
-        fprintf(f,"name = \"EKAH110 IR_CODE\";\n");
-        fprintf(f,"\n");
-        fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
-        fprintf(f,"//  Remote protocol                                                           //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//  0 = NEC                                                                   //\n");
-        fprintf(f,"//  1 = RC5                                                                   //\n");
-        fprintf(f,"//  2 = SHARP                                                                 //\n");
-        fprintf(f,"//  3 = SONY                                                                  //\n");
-        fprintf(f,"//  4 = C03                                                                   //\n");
-        fprintf(f,"//  5 = RC6                                                                   //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
-        fprintf(f,"\n");
-        fprintf(f,"protocol = 0;\n");
-        fprintf(f,"\n");
-        fprintf(f,"\n");
-        fprintf(f,"\n");
-        fprintf(f,"\n");
-        fprintf(f,"\n");
-        fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
-        fprintf(f,"//  Remote map format.                                                        //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//  code = Enter the ir code, mappedto = Enter the event to be mapped         //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//  Your ir code can be obtened only with special app not already developped  //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//  The event list to be mapped http://doc.qt.nokia.com/4.6/qt.html#Key-enum  //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
-        fprintf(f,"remotemap =\n");
-        fprintf(f,"(\n");
-        fprintf(f,"  { code =  \"EE119F00\"; mappedto = \"key_0\"; },\n");
-        fprintf(f,"  { code =  \"FA059F00\"; mappedto = \"key_1\"; },\n");
-        fprintf(f,"  { code =  \"F6099F00\"; mappedto = \"key_2\"; },\n");
-        fprintf(f,"  { code =  \"EA159F00\"; mappedto = \"key_3\"; },\n");
-        fprintf(f,"  { code =  \"FB049F00\"; mappedto = \"key_4\"; },\n");
-        fprintf(f,"  { code =  \"F7089F00\"; mappedto = \"key_5\"; },\n");
-        fprintf(f,"  { code =  \"EB149F00\"; mappedto = \"key_6\"; },\n");
-        fprintf(f,"  { code =  \"FF009F00\"; mappedto = \"key_7\"; },\n");
-        fprintf(f,"  { code =  \"EF109F00\"; mappedto = \"key_8\"; },\n");
-        fprintf(f,"  { code =  \"F30C9F00\"; mappedto = \"key_9\"; },\n");
-        fprintf(f,"  { code =  \"BC439F00\"; mappedto = \"key_Up\"; },\n");
-        fprintf(f,"  { code =  \"F50A9F00\"; mappedto = \"key_Down\"; },\n");
-        fprintf(f,"  { code =  \"F9069F00\"; mappedto = \"key_Left\"; },\n");
-        fprintf(f,"  { code =  \"F10E9F00\"; mappedto = \"key_Right\"; },\n");
-        fprintf(f,"  { code =  \"FD029F00\"; mappedto = \"key_Enter\"; },\n");
-        fprintf(f,"  { code =  \"A55A9F00\"; mappedto = \"key_Home\"; },\n");
-        fprintf(f,"  { code =  \"A8579F00\"; mappedto = \"key_PowerOff\"; },\n");
-        fprintf(f,"  { code =  \"AF509F00\"; mappedto = \"key_MediaPlay\"; },\n");
-        fprintf(f,"  { code =  \"EC139F00\"; mappedto = \"key_MediaStop\"; }\n");
-        fprintf(f,");\n");
-        fprintf(f,"//EOF\n");
-        fclose(f);
-    }
-    else
-    {
-      fprintf(stderr,"[RemoteMap]Error while trying to write default remote file.\n");
-      return false;
-    }
-    return true;
+    fprintf(f,"//Remote Map File\n");
+    fprintf(f,"\n");
+    fprintf(f,"name = \"EKAH110 IR_CODE\";\n");
+    fprintf(f,"\n");
+    fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
+    fprintf(f,"//  Remote protocol                                                           //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//  0 = NEC                                                                   //\n");
+    fprintf(f,"//  1 = RC5                                                                   //\n");
+    fprintf(f,"//  2 = SHARP                                                                 //\n");
+    fprintf(f,"//  3 = SONY                                                                  //\n");
+    fprintf(f,"//  4 = C03                                                                   //\n");
+    fprintf(f,"//  5 = RC6                                                                   //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
+    fprintf(f,"\n");
+    fprintf(f,"protocol = 0;\n");
+    fprintf(f,"\n");
+    fprintf(f,"\n");
+    fprintf(f,"\n");
+    fprintf(f,"\n");
+    fprintf(f,"\n");
+    fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
+    fprintf(f,"//  Remote map format.                                                        //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//  code = Enter the ir code, mappedto = Enter the event to be mapped         //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//  Your ir code can be obtened only with special app not already developped  //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//  The event list to be mapped http://doc.qt.nokia.com/4.6/qt.html#Key-enum  //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
+    fprintf(f,"remotemap =\n");
+    fprintf(f,"(\n");
+    fprintf(f,"  { code =  \"EE119F00\"; mappedto = \"key_0\"; },\n");
+    fprintf(f,"  { code =  \"FA059F00\"; mappedto = \"key_1\"; },\n");
+    fprintf(f,"  { code =  \"F6099F00\"; mappedto = \"key_2\"; },\n");
+    fprintf(f,"  { code =  \"EA159F00\"; mappedto = \"key_3\"; },\n");
+    fprintf(f,"  { code =  \"FB049F00\"; mappedto = \"key_4\"; },\n");
+    fprintf(f,"  { code =  \"F7089F00\"; mappedto = \"key_5\"; },\n");
+    fprintf(f,"  { code =  \"EB149F00\"; mappedto = \"key_6\"; },\n");
+    fprintf(f,"  { code =  \"FF009F00\"; mappedto = \"key_7\"; },\n");
+    fprintf(f,"  { code =  \"EF109F00\"; mappedto = \"key_8\"; },\n");
+    fprintf(f,"  { code =  \"F30C9F00\"; mappedto = \"key_9\"; },\n");
+    fprintf(f,"  { code =  \"BC439F00\"; mappedto = \"key_Up\"; },\n");
+    fprintf(f,"  { code =  \"F50A9F00\"; mappedto = \"key_Down\"; },\n");
+    fprintf(f,"  { code =  \"F9069F00\"; mappedto = \"key_Left\"; },\n");
+    fprintf(f,"  { code =  \"F10E9F00\"; mappedto = \"key_Right\"; },\n");
+    fprintf(f,"  { code =  \"FD029F00\"; mappedto = \"key_Enter\"; },\n");
+    fprintf(f,"  { code =  \"A55A9F00\"; mappedto = \"key_Home\"; },\n");
+    fprintf(f,"  { code =  \"A8579F00\"; mappedto = \"key_PowerOff\"; },\n");
+    fprintf(f,"  { code =  \"AF509F00\"; mappedto = \"key_MediaPlay\"; },\n");
+    fprintf(f,"  { code =  \"EC139F00\"; mappedto = \"key_MediaStop\"; }\n");
+    fprintf(f,");\n");
+    fprintf(f,"//EOF\n");
+    fclose(f);
+  }
+  else {
+    perror(name);
+    fprintf(stderr,"[RemoteMap]Error while trying to write default remote file.\n");
+    return false;
+  }
+  return true;
 };
 
-bool IrMapFile::CreateQTDefaultFile()
+bool IrMapFile::CreateQTDefaultFile(char *name)
 {
-    FILE * f;
-    struct stat st;
-    if(stat("/remotes",&st) != 0)
-    {
-        mkdir("remotes",0777);
-    };
-    f = fopen(_QTFileName, "wb");
-    if (f != NULL)
-    {
+  FILE * f;
+
+  f = fopen(name, "w");
+  if (f != NULL) {
        
-/////////////////////////////////////////////////
-//           Default file settings             //
-/////////////////////////////////////////////////
-// Must be modified if structure change! 
+    /////////////////////////////////////////////////
+    //           Default file settings             //
+    /////////////////////////////////////////////////
+    // Must be modified if structure change! 
         
 
-        fprintf(f,"//Event map file for remote.\n");
-        fprintf(f,"\n");
-        fprintf(f,"name = \"QT_Event V1\";\n");
-        fprintf(f,"\n");
-        fprintf(f,"\n");
-        fprintf(f,"\n");
-        fprintf(f,"\n");
-        fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
-        fprintf(f,"//  QT code can be added.                                                     //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//  The event list to be mapped http://doc.qt.nokia.com/4.6/qt.html#Key-enum  //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
-        fprintf(f,"qt_event =\n");
-        fprintf(f,"(\n");
-        fprintf(f,"  { key = \"key_0\" ; value = \"30\"; },\n");
-        fprintf(f,"  { key = \"key_1\" ; value = \"31\"; },\n");
-        fprintf(f,"  { key = \"key_2\" ; value = \"32\"; },\n");
-        fprintf(f,"  { key = \"key_3\" ; value = \"33\"; },\n");
-        fprintf(f,"  { key = \"key_4\" ; value = \"34\"; },\n");
-        fprintf(f,"  { key = \"key_5\" ; value = \"35\"; },\n");
-        fprintf(f,"  { key = \"key_6\" ; value = \"36\"; },\n");
-        fprintf(f,"  { key = \"key_7\" ; value = \"37\"; },\n");
-        fprintf(f,"  { key = \"key_8\" ; value = \"38\"; },\n");
-        fprintf(f,"  { key = \"key_9\" ; value = \"39\"; },\n");
-        fprintf(f,"  { key = \"key_Up\"; value = \"01000013\";},\n");
-        fprintf(f,"  { key = \"key_Down\" ; value = \"01000015\"; },\n");
-        fprintf(f,"  { key = \"key_Left\" ; value = \"01000012\"; },\n");
-        fprintf(f,"  { key = \"key_Right\" ; value = \"01000014\"; },\n");
-        fprintf(f,"  { key = \"key_Enter\" ; value = \"01000005\"; },\n");
-        fprintf(f,"  { key = \"key_Home\" ; value = \"01000010\"; },\n");
-        fprintf(f,"  { key = \"key_PageUp\" ; value = \"01000016\"; },\n");
-        fprintf(f,"  { key = \"key_PageDown\" ; value = \"01000017\"; },\n");
-        fprintf(f,"  { key = \"key_Backspace\" ; value = \"01000002\"; },\n");
-        fprintf(f,"  { key = \"key_PowerOff\" ; value = \"010000b7\"; },\n");
-        fprintf(f,"  { key = \"key_MediaPlay\" ; value = \"01000080\"; },\n");
-        fprintf(f,"  { key = \"key_MediaNext\" ; value = \"01000083\"; },\n");
-        fprintf(f,"  { key = \"key_MediaStop\" ; value = \"01000082\"; },\n");
-        fprintf(f,"  { key = \"key_VolumeUp\" ; value = \"01000072\"; },\n");
-        fprintf(f,"  { key = \"key_VolumeDown\" ; value = \"01000070\"; },\n");
-        fprintf(f,"  { key = \"key_VolumeMute\" ; value = \"01000071\"; }\n");
-        fprintf(f,");\n");
-        fprintf(f,"//EOF\n");
-        fclose(f);
-    }
-    else
-    {
-      fprintf(stderr,"[RemoteMap]Error while trying to write default QtEvent.qtm file.\n");
-      return false;
-    }
-    return true;
+    fprintf(f,"//Event map file for remote.\n");
+    fprintf(f,"\n");
+    fprintf(f,"name = \"QT_Event V1\";\n");
+    fprintf(f,"\n");
+    fprintf(f,"\n");
+    fprintf(f,"\n");
+    fprintf(f,"\n");
+    fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
+    fprintf(f,"//  QT code can be added.                                                     //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//  The event list to be mapped http://doc.qt.nokia.com/4.6/qt.html#Key-enum  //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"//                                                                            //\n");
+    fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
+    fprintf(f,"qt_event =\n");
+    fprintf(f,"(\n");
+    fprintf(f,"  { key = \"key_0\" ; value = \"30\"; },\n");
+    fprintf(f,"  { key = \"key_1\" ; value = \"31\"; },\n");
+    fprintf(f,"  { key = \"key_2\" ; value = \"32\"; },\n");
+    fprintf(f,"  { key = \"key_3\" ; value = \"33\"; },\n");
+    fprintf(f,"  { key = \"key_4\" ; value = \"34\"; },\n");
+    fprintf(f,"  { key = \"key_5\" ; value = \"35\"; },\n");
+    fprintf(f,"  { key = \"key_6\" ; value = \"36\"; },\n");
+    fprintf(f,"  { key = \"key_7\" ; value = \"37\"; },\n");
+    fprintf(f,"  { key = \"key_8\" ; value = \"38\"; },\n");
+    fprintf(f,"  { key = \"key_9\" ; value = \"39\"; },\n");
+    fprintf(f,"  { key = \"key_Up\"; value = \"01000013\";},\n");
+    fprintf(f,"  { key = \"key_Down\" ; value = \"01000015\"; },\n");
+    fprintf(f,"  { key = \"key_Left\" ; value = \"01000012\"; },\n");
+    fprintf(f,"  { key = \"key_Right\" ; value = \"01000014\"; },\n");
+    fprintf(f,"  { key = \"key_Enter\" ; value = \"01000005\"; },\n");
+    fprintf(f,"  { key = \"key_Home\" ; value = \"01000010\"; },\n");
+    fprintf(f,"  { key = \"key_PageUp\" ; value = \"01000016\"; },\n");
+    fprintf(f,"  { key = \"key_PageDown\" ; value = \"01000017\"; },\n");
+    fprintf(f,"  { key = \"key_Backspace\" ; value = \"01000002\"; },\n");
+    fprintf(f,"  { key = \"key_PowerOff\" ; value = \"010000b7\"; },\n");
+    fprintf(f,"  { key = \"key_MediaPlay\" ; value = \"01000080\"; },\n");
+    fprintf(f,"  { key = \"key_MediaNext\" ; value = \"01000083\"; },\n");
+    fprintf(f,"  { key = \"key_MediaStop\" ; value = \"01000082\"; },\n");
+    fprintf(f,"  { key = \"key_VolumeUp\" ; value = \"01000072\"; },\n");
+    fprintf(f,"  { key = \"key_VolumeDown\" ; value = \"01000070\"; },\n");
+    fprintf(f,"  { key = \"key_VolumeMute\" ; value = \"01000071\"; }\n");
+    fprintf(f,");\n");
+    fprintf(f,"//EOF\n");
+    fclose(f);
+  }
+  else {
+    perror(name);
+    fprintf(stderr,"[RemoteMap]Error while trying to write default QtEvent.qtm file.\n");
+    return false;
+  }
+  return true;
 };
 
-bool IrMapFile::ReadIRFile()
+bool IrMapFile::ReadIRFile(char *name)
 {
 
   config_t           cfg;
@@ -384,7 +331,7 @@ bool IrMapFile::ReadIRFile()
   config_init(&cfg);
 
   /* Read the file. If there is an error, report it and exit. */
-  if(! config_read_file(&cfg, FileName))
+  if (!config_read_file(&cfg, name))
   {
     fprintf(stderr, "%s:%d - %s\n", config_error_file(&cfg),
             config_error_line(&cfg), config_error_text(&cfg));
@@ -429,13 +376,13 @@ bool IrMapFile::ReadIRFile()
          }
          else
          {
-            fprintf(stderr,"[RemoteMap]Cannot found appropriate IR protocol in %s!\n",FileName);
+            fprintf(stderr,"[RemoteMap]Cannot found appropriate IR protocol in %s!\n",name);
             goto EXIT_READFILE1;
          }
       }
       else
       {
-         fprintf(stderr,"[RemoteMap]Cannot found appropriate IR setting in %s!\n",FileName);
+         fprintf(stderr,"[RemoteMap]Cannot found appropriate IR setting in %s!\n",name);
          goto EXIT_READFILE1;
       }
 
@@ -462,7 +409,7 @@ EXIT_READFILE1:
   
 };
 
-bool IrMapFile::ReadQTFile()
+bool IrMapFile::ReadQTFile(char *name)
 {
 
   config_t           cfg;
@@ -472,8 +419,7 @@ bool IrMapFile::ReadQTFile()
   config_init(&cfg);
 
   /* Read the file. If there is an error, report it and exit. */
-  if(! config_read_file(&cfg, _QTFileName))
-  {
+  if(!config_read_file(&cfg, name)) {
     fprintf(stderr, "%s:%d - %s\n", config_error_file(&cfg),
             config_error_line(&cfg), config_error_text(&cfg));
     config_destroy(&cfg);
@@ -481,59 +427,51 @@ bool IrMapFile::ReadQTFile()
   }
 
   /* Get the store name. */
-  if(config_lookup_string(&cfg, "name", &str))
-  {
-    if (strcmp(str,"QT_Event V1")==0)
-    { 
+  if(config_lookup_string(&cfg, "name", &str)) {
+    if (strcmp(str,"QT_Event V1")==0) { 
       printf("[RemoteMap]Loading QT configuration file... \n");
       setting = config_lookup(&cfg, "qt_event");
-      if(setting != NULL)
-      {
-         int count = config_setting_length(setting);
-         int i;
-         QT_Table=(sQT_Table**) malloc(count * sizeof(sQT_Table*));
+      if(setting != NULL) {
+	int count = config_setting_length(setting);
+	int i;
+	QT_Table=(sQT_Table**) malloc(count * sizeof(sQT_Table*));
     
-         for(i = 0; i < count; ++i)
-         {
-            config_setting_t *qtevent = config_setting_get_elem(setting, i);
+	for(i = 0; i < count; ++i) {
+	  config_setting_t *qtevent = config_setting_get_elem(setting, i);
 
-            /* Only output the record if all of the expected fields are present. */
-            const char *key, *value;
+	  /* Only output the record if all of the expected fields are present. */
+	  const char *key, *value;
       
-            if(!(config_setting_lookup_string(qtevent, "key", &key)
-                  && config_setting_lookup_string(qtevent, "value", &value)))
+	  if(!(config_setting_lookup_string(qtevent, "key", &key)
+	       && config_setting_lookup_string(qtevent, "value", &value)))
             continue;
       
-            QT_Table[i]=(sQT_Table*) malloc(sizeof(sQT_Table));
-            sscanf(value, "%X", &QT_Table[i]->value); // Convert ascii string to int
-            strcpy(QT_Table[i]->key, key);
-            QT_Table_Elem++;
-         }
+	  QT_Table[i]=(sQT_Table*) malloc(sizeof(sQT_Table));
+	  sscanf(value, "%X", &QT_Table[i]->value); // Convert ascii string to int
+	  strcpy(QT_Table[i]->key, key);
+	  QT_Table_Elem++;
+	}
       }
-      else
-      {
-         fprintf(stderr,"[RemoteMap]Cannot found appropriate QT setting in %s!\n",_QTFileName);
-         goto EXIT_READFILE2;
+      else {
+	fprintf(stderr,"[RemoteMap]Cannot found appropriate QT setting in %s!\n",name);
+	goto EXIT_READFILE2;
       }
 
-   }
-   else
-   {
-       fprintf(stderr, "'name' setting in QT configuration file is wrong --> '%s'.\n",str);
-       goto EXIT_READFILE2;
-   }
+    }
+    else {
+      fprintf(stderr, "'name' setting in QT configuration file is wrong --> '%s'.\n",str);
+      goto EXIT_READFILE2;
+    }
     
   }
-  else
-  {
+  else {
     fprintf(stderr, "No 'name' setting in QT configuration file.\n");
     goto EXIT_READFILE2;
   }
 
   config_destroy(&cfg);
   return true;
-EXIT_READFILE2:
+ EXIT_READFILE2:
   config_destroy(&cfg);
-  return false;
-  
+  return false;  
 };
