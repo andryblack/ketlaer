@@ -1,0 +1,12 @@
+.deps/
+.libs/
+Makefile
+*.lo
+*.la
+*.pc
+config.h
+config.log
+config.status
+libtool
+stamp-h1
+taglib-config
