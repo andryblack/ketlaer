@@ -30,12 +30,27 @@ libketlaer
 
 (Now you can build TESTClient, if you are in a hurry)
 
+utility/zlib-1.2.5
+utility/libpng-1.2.29
+utility/freetype-2.3.7
+utility/jpeg-8b
+utility/imlib2-1.4.0 (imlib2_conv does not build. you can ignore this.)
+utility/libiconv-1.13.1
+utility/gettext-0.18 (fix gettext-tools/gnulib-lib/spawn.h adding #include <sched.h>)
+utility/ncurses-5.7
+utility/commoncpp2-1.5.2
+utility/sqlite-3.6.23.1
+utility/Python-2.6.5
+utility/libxml2-2.7.7
+utility/pcre-8.02
+utility/taglib-1.6.3
+mms-1.1.1
+
 Download qt-everywhere-opensource-src-4.6.2 sources.
 Unpack them in the utility directory. 
 Overlay them with the ketlaer files.
 
 utility/qt-everywhere-opensource-src-4.6.2
-utility/Python-2.6.5
 utility/sip-4.10.2
 utility/pyqt-4.7.3
 
@@ -59,6 +74,12 @@ export LD_LIBRARY_PATH=$KETLAER/lib
 
 export QWS_MOUSE_PROTO="usb"
 export QWS_KEYBOARD="usb"
+
+Starting mms:
+=============
+
+Run stopall.
+Run it with mms -u root -p /path_to_cachedir_read_write
 
 Starting a Qt program:
 ======================
@@ -91,4 +112,5 @@ BUGS:
 =====
 
 - Qt will crash on shutdown of program. Seems to be related to toolchain.
+- mms also. Have to fix toolchain someday.
 - Lots of others still to discover :-)

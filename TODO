@@ -1,0 +1,28 @@
+mms:
+====
+
+- debug crashes
+
+based on libketlaer.so:
+
+- infrared input
+- audio player
+- movie player
+- tv player vdr
+- tv player usb
+
+mms pyglets:
+============
+
+- fix youtube pyglet
+- decide which to include
+
+future:
+=======
+
+- toolchain: find/edit sources for compatible toolchain to fix it.
+  main problem is ucLibc has to be compatible with asus libs.
+
+- mms: use GPU for thumbnailing and JPEG
+- mms: speedup imlib2 by GPU
+
