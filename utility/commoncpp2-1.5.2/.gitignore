@@ -1,0 +1,10 @@
+Makefile
+commoncpp2.list
+commoncpp2.spec
+config.log
+config.status
+.deps/
+.libs/
+*.o
+*.lo
+libtool
