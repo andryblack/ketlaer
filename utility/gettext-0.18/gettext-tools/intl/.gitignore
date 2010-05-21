@@ -1,0 +1,7 @@
+ChangeLog.inst
+VERSION
+charset.alias
+libgnuintl.h
+libintl.h
+ref-add.sed
+ref-del.sed

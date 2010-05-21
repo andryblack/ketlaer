@@ -1,0 +1,8 @@
+config.h
+config.status
+csharpcomp.sh
+csharpexec.sh
+javacomp.sh
+javaexec.sh
+libtool
+stamp-h1

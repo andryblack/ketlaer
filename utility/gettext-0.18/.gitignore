@@ -1,0 +1,11 @@
+*.o
+*.a
+*.lo
+*.la
+*.so
+*.so.*
+.libs/
+.deps/
+Makefile
+config.log
+config.status
