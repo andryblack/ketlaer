@@ -1,0 +1,12 @@
+*.o
+*.a
+*.so
+*.mo
+config.h
+config.mak
+libavcodec-config.log
+mms
+mms-audio-library
+mms-movie-library
+mms-pic-library
+version.h
