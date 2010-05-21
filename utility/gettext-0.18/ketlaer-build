@@ -1,0 +1,3 @@
+export CFLAGS="-mips32 -O2"
+./configure --prefix=$KETLAER --host=mipsel-linux  --without-emacs --disable-java
+make install
