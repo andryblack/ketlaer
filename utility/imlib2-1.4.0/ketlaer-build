@@ -1,0 +1,6 @@
+export CFLAGS="-mips32 -O3 -I$KETLAER/include" 
+export CPPFLAGS="-mips32 -O3 -I$KETLAER/include"
+export LDFLAGS="-L$KETLAER/lib -L$KETLAER_DIR/utility/libm2"
+export LIBS=-lm2
+./configure --prefix=$KETLAER --host=mipsel-linux --without-x --with-freetype-config=$KETLAER/bin/freetype-config 
+make -i install
