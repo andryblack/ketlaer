@@ -1,0 +1,4 @@
+export CFLAGS="-mips32 -O3 -I$KETLAER/include"
+export LDFLAGS=-L$KETLAER/lib
+./configure --prefix=$KETLAER --host=mipsel-linux 
+make install
