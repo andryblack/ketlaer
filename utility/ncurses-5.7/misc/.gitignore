@@ -1,0 +1,4 @@
+ncurses-config
+run_tic.sed
+run_tic.sh
+terminfo.tmp

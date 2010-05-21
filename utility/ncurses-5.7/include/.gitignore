@@ -1,0 +1,15 @@
+curses.h
+MKterm.h.awk
+termcap.h
+unctrl.h
+curses.head
+eti.h
+form.h
+hashsize.h
+menu.h
+mf_common.h
+ncurses_cfg.h
+ncurses_def.h
+panel.h
+parametrized.h
+term.h

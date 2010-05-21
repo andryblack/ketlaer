@@ -1,0 +1,11 @@
+Makefile
+obj_g/
+obj_s/
+objects/
+lib/
+config.log
+config.status
+edit_man.sed
+edit_man.sh
+headers.sh
+man_alias.sed
