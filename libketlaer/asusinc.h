@@ -1,0 +1,18 @@
+
+#include "../RebuildedInclude/lib_RPC.h"
+#include "../RebuildedInclude/lib_OSAL.h"
+#include "../RebuildedInclude/lib_GPIO.h"
+#include "../RebuildedInclude/lib_DirectGraphics.h"
+#include "../RebuildedInclude/lib_DrawScale.h"
+#include "../RebuildedInclude/lib_MoveDataEngine.h"
+#include "../RebuildedInclude/lib_StreamingEngine.h"
+#include "../RebuildedInclude/lib_setupdef.h"
+#include "../RebuildedInclude/lib_Board.h"
+#include "../RebuildedInclude/lib_stream.h"
+#include "../RebuildedInclude/lib_AudioUtil.h"
+#include "../RebuildedInclude/lib_VoutUtil.h"
+#include "../RebuildedInclude/lib_PlaybackAppClass.h"
+#include "../RebuildedInclude/lib_HDMIControl.h"
+#include "../RebuildedInclude/lib_ir.h"
+
+#include "SetupClass.h"

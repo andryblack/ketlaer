@@ -354,8 +354,8 @@ public:
 class CObject {};
 class CBaseFilter;
 
-#include <ulDArray.h>
-#include <ulQueue.h>
+#include "ulDArray.h"
+#include "ulQueue.h"
 
 typedef ulDArray<IBaseFilter*> IFilterArr;
 

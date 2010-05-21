@@ -3,7 +3,8 @@ from PyQt4 import QtGui, QtCore, QtNetwork
 
 class StatusMonitor(QtCore.QThread):
     def __init__(self, pbc, window):
-        QtCore.QThread.__init__(self)
+        super(StatusMonitor, self).__init__()
+        
         self.pbc = pbc
         self.window = window
         self.running = True
@@ -23,9 +24,10 @@ class StatusMonitor(QtCore.QThread):
         self.running = False
 
 
-class PlaybackControler(QtCore.QObject):
+class PlaybackController(QtCore.QObject):
     def __init__(self, window):
-        QtCore.QObject.__init__(self)
+        super(PlaybackController, self).__init__()
+        
         self.ExecCmd("Version 1")
         self.monitor = StatusMonitor(self, window)
         self.window = window
@@ -80,12 +82,13 @@ class PlaybackControler(QtCore.QObject):
 
 class PlaybackWindow(QtGui.QWidget):
     def __init__(self, medialist, parent=None):
-        QtGui.QWidget.__init__(self, parent, QtCore.Qt.FramelessWindowHint)
+        super(PlaybackWindow, self).__init__(parent, QtCore.Qt.FramelessWindowHint)
 
         screen = QtGui.QDesktopWidget().screenGeometry();
+	self.move(0, 0)
         self.resize(screen.width(), screen.height());
-        self.setWindowTitle('Playback Window')
-        self.pbc = PlaybackControler(self)
+        self.setWindowTitle('PlaybackWindow')
+        self.pbc = PlaybackController(self)
         self.colorkey = self.pbc.GetReservedColorKey()
         self.setBackgroundRole(QtGui.QPalette.Window)
         palette = QtGui.QPalette();

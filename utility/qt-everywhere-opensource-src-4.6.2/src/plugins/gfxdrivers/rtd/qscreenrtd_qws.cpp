@@ -69,207 +69,7 @@
 #include <qlocalserver.h>
 #include <qlocalsocket.h>
 
-#include <lib_RPC.h>
-#include <lib_OSAL.h>
-#include <lib_GPIO.h>
-#include <lib_DirectGraphics.h>
-#include <lib_DrawScale.h>
-#include <lib_MoveDataEngine.h>
-#include <lib_StreamingEngine.h>
-#include <lib_setupdef.h>
-#include <lib_Board.h>
-#include <lib_stream.h>
-#include <lib_AudioUtil.h>
-#include <lib_VoutUtil.h>
-#include <lib_PlaybackAppClass.h>
-#include <lib_HDMIControl.h>
-
-#include <SetupClass.h>
-#include <ConfigFile.h>
-#include <hdmihelper.h>
-
-#define RESERVED_COLOR_KEY 0x00080810
-
-void firmware_init();
-void firmware_uninit();
-void audio_firmware_configure();
-void video_firmware_configure();
-void sendDebugMemoryAndAllocateDumpMemory(long videoDumpSize, long audioDumpSize);
-
-static VoutUtil     *g_vo = NULL;
-static VO_RECTANGLE  rect;
-static ConfigFile   *g_pConfig = NULL;
-
-static void LoadTvConfig()
-{
-  printf("LoadTVConfig..\n");
-  VO_COLOR bgColor;
-  bgColor.c1 = 0x00; // red
-  bgColor.c2 = 0x00; // green
-  bgColor.c3 = 0x00; // blue
-  bgColor.isRGB = true;
-  g_vo->SetBackground(bgColor, true);
-  short RGB2YUVcoeff[12] = {132, 258, 50, 948, 875,
-			    225, 225, 836, 988, 128, 128, 16};
-  g_vo->ConfigureOSD(VO_OSD_LPF_TYPE_DROP, RGB2YUVcoeff);
-  g_vo->SetDeintMode(VO_VIDEO_PLANE_V1, VO_DEINT_MODE_AUTO);
-  g_vo->SetDeintMode(VO_VIDEO_PLANE_V2, VO_DEINT_MODE_AUTO);
-  g_vo->SetBrightness(setup->GetBrightness());
-  g_vo->SetContrast(setup->GetContrast());
-  VO_RECTANGLE rectNTSC = { 0, 0, 720,  480  };
-  VO_RECTANGLE rectPAL  = { 0, 0, 720,  576  };
-  VO_RECTANGLE rect720  = { 0, 0, 1280, 720  };
-  VO_RECTANGLE rect1080 = { 0, 0, 1920, 1080 };
-  VO_RECTANGLE rect800x600 = { 0, 0, 800, 600 };
-  switch(setup->GetTvSystem()) {
-  case VIDEO_NTSC:
-    rect = rectNTSC;
-    break;
-  case VIDEO_PAL:
-    rect = rectPAL;
-    break;
-  default:
-  case VIDEO_HD720_50HZ:
-    rect = rect720;
-    break;
-  case VIDEO_HD720_60HZ:
-    rect = rect720;
-    break;
-  case VIDEO_HD1080_50HZ:
-    rect = rect1080;
-    break;
-  case VIDEO_HD1080_60HZ:
-    rect = rect1080;
-    break;
-  case VIDEO_HD1080_24HZ:
-    rect = rect1080;
-    break;
-  case VIDEO_SVGA800x600:
-    rect = rect800x600;
-    break;
-  }
-  VO_RESCALE_MODE rescaleMode;
-  VO_TV_TYPE      tvType;
-  switch(setup->GetAspectRatio()) {
-  case PS_4_3:
-    tvType = VO_TV_TYPE_4_BY_3;
-    rescaleMode = VO_RESCALE_MODE_KEEP_AR_PS_CNTR;
-    break;
-  case LB_4_3:
-    tvType = VO_TV_TYPE_4_BY_3;
-    rescaleMode = VO_RESCALE_MODE_KEEP_AR_LB_CNTR;
-    break;
-  case Wide_16_9:
-  default:
-    tvType = VO_TV_TYPE_16_BY_9_AUTO;
-    rescaleMode = VO_RESCALE_MODE_KEEP_AR_AUTO;
-    break;
-  }
-  g_vo->SetTVtype(tvType);
-  CVideoOutFilter::SetSystemRescaleMode(rescaleMode);
-  g_vo->SetRescaleMode(VO_VIDEO_PLANE_V1, rescaleMode, rect);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_NTSC, rectNTSC);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_PAL, rectPAL);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_HD720_50HZ, rect720);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_HD720_60HZ, rect720);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_HD1080_50HZ, rect1080);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_HD1080_60HZ, rect1080);
-  g_vo->UpdateVoutRectangleSetup (VO_VIDEO_PLANE_V1, VIDEO_SVGA800x600, rect800x600);
-  g_vo->ApplyVideoStandardSetup();
-  bgColor.c1 = 0x00; // red
-  bgColor.c2 = 0x00; // green
-  bgColor.c3 = 0xff; // blue
-  bgColor.isRGB = true;
-  g_vo->ApplyVoutDisplayWindowSetup(bgColor, 0);
-  g_vo->ConfigGraphicCanvas(VO_GRAPHIC_OSD,rect,rect,false);
-  setFormatSCART(setup->GetVideoOutput() == VOUT_RGB);
-  if (getHDMIPlugged()) {
-    HDMI_Controller hdmi;
-    switch(setup->GetSpdifMode()) {
-    case SPDIF_RAW:
-    case SPDIF_LPCM:
-      hdmi.Send_AudioMute(HDMI_SETAVM);
-      break;
-    case HDMI_RAW:
-    case HDMI_LPCM:
-      hdmi.Send_AudioMute(HDMI_CLRAVM);
-      break;
-    default:
-      break;
-    }
-  }
-}
-
-class MyHDMICallbacks : public HDMICallbacks {
-  virtual void TvSystemChanged() {
-    LoadTvConfig();
-  }
-};
-
-static void LoadAudioConfig()
-{
-  SetAudioSpeakerMode(setup->GetSpeakerOut());
-  SetAudioAGCMode(setup->GetAudioAGCMode());
-  SetAudioSPDIFMode(setup->GetSpdifMode());
-  SetAudioVolume(31); //volume is controlled by playback class
-  SetAudioForceChannelCtrl(31);//??
-}
-
-static void Init()
-{
-  CLNT_STRUCT  clnt;
-  HRESULT     *res = NULL;
-
-  if (!g_pConfig)
-    g_pConfig = new ConfigFile(); //loads config to SetupClass
-
-  pli_setThreadName("MAIN");
-  pli_init();
-  md_open();
-  se_open();
-  DG_Init();
-  board_init();
-  firmware_init();
-  sendDebugMemoryAndAllocateDumpMemory(0, 0);
-  VIDEO_INIT_DATA initData;
-  initData.boardType = getTVE();
-  clnt = prepareCLNT(BLOCK_MODE | USE_INTR_BUF | SEND_VIDEO_CPU, VIDEO_SYSTEM, VERSION);
-  res = VIDEO_RPC_ToAgent_VideoCreate_0(&initData, &clnt);
-  free(res);
-  BYTE *audioDebugFlag;
-  unsigned long audioPhyAddr;
-  BYTE *videoDebugFlag;
-  unsigned long videoPhyAddr;
-  pli_allocContinuousMemoryMesg("DBF", 4, (BYTE**)&audioDebugFlag, &audioPhyAddr);
-  pli_allocContinuousMemoryMesg("DBF", 4, (BYTE**)&videoDebugFlag, &videoPhyAddr);
-  pli_IPCWriteULONG((BYTE*)audioDebugFlag, 1);
-  pli_IPCWriteULONG((BYTE*)videoDebugFlag, 1);
-  clnt = prepareCLNT(NONBLOCK_MODE | USE_POLL_BUF | SEND_AUDIO_CPU, D_PROGRAM, D_VERSION);
-  set_debug_flag_0((int*)&audioPhyAddr, &clnt);
-  clnt = prepareCLNT(NONBLOCK_MODE | USE_POLL_BUF | SEND_VIDEO_CPU, D_PROGRAM, D_VERSION);
-  set_debug_flag_0((int*)&videoPhyAddr, &clnt);
-  audio_firmware_configure();
-  video_firmware_configure();
-  g_vo = new VoutUtil();
-  LoadTvConfig();
-  LoadAudioConfig();
-  board_codec_mute(false);
-  board_dac_mute(false);
-  InitHDMI(new MyHDMICallbacks());
-}
-
-static void UnInit()
-{
-  DeInitHDMI();
-  delete g_vo;
-  firmware_uninit();
-  board_uninit();
-  DG_UnInit();
-  se_close();
-  md_close();
-  pli_freeAllMemory();
-  pli_close();
-}
+#include <libketlaer.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -444,7 +244,7 @@ void QrtdPlaybackServer::run()
   server = new QLocalServer();
   unlink("/tmp/.playback");
   server->listen(".playback");
-  playback = new VideoPlayback(MEDIATYPE_None);
+  playback = getVideoPlayback();
   for(;;) {
     server->waitForNewConnection(-1);
     handleClient();
@@ -469,8 +269,6 @@ public:
 #ifndef QT_NO_QWS_KEYBOARD
   QWSKeyboardHandler *keyboard;
 #endif
-  void               *hDisplay;
-  void               *hSurface;
   QrtdPlaybackServer *server;
 };
 
@@ -480,8 +278,6 @@ QrtdScreenPrivate::QrtdScreenPrivate()
 #ifndef QT_NO_QWS_KEYBOARD
   keyboard  = 0;
 #endif
-  hDisplay  = 0;
-  hSurface  = 0;
   server    = 0;
 }
 
@@ -495,40 +291,6 @@ QrtdScreenPrivate::~QrtdScreenPrivate()
 
 void QrtdScreenPrivate::ScreenConnect()
 {
-  SURFACEDESC desc;
-
-  memset(&desc, 0, sizeof(desc));
-  desc.dwSize      = sizeof(SURFACEDESC);
-  desc.dwWidth     = rect.width;
-  desc.dwHeight    = rect.height;
-  desc.dwColorKey  = RESERVED_COLOR_KEY;
-  desc.pixelFormat = Format_32;
-  desc.storageMode = 1;
-
-  hSurface = DG_CreateSurface(&desc);
-
-  DG_DrawRectangle(hSurface,
-		   0,
-		   0,
-		   rect.width,
-		   rect.height,
-		   RESERVED_COLOR_KEY,
-		   NULL);
-
-  hDisplay = DG_GetDisplayHandle();
-
-  DG_DisplayArea (hDisplay,
-		  0,
-		  0,
-		  rect.width,
-		  rect.height,
-		  hSurface,
-		  0,
-		  0,
-		  Alpha_Constant,
-		  0xff,
-		  ColorKey_Src,
-		  RESERVED_COLOR_KEY);
   server = new QrtdPlaybackServer();
   server->start();
 }
@@ -538,8 +300,6 @@ void QrtdScreenPrivate::ScreenDisconnect()
   server->terminate();
   server->wait();
   delete server;
-  DG_ReleaseDisplayHandle(hDisplay);
-  DG_CloseSurface(hSurface);
 }
 
 /*************************
@@ -559,12 +319,12 @@ QrtdScreen::~QrtdScreen()
 
 bool QrtdScreen::connect(const QString &displaySpec)
 {
-  Init();
+  init_libketlaer();
   d_ptr->ScreenConnect();
-  data = (uchar*)DG_GetSurfaceRowDataPointer(d_ptr->hSurface);
+  data = (uchar*)DG_GetSurfaceRowDataPointer(getScreenSurface());
 
-  dw = w = rect.width;
-  dh = h = rect.height;
+  dw = w = getScreenRect()->width;
+  dh = h = getScreenRect()->height;
   d = 32;
   lstep = w * 4;
   size = lstep * h;
@@ -630,7 +390,7 @@ void QrtdScreen::disconnect()
 {
   data = 0;
   d_ptr->ScreenDisconnect();
-  UnInit();
+  uninit_libketlaer();
 }
 
 bool QrtdScreen::initDevice()
@@ -663,10 +423,11 @@ void QrtdScreen::solidFill( const QColor &color, const QRegion &region)
   const QRegion reg = region.translated(-offset()) & QRect(0, 0, dw, dh);
   const quint32 c = color.rgba();
   const QVector<QRect> rects = region.rects();
+  const HANDLE hSurface = getScreenSurface();
 
   for (int i = 0; i < rects.size(); ++i) {
     const QRect r = rects.at(i);
-    DG_DrawRectangle(d_ptr->hSurface,
+    DG_DrawRectangle(hSurface,
 		     r.x(),
 		     r.y(),
 		     r.width(),

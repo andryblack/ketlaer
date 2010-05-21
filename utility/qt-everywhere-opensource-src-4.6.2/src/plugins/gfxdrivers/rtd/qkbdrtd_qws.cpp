@@ -58,24 +58,15 @@
 #include <qapplication.h>
 #include <private/qcore_unix_p.h> // overrides QT_OPEN
 
-#include <lib_ir.h>
-#include <RemoteMap.h>
-
-static IrMapFile *g_pIrMap = NULL;
+#include <libketlaer.h>
 
 QT_BEGIN_NAMESPACE
 
 QrtdKeyboardHandler::QrtdKeyboardHandler()
     : QObject()
 {
-  if (!g_pIrMap)
-    g_pIrMap = new IrMapFile();
-  m_fd = open("/dev/venus_irrp", O_RDWR);
-  ioctl(m_fd, VENUS_IR_IOC_FLUSH_IRRP, NULL);
-  ioctl(m_fd, VENUS_IR_IOC_SET_PROTOCOL, g_pIrMap->GetProtocol());
-  ioctl(m_fd, VENUS_IR_IOC_SET_DEBOUNCE, 100); 
   QSocketNotifier *notifier;
-  notifier = new QSocketNotifier(m_fd, QSocketNotifier::Read, this);
+  notifier = new QSocketNotifier(ir_getfd(), QSocketNotifier::Read, this);
   connect(notifier, SIGNAL(activated(int)), this, SLOT(readKey()));
 }
 
@@ -86,12 +77,10 @@ QrtdKeyboardHandler::~QrtdKeyboardHandler()
 
 void QrtdKeyboardHandler::readKey()
 {
-  int irkey = 0, keycode, unicode;
+  int keycode, unicode;
 
-  read(m_fd, &irkey, sizeof(irkey));
-  if (irkey != 0) {
-    keycode = g_pIrMap->GetQtKey(irkey);
-    printf("irkey=%08x qtkey=%08x\n", irkey, keycode);
+  keycode = ir_getkey();
+  if (keycode != 0) {
     if (keycode >= Qt::Key_A && keycode <= Qt::Key_Z)
       unicode = keycode - Qt::Key_A + 'a';
     else if (keycode >= Qt::Key_0 && keycode <= Qt::Key_9)

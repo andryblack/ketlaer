@@ -7,7 +7,7 @@ the asus download (http://support.asus.com/download/download.aspx?product=19&mod
 For Debian-based systems (YMMV): alien fails to create a .deb but does extract working files to ./toolchain_mipsel-6.03/usr/local/toolchain_mipsel.
 Copy, move or symlink this to /usr/local/toolchain_mipsel and add /usr/local/toolchain_mipsel/bin to your PATH.
 
-Extract the toolchain fix (utility/toolchain) in the toolchain lib directory.
+Extract the toolchain fix (utility/toolchain_fix) in the toolchain lib directory.
 
 Set the environment KETLAER to /usr/local/etc/ketlaer.
 Set the environment KETLAER_DIR to the absolute path 
