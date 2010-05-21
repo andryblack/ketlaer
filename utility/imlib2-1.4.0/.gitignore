@@ -1,0 +1,15 @@
+Makefile
+.deps/
+.libs/
+*.o
+*.lo
+*.la
+README
+config.h
+config.log
+config.status
+imlib2-config
+imlib2.pc
+imlib2.spec
+libtool
+stamp-h1
