@@ -1,7 +1,7 @@
 #
 # build cross version
 #
-CROSS_COMPILE=yes python configure.py --debug -p linux-ketlaer -d $KETLAER/python/lib/python2.6/site-packages -e $KETLAER/python/include/python2.6
+CROSS_COMPILE=yes python configure.py --debug -p linux-ketlaer -b $KETLAER/bin -d $KETLAER/lib/python2.6/site-packages -e $KETLAER/include/python2.6 -v $KETLAER/share/sip
 make clean
 make install
 

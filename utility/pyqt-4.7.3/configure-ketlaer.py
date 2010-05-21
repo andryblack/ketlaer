@@ -66,11 +66,11 @@ src_dir = os.path.dirname(os.path.abspath(__file__))
 sipcfg = sipconfig.Configuration()
 
 ketlaer = os.environ.get("KETLAER")
-sipcfg.py_inc_dir = ketlaer + "/python/include/python2.6"
+sipcfg.py_inc_dir = ketlaer + "/include/python2.6"
 sipcfg.py_conf_inc_dir = sipcfg.py_inc_dir
-sipcfg.py_lib_dir = ketlaer + "/python/lib/python2.6/config"
+sipcfg.py_lib_dir = ketlaer + "/lib/python2.6/config"
 sipcfg.sip_inc_dir = sipcfg.py_inc_dir
-sipcfg.sip_mod_dir = ketlaer + "/python/lib/python2.6/site-packages"
+sipcfg.sip_mod_dir = ketlaer + "/lib/python2.6/site-packages"
 
 pydbusmoddir = None
 dbusincdirs = []

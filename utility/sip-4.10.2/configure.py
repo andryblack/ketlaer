@@ -196,9 +196,9 @@ def set_platform_directories():
     # We trust distutils for some stuff.
     if os.environ.get("CROSS_COMPILE") == "yes":
         ketlaer = os.environ.get("KETLAER")
-        plat_py_site_dir = ketlaer + "/python/lib/python2.6/site-packages"
-        plat_py_inc_dir = ketlaer + "/python/include/python2.6"
-        plat_py_conf_inc_dir = ketlaer + "/python/include/python2.6"
+        plat_py_site_dir = ketlaer + "/lib/python2.6/site-packages"
+        plat_py_inc_dir = ketlaer + "/include/python2.6"
+        plat_py_conf_inc_dir = ketlaer + "/include/python2.6"
     else:
         plat_py_site_dir = sysconfig.get_python_lib(plat_specific=1)
         plat_py_inc_dir = sysconfig.get_python_inc()

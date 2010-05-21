@@ -2,17 +2,27 @@
 #
 # build host python
 #
-make distclean
-./configure --prefix=$KETLAER/python
+if [ ! -f hostpython -o ! -f Parser/hostpgen ]
+then
+	make distclean
+	./configure --prefix=$KETLAER
 
-make python Parser/pgen
-mv python hostpython
-mv Parser/pgen Parser/hostpgen
+	make python Parser/pgen
+	mv python hostpython
+	mv Parser/pgen Parser/hostpgen
+	make distclean
+fi
 
 #
 # build target python
 #
-make distclean
-INSTALL=/usr/bin/install-sh CC=mipsel-linux-gcc CXX=mipsel-linux-g++ AR=mipsel-linux-ar RANLIB=mipsel-linux-ranlib ./configure --host=mipsel-linux --build=i686-pc-linuc --prefix=$KETLAER/python 
+export CPPFLAGS=-I$KETLAER/include
+export LDFLAGS=-L$KETLAER/lib
+export CC="mipsel-linux-gcc -mips32"
+export CXX="mipsel-linux-g++ -mips32"
+export AR=mipsel-linux-ar
+export RANLIB=mipsel-linux-ranlib
 
-make INSTALL=/usr/bin/install-sh HOSTPYTHON=./hostpython HOSTPGEN=./Parser/hostpgen BLDSHARED="mipsel-linux-gcc -shared" CROSS_COMPILE=mipsel-linux- CROSS_COMPILE_TARGET=yes install
+./configure --host=mipsel-linux --build=i686-pc-linuc --prefix=$KETLAER --enable-shared --enable-unicode
+
+make HOSTPYTHON=./hostpython HOSTPGEN=./Parser/hostpgen BLDSHARED="mipsel-linux-gcc -shared $CFLAGS" CROSS_COMPILE=mipsel-linux- CROSS_COMPILE_TARGET=yes install
