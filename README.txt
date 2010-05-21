@@ -78,8 +78,11 @@ export QWS_KEYBOARD="usb"
 Starting mms:
 =============
 
+Copy configs from mms dir to $KETLAER/etc/mms.
+Edit configs, using rtd as outputdevice, and rtd as AudioDevice.
+
 Run stopall.
-Run it with mms -u root -p /path_to_cachedir_read_write
+Run it with mms -u root -p /path_to_cache_dir_read_write
 
 Starting a Qt program:
 ======================

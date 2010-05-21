@@ -2,10 +2,11 @@ mms:
 ====
 
 - debug crashes
+- cleanup build process for intel/mips and submit patches
 
 based on libketlaer.so:
 
-- infrared input
+- infrared input (should use Qt keycodes)
 - audio player
 - movie player
 - tv player vdr
@@ -24,5 +25,4 @@ future:
   main problem is ucLibc has to be compatible with asus libs.
 
 - mms: use GPU for thumbnailing and JPEG
-- mms: speedup imlib2 by GPU
-
+- mms: speedup imlib2 with GPU
