@@ -3,6 +3,7 @@ hostpython
 *.o
 *.pyc
 *.so
+*.so.*
 Makefile
 Makefile.pre
 config.log

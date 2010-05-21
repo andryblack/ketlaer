@@ -1,0 +1,8 @@
+*.a
+*.o
+*.lo
+*.so
+*.so.*
+zconf.h
+zlib.pc
+Makefile
