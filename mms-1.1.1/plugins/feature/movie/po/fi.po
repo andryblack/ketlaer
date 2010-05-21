@@ -1,0 +1,387 @@
+# Finnish translations for mms package.
+# Copyright (C) 2006 Eerik Saarikalle
+# This file is distributed under the same license as the mms package.
+# Eerik Saarikalle <eerik.saarikalle@helsinki.fi>, 2006
+# Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>, 2008
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-09-21 14:26+0200\n"
+"Last-Translator: Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: imdb.cpp:21
+msgid "Unable to retrieve web page "
+msgstr "Verkkosivun lataus epäonnistui "
+
+#: simple_movie.cpp:27
+msgid "Play video"
+msgstr "Toista video"
+
+#: simple_movie.cpp:31 graphical_movie.cpp:330 graphical_movie.cpp:339
+msgid "Enter directory"
+msgstr "Avaa hakemisto"
+
+#: simple_movie.cpp:35 graphical_movie.cpp:369
+msgid "Go up one directory"
+msgstr "Siirry ylöspäin hakemistossa"
+
+#: simple_movie.cpp:38 graphical_movie.cpp:371 graphical_movie.cpp:374
+#: collection.cpp:163
+msgid "Return to startmenu"
+msgstr "Palaa alkuvalikkoon"
+
+#: simple_movie.cpp:80 graphical_movie.cpp:459 movie.hpp:350
+msgid "Folder is empty"
+msgstr "Kansio on tyhjä"
+
+#: simple_movie.cpp:238 graphical_movie.cpp:42 movie_db.cpp:1657
+#: movie_db.cpp:1771
+msgid "Videos"
+msgstr "Videot"
+
+#: simple_movie.cpp:281 movie_db.cpp:1275 movie_db.cpp:1706 movie_db.cpp:1820
+msgid "Search: "
+msgstr "Haku: "
+
+#: movie.cpp:49
+msgid "Video Options"
+msgstr "Videoasetukset"
+
+#: movie.cpp:60 movie.cpp:131
+msgid "reload"
+msgstr "lataa uudelleen"
+
+#: movie.cpp:70 graphical_movie.cpp:551 graphical_movie.cpp:556
+#: collection.cpp:233 collection.cpp:239 movie_db.cpp:434 movie_db.cpp:1634
+msgid "icon view"
+msgstr "esikatselunäkymä"
+
+#: movie.cpp:73 graphical_movie.cpp:533 graphical_movie.cpp:544
+#: collection.cpp:211 collection.cpp:224
+msgid "list view"
+msgstr "listanäkymä"
+
+#: movie.cpp:76
+msgid "display mode"
+msgstr "näyttötila"
+
+#: movie.cpp:114
+msgid "No such plugin player: "
+msgstr "Soitinlaajennosta ei löydy: "
+
+#: movie.cpp:119
+msgid " does not provide any options"
+msgstr " ei tarjoa asetuksia"
+
+#: movie.cpp:126 movie.cpp:425
+msgid "Options"
+msgstr "Asetukset"
+
+#: movie.cpp:131
+msgid "sorting"
+msgstr "järjestys"
+
+#: movie.cpp:132
+msgid "cd device"
+msgstr "CD-laite"
+
+#: movie.cpp:132
+msgid "audio device"
+msgstr "äänilaite"
+
+#: movie.cpp:170
+msgid "video player"
+msgstr "videosoitin"
+
+#: movie.cpp:175
+msgid "vcd player"
+msgstr "VCD-soitin"
+
+#: movie.cpp:180
+msgid "dvd player"
+msgstr "DVD-soitin"
+
+#: movie.cpp:337
+msgid "Play"
+msgstr "Toista"
+
+#: movie.cpp:338
+msgid "Pause"
+msgstr "Tauko"
+
+#: movie.cpp:339
+msgid "Stop"
+msgstr "Pysäytä"
+
+#: movie.cpp:340
+msgid "Fast forward"
+msgstr "Pikakelaus eteenpäin"
+
+#: movie.cpp:341
+msgid "Fast backward"
+msgstr "Pikakelaus taaksepäin"
+
+#: movie.cpp:408 collection.cpp:187 movie_plugin.cpp:28 movie_plugin.cpp:58
+#: movie_plugin.cpp:115
+msgid "Video"
+msgstr "Video"
+
+#: movie.cpp:419
+msgid "Switch video playback to fullscreen"
+msgstr "Vaihda toisto kokonäyttötilaan"
+
+#: movie.cpp:423
+msgid "Search"
+msgstr "Hae"
+
+#: movie.cpp:474
+msgid "Starting playback..."
+msgstr "Aloitetaan toisto..."
+
+#: graphical_movie.cpp:27 movie_db.cpp:52
+msgid "Could not create directory "
+msgstr "Hakemiston luonti epäonnistui "
+
+#: graphical_movie.cpp:221 graphical_movie.cpp:275 movie_db.cpp:479
+msgid "current folder"
+msgstr "nykyinen kansio"
+
+#: graphical_movie.cpp:333 graphical_movie.cpp:341
+msgid "Play all files in dir"
+msgstr "Toista hakemiston tiedostot"
+
+#: graphical_movie.cpp:336
+msgid "Play movie"
+msgstr "Toista video"
+
+#: graphical_movie.cpp:347
+msgid "Update imdb information"
+msgstr "Päivitä IMDb-tiedot"
+
+#: graphical_movie.cpp:351
+msgid "Delete imdb information"
+msgstr "Poista IMBb-tiedot"
+
+#: graphical_movie.cpp:356
+msgid "Get information on imdb"
+msgstr "Päivitä IMDb-tiedot"
+
+#: graphical_movie.cpp:362
+msgid "Print file information"
+msgstr "Näytä tiedoston tiedot"
+
+#: graphical_movie.cpp:365
+msgid "Print imdb information"
+msgstr "Näytä IMDb-tiedot"
+
+#: graphical_movie.cpp:406
+msgid "No available information about this file"
+msgstr "Tiedostosta ei ole saatavilla tietoja"
+
+#: graphical_movie.cpp:411
+msgid "General information:"
+msgstr "Yleiset tiedot:"
+
+#: graphical_movie.cpp:418
+msgid "Video details:"
+msgstr "Yksityiskohtaiset tiedot videosta:"
+
+#: graphical_movie.cpp:425
+msgid "Audio details:"
+msgstr "Yksityiskohtaiset tiedot äänestä:"
+
+#: graphical_movie.cpp:692
+msgid "directories first"
+msgstr "hakemistot ensin"
+
+#: graphical_movie.cpp:975
+msgid "No IMDb information found about videos"
+msgstr "Videoille ei löydetty IMDb-tietoja"
+
+#: graphical_movie.cpp:976
+msgid "Use the reget video information action"
+msgstr "Käytä uudelleen lataus -toimintoa"
+
+#: graphical_movie.cpp:977
+msgid "to download information about a video"
+msgstr "ladataksesi lisätietoa videosta"
+
+#: graphical_movie.cpp:994
+msgid "Could not write options to file "
+msgstr "Asetusten tallennus tiedostoon epäonnistui "
+
+#: graphical_movie.cpp:1013
+msgid "Could not open options file "
+msgstr "Asetustiedoston avaus epäonnistui "
+
+#: collection.cpp:31
+msgid "Video Coll."
+msgstr "Videokirjasto"
+
+#: collection.cpp:38
+msgid "No options available for video collection"
+msgstr "Asetuksia ei ole saatavilla videokirjastolle"
+
+#: collection.cpp:147
+msgid "Print information"
+msgstr "Näytä tiedot"
+
+#: collection.cpp:151
+msgid "Update video information"
+msgstr "Päivitä videon tiedot"
+
+#: collection.cpp:155
+msgid "Remove video"
+msgstr "Poista video"
+
+#: collection.cpp:160
+msgid "Search IMDb"
+msgstr "Hae IMDb-tietokannasta"
+
+#: movie_plugin.cpp:19
+msgid "Could not find any videos"
+msgstr "Ei löydetty videoita"
+
+#: movie_plugin.cpp:21
+msgid "Please specify a correct path "
+msgstr "Ole hyvä ja anna oikea polku"
+
+#: movie_plugin.cpp:22
+msgid "in the configuration file"
+msgstr "asetustiedostossa"
+
+#: movie_plugin.cpp:36
+msgid "Reloading directories"
+msgstr "Ladataan uudelleen hakemistoja"
+
+#: movie_plugin.cpp:94
+msgid "Play videos from harddrive"
+msgstr "Toista videotiedostoja kiintolevyltä"
+
+#: movie_plugin.cpp:98
+msgid "Play videos"
+msgstr "Toista videotiedosto"
+
+#: movie_plugin.cpp:103
+msgid "Play a dvd/vcd/svcd"
+msgstr "Toista DVD/VCD/SVCD-levy"
+
+#: movie_db.cpp:49
+msgid "Video database could not be opened or created"
+msgstr "Videotietokannan avaus tai luonti epäonnistui"
+
+#: movie_db.cpp:259 movie_db.cpp:264
+msgid "Upgrading video database schema"
+msgstr "Päivitetään videotietokannan mallia"
+
+#: movie_db.cpp:408
+msgid "No IMDb information found about video"
+msgstr "Videolle ei löydy IMDb-tietoja"
+
+#: movie_db.cpp:409
+msgid "Please update information"
+msgstr "Ole hyvä ja päivitä tiedot"
+
+#: movie_db.cpp:665
+msgid "Director: "
+msgstr "Ohjaaja: "
+
+#: movie_db.cpp:669
+msgid "Writing Credits: "
+msgstr "Käsikirjoitus: "
+
+#: movie_db.cpp:677 movie_db.cpp:1530
+msgid "Runtime: "
+msgstr "Kesto: "
+
+#: movie_db.cpp:685 movie_db.cpp:1537
+msgid "Genre: "
+msgstr "Laji: "
+
+#: movie_db.cpp:709
+msgid "Tagline: "
+msgstr "Iskulause: "
+
+#: movie_db.cpp:740
+msgid "Plot: "
+msgstr "Juoni: "
+
+#: movie_db.cpp:765 movie_db.cpp:769
+msgid "Rating:"
+msgstr "Arvostelu:"
+
+#: movie_db.cpp:804
+msgid "Cast: "
+msgstr "Henkilöt: "
+
+#: movie_db.cpp:853
+msgid "Getting details about video"
+msgstr "Ladataan tietoja videosta"
+
+#: movie_db.cpp:863 movie_db.cpp:1065
+msgid "value of information_source not valid:"
+msgstr "'information_source'-arvo ei ole kelvollinen:"
+
+#: movie_db.cpp:1052
+msgid "Looking up video in IMDb database"
+msgstr "Etsitään videota IMDb-tietokannasta"
+
+#: movie_db.cpp:1263
+msgid "IMDb lookup"
+msgstr "IMDb-haku"
+
+#: movie_db.cpp:1287
+msgid "No results found..."
+msgstr "Hakutuloksia ei löydetty..."
+
+#: movie_db.cpp:1319
+msgid " result found"
+msgstr " tulos löydettiin"
+
+#: movie_db.cpp:1321
+msgid " results found"
+msgstr " tulosta löydettiin"
+
+#: movie_db.cpp:1525
+msgid "Rating: "
+msgstr "Arvostelu: "
+
+#: movie_db.cpp:1592
+msgid "Duration: "
+msgstr "Kesto: "
+
+#: movie_db.cpp:1598
+msgid "Resolution: "
+msgstr "Resoluutio: "
+
+#: movie_db.cpp:1604
+msgid "Geometry: "
+msgstr "Geometria:"
+
+#: movie_db.cpp:1610
+msgid "Audio codec: "
+msgstr "Äänikoodekki: "
+
+#: movie_db.cpp:1616
+msgid "Audio bitrate: "
+msgstr "Äänen bittinopeus: "
+
+#: movie_db.cpp:1659 movie_db.cpp:1773 movie_collection_plugin.cpp:16
+#: movie_collection_plugin.cpp:45
+msgid "Video Collection"
+msgstr "Videokirjasto"
+
+#: movie_collection_plugin.cpp:38
+msgid "View video collection"
+msgstr "Katso videokirjastoa"
+
+#: movie.hpp:519 movie.hpp:539
+msgid "The disc does not contain any recognizable files"
+msgstr "Levy ei sisällä tunnistettavia tiedostoja"

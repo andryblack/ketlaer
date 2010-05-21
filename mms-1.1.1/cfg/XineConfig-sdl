@@ -1,0 +1,14 @@
+### CXFE ####
+
+version = 1
+
+# Movie Player options
+#
+# Do not set the dvd-device options. That will automaticly be appended
+# by mms when starting the movie player
+#
+cxfeopts = -vo xv
+
+# Path
+#
+cxfe_path = /usr/bin/cxfe

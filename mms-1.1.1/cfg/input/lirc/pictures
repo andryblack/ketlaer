@@ -1,0 +1,20 @@
+#########################################
+# Configuration file for input
+#
+# Syntax:
+# mode, command, key, multiple keypresses
+#
+# Example based on my REALmagic Remote.
+#
+# some modes inherit from other modes, which means that you can't
+# define the same key in both. Otherwise you are free to use the same
+# keys.
+#
+# all inherit from general
+# all audio modes inherit from audio_general
+# choose_playlist and playlist inherit from playlist_general
+
+version = 3
+
+pictures_fullscreen,suspend,PAUSE
+pictures,recurse_dirs,a

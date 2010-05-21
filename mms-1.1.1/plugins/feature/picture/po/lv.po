@@ -1,0 +1,188 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Martins Zabarovskis <martins@zabarovski.lv>, 2008.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-12-01 21:00+0200\n"
+"Last-Translator: Martins Zabarovskis <martins@zabarovski.lv>\n"
+"Language-Team: LATVIAN <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pictures.cpp:226 pictures.cpp:684 pictures.cpp:2051 pictures_plugin.cpp:10
+#: pictures_plugin.cpp:46 pictures_plugin.cpp:84
+msgid "Pictures"
+msgstr "Attēli"
+
+#: pictures.cpp:241
+msgid "Picture Options"
+msgstr "Attēlu opcijas"
+
+#: pictures.cpp:255
+msgid "reload"
+msgstr "pārlādēt"
+
+#: pictures.cpp:271
+msgid "slideshow delay"
+msgstr "slīdrādes pauze"
+
+#: pictures.cpp:277 pictures.cpp:291 pictures.cpp:318 pictures.cpp:333
+#: pictures.cpp:348
+msgid "no"
+msgstr "nē"
+
+#: pictures.cpp:278 pictures.cpp:292 pictures.cpp:319 pictures.cpp:334
+#: pictures.cpp:349 pictures.cpp:1475
+msgid "yes"
+msgstr "jā"
+
+#: pictures.cpp:285
+msgid "zoom to fullscreen"
+msgstr "palielināt uz pilnekrāna"
+
+#: pictures.cpp:299
+msgid "show previews"
+msgstr "priekšskatīt"
+
+#: pictures.cpp:304 pictures.cpp:2415
+msgid "None"
+msgstr "Nekas"
+
+#: pictures.cpp:305
+msgid "Audio"
+msgstr "Audio"
+
+#: pictures.cpp:306 pictures.cpp:2415 pictures.cpp:2420 pictures.cpp:2433
+msgid "Title"
+msgstr "Nosaukums"
+
+#: pictures.cpp:307 pictures.cpp:2420 pictures.cpp:2433
+msgid "Full"
+msgstr "Pilns"
+
+#: pictures.cpp:313
+msgid "show info"
+msgstr "rādīt info"
+
+#: pictures.cpp:326
+msgid "recurse dirs in fullscreen"
+msgstr "rekursēt direktorijas pilnekrāna režīmā"
+
+#: pictures.cpp:341
+msgid "bg thumbnail generation"
+msgstr "veidot attēliņus fonā"
+
+#: pictures.cpp:356
+msgid "random order slideshow"
+msgstr "slīdrāde jauktā kārtībā"
+
+#: pictures.cpp:438
+msgid "Upgrading pictures database schema"
+msgstr "Atjaunināt attēlu datubāzes shēmu"
+
+#: pictures.cpp:609 pictures.cpp:656 pictures.cpp:1022
+msgid "current folder"
+msgstr "aktīvā direktorija"
+
+#: pictures.cpp:741
+msgid "Generating thumbnails"
+msgstr "Izveido attēliņus"
+
+#: pictures.cpp:775
+msgid "Folder is empty"
+msgstr "Direktorija ir tukša"
+
+#: pictures.cpp:1364
+msgid "Show picture in fullscreen"
+msgstr "Rādīt pilnekrāna attēlu"
+
+#: pictures.cpp:1367
+msgid "Enter directory"
+msgstr "Atvērt direktoriju"
+
+#: pictures.cpp:1374
+msgid "Recurse all folders on current level"
+msgstr "Izvērst visas šī līmeņa direktorijas "
+
+#: pictures.cpp:1379
+msgid "Search"
+msgstr "Meklēt"
+
+#: pictures.cpp:1381 pictures.cpp:1977
+msgid "Options"
+msgstr "Opcijas"
+
+#: pictures.cpp:1385
+msgid "Go up one directory"
+msgstr "Vienu direktoriju augšup"
+
+#: pictures.cpp:1387 pictures.cpp:1390 pictures.cpp:1984
+msgid "Return to startmenu"
+msgstr "Atgriezties sākumā"
+
+#: pictures.cpp:1960
+msgid "Zoom"
+msgstr "Mērogmaiņa"
+
+#: pictures.cpp:1963
+msgid "Suspend slideshow"
+msgstr "Apturēt slīdrādi"
+
+#: pictures.cpp:1966
+msgid "Resume slideshow"
+msgstr "Atjaunot slīdrādi"
+
+#: pictures.cpp:1971
+msgid "Rotate left"
+msgstr "Pagriezt pa kreisi"
+
+#: pictures.cpp:1974
+msgid "Rotate right"
+msgstr "Pagriezt pa labi"
+
+#: pictures.cpp:1980
+msgid "Leave fullscreen"
+msgstr "Atstāt pilnekrāna"
+
+#: pictures.cpp:2098
+msgid "Search: "
+msgstr "Meklēt: "
+
+#: pictures.cpp:2429
+msgid " ( paused )"
+msgstr " ( pauzēts )"
+
+#: pictures.cpp:2468 pictures.cpp:2479
+msgid "The disc does not contain any recognizable files"
+msgstr "Diskā nevar atrast derīgus failus"
+
+#: pictures_plugin.cpp:18
+msgid "Reloading directories"
+msgstr "Pārlādēt direktorijas"
+
+#: pictures_plugin.cpp:26
+msgid "Could not find any pictures"
+msgstr "Nevar atrast nevienu attēlu"
+
+#: pictures_plugin.cpp:28
+msgid "Please specify a correct path "
+msgstr "Lūdzu norādiet pareizu ceļu "
+
+#: pictures_plugin.cpp:29
+msgid "in the configuration file"
+msgstr "konfigurācijas failā"
+
+#: pictures_plugin.cpp:75
+msgid "View pictures from harddrive"
+msgstr "Skatīt attēlus no cietā diska"
+
+#: pictures_plugin.cpp:80
+msgid "View pictures from cd"
+msgstr "Skatīt attēlus no CD"

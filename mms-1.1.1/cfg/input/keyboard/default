@@ -1,0 +1,48 @@
+#########################################
+# Example configuration file for keyboard input
+#
+# Syntax:
+# mode, command, key
+#
+# some modes inherit from other modes, which means that you can't
+# define the same key in both. Otherwise you are free to use the same
+# keys.
+#
+# all inherit from general
+# all audio modes inherit from audio_general
+# choose_playlist and playlist inherit from playlist_general
+#
+# For more information see: http://mms.kicks-ass.org/wiki/index.php/Config_file
+
+version = 6
+
+general,prev,UP
+general,next,DOWN
+general,left,LEFT
+general,right,RIGHT
+general,back,END
+general,action,ENTER
+general,second_action,SPACE
+general,startmenu,b
+general,options,o
+general,search,s
+general,page_down,PGDOWN
+general,page_up,PGUP
+general,cancel,c
+# if you want to shutdown mms with a single keypress
+#general,shutdown,F12
+# only used if eject-tray is enabled in configure
+general,eject,e
+
+graphical,info,i
+
+playback,play,3
+playback,pause,2
+playback,stop,1
+playback,ff,6
+playback,fb,5
+playback,vol+,f
+playback,vol-,g
+playback,mute,m
+playback,playback_commands,p
+playback,show_screensaver,y

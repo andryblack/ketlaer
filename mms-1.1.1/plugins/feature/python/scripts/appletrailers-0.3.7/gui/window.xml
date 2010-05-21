@@ -1,0 +1,208 @@
+<window>
+   <id>1001</id>
+   <defaultcontrol>30</defaultcontrol>
+   <width>800</width>
+   <height>600</height>
+   <controls>
+      <control>
+         <description>Image Control</description>
+         <type>image</type>
+         <id>1</id>
+         <posx>0</posx>
+         <posy>0</posy>
+         <width>800</width>
+         <height>600</height>
+         <layer>0</layer>
+	 <texture>general/bg.png</texture>
+	 <routecontrol>12</routecontrol>
+      </control>
+
+      <control>
+         <description>Plugin image</description>
+         <type>image</type>
+         <id>2</id>
+         <posx>25</posx>
+         <posy>10</posy>
+         <width>50</width>
+         <height>50</height>
+         <layer>2</layer>
+         <texture>python/script.png</texture>
+      </control>   
+
+      <control>
+         <description>Script label</description>
+         <type>label</type>
+         <id>3</id>
+         <posx>90</posx>
+         <posy>10</posy>
+         <width>500</width>
+         <height>40</height>
+         <layer>2</layer>
+         <label>Apple Movie Trailers</label>
+      </control>
+
+      <control>
+         <description>Just added</description>
+         <type>button</type>
+         <id>30</id>
+         <posx>41</posx>
+         <posy>80</posy>
+         <width>100</width>
+         <height>25</height>
+         <layer>2</layer>
+         <onnext>12</onnext>
+	 <onright>31</onright>
+	 <label>Newest</label>
+	 <texturefocus>gui/b-focus.png</texturefocus>
+         <texturenofocus>gui/b-nofocus.png</texturenofocus>
+	 <align>center</align>
+      </control>
+
+      <control>
+         <description>Exclusive</description>
+         <type>button</type>
+         <id>31</id>
+         <posx>144</posx>
+         <posy>80</posy>
+         <width>100</width>
+         <height>25</height>
+         <layer>2</layer>
+         <onnext>12</onnext>
+         <onright>32</onright>
+	 <onleft>30</onleft>
+         <label>Exclusive</label>
+         <texturefocus>gui/b-focus.png</texturefocus>
+         <texturenofocus>gui/b-nofocus.png</texturenofocus>
+	 <align>center</align>
+      </control>
+
+      <control>
+         <description>HD</description>
+         <type>button</type>
+         <id>32</id>
+         <posx>247</posx>
+         <posy>80</posy>
+         <width>100</width>
+         <height>25</height>
+         <layer>2</layer>
+         <onleft>31</onleft>
+         <onnext>12</onnext>
+         <onright>34</onright>
+         <label>HD</label>
+         <texturefocus>gui/b-focus.png</texturefocus>
+         <texturenofocus>gui/b-nofocus.png</texturenofocus>
+	 <align>center</align>
+      </control>
+
+      <control>
+         <description>Most popular</description>
+         <type>button</type>
+         <id>34</id>
+         <posx>350</posx>
+         <posy>80</posy>
+         <width>100</width>
+         <height>25</height>
+         <layer>2</layer>
+         <onleft>32</onleft>
+         <onnext>12</onnext>
+         <onright>18</onright>
+         <label>Popular</label>
+         <texturefocus>gui/b-focus.png</texturefocus>
+         <texturenofocus>gui/b-nofocus.png</texturenofocus>
+	 <align>center</align>
+      </control>
+
+      <control>
+         <description>Genres</description>
+         <type>button</type>
+         <id>18</id>
+         <posx>453</posx>
+         <posy>80</posy>
+         <width>100</width>
+         <height>25</height>
+         <layer>2</layer>
+         <onleft>34</onleft>
+         <onnext>12</onnext>
+         <onright>50</onright>
+         <label>Genres</label>
+         <texturefocus>gui/b-focus.png</texturefocus>
+         <texturenofocus>gui/b-nofocus.png</texturenofocus>
+	 <align>center</align>
+      </control>
+
+      <control>
+         <description>Download or stream</description>
+         <type>button</type>
+         <id>50</id>
+         <posx>660</posx>
+         <posy>80</posy>
+         <width>100</width>
+         <height>25</height>
+         <layer>2</layer>
+         <onleft>18</onleft>
+         <onnext>12</onnext>
+         <label>Play</label>
+         <texturefocus>gui/b-focus.png</texturefocus>
+         <texturenofocus>gui/b-nofocus.png</texturenofocus>
+         <align>center</align>
+      </control>
+
+      <control>
+         <description>Trailer image</description>
+         <type>image</type>
+         <id>13</id>
+         <posx>573</posx>
+         <posy>200</posy>
+         <width>134</width>
+         <height>193</height>
+         <layer>3</layer>
+      </control>
+
+      <control>
+         <description>Parent list</description>
+         <type>list</type>
+         <id>12</id>
+         <posx>25</posx>
+         <posy>130</posy>
+         <width>455</width>
+         <height>400</height>
+         <layer>3</layer>
+         <onleft>30</onleft>
+         <onright>50</onright>
+	 <textoffset>10</textoffset>
+	 <itemheight>27</itemheight>
+         <texturefocus>gui/l-focus.png</texturefocus>
+         <texturenofocus>gui/l-nofocus.png</texturenofocus>
+      </control>
+
+      <control>
+         <description>Child list</description>
+         <type>list</type>
+         <id>19</id>
+         <posx>25</posx>
+         <posy>130</posy>
+         <width>455</width>
+         <height>400</height>
+         <layer>3</layer>
+         <onleft>30</onleft>
+         <onright>50</onright>
+	 <itemheight>27</itemheight>
+	 <textoffset>10</textoffset>
+         <texturefocus>gui/l-focus.png</texturefocus>
+	 <texturenofocus>gui/l-nofocus.png</texturenofocus>
+      </control>
+
+      <control>
+         <description>Message label</description>
+         <type>label</type>
+         <id>14</id>
+         <posx>573</posx>
+         <posy>395</posy>
+         <width>134</width>
+         <height>27</height>
+	 <align>center</align>
+         <layer>2</layer>
+      </control>
+
+   </controls>
+</window>

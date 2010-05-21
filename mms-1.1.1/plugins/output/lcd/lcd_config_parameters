@@ -1,0 +1,13 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS LcdConfig
+#define S_PARAMETER_CLASS S_LcdConfig
+#define STRING_PARAMETER_CLASS "LcdConfig"
+
+#define MMS_CONFIG_VERSION "1"
+
+PARAMETER_NUM("lcd_rows",          lcd_rows,           4)
+PARAMETER_NUM("lcd_pixels",        lcd_pixels,         20)
+
+#include "config_pre_post.hpp"

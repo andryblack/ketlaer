@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 18:07-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: dxr3out.cpp:125 dxr3out.cpp:239 dxr3out.cpp:246
+msgid "Could not open device to set DXR3 zoom: "
+msgstr ""
+
+#: dxr3out.cpp:180 dxr3out.cpp:187
+msgid "Could not open device: "
+msgstr ""
+
+#: dxr3out.cpp:194
+msgid "Unable to set playmode"
+msgstr ""
+
+#: dxr3out.cpp:220
+msgid ""
+"DXR3 output only supports the resolutions 960x540 (16:9 anamorphic), 720x540 "
+"(4:3) and 720x405 (16:9)"
+msgstr ""
+
+#: dxr3out.cpp:233
+msgid "Zoom option is not supported by DXR3 driver."
+msgstr ""
+
+#: dxr3out.cpp:248
+msgid "Set DXR3 zoom using device "
+msgstr ""
+
+#: dxr3out.cpp:250
+msgid "Failed to set zoom value in the DXR3 driver."
+msgstr ""

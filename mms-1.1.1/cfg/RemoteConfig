@@ -1,0 +1,9 @@
+### REMOTE ####
+
+version = 1
+
+# Layout of remote control
+#
+# choose between "mobile" and "full_layout"
+#
+remote_layout = full_layout

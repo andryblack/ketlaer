@@ -1,0 +1,94 @@
+### MOVIE ####
+
+version = 13
+
+# Directories
+#
+# you can add several folders by simple having multiple entries
+#
+mov_dir = /media/
+
+# If your directories are stored on a network storage you can specify
+# them underneath instead of specifying them as mov_dir. The
+# difference is that MMS will not try to add needless inotify watches
+# to directories specified in this way
+#
+#mov_dir_no_watch = /media/
+
+# Graphical movie
+#
+# Graphical movie mode does automatic thumbnailing of movies, allows
+# one to download imdb information for movies and display stats about
+# the movie such as resolution and audio streams
+#
+graphical_movie_mode = true
+
+# Thumbnail creation accuracy (only if mms is compiled to use the 
+# internal thumbnailer)
+# 
+# It accepts values between 0 and 9 (included). Higher values 
+# help preventing graphich artifacts in thumbnails, but at cost of 
+# performance.
+# default: 3
+thumbnail_accur = 3 
+
+# Thumbnail creation: skip blank or poorly detailed frames when
+# creating thumbnails (only if mms is compiled to use the internal
+# thumbnailer). Warning: thumbnailing becomes a lot slower
+# and risk of blank thumbnails is reduced, but not eliminated.
+# 0 means disabled (i.e. thumbnailing will proceed as usual)
+# Any other value affects:
+# 1) the minimum level of deviance the program looks for while
+#    picking the frame from which it builds the thumbnail
+# 2) how deep into the stream the program is allowed to seek 
+#    while searching for the suitable frame
+# A level of 2 or 3 should be enough to prevent blank thumbnails
+# in most cases. 
+# default: 0 (disabled)
+thumbnail_noblanks = 0
+
+# Movie Collection
+#
+# Enable a physical movie collection where you can insert your movies
+# of your physical dvd collection by searching for the movies on imdb
+# and adding them
+#
+movie_db = false
+
+# Movie playback inside MMS
+#
+# If output device and movie player supports it, MMS can playback a
+# movie inside the MMS window, instead of in it's own window. This way
+# one can still navigate around MMS while the movie is playing
+#
+playback_in_mms = false
+
+# Movie information source
+#
+# Where to fetch the movie information from
+#
+# Current allowed values are: english, german, italian
+#
+information_source = english
+
+# Movie filetypes
+#
+# The extension must be in lowercase
+#
+filetypes_m = avi, divx
+filetypes_m = mkv, mkv
+filetypes_m = mpg, mpeg
+filetypes_m = mpeg, mpeg
+filetypes_m = rm, real
+filetypes_m = wmv, wmv
+filetypes_m = m2v, mpeg
+filetypes_m = mp4, mpeg
+filetypes_m = mov, mov
+filetypes_m = pls, pls
+filetypes_m = vob, vob
+filetypes_m = m2t, m2t
+filetypes_m = bin, bin
+filetypes_m = img, img
+filetypes_m = iso, iso
+filetypes_m = vdr, vdr
+filetypes_m = flv, flv

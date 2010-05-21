@@ -1,0 +1,111 @@
+# translation of ru.po to Русский
+# MMS Russian translation
+# Copyright (C) 2003-2005 Sergey V. Katunin
+# This file is distributed under the same license as the MMS package.
+# Sergey Katunin <sergo@avtograd.ru>, 2004.
+# Sergey V. Katunin <sergo@avtograd.ru>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mmsv2 1.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2005-03-20 18:36+0400\n"
+"Last-Translator: Sergey N. Svinolobov <sens@verizon.net>\n"
+"Language-Team: Русский <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: mplayer.cpp:43
+msgid "General options"
+msgstr "Общие Настройки"
+
+#: mplayer.cpp:46
+msgid "DVD options"
+msgstr "Настройки DVD"
+
+#: mplayer.cpp:49
+msgid "VCD options"
+msgstr "Настройки VCD"
+
+#: mplayer.cpp:52
+msgid "none"
+msgstr "ничего"
+
+#: mplayer.cpp:74
+msgid "subtitle language"
+msgstr "язык субтитров"
+
+#: mplayer.cpp:77 mplayer.cpp:85 mplayer.cpp:95 mplayer.cpp:115
+#: mplayer.cpp:137
+msgid "default"
+msgstr "по умолчанию"
+
+#: mplayer.cpp:79
+msgid "dvd audio language"
+msgstr "dvd язык аудио"
+
+#: mplayer.cpp:90
+#, fuzzy
+msgid "font"
+msgstr "вкл"
+
+#: mplayer.cpp:109
+msgid "font size"
+msgstr ""
+
+#: mplayer.cpp:122
+msgid "dvd title"
+msgstr "dvd заголовок"
+
+#: mplayer.cpp:123
+msgid "vcd title"
+msgstr "vcd заголовок"
+
+#: mplayer.cpp:128
+msgid "on"
+msgstr "вкл"
+
+#: mplayer.cpp:129 mplayer.cpp:146
+msgid "off"
+msgstr "выкл"
+
+#: mplayer.cpp:132
+msgid "Fullscreen"
+msgstr "На полный экран"
+
+#: mplayer.cpp:138
+msgid "16:9"
+msgstr "16х9"
+
+#: mplayer.cpp:139
+msgid "4:3"
+msgstr "4х3"
+
+#: mplayer.cpp:143
+msgid "Monitor aspect"
+msgstr "Соотношение сторон экрана"
+
+#: mplayer.cpp:149
+msgid "wide (2.35:1)"
+msgstr "широкий (2.35:1)"
+
+#: mplayer.cpp:152
+msgid "square"
+msgstr "квадратный"
+
+#: mplayer.cpp:155
+msgid "Force geometry"
+msgstr "Принудительно уст.размеры"
+
+#: mplayer.cpp:323
+msgid "midentify failed to parse the length of file: "
+msgstr "midentify не смог определить размер файла"
+
+#: mplayer.cpp:461 mplayer.cpp:574
+msgid "Video"
+msgstr ""
+
+#~ msgid "Movie"
+#~ msgstr "Видео"

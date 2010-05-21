@@ -1,0 +1,188 @@
+# translation of it.po to Italiano
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: it\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2007-03-15 23:15+0100\n"
+"Last-Translator:  <lorenzodes@fastwebnet.it>\n"
+"Language-Team: Italiano <it@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: pictures.cpp:226 pictures.cpp:684 pictures.cpp:2051 pictures_plugin.cpp:10
+#: pictures_plugin.cpp:46 pictures_plugin.cpp:84
+msgid "Pictures"
+msgstr "Immagini"
+
+#: pictures.cpp:241
+msgid "Picture Options"
+msgstr "Opzioni Immagini"
+
+#: pictures.cpp:255
+msgid "reload"
+msgstr "ricarica"
+
+#: pictures.cpp:271
+msgid "slideshow delay"
+msgstr "ritardo slideshow"
+
+#: pictures.cpp:277 pictures.cpp:291 pictures.cpp:318 pictures.cpp:333
+#: pictures.cpp:348
+msgid "no"
+msgstr "no"
+
+#: pictures.cpp:278 pictures.cpp:292 pictures.cpp:319 pictures.cpp:334
+#: pictures.cpp:349 pictures.cpp:1475
+msgid "yes"
+msgstr "sì"
+
+#: pictures.cpp:285
+msgid "zoom to fullscreen"
+msgstr "ingrandisci a schermo pieno"
+
+#: pictures.cpp:299
+msgid "show previews"
+msgstr "mostra anteprime"
+
+#: pictures.cpp:304 pictures.cpp:2415
+msgid "None"
+msgstr "Nessuno"
+
+#: pictures.cpp:305
+msgid "Audio"
+msgstr "Audio"
+
+#: pictures.cpp:306 pictures.cpp:2415 pictures.cpp:2420 pictures.cpp:2433
+msgid "Title"
+msgstr "Titolo"
+
+#: pictures.cpp:307 pictures.cpp:2420 pictures.cpp:2433
+msgid "Full"
+msgstr "Completo"
+
+#: pictures.cpp:313
+msgid "show info"
+msgstr "Mostra info"
+
+#: pictures.cpp:326
+msgid "recurse dirs in fullscreen"
+msgstr "Naviga le dir a schermo pieno"
+
+#: pictures.cpp:341
+msgid "bg thumbnail generation"
+msgstr "generazione miniature bg"
+
+#: pictures.cpp:356
+msgid "random order slideshow"
+msgstr "Riproduzione casuale"
+
+#: pictures.cpp:438
+msgid "Upgrading pictures database schema"
+msgstr "Aggiornamento schema database"
+
+#: pictures.cpp:609 pictures.cpp:656 pictures.cpp:1022
+msgid "current folder"
+msgstr "cartella corrente"
+
+#: pictures.cpp:741
+msgid "Generating thumbnails"
+msgstr "Generazione miniature in corso"
+
+#: pictures.cpp:775
+msgid "Folder is empty"
+msgstr "La cartella è vuota"
+
+#: pictures.cpp:1364
+msgid "Show picture in fullscreen"
+msgstr "Mostra immagine in fullscreen"
+
+#: pictures.cpp:1367
+msgid "Enter directory"
+msgstr "Entra nella cartella"
+
+#: pictures.cpp:1374
+msgid "Recurse all folders on current level"
+msgstr "Naviga tutte le dir su questo livello"
+
+#: pictures.cpp:1379
+msgid "Search"
+msgstr "Cerca"
+
+#: pictures.cpp:1381 pictures.cpp:1977
+msgid "Options"
+msgstr "Opzioni"
+
+#: pictures.cpp:1385
+msgid "Go up one directory"
+msgstr "Vai alla cartella superiore"
+
+#: pictures.cpp:1387 pictures.cpp:1390 pictures.cpp:1984
+msgid "Return to startmenu"
+msgstr "Ritorna al menù iniziale"
+
+#: pictures.cpp:1960
+msgid "Zoom"
+msgstr "Ingrandimento"
+
+#: pictures.cpp:1963
+msgid "Suspend slideshow"
+msgstr "Sospendi lo slideshow"
+
+#: pictures.cpp:1966
+msgid "Resume slideshow"
+msgstr "Riprendi lo slideshow"
+
+#: pictures.cpp:1971
+msgid "Rotate left"
+msgstr "Ruota a sinistra"
+
+#: pictures.cpp:1974
+msgid "Rotate right"
+msgstr "Ruota a destra"
+
+#: pictures.cpp:1980
+msgid "Leave fullscreen"
+msgstr "Esci dalla modalità fullscreen"
+
+#: pictures.cpp:2098
+msgid "Search: "
+msgstr "Ricerca: "
+
+#: pictures.cpp:2429
+msgid " ( paused )"
+msgstr " ( in pausa ) "
+
+#: pictures.cpp:2468 pictures.cpp:2479
+msgid "The disc does not contain any recognizable files"
+msgstr "Il disco non contiene file riconoscibili"
+
+#: pictures_plugin.cpp:18
+msgid "Reloading directories"
+msgstr "Ricarico le cartelle"
+
+#: pictures_plugin.cpp:26
+msgid "Could not find any pictures"
+msgstr "Non trovo immagini"
+
+#: pictures_plugin.cpp:28
+msgid "Please specify a correct path "
+msgstr "Per favore specifica il percorso corretto "
+
+#: pictures_plugin.cpp:29
+msgid "in the configuration file"
+msgstr "nel file di configurazione"
+
+#: pictures_plugin.cpp:75
+msgid "View pictures from harddrive"
+msgstr "Visualizza immagini dall'HD"
+
+#: pictures_plugin.cpp:80
+msgid "View pictures from cd"
+msgstr "Visualizza immagini da cd"

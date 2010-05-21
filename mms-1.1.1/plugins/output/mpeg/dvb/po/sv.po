@@ -1,0 +1,28 @@
+# mmsv2 Swedish translation
+# Copyright (C) 2004-2007 Martin Vopatek
+# This file is distributed under the same license as mmsv2.
+# Martin Vopatek <voppe1@spray.se>, 2004-2007
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms-1.0.9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-19 17:04+0100\n"
+"PO-Revision-Date: 2007-03-06 16:29+0100\n"
+"Last-Translator: Martin Vopatek <voppe1@spray.se>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#: dvbout.cpp:50
+msgid "Could not initialize device: "
+msgstr "Kunde inte initiera enheten: "
+
+#: dvbout.cpp:61
+#, fuzzy
+msgid "DVB output only supports the resolution 720x540 (4:3) or 720x405 (16:9)"
+msgstr ""
+"DVB och DXR3 stödjer bara upplösningarna 720x540 (4:3) eller 720x405 (16:9)"

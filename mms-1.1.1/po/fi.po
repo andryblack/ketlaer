@@ -1,0 +1,677 @@
+# Finnish translations for mms package.
+# Copyright (C) 2006 Eerik Saarikalle
+# This file is distributed under the same license as the mms package.
+# Eerik Saarikalle <eerik.saarikalle@helsinki.fi>, 2006
+# Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>, 2008
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-09-21 14:14+0200\n"
+"Last-Translator: Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: cd.cpp:54
+msgid "Could not open the dvd/cd drive"
+msgstr "DVD/CD-aseman avaus epäonnistui"
+
+#: cd.cpp:80
+msgid "Could not set drive speed"
+msgstr "Aseman nopeuden asetus epäonnistui"
+
+#: cd.cpp:86
+msgid "The drive does not support speed selection"
+msgstr "Asema ei tue nopeuden asetusta"
+
+#: cd.cpp:100
+msgid "There is no disc in the drive"
+msgstr "Asemassa ei ole levyä"
+
+#: cd.cpp:107
+msgid "The tray is open"
+msgstr "Levykelkka on ulkona"
+
+#: cd.cpp:109
+msgid "Please close it"
+msgstr "Ole hyvä ja sulje se"
+
+#: cd.cpp:116
+msgid "The drive is not ready"
+msgstr "Asema ei ole valmiina"
+
+#: cd.cpp:118
+msgid "Please try again later"
+msgstr "Yritä myöhemmin uudestaan"
+
+#: common.cpp:92
+msgid "false"
+msgstr "epätosi"
+
+#: common.cpp:92
+msgid "no"
+msgstr "ei"
+
+#: common.cpp:92
+msgid "off"
+msgstr "pois"
+
+#: common.cpp:661
+msgid "Failed to open iconv"
+msgstr "Ohjelman (iconv) avaaminen epäonnistui"
+
+#: common.cpp:685
+msgid "String conversion failed"
+msgstr "Merkkijonon käännös epäonnistui"
+
+#: common.cpp:906
+msgid "Could not create directory "
+msgstr "Hakemiston luonti epäonnistui "
+
+#: common.cpp:912
+msgid "Internal error, please report this"
+msgstr "Sisäinen virhe, raportoi ongelmasta eteenpäin"
+
+#: common.cpp:913
+msgid "File is not a directory: "
+msgstr "Tiedosto ei ole hakemisto: "
+
+#: common.cpp:1030
+msgid "Unable to open/create the file lock!!!"
+msgstr "Lukkotiedoston avaus/luonti epäonnistui!"
+
+#: config_macros.hpp:188 config_macros.hpp:200
+msgid "Opening configuration file "
+msgstr "Avataan asetustiedostoa "
+
+#: config_macros.hpp:209
+msgid "Config file not found "
+msgstr "Asetustiedostoa ei löydetä "
+
+#: config_macros.hpp:223
+msgid "Error while reading line "
+msgstr "Virhe luettaessa riviä "
+
+#: config_macros.hpp:224
+msgid "missing '='"
+msgstr "puuttuva '='-merkki"
+
+#: config_macros.hpp:240
+msgid " is version "
+msgstr " on versio"
+
+#: config_macros.hpp:240
+msgid " and MMS expecting version "
+msgstr " ja MMS tarvitsee version "
+
+#: config_macros.hpp:241 config_macros.hpp:249
+msgid "Please upgrade your config file"
+msgstr "Päivitä asetustiedoston versio"
+
+#: config_macros.hpp:248 plugins/input/input_device.cpp:193
+msgid "Version string not found"
+msgstr "Versiota ei löydetä"
+
+#: config_macros.hpp:258
+msgid "Unknown token '"
+msgstr "Tuntematon merkkijono '"
+
+#: config_macros.hpp:259
+msgid "' on line "
+msgstr "' rivillä "
+
+#: config_macros.hpp:279
+msgid "Can't write configuration file!"
+msgstr "Asetustiedoston tallennus epäonnistui!"
+
+#: global.cpp:271
+msgid "Playback control"
+msgstr "Toiston asetukset"
+
+#: global.cpp:319
+msgid "Playlist Commands"
+msgstr "Soittolistan komennot"
+
+#: libfspp.cpp:19 libfspp.cpp:39
+msgid "Unknown sorting order"
+msgstr "Tuntematon luettelointijärjestys"
+
+#: mms.cpp:57
+msgid "Critical: couldn't set environment variable "
+msgstr "Kriittinen virhe: Ympäristömuuttujan asetus epäonnistui"
+
+#: mms.cpp:58 mms.cpp:253 mms.cpp:266 mms.cpp:272 mms.cpp:363
+msgid "Error: "
+msgstr "Virhe:"
+
+#: mms.cpp:82
+msgid "MMS options:"
+msgstr "MMS-asetukset:"
+
+#: mms.cpp:89
+msgid "<relative> : filename relative to config directory"
+msgstr ""
+"<suhteellinen polku> : tiedoston nimi suhteellisella polulla "
+"asetushakemistoon"
+
+#: mms.cpp:90
+msgid "<absolute> : full path filename"
+msgstr "<absoluuttinen polku> : tiedoston nimi absoluuttisella polulla"
+
+#: mms.cpp:97
+msgid " -o : output device ["
+msgstr " -o : ulostulolaite ["
+
+#: mms.cpp:113
+msgid " -i : input device ["
+msgstr " -i : syötelaite ["
+
+#: mms.cpp:128
+msgid " -h : show this help and exit"
+msgstr " -h : näytä tämä opaste ja lopeta"
+
+#: mms.cpp:129
+msgid " -d : daemonize (run in background)"
+msgstr " -d : taustaprosessointi"
+
+#: mms.cpp:130 movie-library/movie-library.cpp:547
+#: audio-library/audio-library.cpp:613
+msgid " -c <absolute> : use alternative config directory"
+msgstr " -c <absoluuttinen polku> : käytä vaihtoehtoista asetushakemistoa"
+
+#: mms.cpp:131 pic-library/pic-library.cpp:451
+#: movie-library/movie-library.cpp:548 audio-library/audio-library.cpp:614
+msgid " -p <absolute> : use alternative personal directory (db, playlist)"
+msgstr ""
+" -p <absoluuttinen polku> : käytä vaihtoehtoista henkilökohtaista "
+"asetushakemistoa (tietokanta, soittolista)"
+
+#: mms.cpp:132
+msgid " -f : fullscreen\n"
+msgstr "-f : kokoruututila\n"
+
+#: mms.cpp:133
+msgid " -u <username> : run mms as username"
+msgstr " -u <tunnus> : suorita käyttäjätunnuksella"
+
+#: mms.cpp:134
+msgid ""
+"\n"
+" -U <username> : run mms as username and reset most environment variables"
+msgstr ""
+"\n"
+" -U <tunnus> : suorita käyttäjätunnuksella ja nollaa useimmat "
+"ympäristömuuttujat"
+
+#: mms.cpp:135
+msgid ""
+"\n"
+" -e : dump the list of currently set environment variables; useful for "
+"setting up and/or debug mms"
+msgstr ""
+"\n"
+" -e : näytä asetetut ympäristömuuttujat; käyttökelpoinen MMS:n pystytyksessä "
+"ja testauksessa"
+
+#: mms.cpp:136
+msgid " -v|V : show version and exit"
+msgstr " -v|V : näytä versio ja lopeta"
+
+#: mms.cpp:143
+msgid ""
+" -r <relative> : use replay file as input (requires replay as input device)"
+msgstr ""
+" -r <suhteellinen polku>: käytä replay tiedostoa syötteenä (vaatii replayn "
+"syöttölaitteena)"
+
+#: mms.cpp:144
+msgid ""
+" -b : benchmark MMS by replaying as fast as possible (requires replay as "
+"input device) "
+msgstr ""
+" -b : MMS:n suorituskyvyn testaus toistamalla niin nopeasti kuin mahdollista "
+"(vaatii replay-syötelaitteen) "
+
+#: mms.cpp:145
+msgid " -w <relative> : write replay to specified file"
+msgstr " -w <suhteellinen polku> : kirjoita replay-tuloste tiedostoon"
+
+#: mms.cpp:237
+msgid "Critical: couldn't find user: "
+msgstr "Kriittinen virhe: Käyttäjää ei löydy:"
+
+#: mms.cpp:252 mms.cpp:258
+msgid "Critical: couldn't set group privileges!"
+msgstr "Kriittinen virhe: Ryhmäoikeuksien asetus epäonnistui!"
+
+#: mms.cpp:265
+msgid "Warning: failed to set supplementary groups!"
+msgstr "Varoitus: Lisäryhmien asetus epäonnistui!"
+
+#: mms.cpp:271 mms.cpp:276
+msgid "Critical: couldn't set user privileges!"
+msgstr "Kriittinen virhe: Käyttäjäoikeuksien asetus epäonnistui!"
+
+#: mms.cpp:282
+msgid "Critical: couldn't set user privileges permanently!"
+msgstr "Kriittinen virhe: Käyttäjäoikeuksien asetus pysyvästi epäonnistui! "
+
+#: mms.cpp:287
+msgid "Critical: couldn't set group privileges permanently!"
+msgstr "Kriittinen virhe: Ryhmäoikeuksien asetus pysyvästi epäonnistui!"
+
+#: mms.cpp:347
+msgid "Full list of active groups for user "
+msgstr "Lista käyttäjän aktiivisista ryhmistä"
+
+#: mms.cpp:356
+msgid "Critical: out of memory!"
+msgstr "Kriittinen virhe: Muisti täynnä!"
+
+#: mms.cpp:362
+msgid "Warning: couldn't fetch a list of secondary groups for user "
+msgstr "Varoitus: Käyttäjän toissijaisten ryhmien haku epäonnistui"
+
+#: mms.cpp:523
+msgid ""
+"\n"
+"It appears mms is running as superuser."
+msgstr ""
+"\n"
+"MMS:ää suoritetaan pääkäyttäjän oikeuksilla."
+
+#: mms.cpp:524
+msgid ""
+"Not only is this totally unnecessary, but it also constitutes a security "
+"risk "
+msgstr "Tämä on tarpeetonta ja riskialtista "
+
+#: mms.cpp:525
+msgid "and thus it is strongly discouraged!\n"
+msgstr "ja erittäin epäsuositeltavaa!\n"
+
+#: mms.cpp:526
+msgid ""
+"If you really really want to give mms superuser privileges, run it like this:"
+msgstr ""
+"Jos todella haluat suorittaa MMS:ää pääkäyttäjän oikeuksilla, käytä "
+"seuraavaa syntaksia: "
+
+#: mms.cpp:527
+msgid "mms -u root [other options]\n"
+msgstr "mms -u root [muut asetukset]\n"
+
+#: mms.cpp:544
+msgid ""
+"Another instance of MMS or an instance of movie/pic/audio library is already "
+"running.\n"
+msgstr "MMS tai video-/kuva-/musiikkikirjasto on jo käynnissä.\n"
+
+#: mms.cpp:549 pic-library/pic-library.cpp:390
+#: movie-library/movie-library.cpp:492 audio-library/audio-library.cpp:558
+#, c-format
+msgid "File lock is currently owned by another process (pid %d). Aborting\n"
+msgstr ""
+"Lukkotiedosto on toisen prosessin (pid %d) omistuksessa. Keskeytetään\n"
+
+#: mms.cpp:558
+msgid "Full list of environment variables:\n"
+msgstr "Kaikki ympäristömuuttujat:\n"
+
+#: mms.cpp:569
+msgid "Unable to find or create HOME directory"
+msgstr "Kotihakemistoa ei löydy tai sen luonti epäonnistui "
+
+#: mms.cpp:588
+msgid "CD/DVD not configured properly and media enabled in Config, exiting"
+msgstr ""
+"CD/DVD-asetukset virheelliset ja toiminto asetettu päälle Config-"
+"tiedostossa, poistutaan."
+
+#: mms.cpp:617 mms.cpp:618 mms.cpp:619 mms.cpp:620
+#: pic-library/pic-library.cpp:458 pic-library/pic-library.cpp:459
+#: movie-library/movie-library.cpp:555 movie-library/movie-library.cpp:556
+#: audio-library/audio-library.cpp:621 audio-library/audio-library.cpp:622
+msgid "Using "
+msgstr "Käytetään "
+
+#: mms.cpp:617
+msgid " as primary configuration directory"
+msgstr " pääasiallisena asetushakemistona"
+
+#: mms.cpp:618
+msgid " as fallback configuration directory"
+msgstr " toissijaisena asetushakemistona"
+
+#: mms.cpp:619
+msgid " as personal data directory"
+msgstr " henkilökohtaisena asetushakemistona"
+
+#: mms.cpp:620
+msgid " as cache location"
+msgstr " välimuistin sijaintina"
+
+#: mms.cpp:647
+msgid "No input plugin found"
+msgstr "Syötelaajennosta ei löydy"
+
+#: mms.cpp:652
+msgid "No output device specified! Use the -o option."
+msgstr "Ulostulolaitetta ei ole määritelty! Käytä 'o'-parametria."
+
+#: option.cpp:14
+msgid ""
+"The size of the translated and the english option lists does not match: "
+msgstr "Suomennettujen ja englanninkielisten asetusten koot eivät täsmää: "
+
+#: options.cpp:68
+msgid "There are no options to show"
+msgstr "Ei asetuksia"
+
+#: options.cpp:162 theme.cpp:131
+msgid "Go back"
+msgstr "Takaisin"
+
+#: options.cpp:245 options.cpp:375
+msgid "reload"
+msgstr "lataa uudelleen"
+
+#: options.cpp:285 options.cpp:374 startmenu.cpp:52 startmenu.cpp:525
+msgid "Options"
+msgstr "Asetukset"
+
+#: options.cpp:502 global_options.cpp:157
+msgid "Could not create options directory: "
+msgstr "Hakemiston luonti asetuksille epäonnistui: "
+
+#: options.cpp:507 options.cpp:532
+msgid "Warning: module "
+msgstr "Varoitus: Moduuli "
+
+#: options.cpp:507 options.cpp:532
+msgid " did not set save_name"
+msgstr "ei asettanut save_name:a"
+
+#: options.cpp:515 theme.cpp:285 global_options.cpp:165
+msgid "Could not write options to file "
+msgstr "Asetusten tallennus tiedostoon epäonnistui"
+
+#: options.cpp:540 theme.cpp:304 global_options.cpp:186
+msgid "Could not open options file "
+msgstr "Asetustiedoston avaus epäonnistui"
+
+#: pic-library/pic-library.cpp:165
+msgid "Upgrading pictures database schema"
+msgstr "Päivitetään kuvatietokannan mallia"
+
+#: pic-library/pic-library.cpp:386 movie-library/movie-library.cpp:487
+#: audio-library/audio-library.cpp:553
+msgid ""
+"An instance of MMS or another instance of movie/pic/audio library is already "
+"running\n"
+msgstr "MMS tai video-/kuva-/musiikkikirjasto on jo käynnissä\n"
+
+#: pic-library/pic-library.cpp:445
+msgid "My Media System picture library creation tool"
+msgstr "My Media System -kuvakirjaston luontityökalu"
+
+#: pic-library/pic-library.cpp:447
+msgid "Usage: ./mms-pic-library"
+msgstr "Käyttöohje: ./mms-pic-library"
+
+#: pic-library/pic-library.cpp:449 movie-library/movie-library.cpp:546
+#: audio-library/audio-library.cpp:612
+msgid "Options:"
+msgstr "Asetukset:"
+
+#: pic-library/pic-library.cpp:450
+msgid " -c <absolute> : use alternate config directory"
+msgstr " -c <absoluuttinen polku> : käytä vaihtoehtoista asetushakemistoa"
+
+#: pic-library/pic-library.cpp:452 movie-library/movie-library.cpp:549
+#: audio-library/audio-library.cpp:615
+msgid ""
+" -d <path> : Override watch paths in configuration file with <path> (can be "
+"used multiple times)"
+msgstr ""
+" -d <polku> : Korvaa asetustiedoston vahtipolut <polku>-määrityksellä "
+"(voidaan asettaa useita kertoja)"
+
+#: pic-library/pic-library.cpp:458 movie-library/movie-library.cpp:555
+#: audio-library/audio-library.cpp:621
+msgid " as configuration directory"
+msgstr " asetushakemistona"
+
+#: pic-library/pic-library.cpp:459 movie-library/movie-library.cpp:556
+#: audio-library/audio-library.cpp:622
+msgid " as personal directory"
+msgstr " henkilökohtaisena asetushakemistona"
+
+#: plugins/feature/module.cpp:27 plugins/input/input.hpp:195
+#: plugins/input/input.hpp:198 plugins/input/input.hpp:200
+#: plugins/input/input.hpp:211 plugins/input/input.hpp:234
+#: plugins/input/input.hpp:288
+msgid "current folder"
+msgstr "nykyinen kansio"
+
+#: plugins/input/input.hpp:201 plugins/input/input.hpp:203
+msgid "all folders"
+msgstr "kaikki kansiot"
+
+#: plugins/input/input_device.cpp:93
+msgid "Input configuration file not found "
+msgstr "Syötelaitteen asetustiedostoa ei löydetä "
+
+#: plugins/input/input_device.cpp:162
+msgid "Adding "
+msgstr "Lisäämällä "
+
+#: plugins/input/input_device.cpp:185
+msgid "Wrong version of input file found: "
+msgstr "Syötelaitteen asetustiedostosta löydettiin virheellinen versio: "
+
+#: plugins/input/input_device.cpp:186 plugins/input/input_device.cpp:194
+msgid "Please upgrade your input file"
+msgstr "Päivitä syötelaitteesi asetustiedosto"
+
+#: plugins/input/input_device.cpp:187
+msgid "Got version "
+msgstr "Löydettiin versio"
+
+#: plugins/input/input_device.cpp:187 themes.cpp:123
+msgid " expected "
+msgstr " ja odotettiin "
+
+#: plugins/input/input_device.cpp:220 plugins/input/input_device.cpp:233
+msgid "Unknown cur_map: "
+msgstr "Tuntematon 'cur_map': "
+
+#: plugins/output/common-output.cpp:48
+msgid "Too many strings to print"
+msgstr "Liian monta tekstiriviä näytettäväksi"
+
+#: plugins/output/common-output.cpp:50
+msgid "Nothing to print"
+msgstr "Ei näytettävää"
+
+#: plugins/output/mpeg/mpeg.cpp:59
+msgid "Can't find codec mpeg2"
+msgstr "MPEG2-kodeekia ei löydetä"
+
+#: plugins/output/mpeg/mpeg.cpp:91
+msgid "Could not open codec"
+msgstr "Kodeekin avaus epäonnistui"
+
+#: plugins/output/renderer.cpp:721 plugins/output/renderer.cpp:1553
+#: plugins/output/renderer.cpp:1620
+msgid "The image "
+msgstr "Kuvan "
+
+#: plugins/output/renderer.cpp:721 plugins/output/renderer.cpp:1438
+#: plugins/output/renderer.cpp:1553 plugins/output/renderer.cpp:1620
+msgid " could not be loaded"
+msgstr " lataus epäonnistui"
+
+#: plugins/output/renderer.cpp:1438
+msgid "The font "
+msgstr "Kirjasimen "
+
+#: plugins/plugin.hpp:41
+msgid "Unnamed"
+msgstr "Nimeämätön"
+
+#: search.cpp:23 search.cpp:27 search.cpp:295 search.cpp:418
+msgid "all"
+msgstr "kaikki"
+
+#: search.cpp:122 startmenu.cpp:521
+msgid "Search"
+msgstr "Hae"
+
+#: search.cpp:133 search.cpp:334
+msgid "Search: "
+msgstr "Haku: "
+
+#: search.cpp:436
+msgid "No search results found"
+msgstr "Hakutuloksia ei löydetty"
+
+#: shutdown.cpp:37
+msgid "Shutdown in"
+msgstr "Sammutetaan"
+
+#: shutdown.cpp:43
+msgid "Shutdown Now"
+msgstr "Sammuta heti"
+
+#: shutdown.cpp:88
+msgid "Canceled Shutdown"
+msgstr "Sammutus peruutettu"
+
+#: extra_menu.hpp:46
+msgid "Extra Menu"
+msgstr "Lisävalikko"
+
+#: theme.cpp:128
+msgid "Use theme"
+msgstr "Käytä teemaa"
+
+#: theme.cpp:251 startmenu.cpp:529
+msgid "Themes"
+msgstr "Teemat"
+
+#: theme.cpp:330
+msgid "Falling back to standard theme"
+msgstr "Otetaan käyttöön oletusteema"
+
+#: theme.cpp:337
+msgid "Couldn't find any themes to open"
+msgstr "Teemoja ei löydetä"
+
+#: themes.cpp:89 themes.cpp:92
+msgid "Could not open theme"
+msgstr "Teeman avaus epäonnistui"
+
+#: themes.cpp:108
+msgid "Illegal line in theme file, missing '=' on line "
+msgstr "Virheellinen rivi teematiedostossa, puuttuva '='-merkki rivillä "
+
+#: themes.cpp:122
+msgid "Unsupported theme version, got version "
+msgstr "Teeman versio epäyhteensopiva, löytyi "
+
+#: themes.cpp:125
+msgid "Unsupported theme version"
+msgstr "Teeman versio epäyhteensopiva"
+
+#: movie-library/movie-library.cpp:246 movie-library/movie-library.cpp:251
+msgid "Upgrading movie database schema"
+msgstr "Päivitetään videotietokannan mallia"
+
+#: movie-library/movie-library.cpp:542
+msgid "My Media System movie library creation tool"
+msgstr "My Media System -videokirjaston luontityökalu"
+
+#: movie-library/movie-library.cpp:544
+msgid "Usage: ./mms-movie-library"
+msgstr "Käyttöohje: ./mms-movie-library"
+
+#: global_options.cpp:44
+msgid "name mismatch in cd configuration, please check your config"
+msgstr "nimet eivät täsmää CD-asetuksissa, tarkista asetukset"
+
+#: global_options.cpp:52
+msgid "cd device"
+msgstr "CD-laite"
+
+#: global_options.cpp:64
+msgid "audio device (music)"
+msgstr "äänilaite (musiikki)"
+
+#: global_options.cpp:67
+msgid "audio device (movies)"
+msgstr "äänilaite (videot)"
+
+#: global_options.cpp:81
+msgid "directories first"
+msgstr "hakemistot ensin"
+
+#: global_options.cpp:82
+msgid "by name"
+msgstr "nimen mukaan"
+
+#: global_options.cpp:83
+msgid "by date"
+msgstr "päivämäärän mukaan"
+
+#: global_options.cpp:90
+msgid "sorting"
+msgstr "järjestys"
+
+#: startmenu.cpp:59
+msgid "Global Options"
+msgstr "Yleiset asetukset"
+
+#: startmenu.cpp:164 startmenu.cpp:167 startmenu.cpp:550 startmenu.cpp:553
+msgid "Open/Close Tray"
+msgstr "Avaa/sulje levykelkka"
+
+#: startmenu.cpp:476
+msgid "Do you really want to exit?"
+msgstr "Haluatko varmasti lopettaa?"
+
+#: startmenu.cpp:479 startmenu.cpp:560 startmenu.cpp:561
+msgid "Quit"
+msgstr "Poistu"
+
+#: startmenu.cpp:481
+msgid "Halt System"
+msgstr "Sammuta järjestelmä"
+
+#: startmenu.cpp:482
+msgid "Cancel"
+msgstr "Peruuta"
+
+#: startmenu.cpp:533
+msgid "Utilities"
+msgstr "Työkalut"
+
+#: startmenu.cpp:540 startmenu.cpp:542
+msgid "Switch resolution"
+msgstr "Vaihda resoluutiota"
+
+#: audio-library/audio-library.cpp:340
+msgid "Upgrading audio database schema"
+msgstr "Päivitetään musiikkitietokannan mallia"
+
+#: audio-library/audio-library.cpp:608
+msgid "My Media System audio library creation tool"
+msgstr "My Media System -äänikirjaston luontityökalu"
+
+#: audio-library/audio-library.cpp:610
+msgid "Usage: ./mms-audio-library"
+msgstr "Käyttöohje: ./mms-audio-library"

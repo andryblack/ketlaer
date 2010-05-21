@@ -1,0 +1,42 @@
+### GAMES ####
+
+version = 3
+
+# Directories
+#
+# you can add several folders by simple having multiple entries
+#
+game_dir = /media/
+
+# If your directories are stored on a network storage you can specify
+# it underneath. The difference is that MMS will not try to add
+# needless inotify watches to directories specified in this way
+#
+#game_dir_no_watch = /media/
+
+# binary path and options
+mame_path = /usr/bin/xmame
+mameopts  = -fullscreen -scale 3
+snes_path = /usr/bin/zsnes
+snesopts  = -r 2
+nes_path  = /usr/bin/fceu
+nesopts   = --fs 1 --joy1 1 --xres 720 --yres 576
+gens_path = /usr/bin/gens
+gensopts  = --fs-mode
+
+# Enable Support for PSX games
+psxemu_enable = no
+psxemu_path = /usr/bin/pcsx
+psxemuopts = -nogui -runcd
+
+# games filetypes
+#
+# The extension must be in lowercase
+#
+filetypes_g = zip, mame
+filetypes_g = smc, snes
+filetypes_g = nes, nes
+filetypes_g = smd, gens
+filetypes_g = bin, gens
+filetypes_g = gsh, sh
+filetypes_g = sh, sh

@@ -1,0 +1,11 @@
+### TV ####
+
+version = 1
+
+# path of the tv program executable
+#
+tv_path = /usr/bin/tvtime
+
+# options to pass to executeable
+#
+tvopts = 

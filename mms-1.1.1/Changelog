@@ -1,0 +1,288 @@
+1.1.0 rc9 - 15 Dec 2008
+-----------------------
+	
+Features:
+ - #534 - Make fullscreen image pre-creation switchable	 
+ - Last.fm changes:
+   - Add the ability to generate playlist of similar tracks
+   - Add genres to track information
+   - Add support for generating playlists from top tracks or loved tracks
+  on last.fm
+ - Add next track info to normal screensaver
+ - Search support in EPG
+ - Do not show Video Game entries while looking up a movie on IMDB.
+ - #799 - Autostart plugins
+ - Add support for a third sound card 
+ - #835 - gstreamer - pulseaudio and oss support
+ - #824 - Add lirc input helper line when saving playlists
+ - Add ability to create and maintain of list of radio stations
+ 	
+Fixes:
+ - #785 - inotify don't catch a moved file/dir
+ - #787 - audio plugin don't update view at add/remove/move file with inotify
+ - #790 and #788
+ - #795 - Crash on madly pressing "right" in picture module while diashow is running
+ - Don't show thick and ugly border around left and right thumbnail in pictures fullscreen
+ - #798 - CPU detection is broken for Intel 64bit processors
+ - #800 - missing busy indicator for "reload"
+ - Fix #693 - "Play now" with lirc only adds files to playlist but doesn't start to play	
+ - Don't crash and burn if cdrom and/or cdrom_name is commented out in Config
+ - #789 - SIGSEGV while fetching lyrics 
+ - Fix locale problems and make imdb more robust
+ - IMDB rating is not read properly from database if LC_NUMERIC forces a decimal separator different from '.'
+ - Xine gets malformed MRL when playing DVD from harddisk
+ - Fix a SQL problem that prevented proper update of genre and actors for movies
+ - In the internal thumbnailer (ffmpeg based) avcodec_close() Doesn't free the codec context.
+ - #807 - "Next track" in screensaver is running through list in winamp-rando
+m
+ - #802 - command mappings activated if left blank 	
+ - #815 - "choose cover for folder" cover diplay window: crazy
+  highlight
+ - #751 - Lirc input-helper-line not disappearing if letter-indicator is
+ active
+ - #642 - plugin's search is real real slow when searching for "all
+  folders"
+ - #780 - Audio stops at end of song 3:50/3:51 and doesn't forward to
+  next song
+ - #812 - Show amount of loaded titles after loading a saved playlist 	
+ - Several inotify fixes
+ - #792 - Added a general purpose zombie slayer... ehm, zombie garbage collector
+ - #505 - Playing-Position is not reset
+ - #493 - Random picture slideshow - optimizing
+ - fixes to man pages
+ - #836 - Picture segfault
+ - #830 - No save on quit 	
+ - #827 - Alternate Playlist handling for Radio and #829 - No safety 
+  checks on radio selection. If there are no radios, mms crashes
+ - #831 - mouse scroll doesn't work
+ - #832 - Format movie-info more nicely
+ - Many fixes to EPG
+ - Crash when displaying lyrics. It happens if the audio screen-saver kicks in after the lyrics text is completely scrolled-up.
+ - #846 Image retention during opengl animations
+ - #823 + #843 - MMS hangs at exit if the epg plugin is in use.
+ - #841 + #845	
+ - #188 - render-corruptions in picture-zoom 
+ - Fix a bug where if you where playing the last track in the audio playlist and you had files queued, at the end of the track it would stop playing	
+ - Fix several bugs related to search
+ - #579 - N-A-weather overlapps disturbs 	
+ - #852 - Lirc helper line doesn't go away	
+ - #858 - metadata extraction doesn't look nice in 1680x1050
+ - Make weather in notification area resolution independant
+ - #856 - Add ability to interrupt "choose cover for folder"
+ - #861 - Crash in audio
+ - Fix audio skipping when deleting a playing track	
+ - Many bugfixes to Xine audio
+ - fix a corner case bug in lyrics
+ - #871 - volume-control interferes with right border at 100%
+ - Don't submit stuff to last.fm when we are suspending playback
+ - #867 - "Lyrics hangs MMS' UI"
+ - out of range error in vector in graphical audio
+ - #879 - mplayer with pulseaudio device	
+ - Fix instant shutdown 
+ - Resuming music (if played) when movie stops
+	
+Other:
+ - Adds separate audio device configurations for movies and music.
+ - Add Latvian translation
+ - Make Xine the default audio player
+ - Polish, Danish, German, Finnish, French translation updates
+ - #696 - Move radio from configure-switch to config-option 
+ - #157 - Update playlist to current playlist position
+
+1.1.0 rc8 - 15 Aug 2008
+-----------------------
+	
+new features:
+- Yellow marker :)
+
+fixes:
+- Fix problem with Polish translation
+- Fix movie marker in non-graphical mode
+- mms commits suicide inside the EPG plugin
+- main-menu-search takes movie-plugin's folder into account
+- Fixes for man pages
+- Opengl (improvement): Be a little be more tolerant when HoldDrawing() is not called before ReleaseDrawing()
+- Graphical errors after fetching film information
+- Can't build internal ffmpeg with gcc 4.3.1
+- Don't show in Notify Area if not get info
+- MMS is not using 1st image (alphabetical) or cover.jpg for Movie-Folders
+- Global search -> wrong result (sort order related)
+- Internal thumbnailer is unable to find the mjpeg encoder,
+- Genericplayer doesn't save/load options unless you enter the options section from main menu
+- Bugfixes to lirc helper line
+- Fix incorrect spacing between lines in simple movie
+- Sort audio files by track correctly
+- archlinux compile issue
+- Fix leaving picture-fullscreen with mouse not working
+- Fix Audio Bitrate too long
+- Fix race condition if different threads use the wget wrapper
+- Many lyrics Improvements and fixes
+- Fix SIGABRT after loading playlist
+- Use only only size thumbnail (largest) and scale the smaller ones
+- Fix library generators to generate thumbnails in the right size
+- Nice optimizations to searching
+- Tinyxml segfault on Hardy with --enable-python
+- Make imdb lookup better
+- Fix toggle playlist
+- Fixes to non-graphical movie search
+- Fix for no thumbnails of large files
+- Notification Area doesn't show up, if internet connection is broken
+- Fix icons in game module stretched in y
+- Fix a problem where weather, game and python does not build
+- cosmetic: overlap queue number in playlist
+- Segmentation fault on shutdown (evdev)
+- Reset the event device after running an external application change
+
+other:
+- Update translations for vbox
+- Update Danish translation
+- mkv defined twice in MovieConfig
+- Update Polish translation
+- update clock es locale
+
+1.1.0 rc7 - 22 Jul 2008
+-----------------------
+	
+new features:
+- added clock to notification area (configure switch: --enable-clock)
+- Add zoom selection interface
+This new interface has two major parts:
+
+1) The currently selected item is made bigger to make it easier to see
+2) The ui is resolution independant, meaning that it shouldn't matter
+what resolution you're running mms in, it should look the same.
+- mms -v shows what configuration options were selected to compile mms
+- Ability to run dxr3 in anamorphic resolution
+- Add the ability to change resolution on the fly
+- Lirc handling improved. Now it is possible to tweak repeat rate.
+- Add multiple input ability (-i lirc,keyboard or define in Config). The first device is used for shortcuts in secondary menu.
+- Makes internal thumbnailer enabled by default. This means a dependency on ffmpeg instead of mplayer.
+- Add ability to configure the amount of info displayed in picture-slideshow
+- VDR support in EPG code
+- Add the ability to delete messages in vbox
+- Left/Right in search => category jump in global search
+- Add 'sort by date' to sort options
+- Add support for specifying compile flag
+
+bugfixes:
+- Make mms compile with newer versions of libtool
+- many bugfixes to Python plugin
+- Improved support of .flv movie files in the internal thumbnailer
+- Install mms with the right permissions
+- Make configure --config work properly
+- Fix a problem with vanishing media folders
+- Fixed some issues with removing items displayed on the screen because of inotify
+- Remove annoying sleep for 5 seconds after it has displayed the root warning
+- Make picture info work when translation
+- Several fixes to playlist loading
+- Massive speed improvements to search
+- Busy indicator is active while browsing search results
+- Make startmenu-button work from within playlist
+- Fix movie playback not working
+- Update man pages
+- Support newer (after 25.2.08 ) snapshots of ffmpeg
+- Some OpenGL bugfixes
+- Fix play dvd folder
+- back-to-mainmenu not working in picture fullscreen
+- Fix two cases where db wasn't locked while used leading to nasty sqlite errors
+- Playlist-controls (play,pause,etc) not working in picture-zoom
+- Fix search in playlist
+- Format graphical audio - album view - time nicer
+- back click on icon not working in Weather & Search
+- Make sure that switching from search to playlist doesn't leave the red light on
+- UI tweaks to screensaver
+- Volume interfers with n-a in screensaver
+- Don't bail if mms can't find the right audio player plugin, just issue a warning and take another one if available
+- Key for Play-title-now in subfolder (not album-view) not working (lirc&keyboard)
+- Make it possible to shift to playlist mode in global search results list
+- Fix ordering for touch screen input
+- Slideshow delay is taken into account although no pic is displayed
+- Vbox compile errors on fedora core
+- Add touch support to VBOX
+
+translations:
+- Updated German, Danish, Polish
+
+1.1.0 rc6 - 03 May 2008
+-----------------------
+	
+new features:
+- Implement better startmenu selector
+- Add time regressive mode to audio playback
+- Add ability to change mplayer subtitle font size
+- Show title-length in album-view
+- Add the ability to exit with a single key
+- New weather plugin that uses google instead of yahoo
+- Add file manager, youtube and apple trailer pyglets
+- VBOX support
+
+bugfixes:
+- fix mms crash when script exit with unhandled exceptions in python plugin
+- Bugfix: Sometimes permissions for /tmp/mms.lock are not set.
+- gcc 4.3 compile fixes
+- Make mms compile on AMD64 platforms if the internal snapshot of ffmpeg is used
+- show if search-result is a folder or a file (global search)
+- Fix The opengl output plugin loses track of the current layer
+- Fix several problems with volume indicator
+- Fix Long folder names interfer with position
+- Fix Prevent EPG from showing ended programs
+- Fix ofdb longer film description
+- Fix internal thumbnailer fails at parsing rawvideo/bgr24 movies
+- Python fix: infinity loop when playing movies using input lirc
+- Fix small bug where dxr3 doesn't allow one to choose a valid resolution
+- Python fix: Video player code can now handle urls containing ampersand
+- fix a bug in the OpenGL plugin (wrong window size parameters)
+
+other:
+- better module unloading
+- Don't throw strange sql error if imms dir can't be found	
+
+1.1.0 rc5 - 30 Mar 2008
+-----------------------
+	
+Features:
+- Added ffmpeg based thumbnailer
+- Support finger scrolling when using touch input
+- Add the ability to control playback using buttons in audio playlist when using touch input
+- Add notification area and clock plugin that will display the time in notification area
+- Don't just show mp3s on cd as one big list. Use folders as from hd.
+
+Changes:
+- Lots of bugfixes and features to python plugin
+- Make python plugin work on 64 bit
+- Make mms's gstreamer plugin work in conjunction with jurassic versions of gstreamer
+- Fix DXR3 zoom
+- mms doesn't check return code of inotifytools_watch_recursively()
+- Fix two bugs in search
+- Don't show current folder in playlist search as it's not right and you can't choose anything anyway so it's just confusing
+- Make up/down in search results work with keyboard enabled (mouse movement would reset it)
+- Fix mms crashes on exit
+- Make go back to startmenu more consistent
+- Weather: Make data-positioning (Low, High) translation dependend
+- Fix wget wrapper for filenames with ' in them
+- Don't cut of the last genre when sucking imdb information
+- Make sure MMS doesn't choke when data is copied into a folder it is watching
+- Fix crash entering a disc with not recognizable files
+- Make movie playback (divx) from cd work again
+- Better error checking in lyrics downloading
+- Fix choosing cover with mouse
+- Fix alsaplayer skipping tracks when starting playback
+- Make back work with mouse as in all other modules
+- Fix Search in Playlist - awfully slow
+- Fix parsing/escaping strings used to create DB queries.
+- Fix: Unrecognized long command line option crashes mms
+- Fix: OFDB bug in downloading happy feet
+- Another fix for unloading plugins
+
+Other:
+------
+- Adds a new -d switch to library tools so that user can make them scan only selected directories.
+- Makes output related to inotify clearer
+- tells user *why* it can't add an inotify watch
+- prevent multiple instances of mms (or mms + mms-xxx-l ibrary) from running at the same time.
+- Provide more flexibility for Feature Plugins
+- On action radio stations now starts playing but are not added to
+playlist. They can still be added using secondary menu.
+- Add a method that external plugins can use to play music
+- Disable movie collection by default and improve the description of it, so that people will read the description and understand what it is before enabled it
+- Update Danish, German and Polish translations

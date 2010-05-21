@@ -1,0 +1,13 @@
+1,219:,,,,false
+3,516:general,DOWN,next,Next,false
+5,88:general,ENTER,action,Action,false
+6,397:general,ENTER,action,Play movie,false
+14,643:general,DOWN,next,Next,false
+15,349:general,ENTER,action,Play movie,false
+24,42:general,END,back,Return to startmenu,false
+29,250:general,DOWN,next,Next,false
+29,430:general,DOWN,next,Next,false
+29,603:general,DOWN,next,Next,false
+29,751:general,DOWN,next,Next,false
+29,911:general,DOWN,next,Next,false
+30,294:general,ENTER,action,Action,false

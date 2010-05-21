@@ -1,0 +1,222 @@
+# translation of cs.po to
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER, 2005.
+#
+# Miroslav Flídr <flidr@kky.zcu.cz>, 2005, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: cs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-18 13:03+0100\n"
+"PO-Revision-Date: 2008-12-21 21:41+0100\n"
+"Last-Translator: \n"
+"Language-Team:  <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: epg_plugin.cpp:10 epg_plugin.cpp:44 epg_plugin.cpp:99 epg.cpp:172
+#: epg.cpp:2738 svdrp.cpp:1581 svdrp.cpp:1656 svdrp.cpp:1942
+msgid "Electronic Program Guide"
+msgstr "Elektronický průvodce TV programem"
+
+#: epg_plugin.cpp:19 epg.cpp:2310
+msgid "Rereading TV Data"
+msgstr "Znovu načítám soubor s TV programem"
+
+#: epg_plugin.cpp:89
+msgid "View Electronic Program Guide"
+msgstr "Zobrazit průvodce TV programem"
+
+#: epg_plugin.cpp:94 epg.cpp:1899
+msgid "Show Timer"
+msgstr "Zobrazit časovač"
+
+#: epg.cpp:634
+msgid "Upgrading EPG database schema"
+msgstr "Aktualizuji databázové schéma EPG"
+
+#: epg.cpp:806
+msgid "Monday"
+msgstr "Pondělí"
+
+#: epg.cpp:807
+msgid "Tuesday"
+msgstr "Úterý"
+
+#: epg.cpp:808
+msgid "Wednesday"
+msgstr "Středa"
+
+#: epg.cpp:809
+msgid "Thursday"
+msgstr "Čtvrtek"
+
+#: epg.cpp:810
+msgid "Friday"
+msgstr "Pátek"
+
+#: epg.cpp:811
+msgid "Saturday"
+msgstr "Sobota"
+
+#: epg.cpp:812
+msgid "Sunday"
+msgstr "Neděle"
+
+#: epg.cpp:1045
+msgid "logo not found:"
+msgstr "nebylo nalezeno logo:"
+
+#: epg.cpp:1063
+msgid "Error in channel id, please report this problem"
+msgstr "Chyba v identifikaci kanálu, prosím nahlaste tento problém"
+
+#: epg.cpp:1081
+msgid "Your TV Data is too old or inaccessible"
+msgstr "Váš soubor s TV programem je buď příliš starý nebo nedostupný"
+
+#: epg.cpp:1103 epg.cpp:2997
+msgid "Timer is not assigned to Epg-Event - "
+msgstr "Časovač není přidělen k události EPG - "
+
+#: epg.cpp:1105 epg.cpp:2999
+msgid "modification is not possible!"
+msgstr "změna není možná!"
+
+#: epg.cpp:1113 svdrp.cpp:2021
+msgid "Delete Timer?"
+msgstr "Smazat časovač?"
+
+#: epg.cpp:1114 epg.cpp:1279 svdrp.cpp:2022
+msgid "Yes"
+msgstr "Ano"
+
+#: epg.cpp:1115 epg.cpp:1280 svdrp.cpp:2023
+msgid "No"
+msgstr "Ne"
+
+#: epg.cpp:1212 epg.cpp:1253
+msgid "Timer created !"
+msgstr "Časovač vytvořen!"
+
+#: epg.cpp:1216 epg.cpp:1257
+msgid "Timer not created !"
+msgstr "Časovač nebyl vytvořen!"
+
+#: epg.cpp:1278
+msgid "Timer is recording - really delete?"
+msgstr "Časovač právě provádí záznam - opravdu jej chcete smazat?"
+
+#: epg.cpp:1322
+msgid "Timer deleted !"
+msgstr "Časovač smazán!"
+
+#: epg.cpp:1326
+msgid "Timer not deleted !"
+msgstr "Časovač nebyl smazán!"
+
+#: epg.cpp:1448 epg.cpp:2093 svdrp.cpp:1691
+msgid "EPG"
+msgstr "EPG"
+
+#: epg.cpp:1481 epg.cpp:1904
+msgid "Search"
+msgstr "Hledat"
+
+#: epg.cpp:1881
+msgid "Print description"
+msgstr "Tisknout popis"
+
+#: epg.cpp:1885
+msgid "Reload Data"
+msgstr "Znovu načítám data"
+
+#: epg.cpp:1889 epg.cpp:3014 epg.cpp:3018
+msgid "Toggle Timer"
+msgstr "Vypnout/zapnout časovač"
+
+#: epg.cpp:1894
+msgid "Switch to Channel"
+msgstr "Přepnout na kanál"
+
+#: epg.cpp:1909 epg.cpp:3026
+msgid "Return to startmenu"
+msgstr "Zpět do hlavní nabídky"
+
+#: epg.cpp:2203
+msgid " on "
+msgstr " zapnuto "
+
+#: epg.cpp:2322
+msgid "Could not find epg update program"
+msgstr "Nebyl nalezen program pro aktualizaci EPG"
+
+#: epg.cpp:2380 epg.cpp:2399 epg.cpp:2438 epg.cpp:2599
+msgid "No Epg available"
+msgstr "Není dostupný žádný programový průvodce"
+
+#: epg.cpp:2748
+msgid "EPG TV listings reloaded from Svdrp-Host"
+msgstr "Průvodce TV programem opět nahrán z Svdpr-hostitele"
+
+#: epg.cpp:2754
+msgid "EPG TV listings couldn't be loaded from Svdrp-Host"
+msgstr "Nebylo možné nahrát průvodce TV programem z Svdpr-hostitele"
+
+#: epg.cpp:2765
+msgid "EPG TV listings file reloaded"
+msgstr "Soubor s TV programem pro EPG opět nahrán"
+
+#: epg.cpp:2767
+msgid "The new data file will be used"
+msgstr "Nová data budou použita"
+
+#: epg.cpp:2768
+msgid "the next time you enter EPG"
+msgstr "až příště vstoupíte do EPG"
+
+#: epg.cpp:3022
+msgid "Delete Timer"
+msgstr "Smazat časovač"
+
+#: epg.cpp:3114
+msgid "EPG - Show Timer"
+msgstr "EPG - zobrazit časovač"
+
+#: svdrp.cpp:876
+msgid "Dualchannel"
+msgstr "Duální zvuk"
+
+#: svdrp.cpp:876
+msgid "2-channel"
+msgstr "2-kanálový"
+
+#: svdrp.cpp:879
+msgid "Dolby Digital"
+msgstr "Dolby Digital"
+
+#: svdrp.cpp:886
+msgid "Listening Movie"
+msgstr "Poslech filmu"
+
+#: svdrp.cpp:1686
+msgid "EPG - Create Timer"
+msgstr "EPG - vytvořit časovač"
+
+#: svdrp.cpp:1688
+msgid "EPG - Modify Timer"
+msgstr "EPG - změnit časovač"
+
+#: svdrp.cpp:1911
+msgid "Active Timer"
+msgstr "Aktivní časovač"
+
+#: svdrp.cpp:1913
+msgid ", Is recording"
+msgstr ", provádí záznam"
+
+#: svdrp.cpp:1915
+msgid ", (VPS)"
+msgstr ", (VPS)"

@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Martins Zabarovskis <martins@zabarovski.lv>, 2008.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-17 23:50+0100\n"
+"PO-Revision-Date: 2008-12-01 21:20+0200\n"
+"Last-Translator: Martins Zabarovskis <martins@zabarovski.lv>\n"
+"Language-Team: LATVIAN <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: libpython/mmsv2/videoplayer.cpp:17
+msgid "Video"
+msgstr ""
+
+#: libpython/mmsv2/videoplayer.cpp:27
+#, fuzzy
+msgid "No video support detected"
+msgstr "Nav atrasts filmu atbalsts"
+
+#: libpython/mmsv2/videoplayer.cpp:51
+msgid "Starting playback..."
+msgstr "Sākam atskaņošanu..."
+
+#: libpython/mmsv2/audioplayer.cpp:22
+msgid "No audio support detected"
+msgstr "Nav atrasts audio atbalsts"
+
+#: python.cpp:118
+msgid "does not exist"
+msgstr "neeksistē"
+
+#: python.cpp:140
+msgid "Python Options"
+msgstr "Python Opcijas"
+
+#: python.cpp:145
+msgid "reload"
+msgstr "pārlādēt"
+
+#: python_plugin.cpp:10 python_plugin.cpp:34
+msgid "Extras"
+msgstr ""
+
+#: python_plugin.cpp:24
+msgid "Run pyglets"
+msgstr ""
+
+#~ msgid "Movie"
+#~ msgstr "Filma"
+
+#~ msgid "Scripts"
+#~ msgstr "Skripti"
+
+#~ msgid "Run python script"
+#~ msgstr "Darbināt Python skriptu"

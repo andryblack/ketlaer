@@ -1,0 +1,44 @@
+.\" Done by Roman Müllenschläder <mms@prodeia.de>
+.
+.TH MMS_AUDIO_LIBRARY 1 "01.07.2008" "My Media System - mms-audio-library" "user commands"
+.SH NAME
+mms-audio-library \- Generates the audio database \fIaudio.db\fP
+for whole audio-dirs offline.
+.SH "SYNOPSIS"
+\fBmms-audio-library\fP [ \-\-help|\-h ] [ \-c  \fIpath\fP] [ \-p  \fIpath\fP]
+[ \-d  \fIpath\fP ] [ \-d  \fIpath\fP ] ...
+.SH DESCRIPTION
+\fBmms-audio-library\fP scans the \fIdirs\fP given in \fICONFIGDIR/AudioConfig\fP
+for music and fills the database.
+
+This speeds up navigation in Audio as MMS does not need to generate the
+database at runtime.
+.PP
+
+.SH OPTIONS
+.TP
+\fB\-\-help|\-h\fP
+Offers a short help and description of the commandline options
+.TP
+\fB\-c <absolute path>\fP
+Sets an alternate config-dir.
+.TP
+\fB\-p <absolute path>\fP
+Sets an alternative personal-dir (databases, etc.).
+.TP
+\fB\-d <path>\fP
+Scans the paths given with \fB-d\fP instead of those given in
+\fICONFIGDIR/AudioConfig\fP. This option might be used multiple times:
+
+mms-audio-library \-d /path/one/ \-d /path/two/
+
+.SH "SEE ALSO"
+.BR mms (1),
+.BR mms-pic-library (1),
+.BR mms-movie-library (1)
+
+For further documentation or information (wiki, forum): \fBmms.mymediasystem.org\fP
+
+.SH AUTHOR
+.TP
+Anders Rune Jensen anders@gnulinux.dk

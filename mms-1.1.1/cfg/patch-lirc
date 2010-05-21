@@ -1,0 +1,8 @@
+--- cfg/Config	2006-07-16 05:44:56.000000000 +0200
++++ cfg/Config-lirc	2006-07-16 05:45:04.000000000 +0200
+@@ -137,4 +137,4 @@
+ #
+ # choose between: keyboard, lirc and evdev 
+ #
+-input = keyboard
++input = lirc

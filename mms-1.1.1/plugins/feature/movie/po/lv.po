@@ -1,0 +1,419 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Martins Zabarovskis <martins@zabarovskis.lv>, 2008.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-12-01 20:00+0200\n"
+"Last-Translator: Martins Zabarovskis <martins@zabarovski.lv>\n"
+"Language-Team: LATVIAN <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: imdb.cpp:21
+msgid "Unable to retrieve web page "
+msgstr "Nevar ielādēt web lapu"
+
+#: simple_movie.cpp:27
+#, fuzzy
+msgid "Play video"
+msgstr "Rādīt filmas"
+
+#: simple_movie.cpp:31 graphical_movie.cpp:330 graphical_movie.cpp:339
+msgid "Enter directory"
+msgstr "Atvērt direktoriju"
+
+#: simple_movie.cpp:35 graphical_movie.cpp:369
+msgid "Go up one directory"
+msgstr "Vienu direktoriju atpakaļ"
+
+#: simple_movie.cpp:38 graphical_movie.cpp:371 graphical_movie.cpp:374
+#: collection.cpp:163
+msgid "Return to startmenu"
+msgstr "Atgriezties sākumā"
+
+#: simple_movie.cpp:80 graphical_movie.cpp:459 movie.hpp:350
+msgid "Folder is empty"
+msgstr "Direktorija ir tukša"
+
+#: simple_movie.cpp:238 graphical_movie.cpp:42 movie_db.cpp:1657
+#: movie_db.cpp:1771
+#, fuzzy
+msgid "Videos"
+msgstr "Video detaļas:"
+
+#: simple_movie.cpp:281 movie_db.cpp:1275 movie_db.cpp:1706 movie_db.cpp:1820
+msgid "Search: "
+msgstr "Meklēt: "
+
+#: movie.cpp:49
+#, fuzzy
+msgid "Video Options"
+msgstr "Filmu Iestatījumi"
+
+#: movie.cpp:60 movie.cpp:131
+msgid "reload"
+msgstr "pārlādēt"
+
+#: movie.cpp:70 graphical_movie.cpp:551 graphical_movie.cpp:556
+#: collection.cpp:233 collection.cpp:239 movie_db.cpp:434 movie_db.cpp:1634
+msgid "icon view"
+msgstr "ikonu skats"
+
+#: movie.cpp:73 graphical_movie.cpp:533 graphical_movie.cpp:544
+#: collection.cpp:211 collection.cpp:224
+msgid "list view"
+msgstr "saraksta skats"
+
+#: movie.cpp:76
+msgid "display mode"
+msgstr "ekrāna veids"
+
+#: movie.cpp:114
+msgid "No such plugin player: "
+msgstr "Nav šāda spraudņa spēlētāja: "
+
+#: movie.cpp:119
+msgid " does not provide any options"
+msgstr " nav pieejamas nekādas opcijas"
+
+#: movie.cpp:126 movie.cpp:425
+msgid "Options"
+msgstr "Opcijas"
+
+#: movie.cpp:131
+msgid "sorting"
+msgstr "kārtot"
+
+#: movie.cpp:132
+msgid "cd device"
+msgstr "cd iekārta"
+
+#: movie.cpp:132
+msgid "audio device"
+msgstr "audio iekārta"
+
+#: movie.cpp:170
+#, fuzzy
+msgid "video player"
+msgstr "filmu atskaņotājs"
+
+#: movie.cpp:175
+msgid "vcd player"
+msgstr "vcd atskaņotājs"
+
+#: movie.cpp:180
+msgid "dvd player"
+msgstr "DVD atskaņotājs"
+
+#: movie.cpp:337
+msgid "Play"
+msgstr "Rādīt"
+
+#: movie.cpp:338
+msgid "Pause"
+msgstr "Pauze"
+
+#: movie.cpp:339
+msgid "Stop"
+msgstr "Stop"
+
+#: movie.cpp:340
+msgid "Fast forward"
+msgstr "Pārtīt uz priekšu"
+
+#: movie.cpp:341
+msgid "Fast backward"
+msgstr "Pārtīt atpakaļ"
+
+#: movie.cpp:408 collection.cpp:187 movie_plugin.cpp:28 movie_plugin.cpp:58
+#: movie_plugin.cpp:115
+#, fuzzy
+msgid "Video"
+msgstr "Video detaļas:"
+
+#: movie.cpp:419
+#, fuzzy
+msgid "Switch video playback to fullscreen"
+msgstr "Pārslēgt filmu uz pilnu ekrānu"
+
+#: movie.cpp:423
+msgid "Search"
+msgstr "Meklēt"
+
+#: movie.cpp:474
+msgid "Starting playback..."
+msgstr "Sākam atskaņošanu..."
+
+#: graphical_movie.cpp:27 movie_db.cpp:52
+msgid "Could not create directory "
+msgstr "Nevar izveidot direktoriju "
+
+#: graphical_movie.cpp:221 graphical_movie.cpp:275 movie_db.cpp:479
+msgid "current folder"
+msgstr "aktīvā direktorija"
+
+#: graphical_movie.cpp:333 graphical_movie.cpp:341
+msgid "Play all files in dir"
+msgstr "Spēlēt visus failus"
+
+#: graphical_movie.cpp:336
+msgid "Play movie"
+msgstr "Rādīt filmu"
+
+#: graphical_movie.cpp:347
+msgid "Update imdb information"
+msgstr "Atjaunot IMDB informāciju"
+
+#: graphical_movie.cpp:351
+msgid "Delete imdb information"
+msgstr "Dzēst IMDB informāciju"
+
+#: graphical_movie.cpp:356
+#, fuzzy
+msgid "Get information on imdb"
+msgstr "Atjaunot filmas informāciju"
+
+#: graphical_movie.cpp:362
+msgid "Print file information"
+msgstr "Rādīt informāciju"
+
+#: graphical_movie.cpp:365
+msgid "Print imdb information"
+msgstr "Rādīt IMDB informāciju"
+
+#: graphical_movie.cpp:406
+msgid "No available information about this file"
+msgstr "Informācija par failu nav pieejama"
+
+#: graphical_movie.cpp:411
+msgid "General information:"
+msgstr "Pamatinformācija:"
+
+#: graphical_movie.cpp:418
+msgid "Video details:"
+msgstr "Video detaļas:"
+
+#: graphical_movie.cpp:425
+msgid "Audio details:"
+msgstr "Audio detaļas:"
+
+#: graphical_movie.cpp:692
+msgid "directories first"
+msgstr "Direktorijas pirmās"
+
+#: graphical_movie.cpp:975
+#, fuzzy
+msgid "No IMDb information found about videos"
+msgstr "Nav atrasta IMDB informācija par filmu"
+
+#: graphical_movie.cpp:976
+#, fuzzy
+msgid "Use the reget video information action"
+msgstr "Veiciet jaunu filmas informācijas iegūšanu"
+
+#: graphical_movie.cpp:977
+#, fuzzy
+msgid "to download information about a video"
+msgstr "lai ielādētu informāciju par filmu"
+
+#: graphical_movie.cpp:994
+msgid "Could not write options to file "
+msgstr "Nevar ierakstīt opcijas failā "
+
+#: graphical_movie.cpp:1013
+msgid "Could not open options file "
+msgstr "Nevar atvērt opciju failu "
+
+#: collection.cpp:31
+#, fuzzy
+msgid "Video Coll."
+msgstr "Filmu kol."
+
+#: collection.cpp:38
+#, fuzzy
+msgid "No options available for video collection"
+msgstr "Nav pieejamas opcijas filmu kolekcijai"
+
+#: collection.cpp:147
+msgid "Print information"
+msgstr "Rādīt informāciju"
+
+#: collection.cpp:151
+#, fuzzy
+msgid "Update video information"
+msgstr "Atjaunot filmas informāciju"
+
+#: collection.cpp:155
+msgid "Remove video"
+msgstr ""
+
+#: collection.cpp:160
+msgid "Search IMDb"
+msgstr "Meklēt IMDb"
+
+#: movie_plugin.cpp:19
+#, fuzzy
+msgid "Could not find any videos"
+msgstr "Nevar atrast nevienu filmu"
+
+#: movie_plugin.cpp:21
+msgid "Please specify a correct path "
+msgstr "Lūdzu norādiet pareizu ceļu"
+
+#: movie_plugin.cpp:22
+msgid "in the configuration file"
+msgstr "konfigurācijas failā"
+
+#: movie_plugin.cpp:36
+msgid "Reloading directories"
+msgstr "pārlādē direktorijas"
+
+#: movie_plugin.cpp:94
+#, fuzzy
+msgid "Play videos from harddrive"
+msgstr "Rādīt filmas no diska"
+
+#: movie_plugin.cpp:98
+#, fuzzy
+msgid "Play videos"
+msgstr "Rādīt filmas"
+
+#: movie_plugin.cpp:103
+msgid "Play a dvd/vcd/svcd"
+msgstr "Rādīt no DVD/VCD/SVCD"
+
+#: movie_db.cpp:49
+#, fuzzy
+msgid "Video database could not be opened or created"
+msgstr "Filmu datubāzi nevar atvērt vai izveidot"
+
+#: movie_db.cpp:259 movie_db.cpp:264
+#, fuzzy
+msgid "Upgrading video database schema"
+msgstr "Atjauno filmu datubāzes shēmu"
+
+#: movie_db.cpp:408
+#, fuzzy
+msgid "No IMDb information found about video"
+msgstr "Nav atrasta IMDb informācija par filmu "
+
+#: movie_db.cpp:409
+msgid "Please update information"
+msgstr "Lūdzu atjaunojiet informāciju"
+
+#: movie_db.cpp:665
+msgid "Director: "
+msgstr "Režisors: "
+
+#: movie_db.cpp:669
+msgid "Writing Credits: "
+msgstr "Scenāristi: "
+
+#: movie_db.cpp:677 movie_db.cpp:1530
+msgid "Runtime: "
+msgstr "Garums: "
+
+#: movie_db.cpp:685 movie_db.cpp:1537
+msgid "Genre: "
+msgstr "Žanrs: "
+
+#: movie_db.cpp:709
+msgid "Tagline: "
+msgstr "Apraksts: "
+
+#: movie_db.cpp:740
+msgid "Plot: "
+msgstr "Saturs: "
+
+#: movie_db.cpp:765 movie_db.cpp:769
+msgid "Rating:"
+msgstr "Vērtējums:"
+
+#: movie_db.cpp:804
+msgid "Cast: "
+msgstr "Lomās: "
+
+#: movie_db.cpp:853
+#, fuzzy
+msgid "Getting details about video"
+msgstr "Saņem informāciju par filmu"
+
+#: movie_db.cpp:863 movie_db.cpp:1065
+msgid "value of information_source not valid:"
+msgstr "informācijas avota dati nav derīgi:"
+
+#: movie_db.cpp:1052
+#, fuzzy
+msgid "Looking up video in IMDb database"
+msgstr "Meklē filmu IMDb datubāzē"
+
+#: movie_db.cpp:1263
+msgid "IMDb lookup"
+msgstr "IMDb meklēšana"
+
+#: movie_db.cpp:1287
+msgid "No results found..."
+msgstr "Bez rezultāta..."
+
+#: movie_db.cpp:1319
+msgid " result found"
+msgstr " ieraksts atrasts"
+
+#: movie_db.cpp:1321
+msgid " results found"
+msgstr " ieraksti atrasti"
+
+#: movie_db.cpp:1525
+msgid "Rating: "
+msgstr "Vērtējums: "
+
+#: movie_db.cpp:1592
+msgid "Duration: "
+msgstr "Garums: "
+
+#: movie_db.cpp:1598
+msgid "Resolution: "
+msgstr "Rezolūcija: "
+
+#: movie_db.cpp:1604
+msgid "Geometry: "
+msgstr "Izmērs: "
+
+#: movie_db.cpp:1610
+msgid "Audio codec: "
+msgstr "Audio kodeks: "
+
+#: movie_db.cpp:1616
+msgid "Audio bitrate: "
+msgstr "Audio bitreits: "
+
+#: movie_db.cpp:1659 movie_db.cpp:1773 movie_collection_plugin.cpp:16
+#: movie_collection_plugin.cpp:45
+#, fuzzy
+msgid "Video Collection"
+msgstr "Filmu Kolekcija"
+
+#: movie_collection_plugin.cpp:38
+#, fuzzy
+msgid "View video collection"
+msgstr "Skatīt filmu kolekciju"
+
+#: movie.hpp:519 movie.hpp:539
+msgid "The disc does not contain any recognizable files"
+msgstr "Diskā nav atrodami pazīstami faili"
+
+#~ msgid "Delete movie"
+#~ msgstr "Dzēst filmu"
+
+#~ msgid "Movie"
+#~ msgstr "Filma"
+
+#~ msgid "Movies"
+#~ msgstr "Filmas"

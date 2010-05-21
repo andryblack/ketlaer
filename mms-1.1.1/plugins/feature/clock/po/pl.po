@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.1.0rc5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2007-12-18 12:26+0200\n"
+"Last-Translator: Krzysztof Parma <krzychp@tlen.pl>\n"
+"Language-Team: POLISH <pl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: clock.cpp:130 clock.cpp:236 clock_opts.cpp:36
+msgid "off"
+msgstr "wyłącz"
+
+#: clock.cpp:243 clock_opts.cpp:48 clock_opts.cpp:72
+msgid "Audio"
+msgstr "Audio"
+
+#: clock.cpp:246 clock_opts.cpp:54
+msgid "current"
+msgstr "bieżący"
+
+#: clock.cpp:275
+msgid "Could not find alarm update program"
+msgstr "Nie mogę znaleźć programu aktualizacji alarmu"
+
+#: clock.cpp:304
+msgid "Could not write alarms to file: "
+msgstr "Nie mogę zapisać alarmów do pliku: "
+
+#: clock.cpp:344 clock_opts.cpp:35
+msgid "on"
+msgstr "włączony"
+
+#: clock.cpp:346
+msgid "Riiiing!"
+msgstr "Dzwonię! ;-)"
+
+#: clock.cpp:353
+msgid "tomorrow"
+msgstr "jutro"
+
+#: clock.cpp:355
+msgid "today"
+msgstr "dziś"
+
+#: clock.cpp:420
+msgid "sunday"
+msgstr "niedziela"
+
+#: clock.cpp:421
+msgid "monday"
+msgstr "poniedziałek"
+
+#: clock.cpp:422
+msgid "tuesday"
+msgstr "wtorek"
+
+#: clock.cpp:423
+msgid "wednesday"
+msgstr "środa"
+
+#: clock.cpp:424
+msgid "thursday"
+msgstr "czwartek"
+
+#: clock.cpp:425
+msgid "friday"
+msgstr "piątek"
+
+#: clock.cpp:426
+msgid "saturday"
+msgstr "sobota"
+
+#: clock_opts.cpp:29
+msgid "Clock Options"
+msgstr "Opcje Zegara"
+
+#: clock_opts.cpp:43
+msgid "alarm"
+msgstr "alarm"
+
+#: clock_opts.cpp:62
+msgid "playlist"
+msgstr "playlista"
+
+#: clock_opts.cpp:92 clock_plugin.cpp:33
+msgid "Clock"
+msgstr "Zegar"
+
+#: clock_alarms.cpp:302
+msgid "Add Alarm"
+msgstr "Dodaj Alarm"
+
+#: clock_alarms.cpp:309
+msgid "Day: "
+msgstr "Dzien: "
+
+#: clock_alarms.cpp:312
+msgid "Time: "
+msgstr "Czas: "
+
+#: clock_alarms.cpp:338
+msgid "Alarms"
+msgstr "Alarmy"

@@ -1,0 +1,30 @@
+### GENERIC PLAYER ####
+
+version = 1
+
+# Movie Player options
+#
+# Options in a printf like format. The meaning of the %<letter> is
+# defined in the genericplayer.ops file
+#
+# The "" is needed for Xine, if your configured player doesn't need it
+# just remove them
+#
+generic_dvd_opts = %f %a "dvd://%d/%t"
+generic_vcd_opts = %f %a "vcd://%T"
+generic_movie_opts = %f %a
+
+#Normally, for generic_movie_opts,  file names/paths are appended to the
+#end of the string. If you need to specify a different position, use %@
+#example (for vlc):
+#generic_movie_opts = %f %a %@ vlc:quit
+
+
+# Path
+#
+# The path to the player, leave empty if the player doesn't support
+# one of the playback modes
+#
+genericplayer_dvd_path = /usr/bin/xine
+genericplayer_vcd_path = /usr/bin/xine
+genericplayer_movie_path = /usr/bin/xine

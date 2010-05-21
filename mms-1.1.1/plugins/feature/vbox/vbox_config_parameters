@@ -1,0 +1,15 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS VBoxConfig
+#define S_PARAMETER_CLASS S_VBoxConfig
+#define STRING_PARAMETER_CLASS "VBoxConfig"
+
+#define MMS_CONFIG_VERSION "3"
+
+PARAMETER_STR("vbox_conv_tool", vbox_conv_tool, "/usr/local/bin/vboxtoau-mms")
+PARAMETER_STR("vbox_temp_file"	, vbox_temp_file , "/tmp/mms-vbox.au")
+
+PARAMETER_LIST("vbox"			, vbox)
+
+#include "config_pre_post.hpp"

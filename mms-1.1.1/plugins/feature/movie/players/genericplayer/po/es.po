@@ -1,0 +1,43 @@
+# translation of es.po to
+# MMS translation to Spanish.
+# Copyright (C) 2005 Alan Mizrahi
+# This file is distributed under the same license as MMS.
+# Alan Mizrahi, alan at mizrahi dot com dot ve
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: es\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-24 09:38+0200\n"
+"PO-Revision-Date: 2008-02-23 22:30-0430\n"
+"Last-Translator: \n"
+"Language-Team:  <en@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: genericplayer.cpp:84 genericplayer.cpp:92
+msgid "Cannot open options file!"
+msgstr "No se puedo abrir el archivo de opciones!"
+
+#: genericplayer.cpp:108 genericplayer.cpp:126
+msgid "Option file malformed, list of entries not correctly terminated"
+msgstr ""
+"Archivo de opciones inválido, lista de entradas no est;a correctamente "
+"terminada"
+
+#: genericplayer.cpp:114 genericplayer.cpp:132 genericplayer.cpp:139
+#: genericplayer.cpp:155 genericplayer.cpp:174
+msgid "Option file malformed, skipping line"
+msgstr "Archivo de opciones inválido, saltando línea"
+
+#: genericplayer.cpp:150
+msgid "Option file malformed, option value without option entry"
+msgstr "Archivo de opciones inválido, valor de opción sin entrada"
+
+#: genericplayer.cpp:165
+msgid "Option file malformed, got '$' line without previous option entry"
+msgstr ""
+"Archivo de opciones inválido, se leyó una línea '$' sin una entrada de "
+"opción previa"

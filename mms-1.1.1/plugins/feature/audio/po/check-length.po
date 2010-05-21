@@ -1,0 +1,1301 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-03-08 03:52+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: audio.cpp:242 audio.cpp:286
+msgid "Added directory to playlist"
+msgstr "660"
+
+#: audio.cpp:256 audio.cpp:1579
+msgid "Added track to playlist"
+msgstr "660"
+
+#: audio.cpp:294
+msgid "Clearing playlist to play contents of folder"
+msgstr "660"
+
+#: audio.cpp:295
+msgid "The old playlist has been saved as 'autosaved'"
+msgstr "660"
+
+#: audio.cpp:338 audio.cpp:2600 audio.cpp:3118
+msgid "Extracting metadata"
+msgstr "650"
+
+#: audio.cpp:362 game.cpp:164 movie.cpp:282 movie.cpp:306 pictures.cpp:289
+msgid "Folder is empty"
+msgstr "660"
+
+#: audio.cpp:437 audio.cpp:1924 audio_opts.cpp:53 audio_s.cpp:197
+#: player.cpp:56 player.cpp:164
+msgid "real random"
+msgstr "240"
+
+#: audio.cpp:764 audio.cpp:779 game.cpp:336 game.cpp:352 input.cpp:238
+#: movie.cpp:533 movie.cpp:557 pictures.cpp:614
+msgid "Enter directory"
+msgstr "350"
+
+#: audio.cpp:766 audio.cpp:774
+msgid "Add directory to playlist"
+msgstr "350"
+
+#: audio.cpp:770
+msgid "Add track to playlist"
+msgstr "350"
+
+#: audio.cpp:785 audio.cpp:855 game.cpp:356 game.cpp:368 movie.cpp:561
+#: movie.cpp:573 pictures.cpp:641
+msgid "Go up one directory"
+msgstr "350"
+
+#: audio.cpp:792
+msgid "Play now"
+msgstr "350"
+
+#: audio.cpp:796
+msgid "Play track now"
+msgstr "350"
+
+#: audio.cpp:801
+msgid "Add all tracks to playlist"
+msgstr "350"
+
+#: audio.cpp:807 input.cpp:273
+msgid "Play track"
+msgstr "350"
+
+#: audio.cpp:810 input.cpp:223
+msgid "Move track up"
+msgstr "350"
+
+#: audio.cpp:813 input.cpp:224
+msgid "Move track down"
+msgstr "350"
+
+#: audio.cpp:816 input.cpp:225
+msgid "Delete track"
+msgstr "350"
+
+#: audio.cpp:819
+msgid "Queue track"
+msgstr "350"
+
+#: audio.cpp:822 input.cpp:227
+msgid "Clear playlist"
+msgstr "350"
+
+#: audio.cpp:825 input.cpp:228
+msgid "Save playlist"
+msgstr "350"
+
+#: audio.cpp:830 audio.cpp:1353
+msgid "Load playlist"
+msgstr "350"
+
+#: audio.cpp:837 input.cpp:231 movie.cpp:545
+msgid "Print information"
+msgstr "350"
+
+#: audio.cpp:844 game.cpp:360 input.cpp:204 movie.cpp:565 pictures.cpp:628
+msgid "Search"
+msgstr "350"
+
+#: audio.cpp:848 epg.cpp:630 game.cpp:363 input.cpp:203 movie.cpp:568
+#: options.cpp:199 options.cpp:273 pictures.cpp:631 pictures.cpp:1095
+#: startmenu.cpp:67 startmenu.cpp:863 startmenu.cpp:881
+msgid "Options"
+msgstr "350,22"
+
+#: audio.cpp:859 audio.cpp:864 epg.cpp:633 game.cpp:370 game.cpp:376
+#: input.cpp:200 movie.cpp:575 movie.cpp:581 pictures.cpp:638
+msgid "Return to startmenu"
+msgstr "350"
+
+#: audio.cpp:870 audio.cpp:1364 epg.cpp:639 game.cpp:383 input.cpp:212
+#: movie.cpp:588 pictures.cpp:646 pictures.cpp:1105 startmenu.cpp:335
+msgid "Playlist commands"
+msgstr "350"
+
+#: audio.cpp:1068
+msgid "Audio - Information"
+msgstr "500"
+
+#: audio.cpp:1102 audio.cpp:1123
+msgid "Artist:"
+msgstr "470"
+
+#: audio.cpp:1104 audio.cpp:1133
+msgid "Album:"
+msgstr "470"
+
+#: audio.cpp:1106 audio.cpp:1144
+msgid "Title:"
+msgstr "470"
+
+#: audio.cpp:1108 audio.cpp:1153
+msgid "Year:"
+msgstr "470"
+
+#: audio.cpp:1110 audio.cpp:1162
+msgid "Bitrate:"
+msgstr "470"
+
+#: audio.cpp:1112 audio.cpp:1178
+msgid "Length:"
+msgstr "470"
+
+#: audio.cpp:1114 audio.cpp:1193 movie.cpp:848 movie.cpp:853
+msgid "Rating:"
+msgstr "270"
+
+#: audio.cpp:1116 audio.cpp:1201
+msgid "Track:"
+msgstr "470"
+
+#: audio.cpp:1191
+msgid "not rated yet"
+msgstr "250"
+
+#: audio.cpp:1259
+msgid "Playlist is corrupt"
+msgstr "660"
+
+#: audio.cpp:1356
+msgid "Delete playlist"
+msgstr "350"
+
+#: audio.cpp:1359 audio.cpp:3987
+msgid "Playlist"
+msgstr "350"
+
+#: audio.cpp:1424
+msgid "Downloading radio stations"
+msgstr "660"
+
+#: audio.cpp:1561
+msgid "Alsaplayer does not support rtsp"
+msgstr "660"
+
+#: audio.cpp:1858 audio.cpp:1983
+msgid "Audio - Add files"
+msgstr "500"
+
+#: audio.cpp:1860
+msgid "Audio - Playlist"
+msgstr "500"
+
+#: audio.cpp:1883 audio.cpp:2003 game.cpp:531 game.cpp:750 movie.cpp:1122
+#: movie.cpp:1205 movie.cpp:1426 pictures.cpp:1170
+msgid "Search: "
+msgstr "200"
+
+#: audio.cpp:1912 audio.cpp:1918 audio.cpp:3619 audio_opts.cpp:27
+#: audio_opts.cpp:40 audio_opts.cpp:112 pictures.cpp:136 pictures.cpp:150
+#: pictures.cpp:164 pictures.cpp:179 pictures.cpp:712
+msgid "yes"
+msgstr "100"
+
+#: audio.cpp:1912 audio_opts.cpp:26 audio_opts.cpp:39 audio_opts.cpp:111
+#: common.cpp:81 pictures.cpp:135 pictures.cpp:149 pictures.cpp:163
+#: pictures.cpp:178
+msgid "no"
+msgstr "100"
+
+#: audio.cpp:1928 audio_opts.cpp:56 player.cpp:74 player.cpp:197
+msgid "intelligent"
+msgstr "240"
+
+#: audio.cpp:1932 audio_opts.cpp:54 player.cpp:68 player.cpp:191
+msgid "winamp random"
+msgstr "240"
+
+#: audio.cpp:2290
+msgid "Audio - Choose Playlist"
+msgstr "500"
+
+#: audio.cpp:2295
+msgid "Audio - Radio"
+msgstr "500"
+
+#: audio.cpp:2324 audio.cpp:2339 audio.cpp:2353 audio.cpp:2432 audio.cpp:2465
+#: audio.cpp:2500 game.cpp:1009 game.cpp:1023 movie.cpp:1728 movie.cpp:1746
+#: pictures.cpp:1465 pictures.cpp:1476 startmenu.cpp:465
+msgid "The disc does not contain any recognizable files"
+msgstr "660"
+
+#: audio.cpp:2361
+msgid "Add CD to playlist and start playback"
+msgstr "450"
+
+#: audio.cpp:2364
+msgid "Examine CD"
+msgstr "450"
+
+#: audio.cpp:2383
+msgid "Looking up CD in database"
+msgstr "660"
+
+#: audio.cpp:2803
+msgid "Can not save playlist with an empty name"
+msgstr "660"
+
+#: audio.cpp:2805 audio.cpp:2817
+msgid "Please use another name"
+msgstr "660"
+
+#: audio.cpp:2815
+msgid "Playlist with the chosen name already exists"
+msgstr "660"
+
+#: audio.cpp:2829
+msgid "Could not write playlist to file: "
+msgstr "660"
+
+#: audio.cpp:2883
+msgid "Could not open playlist: "
+msgstr "660"
+
+#: audio.cpp:2897
+msgid "Playlist malformed, skipping line"
+msgstr "660"
+
+#: audio.cpp:3377 audio.cpp:3378 audio.cpp:3558 audio.cpp:3763
+#: audio_opts.cpp:52 audio_s.cpp:192 audio_s.cpp:195 common.cpp:81
+msgid "off"
+msgstr "100"
+
+#: audio.cpp:3556
+msgid "Playing track: "
+msgstr "400"
+
+#: audio.cpp:3920
+msgid "No tracks in playlist"
+msgstr "660"
+
+#: audio.cpp:3943
+msgid "No saved playlists found"
+msgstr "660"
+
+#: audio.cpp:3948
+msgid "Playlist Commands"
+msgstr "660"
+
+#: audio.cpp:3951 input.cpp:213
+msgid "Play"
+msgstr "470"
+
+#: audio.cpp:3954 input.cpp:214
+msgid "Pause"
+msgstr "470"
+
+#: audio.cpp:3957 input.cpp:215
+msgid "Stop"
+msgstr "470"
+
+#: audio.cpp:3960 input.cpp:219
+msgid "Next track"
+msgstr "470"
+
+#: audio.cpp:3963 input.cpp:218
+msgid "Previous track"
+msgstr "470"
+
+#: audio.cpp:3966 input.cpp:216
+msgid "Fast forward"
+msgstr "470"
+
+#: audio.cpp:3969 input.cpp:217
+msgid "Fast backward"
+msgstr "470"
+
+#: audio.cpp:3972 input.cpp:220
+msgid "Increase volume"
+msgstr "470"
+
+#: audio.cpp:3975 input.cpp:221
+msgid "Decrease volume"
+msgstr "470"
+
+#: audio.cpp:3978 input.cpp:222
+msgid "Mute"
+msgstr "470"
+
+#: audio.cpp:3989
+msgid "Add files to playlist"
+msgstr "470"
+
+#: audio_opts.cpp:12
+msgid "Audio Options"
+msgstr "470"
+
+#: audio_opts.cpp:18 epg.cpp:205 game.cpp:45 movie.cpp:45 options.cpp:101
+#: options.cpp:241 options.cpp:253 options.cpp:274 options.cpp:293
+#: pictures.cpp:118 startmenu.cpp:91 startmenu.cpp:106 startmenu.cpp:121
+#: startmenu.cpp:137 startmenu.cpp:191
+msgid "reload"
+msgstr "470"
+
+#: audio_opts.cpp:34
+msgid "repeat"
+msgstr "350"
+
+#: audio_opts.cpp:47 startmenu.cpp:191
+msgid "shutdown on finish"
+msgstr "350"
+
+#: audio_opts.cpp:68
+msgid "shuffle"
+msgstr "350"
+
+#: audio_opts.cpp:94 audio_opts.cpp:103
+msgid "minimum bitrate"
+msgstr "350"
+
+#: audio_opts.cpp:98
+msgid "n/a"
+msgstr "350"
+
+#: audio_opts.cpp:119
+msgid "bg metadata extraction"
+msgstr "350"
+
+#: audio_s.cpp:69
+msgid "Initializing Xine"
+msgstr "660"
+
+#: cd.cpp:55
+msgid "Could not find your dvd/cd drive"
+msgstr "660"
+
+#: cd.cpp:83
+msgid "Could not set drive speed"
+msgstr "660"
+
+#: cd.cpp:89
+msgid "The drive does not support speed selection"
+msgstr "660"
+
+#: cd.cpp:102
+msgid "There is no disc in the drive"
+msgstr "660"
+
+#: cd.cpp:110
+msgid "The tray is open"
+msgstr "660"
+
+#: cd.cpp:112
+msgid "Please close it"
+msgstr "660"
+
+#: cd.cpp:119
+msgid "The drive is not ready"
+msgstr "660"
+
+#: cd.cpp:121 xine.cpp:143
+msgid "Please try again later"
+msgstr "660"
+
+#: common.cpp:81
+msgid "false"
+msgstr "0"
+
+#: common.cpp:324
+msgid "Failed to open iconv"
+msgstr "660"
+
+#: common.cpp:330
+msgid "String conversion failed"
+msgstr "660"
+
+#: common.cpp:516
+msgid "Too many strings to print"
+msgstr "660"
+
+#: common.cpp:519
+msgid "Nothing to print"
+msgstr "660"
+
+#: config_macros.hpp:84
+msgid "Opening configuration file "
+msgstr "0"
+
+#: config_macros.hpp:92
+msgid "Config file not found "
+msgstr "0"
+
+#: config_macros.hpp:111
+msgid "Error while reading line "
+msgstr "0"
+
+#: config_macros.hpp:112
+msgid "missing '='"
+msgstr "0"
+
+#: config_macros.hpp:133 input.cpp:141
+msgid " is version "
+msgstr "0"
+
+#: config_macros.hpp:133 input.cpp:141
+msgid " and mms expecting version "
+msgstr "0"
+
+#: config_macros.hpp:134 config_macros.hpp:142
+msgid "Please upgrade your config file"
+msgstr "0"
+
+#: config_macros.hpp:141 input.cpp:151
+msgid "Version string not found"
+msgstr "0"
+
+#: config_macros.hpp:152
+msgid "Unknown token '"
+msgstr "0"
+
+#: config_macros.hpp:153
+msgid "' on line "
+msgstr "0"
+
+#: config_macros.hpp:172
+msgid "Can't write configuration file!"
+msgstr "0"
+
+#: display.cpp:77
+msgid "Error connecting to server "
+msgstr "0"
+
+#: display.cpp:79
+msgid " on port "
+msgstr "0"
+
+#: display.cpp:80
+msgid "Check to see that the server is running and operating normally"
+msgstr "0"
+
+#: dvbout.cpp:45
+msgid "Could not initialize device"
+msgstr "0"
+
+#: dvbout.cpp:91 dxr3out.cpp:86
+msgid "Trying to write to an unitialized device"
+msgstr "0"
+
+#: dxr3out.cpp:149 dxr3out.cpp:157 fbdevout.cpp:80
+msgid "Could not open device"
+msgstr "0"
+
+#: dxr3out.cpp:166
+msgid "Unable to set playmode"
+msgstr "0"
+
+#: epg.cpp:199
+msgid "EPG Options"
+msgstr "470"
+
+#: epg.cpp:381
+msgid "Error in channel id, please report this problem"
+msgstr "0"
+
+#: epg.cpp:388
+msgid "Failed to find icon "
+msgstr "0"
+
+#: epg.cpp:397
+msgid "Could not find icons for epg"
+msgstr "660"
+
+#: epg.cpp:399
+msgid "Please install the icons and try again"
+msgstr "660"
+
+#: epg.cpp:423
+msgid "Your TV listings file is too old or inaccessible"
+msgstr "660"
+
+#: epg.cpp:443
+msgid "No description available"
+msgstr "660"
+
+#: epg.cpp:627
+msgid "Print description"
+msgstr "470"
+
+#: epg.cpp:666
+msgid "EPG"
+msgstr "500"
+
+#: epg.cpp:818
+msgid " on "
+msgstr "0"
+
+#: epg.cpp:976
+msgid "Could not find epg update program"
+msgstr "0"
+
+#: epg.cpp:988
+msgid "EPG TV listings file reloaded"
+msgstr "660"
+
+#: epg.cpp:990
+msgid "The new data file will be used"
+msgstr "660"
+
+#: epg.cpp:991
+msgid "the next time you enter EPG"
+msgstr "660"
+
+#: evdev.cpp:223
+msgid "Could not connect to evdev device "
+msgstr "0"
+
+#: evdev.cpp:227
+msgid "Connected to device "
+msgstr "0"
+
+#: evdev.cpp:297
+msgid "Unknown input type"
+msgstr "0"
+
+#: extra_menu.hpp:28
+msgid "Extra Menu"
+msgstr "0"
+
+#: extra_menu.cpp:108 extra_menu.cpp:117 pictures.cpp:1078
+msgid "Zoom"
+msgstr "0"
+
+#: fbdevout.cpp:156
+msgid "mmap failed"
+msgstr "0"
+
+#: functor.hpp:186
+msgid "Enter filename: "
+msgstr "0"
+
+#: game.cpp:39 startmenu.cpp:130
+msgid "Game Options"
+msgstr "470"
+
+#: game.cpp:339 game.cpp:347
+msgid "Play game"
+msgstr "470"
+
+#: game.cpp:511 game.cpp:736 startmenu.cpp:832
+msgid "Games"
+msgstr "415,28"
+
+#: game.cpp:789
+msgid "Starting Game..."
+msgstr "660"
+
+#: game.cpp:849
+msgid "No psx emulator enabled in config file"
+msgstr "0"
+
+#: game.cpp:1012 movie.cpp:1487 movie.cpp:1731
+msgid "Starting Playback..."
+msgstr "660"
+
+#: global_options.cpp:20
+msgid "directories first"
+msgstr "350"
+
+#: global_options.cpp:21
+msgid "by name"
+msgstr "350"
+
+#: global_options.cpp:27 options.cpp:110 startmenu.cpp:92 startmenu.cpp:107
+#: startmenu.cpp:122 startmenu.cpp:138
+msgid "sorting"
+msgstr "0"
+
+#: global_options.cpp:45
+msgid "cd device"
+msgstr "350"
+
+#: imdb.cpp:32
+msgid "Unable to retrieve web page "
+msgstr "0"
+
+#: input.cpp:109
+msgid "Input configuration file not found "
+msgstr "0"
+
+#: input.cpp:142 input.cpp:152
+msgid "Please upgrade your input file"
+msgstr "0"
+
+#: input.cpp:196
+msgid "Previous"
+msgstr "0"
+
+#: input.cpp:197
+msgid "Next"
+msgstr "0"
+
+#: input.cpp:198
+msgid "Move left"
+msgstr "0"
+
+#: input.cpp:199
+msgid "Move right"
+msgstr "0"
+
+#: input.cpp:201
+msgid "Action"
+msgstr "0"
+
+#: input.cpp:202
+msgid "Extra menu"
+msgstr "0"
+
+#: input.cpp:205
+msgid "Next page"
+msgstr "0"
+
+#: input.cpp:206
+msgid "Previous page"
+msgstr "0"
+
+#: input.cpp:208
+msgid "Fullscreen"
+msgstr "0"
+
+#: input.cpp:210
+msgid "Playlist (toggle)"
+msgstr "0"
+
+#: input.cpp:211
+msgid "Load/Save a playlist"
+msgstr "0"
+
+#: input.cpp:226
+msgid "En queue track"
+msgstr "0"
+
+#: input.cpp:229
+msgid "Pause slideshow"
+msgstr "0"
+
+#: input.cpp:230
+msgid "Rotate picture"
+msgstr "0"
+
+#: input.cpp:232
+msgid "Accept"
+msgstr "0"
+
+#: input.cpp:233
+msgid "Complete"
+msgstr "0"
+
+#: input.cpp:234
+msgid "Delete"
+msgstr "0"
+
+#: input.cpp:235
+msgid "Exit"
+msgstr "0"
+
+#: input.cpp:237 movie.cpp:542
+msgid "Update IMDb information"
+msgstr "350"
+
+#: input.cpp:256 movie.cpp:538 movie.cpp:552
+msgid "Play movie"
+msgstr "350"
+
+#: input.cpp:262
+msgid "Select movie"
+msgstr "0"
+
+#: input.cpp:268
+msgid "Add to Playlist"
+msgstr "0"
+
+#: input.cpp:278
+msgid "Load"
+msgstr "0"
+
+#: input.cpp:283
+msgid "Rotate"
+msgstr "0"
+
+#: input.cpp:288
+msgid "View Information"
+msgstr "0"
+
+#: input.cpp:337
+msgid "Unknown mode '"
+msgstr "0"
+
+#: input.cpp:338
+msgid "' in input file"
+msgstr "0"
+
+#: input.cpp:370
+msgid "Unknown cur_map"
+msgstr "0"
+
+#: lirc.cpp:31
+msgid "Could not connect to lirc daemon"
+msgstr "0"
+
+#: mms.cpp:89
+msgid "mms options:"
+msgstr "0"
+
+#: mms.cpp:96
+msgid "<relative> : filename relative to config directory"
+msgstr "0"
+
+#: mms.cpp:97
+msgid "<absolute> : full path filename"
+msgstr "0"
+
+#: mms.cpp:103
+msgid " -o : output device ["
+msgstr "0"
+
+#: mms.cpp:139
+msgid " -i : input device ["
+msgstr "0"
+
+#: mms.cpp:165
+msgid " -d : daemonize (run in background)"
+msgstr "0"
+
+#: mms.cpp:165
+msgid " -c <absolute> : use alternate config directory"
+msgstr "0"
+
+#: mms.cpp:171
+msgid ""
+" -r <relative> : use replay file as input (requires replay as input device)"
+msgstr "0"
+
+#: mms.cpp:172
+msgid ""
+" -b : benchmark mms by replaying as fast as possible (requires replay as "
+"input device) "
+msgstr "0"
+
+#: mms.cpp:173
+msgid " -w <relative> : write replay to specified file"
+msgstr "0"
+
+#: mms.cpp:334
+msgid "Using "
+msgstr "0"
+
+#: mms.cpp:334
+msgid " as configuration directory"
+msgstr "0"
+
+#: mms.cpp:339
+msgid ""
+"DVB and DXR3 output only supports the resolution 720x540 (4:3) or 720x405 "
+"(16:9)"
+msgstr "0"
+
+#: mms.cpp:348
+msgid "WARNING: unable to set nice level"
+msgstr "0"
+
+#: mms.cpp:349
+msgid "you might experience skipping sound"
+msgstr "0"
+
+#: mms.cpp:373
+msgid "mms was compiled without dxr3 support."
+msgstr "0"
+
+#: mms.cpp:374 mms.cpp:384 mms.cpp:394 mms.cpp:404 mms.cpp:414 mms.cpp:424
+msgid "Please choose another output device."
+msgstr "0"
+
+#: mms.cpp:383
+msgid "mms was compiled without dvb support."
+msgstr "0"
+
+#: mms.cpp:393
+msgid "mms was compiled without mpeg support."
+msgstr "0"
+
+#: mms.cpp:403
+msgid "mms was compiled without framebuffer support."
+msgstr "0"
+
+#: mms.cpp:413
+msgid "mms was compiled without SDL support."
+msgstr "0"
+
+#: mms.cpp:423
+msgid "mms was compiled without vgagl support."
+msgstr "0"
+
+#: mms.cpp:430
+msgid "No output device specified! Use the -o option."
+msgstr "0"
+
+#: mms.cpp:462
+msgid "mms was compiled without lirc support."
+msgstr "0"
+
+#: mms.cpp:463 mms.cpp:473
+msgid "Please choose another input device."
+msgstr "0"
+
+#: mms.cpp:472
+msgid "mms was compiled without evdev support."
+msgstr "0"
+
+#: mms.cpp:483
+msgid "No input device specified! Use the -i option."
+msgstr "0"
+
+#: movie.cpp:39 startmenu.cpp:99
+msgid "Movie Options"
+msgstr "470"
+
+#: movie.cpp:53 movie.hpp:128
+msgid "stereo"
+msgstr "240"
+
+#: movie.cpp:54 movie.hpp:124
+msgid "5.1 digital"
+msgstr "240"
+
+#: movie.cpp:55 movie.hpp:126
+msgid "5.1 analog"
+msgstr "240"
+
+#: movie.cpp:63
+msgid "audio mode"
+msgstr "350"
+
+#: movie.cpp:84
+msgid "dvd audio language"
+msgstr "350"
+
+#: movie.cpp:95
+msgid "none"
+msgstr "240"
+
+#: movie.cpp:102
+msgid "subtitle language"
+msgstr "350"
+
+#: movie.cpp:113
+msgid "vcd title"
+msgstr "350"
+
+#: movie.cpp:125
+msgid "dvd title"
+msgstr "350"
+
+#: movie.cpp:211
+msgid "Could not create directory "
+msgstr "0"
+
+#: movie.cpp:233 player.cpp:380 startmenu.cpp:215 theme.cpp:175
+msgid "Could not open options file "
+msgstr "0"
+
+#: movie.cpp:322
+msgid "No IMDb information found about movie"
+msgstr "660"
+
+#: movie.cpp:323
+msgid "Please update information"
+msgstr "660"
+
+#: movie.cpp:535
+msgid "Play all files in dir"
+msgstr "350"
+
+#: movie.cpp:753
+msgid "Director: "
+msgstr "200"
+
+#: movie.cpp:757
+msgid "Writing Credits: "
+msgstr "200"
+
+#: movie.cpp:761
+msgid "Runtime: "
+msgstr "200"
+
+#: movie.cpp:769
+msgid "Genre: "
+msgstr "200"
+
+#: movie.cpp:795
+msgid "Tagline: "
+msgstr "200"
+
+#: movie.cpp:820
+msgid "Plot: "
+msgstr "200"
+
+#: movie.cpp:914
+msgid "Cast: "
+msgstr "200"
+
+#: movie.cpp:957 movie.cpp:998
+msgid "Looking up movie in IMDb database"
+msgstr "660"
+
+#: movie.cpp:1033
+msgid "Getting details about movie"
+msgstr "660"
+
+#: movie.cpp:1110
+msgid "IMDb lookup"
+msgstr "660"
+
+#: movie.cpp:1131
+msgid "No results found..."
+msgstr "420"
+
+#: movie.cpp:1157
+msgid " result found"
+msgstr "420"
+
+#: movie.cpp:1159
+msgid " results found"
+msgstr "420"
+
+#: movie.cpp:1185 movie.cpp:1412 startmenu.cpp:764
+msgid "Movies"
+msgstr "415,28"
+
+#: movie.cpp:1603 movie.cpp:1631 movie.cpp:1703
+msgid "No movie player specified in config file"
+msgstr "0"
+
+#: movie.cpp:1779
+msgid "No dvd player specified in config file"
+msgstr "0"
+
+#: movie.cpp:2062
+msgid "No IMDb information found about movies"
+msgstr "660"
+
+#: movie.cpp:2063
+msgid "Use the reget movie information action"
+msgstr "660"
+
+#: movie.cpp:2064
+msgid "to download information about a movie"
+msgstr "660"
+
+#: mpeg.cpp:44
+msgid "Can't find codec mpeg2"
+msgstr "0"
+
+#: mpeg.cpp:76
+msgid "Could not open codec"
+msgstr "0"
+
+#: pictures.cpp:112 startmenu.cpp:114
+msgid "Picture Options"
+msgstr "470"
+
+#: pictures.cpp:129
+msgid "slideshow delay"
+msgstr "350"
+
+#: pictures.cpp:143
+msgid "zoom to fullscreen"
+msgstr "350"
+
+#: pictures.cpp:157
+msgid "show previews"
+msgstr "350"
+
+#: pictures.cpp:171
+msgid "recurse dirs in fullscreen"
+msgstr "350"
+
+#: pictures.cpp:186
+msgid "bg thumbnail generation"
+msgstr "350"
+
+#: pictures.cpp:260 pictures.cpp:1448 pictures.cpp:1618
+msgid "Generating thumbnails"
+msgstr "650"
+
+#: pictures.cpp:611
+msgid "Show picture in fullscreen"
+msgstr "350"
+
+#: pictures.cpp:622
+msgid "Recurse all folders on current level"
+msgstr "350"
+
+#: pictures.cpp:1080
+msgid "Suspend slideshow"
+msgstr "350"
+
+#: pictures.cpp:1083
+msgid "Resume slideshow"
+msgstr "350"
+
+#: pictures.cpp:1089
+msgid "Rotate left"
+msgstr "350"
+
+#: pictures.cpp:1092
+msgid "Rotate right"
+msgstr "350"
+
+#: pictures.cpp:1099
+msgid "Leave fullscreen"
+msgstr "350"
+
+#: pictures.cpp:1150 startmenu.cpp:796
+msgid "Pictures"
+msgstr "415,28"
+
+#: pictures.cpp:1397
+msgid " ( paused )"
+msgstr "200"
+
+#: renderer.cpp:722 renderer.cpp:1288
+msgid "The image "
+msgstr "0"
+
+#: renderer.cpp:723 renderer.cpp:1186 renderer.cpp:1289
+msgid " could not be loaded"
+msgstr "0"
+
+#: renderer.cpp:1185
+msgid "The font "
+msgstr "0"
+
+#: sdlout.cpp:46 vgaglout.cpp:53
+msgid "Could not initialize"
+msgstr "0"
+
+#: sdlout.cpp:57
+msgid "Could not set video mode "
+msgstr "0"
+
+#: sdlout.cpp:59
+msgid "error"
+msgstr "0"
+
+#: shuffle_list.cpp:68
+msgid "List is empty, removal failed"
+msgstr "0"
+
+#: shutdown.cpp:41
+msgid "Shutdown in"
+msgstr "600"
+
+#: shutdown.cpp:49
+msgid "Shutdown Now"
+msgstr "660"
+
+#: shutdown.cpp:95
+msgid "Canceled Shutdown"
+msgstr "660"
+
+#: startmenu.cpp:73
+msgid "Global Options"
+msgstr "470"
+
+#: startmenu.cpp:84
+msgid "Music Options"
+msgstr "470"
+
+#: startmenu.cpp:187
+msgid "Could not write options to file "
+msgstr "0"
+
+#: startmenu.cpp:353 startmenu.cpp:428 startmenu.cpp:482 startmenu.cpp:530
+msgid "Reloading directories"
+msgstr "660"
+
+#: startmenu.cpp:369
+msgid "Could not find any music"
+msgstr "660"
+
+#: startmenu.cpp:371 startmenu.cpp:438 startmenu.cpp:492 startmenu.cpp:540
+msgid "Please specify a correct path "
+msgstr "660"
+
+#: startmenu.cpp:372 startmenu.cpp:439 startmenu.cpp:493 startmenu.cpp:541
+msgid "in the configuration file"
+msgstr "660"
+
+#: startmenu.cpp:409
+msgid "Could not find any internet radio stations"
+msgstr "660"
+
+#: startmenu.cpp:410
+msgid "Please define some in the configuration file"
+msgstr "660"
+
+#: startmenu.cpp:436
+msgid "Could not find any movies"
+msgstr "660"
+
+#: startmenu.cpp:490
+msgid "Could not find any pictures"
+msgstr "660"
+
+#: startmenu.cpp:538
+msgid "Could not find any games"
+msgstr "660"
+
+#: startmenu.cpp:578
+msgid "Rereading TV listings file"
+msgstr "660"
+
+#: startmenu.cpp:704 startmenu.cpp:716
+msgid "Play music"
+msgstr "415,22"
+
+#: startmenu.cpp:707
+msgid "Play music from harddrive"
+msgstr "415,22"
+
+#: startmenu.cpp:719
+msgid "Play music from disc"
+msgstr "415,22"
+
+#: startmenu.cpp:727
+msgid "Play internet radio"
+msgstr "415,22"
+
+#: startmenu.cpp:732
+msgid "Music"
+msgstr "415,22"
+
+#: startmenu.cpp:742
+msgid "Play movies from harddrive"
+msgstr "415,22"
+
+#: startmenu.cpp:745 startmenu.cpp:758
+msgid "Play movies"
+msgstr "415,22"
+
+#: startmenu.cpp:754
+msgid "Play a dvd/vcd/svcd"
+msgstr "415,22"
+
+#: startmenu.cpp:772
+msgid "View pictures from harddrive"
+msgstr "415,22"
+
+#: startmenu.cpp:776 startmenu.cpp:789
+msgid "View pictures"
+msgstr "415,22"
+
+#: startmenu.cpp:785
+msgid "View pictures from cd"
+msgstr "415,22"
+
+#: startmenu.cpp:805
+msgid "Play games from harddrive"
+msgstr "415,22"
+
+#: startmenu.cpp:808 startmenu.cpp:826
+msgid "Play games"
+msgstr "415,22"
+
+#: startmenu.cpp:818
+msgid "Play a PSX game or cd/dvd roms"
+msgstr "415,22"
+
+#: startmenu.cpp:822
+msgid "Play roms from cd/dvd"
+msgstr "415,22"
+
+#: startmenu.cpp:840
+msgid "View TV Program Guide"
+msgstr "415,22"
+
+#: startmenu.cpp:845
+msgid "Watch TV"
+msgstr "415,22"
+
+#: startmenu.cpp:850
+msgid "TV"
+msgstr "415,22"
+
+#: startmenu.cpp:857
+msgid "You disabled every feature, mms is useless."
+msgstr "0"
+
+#: startmenu.cpp:867 theme.cpp:141
+msgid "Themes"
+msgstr "415,28"
+
+#: startmenu.cpp:875
+msgid "Open/Close Tray"
+msgstr "415"
+
+#: startmenu.cpp:887 startmenu.cpp:889
+msgid "Quit"
+msgstr "415,22"
+
+#: themes.cpp:69 themes.cpp:74
+msgid "Could not open theme"
+msgstr "0"
+
+#: themes.cpp:90
+msgid "Illegal line in theme file, missing '=' on line "
+msgstr "0"
+
+#: themes.cpp:105
+msgid "Unsupported theme version, got version "
+msgstr "0"
+
+#: themes.cpp:105
+msgid " expected "
+msgstr "0"
+
+#: themes.cpp:110
+msgid "Unsupported theme version"
+msgstr "0"
+
+#: vgaglout.cpp:82
+msgid "Can't find any valid mode for "
+msgstr "0"
+
+#: vgaglout.cpp:154
+msgid "Failed to initialize mode "
+msgstr "0"
+
+#: xine.cpp:46
+msgid "The audio device is busy. Is another application using it?"
+msgstr "0"
+
+#: xine.cpp:141
+msgid "Error connecting to server"
+msgstr "660"
+
+#: xine.cpp:142
+msgid "The server might be down or busy"
+msgstr "660"
+
+#: xine.cpp:150
+msgid "Could not open file"
+msgstr "660"

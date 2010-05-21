@@ -1,0 +1,62 @@
+# translation of de.po to Deutsch
+# translation of mmsv2.
+# Copyright (C) 2007 Roman Müllenschläder <mms@prodeia.de>
+# This file is distributed under the same license as the mmsv2 mmsv2.
+#
+# Earlier authors:
+#
+#
+# Oliver Beck <manofwar@web.de>, 2002-2003.
+# Roman Müllenschläder <mms@prodeia.de>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: de\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-17 23:50+0100\n"
+"PO-Revision-Date: 2006-10-10 21:32+0200\n"
+"Last-Translator: Roman Müllenschläder <mms@prodeia.de>\n"
+"Language-Team: Deutsch <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: libpython/mmsv2/videoplayer.cpp:17
+msgid "Video"
+msgstr "Film"
+
+#: libpython/mmsv2/videoplayer.cpp:27
+msgid "No video support detected"
+msgstr "Keine Film-Unterstützung gefunden"
+
+#: libpython/mmsv2/videoplayer.cpp:51
+msgid "Starting playback..."
+msgstr "Beginne Wiedergabe..."
+
+#: libpython/mmsv2/audioplayer.cpp:22
+msgid "No audio support detected"
+msgstr "Keine Musik-Unterstützung gefunden"
+
+#: python.cpp:118
+msgid "does not exist"
+msgstr "existiert nicht"
+
+#: python.cpp:140
+msgid "Python Options"
+msgstr "Skript Einstellungen"
+
+#: python.cpp:145
+msgid "reload"
+msgstr "Verzeichnisse neu einlesen"
+
+#: python_plugin.cpp:10 python_plugin.cpp:34
+msgid "Extras"
+msgstr "Extras"
+
+#: python_plugin.cpp:24
+msgid "Run pyglets"
+msgstr "Extras (Pyglets)"
+
+#~ msgid "Movie"
+#~ msgstr "Filme"

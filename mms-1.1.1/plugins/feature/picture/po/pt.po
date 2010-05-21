@@ -1,0 +1,190 @@
+# MMS Portuguese Translation.
+# Copyright (C) 2003, 2005 Luis Correia
+# This file is distributed under the same license as MMS.
+# Luis Correia <lfcorreia@users.sf.net, 2003.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mmsv2 1.0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2006-07-17 19:51+0200\n"
+"Last-Translator: Luis Correia <lfcorreia@users.sf.net>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pictures.cpp:226 pictures.cpp:684 pictures.cpp:2051 pictures_plugin.cpp:10
+#: pictures_plugin.cpp:46 pictures_plugin.cpp:84
+msgid "Pictures"
+msgstr "Imagens"
+
+#: pictures.cpp:241
+msgid "Picture Options"
+msgstr "Opções de Imagens"
+
+#: pictures.cpp:255
+msgid "reload"
+msgstr ""
+
+#: pictures.cpp:271
+msgid "slideshow delay"
+msgstr "slideshow delay"
+
+#: pictures.cpp:277 pictures.cpp:291 pictures.cpp:318 pictures.cpp:333
+#: pictures.cpp:348
+msgid "no"
+msgstr "não"
+
+#: pictures.cpp:278 pictures.cpp:292 pictures.cpp:319 pictures.cpp:334
+#: pictures.cpp:349 pictures.cpp:1475
+msgid "yes"
+msgstr "sim"
+
+#: pictures.cpp:285
+msgid "zoom to fullscreen"
+msgstr "zoom para fullscreen"
+
+#: pictures.cpp:299
+msgid "show previews"
+msgstr "mostra preview"
+
+#: pictures.cpp:304 pictures.cpp:2415
+msgid "None"
+msgstr ""
+
+#: pictures.cpp:305
+msgid "Audio"
+msgstr ""
+
+#: pictures.cpp:306 pictures.cpp:2415 pictures.cpp:2420 pictures.cpp:2433
+msgid "Title"
+msgstr ""
+
+#: pictures.cpp:307 pictures.cpp:2420 pictures.cpp:2433
+msgid "Full"
+msgstr ""
+
+#: pictures.cpp:313
+msgid "show info"
+msgstr ""
+
+#: pictures.cpp:326
+msgid "recurse dirs in fullscreen"
+msgstr "mostra todo o conteudo em fullscreen"
+
+#: pictures.cpp:341
+msgid "bg thumbnail generation"
+msgstr "geração de miniaturas em background"
+
+#: pictures.cpp:356
+#, fuzzy
+msgid "random order slideshow"
+msgstr "Resumir slideshow"
+
+#: pictures.cpp:438
+msgid "Upgrading pictures database schema"
+msgstr ""
+
+#: pictures.cpp:609 pictures.cpp:656 pictures.cpp:1022
+msgid "current folder"
+msgstr ""
+
+#: pictures.cpp:741
+msgid "Generating thumbnails"
+msgstr "A gerar thumbnails"
+
+#: pictures.cpp:775
+msgid "Folder is empty"
+msgstr "Directoria vazia"
+
+#: pictures.cpp:1364
+msgid "Show picture in fullscreen"
+msgstr "mostra imagem em fullscreen"
+
+#: pictures.cpp:1367
+msgid "Enter directory"
+msgstr "Entrar directoria"
+
+#: pictures.cpp:1374
+msgid "Recurse all folders on current level"
+msgstr "Mostra todo o conteudo a partir deste nível"
+
+#: pictures.cpp:1379
+msgid "Search"
+msgstr "Pesquisa"
+
+#: pictures.cpp:1381 pictures.cpp:1977
+msgid "Options"
+msgstr "Opções"
+
+#: pictures.cpp:1385
+msgid "Go up one directory"
+msgstr "Directoria acima"
+
+#: pictures.cpp:1387 pictures.cpp:1390 pictures.cpp:1984
+msgid "Return to startmenu"
+msgstr "Voltar ao menu inicial"
+
+#: pictures.cpp:1960
+msgid "Zoom"
+msgstr "Zoom"
+
+#: pictures.cpp:1963
+msgid "Suspend slideshow"
+msgstr "Suspender slideshow"
+
+#: pictures.cpp:1966
+msgid "Resume slideshow"
+msgstr "Resumir slideshow"
+
+#: pictures.cpp:1971
+msgid "Rotate left"
+msgstr "Rodar para a esquerda"
+
+#: pictures.cpp:1974
+msgid "Rotate right"
+msgstr "Rodar para a direita"
+
+#: pictures.cpp:1980
+msgid "Leave fullscreen"
+msgstr "Sair de ecran completo"
+
+#: pictures.cpp:2098
+msgid "Search: "
+msgstr "Pesquisa: "
+
+#: pictures.cpp:2429
+msgid " ( paused )"
+msgstr " ( pausa )"
+
+#: pictures.cpp:2468 pictures.cpp:2479
+msgid "The disc does not contain any recognizable files"
+msgstr "Este CD não contém conteudo multimédia"
+
+#: pictures_plugin.cpp:18
+msgid "Reloading directories"
+msgstr "Relendo directorias"
+
+#: pictures_plugin.cpp:26
+msgid "Could not find any pictures"
+msgstr "Não consigo encontrar imagens"
+
+#: pictures_plugin.cpp:28
+msgid "Please specify a correct path "
+msgstr "Confirma que o caminho é correcto "
+
+#: pictures_plugin.cpp:29
+msgid "in the configuration file"
+msgstr "no ficheiro de configuração"
+
+#: pictures_plugin.cpp:75
+#, fuzzy
+msgid "View pictures from harddrive"
+msgstr "Ver imagens de disco"
+
+#: pictures_plugin.cpp:80
+#, fuzzy
+msgid "View pictures from cd"
+msgstr "Ver imagens de CD"

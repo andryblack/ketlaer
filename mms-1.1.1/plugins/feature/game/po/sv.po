@@ -1,0 +1,118 @@
+# mmsv2 Swedish translation
+# Copyright (C) 2004-2007 Martin Vopatek
+# This file is distributed under the same license as mmsv2.
+# Martin Vopatek <voppe1@spray.se>, 2004-2007
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms-1.0.9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2007-03-06 16:29+0100\n"
+"Last-Translator: Martin Vopatek <voppe1@spray.se>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#: game.cpp:58
+msgid "Game Options"
+msgstr "Spelinställningar"
+
+#: game.cpp:74
+msgid "reload"
+msgstr "ladda om"
+
+#: game.cpp:219 game.cpp:1076
+msgid "Games"
+msgstr "Spel"
+
+#: game.cpp:259
+msgid "Upgrading game database schema"
+msgstr ""
+
+#: game.cpp:340 game_plugin.cpp:25 game_plugin.cpp:55 game_plugin.cpp:89
+#, fuzzy
+msgid "Game"
+msgstr "Spel"
+
+#: game.cpp:409
+msgid "Folder is empty"
+msgstr "Katalogen är tom"
+
+#: game.cpp:561
+#, fuzzy
+msgid "No options available for games"
+msgstr "Det finns ingen beskrivning tillgänglig"
+
+#: game.cpp:612 game.cpp:660 game.cpp:801
+msgid "current folder"
+msgstr ""
+
+#: game.cpp:919
+msgid "Enter directory"
+msgstr "Gå in i katalog"
+
+#: game.cpp:922
+msgid "Play game"
+msgstr "Spela spel"
+
+#: game.cpp:925
+msgid "Search"
+msgstr "Sök"
+
+#: game.cpp:927
+msgid "Options"
+msgstr "Inställningar"
+
+#: game.cpp:931
+msgid "Go up one directory"
+msgstr "Gå upp en katalog"
+
+#: game.cpp:933 game.cpp:936
+msgid "Return to startmenu"
+msgstr "Tillbaka till startmenyn"
+
+#: game.cpp:1121
+msgid "Search: "
+msgstr "Sök: "
+
+#: game.cpp:1393 game.cpp:1779
+#, fuzzy
+msgid "Starting game..."
+msgstr "Startar spel..."
+
+#: game.cpp:1776 game.cpp:1790
+msgid "The disc does not contain any recognizable files"
+msgstr "Skivan innehåller inga identifierbara filer"
+
+#: game_plugin.cpp:16
+msgid "Could not find any games"
+msgstr "Kunde inte hitta några spel"
+
+#: game_plugin.cpp:18
+msgid "Please specify a correct path "
+msgstr "Var snäll och ange rätt sökväg "
+
+#: game_plugin.cpp:19
+msgid "in the configuration file"
+msgstr "i konfigurationsfilen"
+
+#: game_plugin.cpp:33
+msgid "Reloading directories"
+msgstr "Laddar om katalogerna"
+
+#: game_plugin.cpp:74
+msgid "Play games from harddrive"
+msgstr "Spela spel från hårddisken"
+
+#: game_plugin.cpp:78
+msgid "Play games"
+msgstr "Spela spel"
+
+#: game_plugin.cpp:83
+#, fuzzy
+msgid "Play PSX or roms from cd/dvd"
+msgstr "Spela ROMs från cd/dvd"

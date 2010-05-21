@@ -1,0 +1,5 @@
+./dvb_config.cpp
+./dvbout.hpp
+./dvbout.cpp
+./dvbout_plugin.cpp
+./dvb_config.hpp

@@ -1,0 +1,20 @@
+### MPLAYER ####
+
+version = 3
+
+# Movie Player options
+#
+# Do not set the dvd-device options. That will automaticly be appended
+# by mms when starting the movie player
+#
+mplayer_opts = -cache 8192 -framedrop -vo mpegpes:card=1
+mplayer_slave_opts =
+mplayer_dvd_opts = -cache 8192 -framedrop -vo mpegpes:card=1
+
+# Path
+#
+mplayer_path = /usr/bin/mplayer
+
+# Use DVD navigation feature?
+#
+dvdnav = false

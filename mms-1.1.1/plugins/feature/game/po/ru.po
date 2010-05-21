@@ -1,0 +1,116 @@
+# translation of ru.po to Русский
+# MMS Russian translation
+# Copyright (C) 2003-2005 Sergey V. Katunin
+# This file is distributed under the same license as the MMS package.
+# Sergey Katunin <sergo@avtograd.ru>, 2004.
+# Sergey V. Katunin <sergo@avtograd.ru>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mmsv2 1.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2005-03-20 18:36+0400\n"
+"Last-Translator: Sergey N. Svinolobov <sens@verizon.net>\n"
+"Language-Team: Русский <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: game.cpp:58
+msgid "Game Options"
+msgstr "Настройки Игр"
+
+#: game.cpp:74
+msgid "reload"
+msgstr "перезагрузка"
+
+#: game.cpp:219 game.cpp:1076
+msgid "Games"
+msgstr "Buhs"
+
+#: game.cpp:259
+msgid "Upgrading game database schema"
+msgstr ""
+
+#: game.cpp:340 game_plugin.cpp:25 game_plugin.cpp:55 game_plugin.cpp:89
+msgid "Game"
+msgstr "Игра"
+
+#: game.cpp:409
+msgid "Folder is empty"
+msgstr "Папка пуста"
+
+#: game.cpp:561
+#, fuzzy
+msgid "No options available for games"
+msgstr "Нет имеет опций"
+
+#: game.cpp:612 game.cpp:660 game.cpp:801
+msgid "current folder"
+msgstr "текущий каталог"
+
+#: game.cpp:919
+msgid "Enter directory"
+msgstr "Вход в каталог"
+
+#: game.cpp:922
+msgid "Play game"
+msgstr "Игры"
+
+#: game.cpp:925
+msgid "Search"
+msgstr "Поиск"
+
+#: game.cpp:927
+msgid "Options"
+msgstr "Опции"
+
+#: game.cpp:931
+msgid "Go up one directory"
+msgstr "На уровень вверх"
+
+#: game.cpp:933 game.cpp:936
+msgid "Return to startmenu"
+msgstr "Назад в главное меню"
+
+#: game.cpp:1121
+msgid "Search: "
+msgstr "Поиск: "
+
+#: game.cpp:1393 game.cpp:1779
+#, fuzzy
+msgid "Starting game..."
+msgstr "Запускаю игру..."
+
+#: game.cpp:1776 game.cpp:1790
+msgid "The disc does not contain any recognizable files"
+msgstr "Диск не содержит распознаваемых файлов!"
+
+#: game_plugin.cpp:16
+msgid "Could not find any games"
+msgstr "Игры не найдены"
+
+#: game_plugin.cpp:18
+msgid "Please specify a correct path "
+msgstr "Пожалуйста укажите корректный путь "
+
+#: game_plugin.cpp:19
+msgid "in the configuration file"
+msgstr "в файле настроек"
+
+#: game_plugin.cpp:33
+msgid "Reloading directories"
+msgstr "Перезагрузка каталогов"
+
+#: game_plugin.cpp:74
+msgid "Play games from harddrive"
+msgstr "Игры с жесткого диска"
+
+#: game_plugin.cpp:78
+msgid "Play games"
+msgstr "Игры"
+
+#: game_plugin.cpp:83
+msgid "Play PSX or roms from cd/dvd"
+msgstr "Игры PSX или ROM-образы с CD/DVD"

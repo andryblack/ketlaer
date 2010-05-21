@@ -1,0 +1,15 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS Dxr3Config
+#define S_PARAMETER_CLASS S_Dxr3Config
+#define STRING_PARAMETER_CLASS "Dxr3Config"
+
+#define MMS_CONFIG_VERSION "2"
+
+PARAMETER_STR("em8300setup_path",  em8300setup_path,   "/usr/bin/em8300setup")
+PARAMETER_STR("tv_mode",           tv_mode,            "-o -p")
+PARAMETER_NUM("zoom", zoom, 0)
+PARAMETER_NUM("device_index", device_index, 0)
+
+#include "config_pre_post.hpp"

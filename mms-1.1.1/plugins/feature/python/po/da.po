@@ -1,0 +1,53 @@
+# mms Danish translation
+# Copyright (C) 2003-2009 Anders Rune Jensen
+# This file is distributed under the same license as the mmsv2 package.
+# Anders Rune Jensen <anders@gnulinux.dk>, 2003-2006
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-17 23:50+0100\n"
+"PO-Revision-Date: 2007-09-30 01:13+0200\n"
+"Last-Translator: Anders Rune Jensen <anders@gnulinux.dk>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: libpython/mmsv2/videoplayer.cpp:17
+msgid "Video"
+msgstr "Video"
+
+#: libpython/mmsv2/videoplayer.cpp:27
+msgid "No video support detected"
+msgstr "Ingen videounderstøttelse fundet"
+
+#: libpython/mmsv2/videoplayer.cpp:51
+msgid "Starting playback..."
+msgstr "Starter afspilning..."
+
+#: libpython/mmsv2/audioplayer.cpp:22
+msgid "No audio support detected"
+msgstr "Ingen lydunderstøttelse fundet"
+
+#: python.cpp:118
+msgid "does not exist"
+msgstr "eksisterer ikke"
+
+#: python.cpp:140
+msgid "Python Options"
+msgstr "Python indstillinger"
+
+#: python.cpp:145
+msgid "reload"
+msgstr "genindlæs"
+
+#: python_plugin.cpp:10 python_plugin.cpp:34
+msgid "Extras"
+msgstr "Extra"
+
+#: python_plugin.cpp:24
+msgid "Run pyglets"
+msgstr "Kør pyglets"

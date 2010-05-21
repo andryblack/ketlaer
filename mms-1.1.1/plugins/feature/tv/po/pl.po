@@ -1,0 +1,25 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Krzysztof Parma <krzychp@tlen.pl>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.1.0rc2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-10-22 01:10+0200\n"
+"PO-Revision-Date: 2007-12-18 12:26+0200\n"
+"Last-Translator: Krzysztof Parma <krzychp@tlen.pl>\n"
+"Language-Team: POLISH <pl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tv_plugin.cpp:14 tv_plugin.cpp:33
+msgid "TV"
+msgstr "TV"
+
+#: tv_plugin.cpp:30
+msgid "Watch TV"
+msgstr "Oglądaj TV"
+

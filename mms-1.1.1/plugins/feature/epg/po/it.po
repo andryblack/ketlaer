@@ -1,0 +1,222 @@
+# translation of it.po to italiano
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Lorenzo Desole <lorenzodes@fastwebnet.it>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: it\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-18 13:03+0100\n"
+"PO-Revision-Date: 2007-12-01 20:00+0100\n"
+"Last-Translator: Lorenzo Desole <lorenzodes@fastwebnet.it>\n"
+"Language-Team: italiano <it@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: epg_plugin.cpp:10 epg_plugin.cpp:44 epg_plugin.cpp:99 epg.cpp:172
+#: epg.cpp:2738 svdrp.cpp:1581 svdrp.cpp:1656 svdrp.cpp:1942
+msgid "Electronic Program Guide"
+msgstr "Guida TV elettronica"
+
+#: epg_plugin.cpp:19 epg.cpp:2310
+msgid "Rereading TV Data"
+msgstr "Rileggo il file con la lista delle TV"
+
+#: epg_plugin.cpp:89
+msgid "View Electronic Program Guide"
+msgstr "Visualizza la guida TV"
+
+#: epg_plugin.cpp:94 epg.cpp:1899
+msgid "Show Timer"
+msgstr "Mostra timer"
+
+#: epg.cpp:634
+msgid "Upgrading EPG database schema"
+msgstr "Agigornamento schema del db di EPG"
+
+#: epg.cpp:806
+msgid "Monday"
+msgstr "Lunedì"
+
+#: epg.cpp:807
+msgid "Tuesday"
+msgstr "Martedì"
+
+#: epg.cpp:808
+msgid "Wednesday"
+msgstr "Mercoledì"
+
+#: epg.cpp:809
+msgid "Thursday"
+msgstr "Giovedì"
+
+#: epg.cpp:810
+msgid "Friday"
+msgstr "Venerdì"
+
+#: epg.cpp:811
+msgid "Saturday"
+msgstr "Sabato"
+
+#: epg.cpp:812
+msgid "Sunday"
+msgstr "Domenica"
+
+#: epg.cpp:1045
+msgid "logo not found:"
+msgstr "Logo non trovato: "
+
+#: epg.cpp:1063
+msgid "Error in channel id, please report this problem"
+msgstr "Errore nell'id del canale, per favore riporta questo problema"
+
+#: epg.cpp:1081
+msgid "Your TV Data is too old or inaccessible"
+msgstr "La lista delle TV è troppo vecchia o inaccessibile"
+
+#: epg.cpp:1103 epg.cpp:2997
+msgid "Timer is not assigned to Epg-Event - "
+msgstr "Timer non assegnato all'evento EPG -"
+
+#: epg.cpp:1105 epg.cpp:2999
+msgid "modification is not possible!"
+msgstr "impossibile effettuare modifiche!"
+
+#: epg.cpp:1113 svdrp.cpp:2021
+msgid "Delete Timer?"
+msgstr "Cancella il timer?"
+
+#: epg.cpp:1114 epg.cpp:1279 svdrp.cpp:2022
+msgid "Yes"
+msgstr "Sì"
+
+#: epg.cpp:1115 epg.cpp:1280 svdrp.cpp:2023
+msgid "No"
+msgstr "No"
+
+#: epg.cpp:1212 epg.cpp:1253
+msgid "Timer created !"
+msgstr "Timer creato!"
+
+#: epg.cpp:1216 epg.cpp:1257
+msgid "Timer not created !"
+msgstr "Timer non creato!"
+
+#: epg.cpp:1278
+msgid "Timer is recording - really delete?"
+msgstr "Il timer è usato nella registrazione - conferma cancellazione"
+
+#: epg.cpp:1322
+msgid "Timer deleted !"
+msgstr "Timer cancellato!"
+
+#: epg.cpp:1326
+msgid "Timer not deleted !"
+msgstr "Timer NON cancellato"
+
+#: epg.cpp:1448 epg.cpp:2093 svdrp.cpp:1691
+msgid "EPG"
+msgstr "EPG"
+
+#: epg.cpp:1481 epg.cpp:1904
+msgid "Search"
+msgstr "Cerca"
+
+#: epg.cpp:1881
+msgid "Print description"
+msgstr "Stampa descrizione"
+
+#: epg.cpp:1885
+msgid "Reload Data"
+msgstr "Ricarica dati"
+
+#: epg.cpp:1889 epg.cpp:3014 epg.cpp:3018
+msgid "Toggle Timer"
+msgstr "Inverti il timer"
+
+#: epg.cpp:1894
+msgid "Switch to Channel"
+msgstr "Passa al canale"
+
+#: epg.cpp:1909 epg.cpp:3026
+msgid "Return to startmenu"
+msgstr "Ritorna al menù iniziale"
+
+#: epg.cpp:2203
+msgid " on "
+msgstr " acceso "
+
+#: epg.cpp:2322
+msgid "Could not find epg update program"
+msgstr "Non trovo il programma per l'aggiornamento di epg"
+
+#: epg.cpp:2380 epg.cpp:2399 epg.cpp:2438 epg.cpp:2599
+msgid "No Epg available"
+msgstr "EPG non disponibile"
+
+#: epg.cpp:2748
+msgid "EPG TV listings reloaded from Svdrp-Host"
+msgstr "Elenco delle TV ricaricato tramite Svdrp"
+
+#: epg.cpp:2754
+msgid "EPG TV listings couldn't be loaded from Svdrp-Host"
+msgstr "Impossibile ricaricare l'elenco delle TV tramite Svdrp"
+
+#: epg.cpp:2765
+msgid "EPG TV listings file reloaded"
+msgstr "L'elenco delle TV di EPG è stato ricaricato"
+
+#: epg.cpp:2767
+msgid "The new data file will be used"
+msgstr "Verranno usati i nuovi dati"
+
+#: epg.cpp:2768
+msgid "the next time you enter EPG"
+msgstr "la prossima volta che accederai a EPG"
+
+#: epg.cpp:3022
+msgid "Delete Timer"
+msgstr "Cancella timer"
+
+#: epg.cpp:3114
+msgid "EPG - Show Timer"
+msgstr "EPG - Mostra timer"
+
+#: svdrp.cpp:876
+msgid "Dualchannel"
+msgstr "Dualchannel"
+
+#: svdrp.cpp:876
+msgid "2-channel"
+msgstr "2-canali"
+
+#: svdrp.cpp:879
+msgid "Dolby Digital"
+msgstr "Dolby Digital"
+
+#: svdrp.cpp:886
+msgid "Listening Movie"
+msgstr ""
+
+#: svdrp.cpp:1686
+msgid "EPG - Create Timer"
+msgstr "EPG - Crea timer"
+
+#: svdrp.cpp:1688
+msgid "EPG - Modify Timer"
+msgstr "EPG - Modifica timer"
+
+#: svdrp.cpp:1911
+msgid "Active Timer"
+msgstr "Timer attivo"
+
+#: svdrp.cpp:1913
+msgid ", Is recording"
+msgstr ", in registrazione"
+
+#: svdrp.cpp:1915
+msgid ", (VPS)"
+msgstr ", (VPS)"

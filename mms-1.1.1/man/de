@@ -1,0 +1,179 @@
+.\" Erstellt von Roman Müllenschläder <mms@prodeia.de>
+.\"
+.
+.\" --------------------------------------------------------------------------
+.\" Makrodefinitionen
+.\" --------------------------------------------------------------------------
+.
+.\" Einrückung für Suboptionen
+.nr SS 5
+.\" neue Suboption hinzufügen
+.de IPs
+.IP "\\$1" \n(SS
+..
+.\" Beginn des ersten Suboptionen-Levels, endet mit .RE
+.de RSs
+.RS 10
+..
+.\" Beginn des zweiten Suboptionen-Levels
+.de RSss
+.PD 0
+.RS \n(SS+3
+..
+.\" Ende des zweiten Levels von Suboptionen
+.de REss
+.RE
+.PD 1
+..
+.
+.TH MMS 1 "01.07.2008" "My Media System" "Version 1.1.0" "Dienstprogramme für Benutzer"
+.SH BEZEICHNUNG
+mms \- Eine vollständige Medien-Oberfläche
+.SH "ÜBERSICHT"
+\fBmms\fP [ \-\-help|\-h ] [ \-d ] [ \-c \fIPfad\fP ] [ \-p \fIPfad\fP ]
+[ \-f ] [ \-u \fIBenutzername\fP ] [ \-U \fIBenutzername\fP ] [ \-e ] [ \-v|V ]
+[ \-r \fIDateiname\fP ] [ \-b ] [ \-w \fIDateiname\fP ] [ \-i \fITyp\fP ]
+[ \-o \fITyp\fP ]
+.SH BESCHREIBUNG
+\fBMMS\fP stellt eine Medienoberfläche bereit, mit der sich Musik,
+Radio, Video, Bilder und Spiele sowohl von Festplatte, als auch
+von CD/DVD wiedergeben lassen.
+Mehrere Eingabe- ud Ausgabedevices stehen dabei zur Verfügung.
+.PP
+Für die Ausgabe stehen \fIsdl\fP, \fIopengl\fP, \fIlcd\fP, \fImpeg\fP,
+\fIdvb\fP und \fIdxr3\fP zur Verfügung.
+Die Eingabe kann mittels \fIkeyboard\fP, \fImaus\fP, \fIlirc\fP, \fIreplay\fP
+oder \fIevdev\fP
+erfolgen.
+.SH OPTIONEN
+.TP
+\fB\-\-help|\-h\fP
+Gibt eine Hilfe aus, in der die Funktionen kurz erläutert sind. Weiter werden
+hier die zur Verfügung stehenden (mitcompilierten) \fBEingabe-\fP und
+\fBAusgabegeräte\fP angezeigt.
+.TP
+\fB\-d\fP
+Startet \fRMMS\fP als Daemon im Hintergrund
+.TP
+\fB\-c <absoluter Pfad>\fP
+Eine alternatives Konfigurationsverzeichnis verwenden. Die Angabe muss mit
+vollständigem Pfad erfolgen.
+.TP
+\fB\-p <absoluter Pfad>\fP
+Ein alternatives persönliches Verzeichnis (Datenbanken, PLaylisten) verwenden.
+Die Angabe muß mit vollständigem Pfad erfolgen.
+.TP
+\fB\-f\fP
+Startet im Vollbild.
+.TP
+\fB\-u <Benutzername>\fP
+Startet MMS als Benutzer: \fIBenutzername\fP. Um MMS als Benutzer \fIroot\fP
+zu starten (\fBnicht empfohlen\fP): mms \-u root
+.TP
+\fB\-U <Benutzername>\fP
+Startet MMS als Benutzer: \fIBenutzername\fP und setzt die Umgebungsvariablen
+zurück.
+.TP
+\fB\-e\fP
+Gibt eine Liste der Umgebungsvariablen aus. Nützlich zum Einrichten und/oder
+der Fehlersuche.
+.TP
+\fB\-v|V\fP
+Zeigt die installierte Version und die Optionen mit denen MMS übersetzt wurde.
+.TP
+\fB\-r <Nachspieldatei>\fP (relativer Pfad)
+Nutzt eine Nachspieldatei als Eingabe. Hier gespeicherte Befehlsfolgen
+werden nacheinander abgespielt.
+Benötigt gleichzeitig die Parameter \fB\-i replay\fP
+.TP
+\fB\-b\fP
+Erstellt ein Benchmark. Benötigt gleichzeitig den Parameter \fB\-i replay\fP
+und \fB\-r <Nachspieldatei>\fP
+.TP
+\fB\-w <Nachspieldatei>\fP (relativer Pfad)
+Erstellt eine Nachspieldatei anhand aufgezeichneter Eingaben.
+.TP
+\fB\-i Eingabegerät[,Eingabegerät]\fP
+Gibt das oder die zu nutzenden Eingabegeräte unabhängig von den Einstellungen in
+der Config vor. Mögliche Geräte sind \fIkeyboard\fP, \fIlirc\fP, \fIreplay\fP
+oder \fIevdev\fP.
+Mehrere Eingabegeräte lassen sich gleichzeitig nutzen: mms \-i lirc,keyboard
+.TP
+\fB\-o <Ausgabegerät>\fP
+Gibt das zu nutzende Ausgabegerät vor und. Mögliche Geräte sind
+\fIsdl\fP, \fIopengl\fP, \fIlcd\fP, \fImpeg\fP, \fIdvb\fP und \fIdxr3\fP.
+.SH "TASTATURSTEUERUNG"
+.B MMS
+läßt sich komplett mit wenigen Tasten steuern.
+Die Steuerung geschieht mittels \fIkeyboard\fP (Tastatur),
+\fIevdev\fP (Joystick), Maus oder \fIlirc\fP (Fernbedienung - funktionierende
+LIRC-Unterstützung vorausgesetzt).
+Die relevanten Tasten für die grundlegende Tastatur-Bedienung werden hier
+vorgestellt (
+.I "\-i keyboard"
+):
+.TP
+.B Tastatursteuerung
+.PD 0
+.RSs
+.IPs "<\- und \->"
+.IPs "HOCH und RUNTER"
+Navigation innerhalb der Oberfläche.
+
+.IPs "Eingabetaste (Enter)"
+Ein Element auswählen bzw. einen Ordner betreten.
+
+.IPs "Ende (End)"
+Eine Ebene zurück bzw. eine Funktion verlassen.
+
+.IPs "Pos1 (Home)"
+Wechselt jederzeit in die aktuelle Playliste.
+
+.IPs "Leertaste (Space)"
+Ã–ffnet das 'Second Action' Menu. Hierüber lassen sich alle weiteren Funktionen
+aufrufen, sowie deren Tastenbelegung einsehen.
+
+.IPs "Löchen (Backspace)"
+Leert die aktuelle Playliste.
+
+.IPs "Entf (Del)"
+Löscht einen Titel aus der Playliste.
+
+.IPs "BildHoch und BildRunter (bzw.\& PGUP/\:PGDOWN)"
+Blättert seitenweise innerhalb der Navigation.
+
+.SH DATEIEN
+Die Konfigurationsdateien für
+.B MMS
+liegen in
+.I "/etc/mms"
+oder
+.I "~/.mms"
+oder
+.I "-c <Pfad>"
+
+.TP
+.B \ CONFIGDIR/*Config
+Hier werden alle relevanten Einstellungen für
+.B MMS
+vorgenommen. Die Dateien sind in sich gut dokumentiert und selbsterklärend.
+.
+.TP
+.B \ CONFIGDIR/input/keyboard/* oder CONFIGDIR/input/lirc/*
+Je nach gewähltem Eingabegerät (z.B. \fBkeyboard\fP) kann hier die
+Belegung der einzelnen Funktionen für das jeweilige Eingabegerät
+festgelegt werden.
+
+.TP
+.B \ /var/lib/mms
+Hier legt
+.B MMS
+relevante Dateien ab, welche zur Laufzeit nicht so ohne weiteres wieder-
+hergestellt werden können.
+
+.SH "SIEHE AUCH"
+Für weitere Informationen (Wiki, Forum) siehe auch \fBwww.mymediasystem.org\fP
+
+.SH AUTOR
+.TP
+Anders Rune Jensen anders@gnulinux.dk

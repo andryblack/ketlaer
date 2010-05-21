@@ -1,0 +1,18 @@
+### VBOX ####
+
+version = 3
+
+#
+# Temporary Filename for conversion from vboxd-Format to au and wav
+#
+vbox_temp_file = /tmp/mms-vbox.wav
+#
+# Name of Script for Conversion from vboxd-Format to wav
+#
+vbox_conv_tool = /usr/local/lib/mms/vboxtowav.sh
+#
+#
+# Voice-Boxes	Name:Host:Port:Username:Password (Multiple Entries allowed)
+vbox = Name:host:20012:username:passwd
+#
+#vbox = Name:host:20012:username1:passwd1

@@ -1,0 +1,39 @@
+Author : Yann Cézard <eesprit@free.fr>
+
+This pyglet is a very simple filemanager to manage your media folders
+and removable devices (usb storage, music player, CDROM...) from
+within MMS, using remote or keyboard (up, down, right, left, action).
+
+Exit button will make you exit from the pyglet.
+
+It works a little as Midnight Commander : The left selection is
+copied/moved/linked in the right folder.
+
+It only provides basic actions :
+- copying (cp)
+- moving (mv)
+- linking (ln for files, ln -s for folders)
+
+## CONFIGURING OPTIONS
+You have to edit the mountpoints, the fakeroot facilities, you have to edit filemanager.py
+(all editable parameters are at the top of this file) :
+### EDIT HERE :
+# syntax is : [ DISPLAYED_NAME, DEVICE, MOUNTPOINT ]
+mountpoints = [ ["DVD Rom", '/dev/dvd', '/media/dvd'],
+               ["Archos Jukebox", '/dev/sda1', '/mnt/jukebox'],
+             ]
+
+# To only allow a subset of the file system to be viewable :
+# Note that there is no real fakeroot, just masquerading, if
+# you have symbolic links, it will be possible to escape from the jail !!!
+# No fakeroot : fakeroot =['/',]
+fakeroot = ['/media', '/tmp', '/data/data/Videos']
+
+# The commands to mount/umount (adjust to suit your needs, if using sudo, update the sudoers table so that
+# the user MMS is launched under has the right to use mount and unmount wthout password (NOPASSWD)
+mount_command  = "/usr/bin/sudo /bin/mount"
+umount_command = "/usr/bin/sudo /bin/umount"
+
+# This is for masking dot_files or not :
+HIDE_DOT_FILES = False
+### END USER EDITION

@@ -1,0 +1,38 @@
+### LIRC ####
+
+version = 2
+
+# Lirc delay
+#
+# Determines how many miliseconds mms should wait between keys. This
+# is used to make sure keys are not skippe. A lower number will make
+# navigation faster but might cause double presses.
+#
+lirc_delay = 200
+
+
+# Lirc rate
+#
+# Determines the keypress rate
+# 0 = it accepts only 1 keypress in the lirc_delay time span
+# 1 = it accepts every keypress
+# 2 = it accept every second keypress
+# 3 = it accepts every 3rd keypress
+# etc.
+# 
+# default: 1
+#
+lirc_rate = 1
+
+
+# Lirc fast
+#
+# If lirc_rate > 0, drops repeated presses till the "lirc_fast"th one
+# then it behaves accordingly to the lirc_rate setting
+#
+# lirc_fast  = 0 : this is disabled
+# lirc_fast  > 0 : enabled
+#
+# default: 3
+# 
+lirc_fast = 3 

@@ -1,0 +1,109 @@
+# translation of cs.po to
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER, 2005.
+#
+# Miroslav Flídr <flidr@kky.zcu.cz>, 2005, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: cs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-12-21 23:07+0100\n"
+"Last-Translator: \n"
+"Language-Team:  <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: mplayer.cpp:43
+msgid "General options"
+msgstr "Obecné volby"
+
+#: mplayer.cpp:46
+msgid "DVD options"
+msgstr "Volby týkající se DVD"
+
+#: mplayer.cpp:49
+msgid "VCD options"
+msgstr "Volby týkající se DVD"
+
+#: mplayer.cpp:52
+msgid "none"
+msgstr "žádný"
+
+#: mplayer.cpp:74
+msgid "subtitle language"
+msgstr "jazyk titulků"
+
+#: mplayer.cpp:77 mplayer.cpp:85 mplayer.cpp:95 mplayer.cpp:115
+#: mplayer.cpp:137
+msgid "default"
+msgstr "výchozí"
+
+#: mplayer.cpp:79
+msgid "dvd audio language"
+msgstr "jazyk zvukové stopy DVD"
+
+#: mplayer.cpp:90
+msgid "font"
+msgstr "písmo"
+
+#: mplayer.cpp:109
+msgid "font size"
+msgstr "velikost písma"
+
+#: mplayer.cpp:122
+msgid "dvd title"
+msgstr "DVD titul"
+
+#: mplayer.cpp:123
+msgid "vcd title"
+msgstr "VCD titul"
+
+#: mplayer.cpp:128
+msgid "on"
+msgstr "zapnuto"
+
+#: mplayer.cpp:129 mplayer.cpp:146
+msgid "off"
+msgstr "vypnuto"
+
+#: mplayer.cpp:132
+msgid "Fullscreen"
+msgstr "Celá obrazovka"
+
+#: mplayer.cpp:138
+msgid "16:9"
+msgstr "16:9"
+
+#: mplayer.cpp:139
+msgid "4:3"
+msgstr "4:3"
+
+#: mplayer.cpp:143
+msgid "Monitor aspect"
+msgstr "Poměr stran monitoru"
+
+#: mplayer.cpp:149
+msgid "wide (2.35:1)"
+msgstr "širokoúhlý (2.35:1)"
+
+#: mplayer.cpp:152
+msgid "square"
+msgstr "čtverec"
+
+#: mplayer.cpp:155
+msgid "Force geometry"
+msgstr "Vynutit formát"
+
+#: mplayer.cpp:323
+msgid "midentify failed to parse the length of file: "
+msgstr "programu midentify se nepodařilo zanalyzovat délku souboru: "
+
+#: mplayer.cpp:461 mplayer.cpp:574
+msgid "Video"
+msgstr ""
+
+#~ msgid "Movie"
+#~ msgstr "Film"

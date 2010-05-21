@@ -1,0 +1,17 @@
+Theme by Andreas Saur (acmelabs) and Yann Cézard (esprit)
+
+All icons works by Andreas Saur
+
+Distributed under GPLv2.
+
+2007-11-14
+
+This version (0.2.2) is for mms-1.1.0 revno 1202+ only.
+If you want to use this theme with an older MMS version,
+you have to replace all bg-10-*.png background images
+from an older version. E.g.: 0.2.1.
+
+2007-11-18
+Thanks Yann for help.
+Background gradients are now without stripes.
+EPG in the bright theme adjusted.

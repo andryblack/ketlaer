@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Krzysztof Parma <krzychp@tlen.pl>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.1.0rc2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2007-21-18 12:26+0200\n"
+"Last-Translator: Krzysztof Parma <krzychp@tlen.pl>\n"
+"Language-Team: POLISH <pl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: mplayer.cpp:43
+msgid "General options"
+msgstr "Ogólne Opcje"
+
+#: mplayer.cpp:46
+msgid "DVD options"
+msgstr "Opcje DVD"
+
+#: mplayer.cpp:49
+msgid "VCD options"
+msgstr "Opcje VCD"
+
+#: mplayer.cpp:52
+msgid "none"
+msgstr "żadne"
+
+#: mplayer.cpp:74
+msgid "subtitle language"
+msgstr "język napisów"
+
+#: mplayer.cpp:77 mplayer.cpp:85 mplayer.cpp:95 mplayer.cpp:115
+#: mplayer.cpp:137
+msgid "default"
+msgstr "domyślne"
+
+#: mplayer.cpp:79
+msgid "dvd audio language"
+msgstr "język ścieżki dźwiękowej dvd"
+
+#: mplayer.cpp:90
+msgid "font"
+msgstr "czcionka"
+
+#: mplayer.cpp:109
+msgid "font size"
+msgstr "rozmiar czcionki"
+
+#: mplayer.cpp:122
+msgid "dvd title"
+msgstr "tytuł dvd"
+
+#: mplayer.cpp:123
+msgid "vcd title"
+msgstr "tytuł vcd"
+
+#: mplayer.cpp:128
+msgid "on"
+msgstr "włączone"
+
+#: mplayer.cpp:129 mplayer.cpp:146
+msgid "off"
+msgstr "wyłączone"
+
+#: mplayer.cpp:132
+msgid "Fullscreen"
+msgstr "Pełny ekran"
+
+#: mplayer.cpp:138
+msgid "16:9"
+msgstr "16:9"
+
+#: mplayer.cpp:139
+msgid "4:3"
+msgstr "4:3"
+
+#: mplayer.cpp:143
+msgid "Monitor aspect"
+msgstr "Format monitora"
+
+#: mplayer.cpp:149
+msgid "wide (2.35:1)"
+msgstr "szeroki (2.35:1)"
+
+#: mplayer.cpp:152
+msgid "square"
+msgstr "kwadrat"
+
+#: mplayer.cpp:155
+msgid "Force geometry"
+msgstr "Wymuś format"
+
+#: mplayer.cpp:323
+msgid "midentify failed to parse the length of file: "
+msgstr "midentify nie potrafi odczytać długości pliku: "
+
+#: mplayer.cpp:461 mplayer.cpp:574
+msgid "Video"
+msgstr ""
+
+#~ msgid "Movie"
+#~ msgstr "Filmy"

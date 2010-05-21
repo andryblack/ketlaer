@@ -1,0 +1,113 @@
+# translation for spanish.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the MMS package.
+# Pablo Castorino <pablo@castorinop.com.ar>, 2008.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: es\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Pablo Castorino <pablo@castorinop.com.ar>\n"
+"Language-Team: es <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: clock.cpp:130 clock.cpp:236 clock_opts.cpp:36
+msgid "off"
+msgstr "apagado"
+
+#: clock.cpp:243 clock_opts.cpp:48 clock_opts.cpp:72
+msgid "Audio"
+msgstr "Audio"
+
+#: clock.cpp:246 clock_opts.cpp:54
+msgid "current"
+msgstr "actual"
+
+#: clock.cpp:275
+msgid "Could not find alarm update program"
+msgstr "No se puede encontrar programa de actualizacion de alarma"
+
+#: clock.cpp:304
+msgid "Could not write alarms to file: "
+msgstr "No se puede escribir alarmas en el archivo: "
+
+#: clock.cpp:344 clock_opts.cpp:35
+msgid "on"
+msgstr "encendido"
+
+#: clock.cpp:346
+msgid "Riiiing!"
+msgstr "Riiiing!"
+
+#: clock.cpp:353
+msgid "tomorrow"
+msgstr "mañana"
+
+#: clock.cpp:355
+msgid "today"
+msgstr "hoy"
+
+#: clock.cpp:420
+msgid "sunday"
+msgstr "domingo"
+
+#: clock.cpp:421
+msgid "monday"
+msgstr "lunes"
+
+#: clock.cpp:422
+msgid "tuesday"
+msgstr "martes"
+
+#: clock.cpp:423
+msgid "wednesday"
+msgstr "miércoles"
+
+#: clock.cpp:424
+msgid "thursday"
+msgstr "jueves"
+
+#: clock.cpp:425
+msgid "friday"
+msgstr "viernes"
+
+#: clock.cpp:426
+msgid "saturday"
+msgstr "sábado"
+
+#: clock_opts.cpp:29
+msgid "Clock Options"
+msgstr "Opciones de Reloj"
+
+#: clock_opts.cpp:43
+msgid "alarm"
+msgstr "alarma"
+
+#: clock_opts.cpp:62
+msgid "playlist"
+msgstr "Lista de Reproducción"
+
+#: clock_opts.cpp:92 clock_plugin.cpp:33
+msgid "Clock"
+msgstr "Reloj"
+
+#: clock_alarms.cpp:302
+msgid "Add Alarm"
+msgstr "Agregar Alarma"
+
+#: clock_alarms.cpp:309
+msgid "Day: "
+msgstr "Día: "
+
+#: clock_alarms.cpp:312
+msgid "Time: "
+msgstr "Hora: "
+
+#: clock_alarms.cpp:338
+msgid "Alarms"
+msgstr "Alarmas"

@@ -1,0 +1,10 @@
+### LCD ####
+
+version = 1
+
+# Size of the lcd display
+#
+# Setting these incorrectly might cause memory leakage
+#
+lcd_rows = 4
+lcd_pixels = 20

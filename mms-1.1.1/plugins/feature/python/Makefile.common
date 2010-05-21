@@ -1,0 +1,7 @@
+# Common makefile for all makefiles.
+# Must define MMSDIR in ALL makefiles before including this file, for example:
+# MMSDIR = ../../.., do NOT add traling slash.
+
+PYTHON_INCLUDE_PATH =$(KETLAER)/include/python$(PYTHON_VERSION)
+PYTHON_CFLAGS=-DPy_DEBUG
+OBJS = $(SRCS:.cpp=.o)

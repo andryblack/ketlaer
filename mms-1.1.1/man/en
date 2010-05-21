@@ -1,0 +1,176 @@
+.\" Done by Roman Müllenschläder <mms@prodeia.de>
+.\"
+.\" Translation to english by Roman Müllenschläder <mms@prodeia.de>
+.\"
+.
+.\" --------------------------------------------------------------------------
+.\" Makro definitions
+.\" --------------------------------------------------------------------------
+.
+.\" Tabbing in suboptions
+.nr SS 5
+.\" add new suboption
+.de IPs
+.IP "\\$1" \n(SS
+..
+.\" Start of first suboption-level, ends with .RE
+.de RSs
+.RS 10
+..
+.\" Start of second suboption-level
+.de RSss
+.PD 0
+.RS \n(SS+3
+..
+.\" End of second suboption-level
+.de REss
+.RE
+.PD 1
+..
+.
+.TH MMS 1 "01.07.2008" "My Media System" "version 1.1.0" "user commands"
+.SH NAME
+mms \- a complete multimedia suite
+.SH SYNOPSIS
+\fBmms\fP [ \-\-help|\-h ] [ \-d ] [ \-c \fIpath\fP ] [ \-p \fIpath\fP ]
+[ \-f ] [ \-u \fIusername\fP ] [ \-U \fIusername\fP ] [ \-e ] [ \-v|V ]
+[ \-r \fIfile\fP ] [ \-b ] [ \-w \fIfile\fP ] [ \-i \fItype\fP ]
+[ \-o \fItype\fP ]
+.SH DESCRIPTION
+\fBMMS\fP offers a complete media-suite for having easy access to music,
+radio, video, pictures and games from harddisk or cd/dvd.
+Various input- and outputdevices makes it even versatile.
+.PP
+For output you have the choice between \fIsdl\fP, \fIopengl\fP, \fIlcd\fP,
+\fImpeg\fP, \fIdvb\fP and \fIdxr3\fP.
+The input may be realised with \fIkeyboard\fP, \fImouse\fP, \fIlirc\fP or
+\fIevdev\fP.
+.SH OPTIONS
+.TP
+\fB\-\-help|\-h\fP
+Offers a short help and description of the commandline options and gives
+an overview of compiled-in \fBinput-\fP and \fBoutputdevices\fP.
+.TP
+\fB\-d\fP
+Starts \fRMMS\fP as daemon for background usage.
+.TP
+\fB\-c <absolute path>\fP
+Sets an alternate config-dir.
+.TP
+\fB\-p <absolute path>\fP
+Sets an alternative personal-dir (databases, etc.).
+.TP
+\fB\-f\fP
+Starts MMS fullscreen.
+.TP
+\fB\-u\fP
+Runs MMS as user \fIusername\fP.
+For to run MMS as user \fIroot\fP (\fBnot recommended)\fP), use: mms \-u root
+.TP
+\fB\-U\fP
+Runs MMS as user \fIusername\fP and reset most environment variables.
+.TP
+\fB\-e\fP
+Dumps the list of currently set environment variables. Useful for setting up
+and/or debuging MMS.
+.TP
+\fB\-v|V\fP
+Shows version and compile-options.
+.TP
+\fB\-r <replayfile>\fP (relative path)
+Uses a given replayfile as input. Recorded commands are played back.
+Use this for automation or benchmarking. Needs \fB\-i replay\fP to be set.
+.TP
+\fB\-b\fP
+Fastest possible playback of given commands for benchmarking purposes.
+Needs \fB\-i replay\fP and \fB\-r <replayfile>\fP to work.
+.TP
+\fB\-w <replayfile>\fP (relative path)
+Records input-commands to the given replayfile.
+.TP
+\fB\-i input[,input]\fP
+Sets the input device apart from the default given in the config file.
+Possible devices are \fIkeyboard\fP, \fIlirc\fP, \fIreplay\fP or \fIevdev\fP, depending
+on how
+.B MMS
+was compiled.
+Definingultiple input devices is possible: mms \-i lirc,keyboard
+.TP
+\fB\-o <outputdevice>\fP
+Sets the output device apart from the default given in the config file.
+Possible devices are \fIsdl\fP, \fIopengl\fP, \fIlcd\fP, \fImpeg\fP, \fIdvb\fP
+and \fIdxr3\fP, depending on how
+.B MMS
+was compiled.
+.SH "INTERACTIVE CONTROL"
+.B MMS
+is controlable with a few simple keys (if set to keyboard as input).
+Possible controls are \fIkeyboard\fP, \fIevdev\fP (joystick), mouse
+or \fIlirc\fP (ir-remote) (working LIRC-configuration needed).
+As starting point the relevant keys for rudimentary keyboard-control
+are decribed here:
+
+.TP
+.B keyboard control
+.PD 0
+.RSs
+.IPs "<\- and \->"
+.IPs "UP and DOWN"
+Navigation.
+
+.IPs "Enter"
+Choose an item or enter a folder.
+
+.IPs "End"
+Goes back or leaves a menu/function.
+
+.IPs "Home|Pos1"
+Switches to playlist and back.
+
+.IPs "Space"
+Opens the 'Second Action' menu. This menu gives you the opportunity
+to control all functions within
+.B MMS
+and see assigned controls.
+
+.IPs "Backspace"
+Clears the current playlist.
+
+.IPs "Del"
+Removes highlighted title from playlist.
+
+.IPs "PGUP and PGDOWN"
+Jumps pagewise up or down.
+
+.SH FILES
+The config files for
+.B MMS
+are placed in
+.I "/etc/mms"
+or
+.I "~/.mms"
+or
+.I "-c <path>"
+
+.TP
+.B \ *Config
+Here you setup all relevant parameters for the usage of
+.B MMS.
+These files are well documented and should be self instructive.
+
+.TP
+.B \ CONFIGDIR/input/keyboard/* or CONFIGDIR/input/lirc/*
+Depending on what you choose as input (ex. \fBinput-keyboard\fP)you can
+configure the used keys as you like.
+
+.TP
+.B \ /var/lib/mms
+.B MMS
+stores some relevant file here, which may take a long time to rebuild at runtime.
+
+.SH "SEE ALSO"
+For further documentation or information (wiki, forum) see \fBwww.mymediasystem.org\fP
+
+.SH AUTHOR
+.TP
+Anders Rune Jensen anders@gnulinux.dk

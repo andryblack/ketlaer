@@ -1,0 +1,29 @@
+# translation of it.po to Italiano
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: it\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-19 17:04+0100\n"
+"PO-Revision-Date: 2007-03-15 23:15+0100\n"
+"Last-Translator:  <lorenzodes@fastwebnet.it>\n"
+"Language-Team: Italiano <it@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: lcd.cpp:129
+msgid "Error connecting to server "
+msgstr "Errore nella connessione al server "
+
+#: lcd.cpp:131
+msgid " on port "
+msgstr " alla porta "
+
+#: lcd.cpp:132
+msgid "Check to see that the server is running and operating normally"
+msgstr "Accertati che il server sia in esecuzione e che funzioni normalmente"

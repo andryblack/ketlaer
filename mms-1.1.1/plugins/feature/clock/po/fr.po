@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Roman Müllenschläder <mms@prodeia.de>, 2007
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-10-17 17:44+0100\n"
+"Last-Translator: Patrice Staudt<staudt@engsystem.net>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: clock.cpp:130 clock.cpp:236 clock_opts.cpp:36
+msgid "off"
+msgstr "étains"
+
+#: clock.cpp:243 clock_opts.cpp:48 clock_opts.cpp:72
+msgid "Audio"
+msgstr "Audio"
+
+#: clock.cpp:246 clock_opts.cpp:54
+msgid "current"
+msgstr "actuel"
+
+#: clock.cpp:275
+msgid "Could not find alarm update program"
+msgstr "Je n'ai pas trouvé le programme actualisé alarm"
+
+#: clock.cpp:304
+msgid "Could not write alarms to file: "
+msgstr "L'alarme n'a pas put être écris dans le fichier suivant: "
+
+#: clock.cpp:344 clock_opts.cpp:35
+msgid "on"
+msgstr "allumé"
+
+#: clock.cpp:346
+msgid "Riiiing!"
+msgstr "Sonneriiiie!"
+
+#: clock.cpp:353
+msgid "tomorrow"
+msgstr "demain"
+
+#: clock.cpp:355
+msgid "today"
+msgstr "aujourd'hui"
+
+#: clock.cpp:420
+msgid "sunday"
+msgstr "dimanche"
+
+#: clock.cpp:421
+msgid "monday"
+msgstr "lundi"
+
+#: clock.cpp:422
+msgid "tuesday"
+msgstr "mardi"
+
+#: clock.cpp:423
+msgid "wednesday"
+msgstr "mercredi"
+
+#: clock.cpp:424
+msgid "thursday"
+msgstr "jeudi"
+
+#: clock.cpp:425
+msgid "friday"
+msgstr "vendredi"
+
+#: clock.cpp:426
+msgid "saturday"
+msgstr "samedi"
+
+#: clock_opts.cpp:29
+msgid "Clock Options"
+msgstr "réglage heure/alarme"
+
+#: clock_opts.cpp:43
+msgid "alarm"
+msgstr "alarme"
+
+#: clock_opts.cpp:62
+msgid "playlist"
+msgstr "liste de lecture"
+
+#: clock_opts.cpp:92 clock_plugin.cpp:33
+msgid "Clock"
+msgstr "Heure"
+
+#: clock_alarms.cpp:302
+msgid "Add Alarm"
+msgstr "Ajouter une alarme"
+
+#: clock_alarms.cpp:309
+msgid "Day: "
+msgstr "Jour: "
+
+#: clock_alarms.cpp:312
+msgid "Time: "
+msgstr "Heure: "
+
+#: clock_alarms.cpp:338
+msgid "Alarms"
+msgstr "Alarmes"

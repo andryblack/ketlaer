@@ -1,0 +1,7 @@
+./socket.hpp
+./lcd_config.hpp
+./socket.cpp
+./lcd.cpp
+./lcd.hpp
+./lcd_config.cpp
+./lcd_plugin.cpp

@@ -1,0 +1,227 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Martins Zabarovskis <martins@zabarovski.lv>, 2008.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-18 13:03+0100\n"
+"PO-Revision-Date: 2008-12-01 14:30+0200\n"
+"Last-Translator: Martins Zabarovskis <martins@zabarovski.lv>\n"
+"Language-Team: LATVIAN <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: epg_plugin.cpp:10 epg_plugin.cpp:44 epg_plugin.cpp:99 epg.cpp:172
+#: epg.cpp:2738 svdrp.cpp:1581 svdrp.cpp:1656 svdrp.cpp:1942
+msgid "Electronic Program Guide"
+msgstr "Elektroniskā programma"
+
+#: epg_plugin.cpp:19 epg.cpp:2310
+msgid "Rereading TV Data"
+msgstr "Pārlasa TV datus"
+
+#: epg_plugin.cpp:89
+msgid "View Electronic Program Guide"
+msgstr "Skatīt Elektronisko programmu"
+
+#: epg_plugin.cpp:94 epg.cpp:1899
+#, fuzzy
+msgid "Show Timer"
+msgstr "Mainīt Taimeri"
+
+#: epg.cpp:634
+msgid "Upgrading EPG database schema"
+msgstr "Atjaunina EPG datubāzes shēmu"
+
+#: epg.cpp:806
+msgid "Monday"
+msgstr ""
+
+#: epg.cpp:807
+msgid "Tuesday"
+msgstr ""
+
+#: epg.cpp:808
+msgid "Wednesday"
+msgstr ""
+
+#: epg.cpp:809
+msgid "Thursday"
+msgstr ""
+
+#: epg.cpp:810
+msgid "Friday"
+msgstr ""
+
+#: epg.cpp:811
+msgid "Saturday"
+msgstr ""
+
+#: epg.cpp:812
+msgid "Sunday"
+msgstr ""
+
+#: epg.cpp:1045
+msgid "logo not found:"
+msgstr "logo nav atrasts:"
+
+#: epg.cpp:1063
+msgid "Error in channel id, please report this problem"
+msgstr "Kļūda kanāla id, lūdzu ziņojiet par šo problēmu"
+
+#: epg.cpp:1081
+msgid "Your TV Data is too old or inaccessible"
+msgstr "Jūsu TV dati ir pārāk veci vai nav pieejami"
+
+#: epg.cpp:1103 epg.cpp:2997
+msgid "Timer is not assigned to Epg-Event - "
+msgstr ""
+
+#: epg.cpp:1105 epg.cpp:2999
+msgid "modification is not possible!"
+msgstr ""
+
+#: epg.cpp:1113 svdrp.cpp:2021
+#, fuzzy
+msgid "Delete Timer?"
+msgstr "EPG - Dzēst Taimeri"
+
+#: epg.cpp:1114 epg.cpp:1279 svdrp.cpp:2022
+msgid "Yes"
+msgstr "Jā"
+
+#: epg.cpp:1115 epg.cpp:1280 svdrp.cpp:2023
+msgid "No"
+msgstr "Nē"
+
+#: epg.cpp:1212 epg.cpp:1253
+msgid "Timer created !"
+msgstr "Taimeris uzstādīts !"
+
+#: epg.cpp:1216 epg.cpp:1257
+msgid "Timer not created !"
+msgstr "Timeris nav uzstādīts"
+
+#: epg.cpp:1278
+msgid "Timer is recording - really delete?"
+msgstr "Timeris ieraksta - tiešām dzēst?"
+
+#: epg.cpp:1322
+msgid "Timer deleted !"
+msgstr "Timeris izdzēsts !"
+
+#: epg.cpp:1326
+msgid "Timer not deleted !"
+msgstr "Timeris nav izdzēsts !"
+
+#: epg.cpp:1448 epg.cpp:2093 svdrp.cpp:1691
+msgid "EPG"
+msgstr "EPG"
+
+#: epg.cpp:1481 epg.cpp:1904
+msgid "Search"
+msgstr "Meklēt"
+
+#: epg.cpp:1881
+msgid "Print description"
+msgstr "Rādīt aprakstu"
+
+#: epg.cpp:1885
+msgid "Reload Data"
+msgstr "Pārlādēt datus"
+
+#: epg.cpp:1889 epg.cpp:3014 epg.cpp:3018
+msgid "Toggle Timer"
+msgstr "Mainīt Taimeri"
+
+#: epg.cpp:1894
+msgid "Switch to Channel"
+msgstr "Pārslēgt uz kanālu"
+
+#: epg.cpp:1909 epg.cpp:3026
+msgid "Return to startmenu"
+msgstr "Atgriezties sākumā"
+
+#: epg.cpp:2203
+msgid " on "
+msgstr " ieslēgts "
+
+#: epg.cpp:2322
+msgid "Could not find epg update program"
+msgstr "Nevar atrast epg atjaunināšanas programmu"
+
+#: epg.cpp:2380 epg.cpp:2399 epg.cpp:2438 epg.cpp:2599
+msgid "No Epg available"
+msgstr "Epg nav pieejams"
+
+#: epg.cpp:2748
+msgid "EPG TV listings reloaded from Svdrp-Host"
+msgstr "EPG TV saraksts pārlādēts no Svdrp-Host"
+
+#: epg.cpp:2754
+msgid "EPG TV listings couldn't be loaded from Svdrp-Host"
+msgstr "EPG TV sarakstu nevar ielādēt no Svdrp-Host"
+
+#: epg.cpp:2765
+msgid "EPG TV listings file reloaded"
+msgstr "EPG TV saraksta fails pārlādēts"
+
+#: epg.cpp:2767
+msgid "The new data file will be used"
+msgstr "Tiks lietots jaunais datu fails"
+
+#: epg.cpp:2768
+msgid "the next time you enter EPG"
+msgstr "nākamo reizi kad ienāksiet EPG"
+
+#: epg.cpp:3022
+#, fuzzy
+msgid "Delete Timer"
+msgstr "EPG - Dzēst Taimeri"
+
+#: epg.cpp:3114
+#, fuzzy
+msgid "EPG - Show Timer"
+msgstr "EPG - Uzstādīt Taimeri"
+
+#: svdrp.cpp:876
+msgid "Dualchannel"
+msgstr "Dubultkanāls"
+
+#: svdrp.cpp:876
+msgid "2-channel"
+msgstr "2-kanāli"
+
+#: svdrp.cpp:879
+msgid "Dolby Digital"
+msgstr "Dolby Digital"
+
+#: svdrp.cpp:886
+msgid "Listening Movie"
+msgstr "Klausās Filmu"
+
+#: svdrp.cpp:1686
+msgid "EPG - Create Timer"
+msgstr "EPG - Uzstādīt Taimeri"
+
+#: svdrp.cpp:1688
+#, fuzzy
+msgid "EPG - Modify Timer"
+msgstr "EPG - Uzstādīt Taimeri"
+
+#: svdrp.cpp:1911
+msgid "Active Timer"
+msgstr "Aktīvais Taimeris"
+
+#: svdrp.cpp:1913
+msgid ", Is recording"
+msgstr ", Ieraksta"
+
+#: svdrp.cpp:1915
+msgid ", (VPS)"
+msgstr ", (VPS)"

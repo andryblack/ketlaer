@@ -1,0 +1,51 @@
+# translation of ru.po to Русский
+# MMS Russian translation
+# Copyright (C) 2003-2005 Sergey V. Katunin
+# This file is distributed under the same license as the MMS package.
+# Sergey Katunin <sergo@avtograd.ru>, 2004.
+# Sergey V. Katunin <sergo@avtograd.ru>, 2005.
+# kostos <kostos@mysmart.ie>, 2007
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mmsv2 1.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-24 09:38+0200\n"
+"PO-Revision-Date: 2005-03-20 18:36+0400\n"
+"Last-Translator: Sergey N. Svinolobov <sens@verizon.net>\n"
+"Language-Team: Русский <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: dxr3out.cpp:125 dxr3out.cpp:239 dxr3out.cpp:246
+#, fuzzy
+msgid "Could not open device to set DXR3 zoom: "
+msgstr "Не могу открыть устройство: "
+
+#: dxr3out.cpp:180 dxr3out.cpp:187
+msgid "Could not open device: "
+msgstr "Не могу открыть устройство: "
+
+#: dxr3out.cpp:194
+msgid "Unable to set playmode"
+msgstr "Нельзя установить режим воспр."
+
+#: dxr3out.cpp:220
+#, fuzzy
+msgid ""
+"DXR3 output only supports the resolutions 960x540 (16:9 anamorphic), 720x540 "
+"(4:3) and 720x405 (16:9)"
+msgstr "DXR3 поддерживает только разрешения 720x540 (4:3) и 720x405 (16:9)"
+
+#: dxr3out.cpp:233
+msgid "Zoom option is not supported by DXR3 driver."
+msgstr ""
+
+#: dxr3out.cpp:248
+msgid "Set DXR3 zoom using device "
+msgstr ""
+
+#: dxr3out.cpp:250
+msgid "Failed to set zoom value in the DXR3 driver."
+msgstr ""

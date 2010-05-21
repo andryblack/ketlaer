@@ -1,0 +1,23 @@
+#########################################
+# Configuration file for input
+#
+# Syntax:
+# mode, command, key
+#
+# some modes inherit from other modes, which means that you can't
+# define the same key in both. Otherwise you are free to use the same
+# keys.
+#
+# all inherit from general
+# all audio modes inherit from audio_general
+# choose_playlist and playlist inherit from playlist_general
+
+version = 5
+
+graphical_movie,print_file_info,y
+graphical_movie,search_imdb,v
+graphical_movie,reget,r
+graphical_movie,delete_file_info,d
+graphical_movie,play_movie,a
+graphical_movie,switch_fullscreen,w
+

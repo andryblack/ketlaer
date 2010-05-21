@@ -1,0 +1,70 @@
+<window>
+   <id>100</id>
+   <defaultcontrol>10</defaultcontrol>
+   <controls>
+      <control>
+         <description>Background image</description>
+         <type>image</type>
+         <id>1</id>
+         <posx>0</posx>
+         <posy>0</posy>
+         <width>800</width>
+         <height>600</height>
+         <layer>0</layer>
+	 <routecontrol>10</routecontrol>
+	 <texture>general/bg.png</texture>
+      </control>
+
+      <control>
+         <description>Plugin image</description>
+         <type>image</type>
+         <id>2</id>
+         <posx>25</posx>
+         <posy>10</posy>
+         <width>45</width>
+         <height>45</height>
+         <layer>3</layer>
+         <texture>python/script.png</texture>
+      </control>
+
+      <control>
+         <description>Plugin label</description>
+         <type>label</type>
+         <id>3</id>
+         <posx>90</posx>
+         <posy>10</posy>
+         <width>200</width>
+         <height>45</height>
+         <layer>4</layer>
+	 <label>Scripts</label>
+         <textcolor>0x284b64</textcolor>
+      </control>
+
+      <control>
+         <description>Center rectangle</description>
+         <type>rectangle</type>
+         <id>4</id>
+         <posx>50</posx>
+         <posy>85</posy>
+         <width>620</width>
+         <height>330</height>
+         <layer>3</layer>
+	 <alpha>100</alpha>
+         <rectanglecolor>0x20325a</rectanglecolor>
+      </control>
+
+      <control>
+         <description>Script list</description>
+         <type>list</type>
+         <id>10</id>
+         <posx>70</posx>
+         <posy>100</posy>
+         <width>580</width>
+         <height>340</height>
+         <layer>4</layer>
+	 <texturefocus>movie/marked.png</texturefocus>
+         <textoffset>8</textoffset>
+         <itemheight>25</itemheight>
+      </control>
+   </controls>
+</window>

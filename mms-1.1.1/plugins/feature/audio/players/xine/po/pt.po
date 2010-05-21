@@ -1,0 +1,48 @@
+# MMS Portuguese Translation.
+# Copyright (C) 2003, 2005 Luis Correia
+# This file is distributed under the same license as MMS.
+# Luis Correia <lfcorreia@users.sf.net, 2003.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mmsv2 1.0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2006-07-17 19:51+0200\n"
+"Last-Translator: Luis Correia <lfcorreia@users.sf.net>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: xine.cpp:88
+msgid "Audio device unavailable: "
+msgstr ""
+
+#: xine.cpp:391
+msgid "Xine engine warning"
+msgstr ""
+
+#: xine.cpp:404
+msgid "Xine engine error"
+msgstr ""
+
+#: xine.cpp:408
+msgid "Xine engine message"
+msgstr ""
+
+#~ msgid "The audio device is busy. Is another application using it?"
+#~ msgstr ""
+#~ "Dispositivo de som está ocupado, estará alguma outra aplicação a usa-lo?"
+
+#~ msgid "Error connecting to server"
+#~ msgstr "Erro ao ligar ao servidor"
+
+#~ msgid "The server might be down or busy"
+#~ msgstr "O servidor pode estar em baixo ou muito ocupado"
+
+#~ msgid "Please try again later"
+#~ msgstr "Por favor tente mais tarde."
+
+#~ msgid "Could not open file"
+#~ msgstr "Não consigo abrir ficheiro"

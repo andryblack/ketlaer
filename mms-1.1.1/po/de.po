@@ -1,0 +1,690 @@
+# translation of de.po to Deutsch
+# translation of mmsv2.
+# Copyright (C) 2007 Roman Müllenschläder <mms@prodeia.de>
+# This file is distributed under the same license as the mmsv2 mmsv2.
+#
+# Earlier authors:
+#
+#
+# Oliver Beck <manofwar@web.de>, 2002-2003.
+# Roman Müllenschläder <mms@prodeia.de>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: de\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2006-10-10 21:32+0200\n"
+"Last-Translator: Roman Müllenschläder <mms@prodeia.de>\n"
+"Language-Team: Deutsch <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: cd.cpp:54
+msgid "Could not open the dvd/cd drive"
+msgstr "Konnte Ihr DVD/CD Laufwerk nicht öffnen"
+
+#: cd.cpp:80
+msgid "Could not set drive speed"
+msgstr "Konnte Laufwerksgeschwindigkeit nicht einstellen"
+
+#: cd.cpp:86
+msgid "The drive does not support speed selection"
+msgstr "Das Laufwerk unterstützt keine Geschwindigkeitseinstellung"
+
+#: cd.cpp:100
+msgid "There is no disc in the drive"
+msgstr "Kein Medium im Laufwerk"
+
+#: cd.cpp:107
+msgid "The tray is open"
+msgstr "Die Lade ist offen"
+
+#: cd.cpp:109
+msgid "Please close it"
+msgstr "Bitte schließen Sie sie."
+
+#: cd.cpp:116
+msgid "The drive is not ready"
+msgstr "Das Laufwerk ist nicht bereit."
+
+#: cd.cpp:118
+msgid "Please try again later"
+msgstr "Bitte später nocheinmal versuchen"
+
+#: common.cpp:92
+msgid "false"
+msgstr "falsch"
+
+#: common.cpp:92
+msgid "no"
+msgstr "Nein"
+
+#: common.cpp:92
+msgid "off"
+msgstr "Aus"
+
+#: common.cpp:661
+msgid "Failed to open iconv"
+msgstr "Öffnen von iconv fehlgeschlagen"
+
+#: common.cpp:685
+msgid "String conversion failed"
+msgstr "String-Konvertierung fehlgeschlagen"
+
+#: common.cpp:906
+msgid "Could not create directory "
+msgstr "Fehler beim Erstellen des Verzeichnisses "
+
+#: common.cpp:912
+msgid "Internal error, please report this"
+msgstr "Interner Fehler, bitte melden Sie dieses Problem"
+
+#: common.cpp:913
+msgid "File is not a directory: "
+msgstr "Datei ist kein Verzeichnis: "
+
+#: common.cpp:1030
+msgid "Unable to open/create the file lock!!!"
+msgstr "Konnte Datei-Sperre (file lock) nicht öffnen/erstellen!!!"
+
+#: config_macros.hpp:188 config_macros.hpp:200
+msgid "Opening configuration file "
+msgstr "Öffne Konfigurationsdatei => "
+
+#: config_macros.hpp:209
+msgid "Config file not found "
+msgstr "Konfigurationsdatei nicht gefunden "
+
+#: config_macros.hpp:223
+msgid "Error while reading line "
+msgstr "Fehler beim Einlesen der Zeile "
+
+#: config_macros.hpp:224
+msgid "missing '='"
+msgstr "fehlendes '='"
+
+#: config_macros.hpp:240
+msgid " is version "
+msgstr " ist Version: "
+
+#: config_macros.hpp:240
+msgid " and MMS expecting version "
+msgstr " und MMS erwartet Version: "
+
+#: config_macros.hpp:241 config_macros.hpp:249
+msgid "Please upgrade your config file"
+msgstr "Bitte aktualisieren Sie ihre Konfigurationsdatei"
+
+#: config_macros.hpp:248 plugins/input/input_device.cpp:193
+msgid "Version string not found"
+msgstr "Versions Eintrag wurde nicht gefunden"
+
+#: config_macros.hpp:258
+msgid "Unknown token '"
+msgstr "Unbekanntes Zeichen '"
+
+#: config_macros.hpp:259
+msgid "' on line "
+msgstr "' in Zeile "
+
+#: config_macros.hpp:279
+msgid "Can't write configuration file!"
+msgstr "Konnte Konfigurationsdatei nicht speichern!"
+
+#: global.cpp:271
+msgid "Playback control"
+msgstr "Playlistenbefehle"
+
+#: global.cpp:319
+msgid "Playlist Commands"
+msgstr "Playlistenbefehle"
+
+#: libfspp.cpp:19 libfspp.cpp:39
+msgid "Unknown sorting order"
+msgstr "Unbekannte Sortierreihenfolge"
+
+#: mms.cpp:57
+msgid "Critical: couldn't set environment variable "
+msgstr "Kritisch: Konnte Umgebungsvariable nicht setzen "
+
+#: mms.cpp:58 mms.cpp:253 mms.cpp:266 mms.cpp:272 mms.cpp:363
+msgid "Error: "
+msgstr "Fehler: "
+
+#: mms.cpp:82
+msgid "MMS options:"
+msgstr "MMS Optionen:"
+
+#: mms.cpp:89
+msgid "<relative> : filename relative to config directory"
+msgstr "<relative> : Dateiname relativ zum Konfigurationsverzeichnis"
+
+#: mms.cpp:90
+msgid "<absolute> : full path filename"
+msgstr "<absolute> : Dateiname mit vollständigem Pfad"
+
+#: mms.cpp:97
+msgid " -o : output device ["
+msgstr " -o : Ausgabe Gerät ["
+
+#: mms.cpp:113
+msgid " -i : input device ["
+msgstr " -i : Eingabe Gerät ["
+
+#: mms.cpp:128
+msgid " -h : show this help and exit"
+msgstr " -h : Zeige diese Hilfe"
+
+#: mms.cpp:129
+msgid " -d : daemonize (run in background)"
+msgstr " -d : Daemon (Hintergrundmodus)"
+
+#: mms.cpp:130 movie-library/movie-library.cpp:547
+#: audio-library/audio-library.cpp:613
+msgid " -c <absolute> : use alternative config directory"
+msgstr " -c <absolute> : alternatives Konfigurationsverzeichnis"
+
+#: mms.cpp:131 pic-library/pic-library.cpp:451
+#: movie-library/movie-library.cpp:548 audio-library/audio-library.cpp:614
+msgid " -p <absolute> : use alternative personal directory (db, playlist)"
+msgstr ""
+" -p <absolute> : alternatives persönliches Verzeichnis (Datenbanken, "
+"Playlisten)"
+
+#: mms.cpp:132
+msgid " -f : fullscreen\n"
+msgstr " -f : Vollbild\n"
+
+#: mms.cpp:133
+msgid " -u <username> : run mms as username"
+msgstr " -u <username> : Starte MMS als User 'username'"
+
+#: mms.cpp:134
+msgid ""
+"\n"
+" -U <username> : run mms as username and reset most environment variables"
+msgstr ""
+"\n"
+" -U <username> : Starte MMS als User 'username' und setze Umgebungsvariablen "
+"zurück"
+
+#: mms.cpp:135
+msgid ""
+"\n"
+" -e : dump the list of currently set environment variables; useful for "
+"setting up and/or debug mms"
+msgstr ""
+"\n"
+" -e : Liste der Umgebungsvariablen ausgeben; nützlich zum Einrichten und/"
+"oder der Fehlersuche"
+
+#: mms.cpp:136
+msgid " -v|V : show version and exit"
+msgstr " -v|V : Zeige Version und Compile-Optionen"
+
+#: mms.cpp:143
+msgid ""
+" -r <relative> : use replay file as input (requires replay as input device)"
+msgstr ""
+" -r <relative> : Nutze Nachspiel-Datei als Eingabe (benötigt den Nachspieler "
+"als Eingabegerät)"
+
+#: mms.cpp:144
+msgid ""
+" -b : benchmark MMS by replaying as fast as possible (requires replay as "
+"input device) "
+msgstr ""
+" -b : Benchmark MMS durch schnellstmögliches Nachspielen (benötigt den "
+"Nachspieler als Eingabegerät) "
+
+#: mms.cpp:145
+msgid " -w <relative> : write replay to specified file"
+msgstr " -w <relative> : Schreibe Nachspiel-Infos in die angegebene Datei"
+
+#: mms.cpp:237
+msgid "Critical: couldn't find user: "
+msgstr "Kritisch: Konnte Benutzer: "
+
+#: mms.cpp:252 mms.cpp:258
+msgid "Critical: couldn't set group privileges!"
+msgstr "Kritisch: Konnte Gruppenberechtigungen nicht setzen!"
+
+#: mms.cpp:265
+msgid "Warning: failed to set supplementary groups!"
+msgstr "Warnung: Konnte ergänzende Gruppen nicht setzen!"
+
+#: mms.cpp:271 mms.cpp:276
+msgid "Critical: couldn't set user privileges!"
+msgstr "Kritisch: Konnte Nutzerberechtigungen nicht setzen!"
+
+#: mms.cpp:282
+msgid "Critical: couldn't set user privileges permanently!"
+msgstr "Kritisch: Konnte Nutzerberechtigungen nicht dauerhaft setzen!"
+
+#: mms.cpp:287
+msgid "Critical: couldn't set group privileges permanently!"
+msgstr "Kritisch: Konnte Gruppenberechtigungen nicht dauerhaft setzen!"
+
+#: mms.cpp:347
+msgid "Full list of active groups for user "
+msgstr "Vollständige Liste aktiver Gruppen für Benutzer "
+
+#: mms.cpp:356
+msgid "Critical: out of memory!"
+msgstr "Kritisch: Speichermangel!"
+
+#: mms.cpp:362
+msgid "Warning: couldn't fetch a list of secondary groups for user "
+msgstr "Warnung: Konnte List mit sekundären Benutzergruppen nicht laden "
+
+#: mms.cpp:523
+msgid ""
+"\n"
+"It appears mms is running as superuser."
+msgstr ""
+"\n"
+"Es scheint, MMS läuft mit Superuser-Berechtigungen (root)."
+
+#: mms.cpp:524
+msgid ""
+"Not only is this totally unnecessary, but it also constitutes a security "
+"risk "
+msgstr "Nicht nur ist dies unnötig, sondern eröffnet auch Sicherheitsrisiken, "
+
+#: mms.cpp:525
+msgid "and thus it is strongly discouraged!\n"
+msgstr "von denen DRINGEND abgeraten wird!\n"
+
+#: mms.cpp:526
+msgid ""
+"If you really really want to give mms superuser privileges, run it like this:"
+msgstr ""
+"Wenn Sie sich (wirklich) sicher sind, MMS dennoch mit Superuser-Rechten zu "
+"starten,können Sie dies folgendermaßen tun:"
+
+#: mms.cpp:527
+msgid "mms -u root [other options]\n"
+msgstr "mms -u root [Optionen]\n"
+
+#: mms.cpp:544
+msgid ""
+"Another instance of MMS or an instance of movie/pic/audio library is already "
+"running.\n"
+msgstr ""
+"Eine andere MMS-Instanz oder eine der Datenbank-Helfer (mms-movie/pic/audio-"
+"library) läuft bereits.\n"
+
+#: mms.cpp:549 pic-library/pic-library.cpp:390
+#: movie-library/movie-library.cpp:492 audio-library/audio-library.cpp:558
+#, c-format
+msgid "File lock is currently owned by another process (pid %d). Aborting\n"
+msgstr ""
+"Datei-Sperre (file lock) wird von einem anderen Prozess (pid %d) genutzt! "
+"Breche ab\n"
+
+#: mms.cpp:558
+msgid "Full list of environment variables:\n"
+msgstr "Vollständige Liste der Umgebungsvariablen:\n"
+
+#: mms.cpp:569
+msgid "Unable to find or create HOME directory"
+msgstr "Konnte HOME Verzeichnis nicht finden oder erstellen"
+
+#: mms.cpp:588
+msgid "CD/DVD not configured properly and media enabled in Config, exiting"
+msgstr ""
+"CD/DVD nicht korrekt konfiguriert und Wechselmedien in der Config aktiviert, "
+"beende"
+
+#: mms.cpp:617 mms.cpp:618 mms.cpp:619 mms.cpp:620
+#: pic-library/pic-library.cpp:458 pic-library/pic-library.cpp:459
+#: movie-library/movie-library.cpp:555 movie-library/movie-library.cpp:556
+#: audio-library/audio-library.cpp:621 audio-library/audio-library.cpp:622
+msgid "Using "
+msgstr "Nutze "
+
+#: mms.cpp:617
+msgid " as primary configuration directory"
+msgstr " als primäres Konfigurationsverzeichnis"
+
+#: mms.cpp:618
+msgid " as fallback configuration directory"
+msgstr " als sekundäres Konfigurationsverzeichnis"
+
+#: mms.cpp:619
+msgid " as personal data directory"
+msgstr " als persönliches Verzeichnis"
+
+#: mms.cpp:620
+msgid " as cache location"
+msgstr " als Cache Verzeichnis"
+
+#: mms.cpp:647
+msgid "No input plugin found"
+msgstr "Kein Eingabe-Plugin gefunden"
+
+#: mms.cpp:652
+msgid "No output device specified! Use the -o option."
+msgstr "Kein Ausgabegerät angegeben! Nutzen Sie die -o Option."
+
+#: option.cpp:14
+msgid ""
+"The size of the translated and the english option lists does not match: "
+msgstr ""
+"Die Größe der übersetzten und der englischen Optionsliste passt nicht "
+"überein: "
+
+#: options.cpp:68
+msgid "There are no options to show"
+msgstr "Keine Einstellungen möglich"
+
+#: options.cpp:162 theme.cpp:131
+msgid "Go back"
+msgstr "Zurück zum Hauptmenü"
+
+#: options.cpp:245 options.cpp:375
+msgid "reload"
+msgstr "Verzeichnisse neu einlesen"
+
+#: options.cpp:285 options.cpp:374 startmenu.cpp:52 startmenu.cpp:525
+msgid "Options"
+msgstr "Einstellungen"
+
+#: options.cpp:502 global_options.cpp:157
+msgid "Could not create options directory: "
+msgstr "Konnte Optionen-Verzeichnis nicht erstellen: "
+
+#: options.cpp:507 options.cpp:532
+msgid "Warning: module "
+msgstr "Warnung: Modul "
+
+#: options.cpp:507 options.cpp:532
+msgid " did not set save_name"
+msgstr " hat save_name nicht gesetzt"
+
+#: options.cpp:515 theme.cpp:285 global_options.cpp:165
+msgid "Could not write options to file "
+msgstr "Fehler beim Schreiben der Einstellungen in die Datei "
+
+#: options.cpp:540 theme.cpp:304 global_options.cpp:186
+msgid "Could not open options file "
+msgstr "Fehler beim öffnen der Einstellungsdatei "
+
+#: pic-library/pic-library.cpp:165
+msgid "Upgrading pictures database schema"
+msgstr "Aktualisiere Bilder-Datenbank Schema"
+
+#: pic-library/pic-library.cpp:386 movie-library/movie-library.cpp:487
+#: audio-library/audio-library.cpp:553
+msgid ""
+"An instance of MMS or another instance of movie/pic/audio library is already "
+"running\n"
+msgstr ""
+"Eine andere MMS-Instanz oder eine der Datenbank-Helfer (mms-movie/pic/audio-"
+"library) läuft bereits.\n"
+
+#: pic-library/pic-library.cpp:445
+msgid "My Media System picture library creation tool"
+msgstr "My Media System Bilder-Datenbank Werkzeug"
+
+#: pic-library/pic-library.cpp:447
+msgid "Usage: ./mms-pic-library"
+msgstr "Anwendung: ./mms-pic-library"
+
+#: pic-library/pic-library.cpp:449 movie-library/movie-library.cpp:546
+#: audio-library/audio-library.cpp:612
+msgid "Options:"
+msgstr "Einstellungen:"
+
+#: pic-library/pic-library.cpp:450
+msgid " -c <absolute> : use alternate config directory"
+msgstr " -c <absolute> : alternatives Konfigurationsverzeichnis"
+
+#: pic-library/pic-library.cpp:452 movie-library/movie-library.cpp:549
+#: audio-library/audio-library.cpp:615
+msgid ""
+" -d <path> : Override watch paths in configuration file with <path> (can be "
+"used multiple times)"
+msgstr ""
+" -d <Pfad> : Scanne den mittels <Pfad> gegebenen Pfad, nicht die Pfade der "
+"Konfigurationsdateien (kann mehrfach verwednet werden)"
+
+#: pic-library/pic-library.cpp:458 movie-library/movie-library.cpp:555
+#: audio-library/audio-library.cpp:621
+msgid " as configuration directory"
+msgstr " als Konfigurationsverzeichnis"
+
+#: pic-library/pic-library.cpp:459 movie-library/movie-library.cpp:556
+#: audio-library/audio-library.cpp:622
+msgid " as personal directory"
+msgstr " als persönliches Verzeichnis"
+
+#: plugins/feature/module.cpp:27 plugins/input/input.hpp:195
+#: plugins/input/input.hpp:198 plugins/input/input.hpp:200
+#: plugins/input/input.hpp:211 plugins/input/input.hpp:234
+#: plugins/input/input.hpp:288
+msgid "current folder"
+msgstr "Verzeichnis"
+
+#: plugins/input/input.hpp:201 plugins/input/input.hpp:203
+msgid "all folders"
+msgstr "Alle Ordner"
+
+#: plugins/input/input_device.cpp:93
+msgid "Input configuration file not found "
+msgstr "Eingabe-Konfigurationsdatei nicht gefunden "
+
+#: plugins/input/input_device.cpp:162
+msgid "Adding "
+msgstr "Hinzufügen "
+
+#: plugins/input/input_device.cpp:185
+msgid "Wrong version of input file found: "
+msgstr "Falsche Version der Eingabe-Konfiguration gefunden: "
+
+#: plugins/input/input_device.cpp:186 plugins/input/input_device.cpp:194
+msgid "Please upgrade your input file"
+msgstr "Bitte aktualisieren Sie ihre Eingabe-Konfigurationsdatei (input-*)"
+
+#: plugins/input/input_device.cpp:187
+msgid "Got version "
+msgstr "Ist Version "
+
+#: plugins/input/input_device.cpp:187 themes.cpp:123
+msgid " expected "
+msgstr " und erwartet wird "
+
+#: plugins/input/input_device.cpp:220 plugins/input/input_device.cpp:233
+msgid "Unknown cur_map: "
+msgstr "Unbekannte cur_map: "
+
+#: plugins/output/common-output.cpp:48
+msgid "Too many strings to print"
+msgstr "Zu viele Zeichen um sie anzuzeigen"
+
+#: plugins/output/common-output.cpp:50
+msgid "Nothing to print"
+msgstr "Nichts anzuzeigen"
+
+#: plugins/output/mpeg/mpeg.cpp:59
+msgid "Can't find codec mpeg2"
+msgstr "Kann mpeg2-codec nicht finden"
+
+#: plugins/output/mpeg/mpeg.cpp:91
+msgid "Could not open codec"
+msgstr "Konnte codec nicht öffnen"
+
+#: plugins/output/renderer.cpp:721 plugins/output/renderer.cpp:1553
+#: plugins/output/renderer.cpp:1620
+msgid "The image "
+msgstr "Das Bild "
+
+#: plugins/output/renderer.cpp:721 plugins/output/renderer.cpp:1438
+#: plugins/output/renderer.cpp:1553 plugins/output/renderer.cpp:1620
+msgid " could not be loaded"
+msgstr " konnte nicht geladen werden"
+
+#: plugins/output/renderer.cpp:1438
+msgid "The font "
+msgstr "Die Schrift "
+
+#: plugins/plugin.hpp:41
+msgid "Unnamed"
+msgstr "Unbenannt"
+
+#: search.cpp:23 search.cpp:27 search.cpp:295 search.cpp:418
+msgid "all"
+msgstr "Alles"
+
+#: search.cpp:122 startmenu.cpp:521
+msgid "Search"
+msgstr "Suche"
+
+#: search.cpp:133 search.cpp:334
+msgid "Search: "
+msgstr "Suchen: "
+
+#: search.cpp:436
+msgid "No search results found"
+msgstr "Nix gefunden ;("
+
+#: shutdown.cpp:37
+msgid "Shutdown in"
+msgstr "Schalte ab in"
+
+#: shutdown.cpp:43
+msgid "Shutdown Now"
+msgstr "Schalte jetzt ab"
+
+#: shutdown.cpp:88
+msgid "Canceled Shutdown"
+msgstr "Das Abschalten wurde abgebrochen"
+
+#: extra_menu.hpp:46
+msgid "Extra Menu"
+msgstr "Extra-Menü"
+
+#: theme.cpp:128
+msgid "Use theme"
+msgstr "Benutze Thema"
+
+#: theme.cpp:251 startmenu.cpp:529
+msgid "Themes"
+msgstr "Themen/Skins"
+
+#: theme.cpp:330
+msgid "Falling back to standard theme"
+msgstr "Greife auf das Standard-Theme zurück"
+
+#: theme.cpp:337
+msgid "Couldn't find any themes to open"
+msgstr "Konnte eingestelltes Theme nicht laden"
+
+#: themes.cpp:89 themes.cpp:92
+msgid "Could not open theme"
+msgstr "Fehler beim Öffnen des Skins"
+
+#: themes.cpp:108
+msgid "Illegal line in theme file, missing '=' on line "
+msgstr "Ungültige Zeile in der Themen-Datei, fehlendes '=' in Zeile "
+
+#: themes.cpp:122
+msgid "Unsupported theme version, got version "
+msgstr "Nicht unterstützte Theme-Version, dies ist Version "
+
+#: themes.cpp:125
+msgid "Unsupported theme version"
+msgstr "Nicht unterstützte Theme-Version"
+
+#: movie-library/movie-library.cpp:246 movie-library/movie-library.cpp:251
+msgid "Upgrading movie database schema"
+msgstr "Aktualisiere Film-Datenbank Schema"
+
+#: movie-library/movie-library.cpp:542
+msgid "My Media System movie library creation tool"
+msgstr "My Media System Film-Datenbank Werkzeug"
+
+#: movie-library/movie-library.cpp:544
+msgid "Usage: ./mms-movie-library"
+msgstr "Anwendung: ./mms-movie-library"
+
+#: global_options.cpp:44
+msgid "name mismatch in cd configuration, please check your config"
+msgstr ""
+"Fehlerhafte Namenseinstellung in der CD-Konfiguration, bitte prüfen Sie ihre "
+"Config"
+
+#: global_options.cpp:52
+msgid "cd device"
+msgstr "CD-Laufwerk"
+
+#: global_options.cpp:64
+msgid "audio device (music)"
+msgstr "Audio Gerät (Musik)"
+
+#: global_options.cpp:67
+msgid "audio device (movies)"
+msgstr "Audio Gerät (Film)"
+
+#: global_options.cpp:81
+msgid "directories first"
+msgstr "Verzeichnisse zuerst"
+
+#: global_options.cpp:82
+msgid "by name"
+msgstr "Nach Namen"
+
+#: global_options.cpp:83
+msgid "by date"
+msgstr "Nach Datum"
+
+#: global_options.cpp:90
+msgid "sorting"
+msgstr "Sortierung"
+
+#: startmenu.cpp:59
+msgid "Global Options"
+msgstr "Globale Einstellungen"
+
+#: startmenu.cpp:164 startmenu.cpp:167 startmenu.cpp:550 startmenu.cpp:553
+msgid "Open/Close Tray"
+msgstr "Öffne/Schließe CD-Lade"
+
+#: startmenu.cpp:476
+msgid "Do you really want to exit?"
+msgstr "Wirklich beenden?"
+
+#: startmenu.cpp:479 startmenu.cpp:560 startmenu.cpp:561
+msgid "Quit"
+msgstr "Beenden"
+
+#: startmenu.cpp:481
+msgid "Halt System"
+msgstr "System abschalten"
+
+#: startmenu.cpp:482
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: startmenu.cpp:533
+msgid "Utilities"
+msgstr "Zubehör"
+
+#: startmenu.cpp:540 startmenu.cpp:542
+msgid "Switch resolution"
+msgstr "Auflösung ändern"
+
+#: audio-library/audio-library.cpp:340
+msgid "Upgrading audio database schema"
+msgstr "Aktualisiere Audio-Datenbank Schema"
+
+#: audio-library/audio-library.cpp:608
+msgid "My Media System audio library creation tool"
+msgstr "My Media Sytem Audio-Datenbank Werkzeug"
+
+#: audio-library/audio-library.cpp:610
+msgid "Usage: ./mms-audio-library"
+msgstr "Anwendung: ./mms-audio-library"

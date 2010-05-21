@@ -1,0 +1,239 @@
+########################################################
+# My Media System - configuration file
+#
+# For more information on the options refer to the complete
+# documentation:
+#
+# http://mms.kicks-ass.org/wiki/index.php/Main_Page
+#
+
+version = 27
+
+### GENERAL ####
+
+# Convert
+#
+# Convert files in locale format to utf-8?
+# This option is needed if filenames on is encoded in a different
+# format than utf-8
+convert = true
+convert_locale = ISO-8859-1
+
+# Specify the locale for mp3 tags. This can be used if the locale is
+# different than the filenames (eg. Russian)
+convert_mp3_locale = UTF-8
+
+# CD/DVD path
+#
+cdrom = /dev/dvd, /mnt/cdrom/
+cdrom_name = /dev/dvd, dvd device
+
+# Show quit
+#
+# If you just want to use the shutdown script you can disable the
+# normal quit
+#
+show_quit = true
+
+# Shutdown_script
+#
+# Command to run when mms is shutting down.
+#
+# Examples:
+# "shutdown -h now" will shut the computer down when quiting mms
+#
+shutdown_script =
+
+# Busy indicator
+#
+# Display status indicator in the right corner?
+#
+busy_indicator = true
+
+# Page_up and page_down jump range in non-graphical modes
+#
+jump = 10
+
+# Idle_time is used to set after how long time mms should go into idle
+# mode. Idle mode currently supports screensaver for automatic
+# updating of epg and an audio screensaver that will kick in if audio
+# is playing.
+#
+# Valid values are integers and the time is measured in minutes. 0
+# denotes disabled.
+#
+idle_time = 1
+
+# The debug level
+#
+# Controls how much debug will be displayed:
+#
+# 0 = critical errors
+# 1 = critical errors + warnings
+# 2 = critical errors + warnings + general info
+# 3 = all info, warnings and errors
+#
+debug_level = 2
+
+# Show media dependant options in startmenu?
+#
+media = true
+
+# Autostart a feature plugin: TV, EPG, ...
+# 
+# Plugin naming is translation dependent.
+# So you need to set the name like it is displayed
+# in main menu.
+# (example for german: Musik:2)
+#
+#  Movie    Play movies from harddrive
+#  Movie:0  Play movies from harddrive
+#  Movie:1  Play a dvd/vcd/svcd
+#
+autostart =  
+
+### EJECT ####
+
+# Open close
+#
+# Show open close icon for opening and closes drive in startmenu?
+#
+openclose = false
+
+# Path to binary
+#
+eject_path = /usr/bin/eject
+
+# options
+#
+eject_closeopts = -t
+eject_openopts =
+
+# Media playback
+#
+# Three different devices are supported
+# If the second or third device name is specified, one will be able
+# to choose the soundcard at runtime using the options menu
+#
+# use 'default' when using MMS with alsa output + alsaplayer
+# alsaplayer don't support pulse.
+# if use pulse don't need set dev_path.
+# when using Xine as audio player you need to set this manually in ~/.xine/config
+#
+# This section also controls movie playback
+#
+# Valid values are:
+# dev_digital = false,true (pass through)
+# dev_channels = 2 (stereo),4 (surround),6 (5.1)
+# dev_output = alsa|oss|pulse
+#
+first_dev_name = Default
+first_dev_digital = false
+first_dev_channels = 2
+first_dev_output = alsa
+first_dev_path = default
+
+second_dev_name =
+second_dev_digital = false
+second_dev_channels = 2
+second_dev_output = oss
+second_dev_path = /dev/dsp1
+
+third_dev_name =
+third_dev_digital =
+third_dev_channels =
+third_dev_output =
+third_dev_path =
+
+# Picture filetypes
+#
+filetypes_p = png, png
+filetypes_p = jpg, jpg
+filetypes_p = jpeg, jpg
+filetypes_p = gif, gif
+
+### OUTPUT ####
+
+# Output device
+#
+# choose between dxr3, dvb, mpeg, sdl and opengl
+#
+outdev = sdl
+
+# Blur
+#
+# Blur the image to make it easier for the eyes when displayed on a TV
+# Can cause quite substantial performance slowdown
+#
+blur = false
+
+# Image cache
+# How many images to cache, the larger the cache the better the
+# performance, if you don't know just leave it at the default. This
+# will probably take up ~15mb ram
+#
+image_cache = 100
+
+# Temporary scaled image location
+#
+# Directory where scaled images and other temporary files
+# (radio-list-download) are placed.
+#
+# Defaults to ~/.mms/cache if not set
+#
+#temp_image_loc = /var/cache/mms
+
+# FIXME: this should probably be a general option
+### SDL ####
+
+# If you selected sdl as output device this setting will determine if
+# it should run in fullscreen or not.
+#
+fullscreen = false
+
+# Disable X cursor?
+#
+cursor = true
+
+# Resolution
+#
+h_res = 800
+v_res = 600
+
+# Alternative resolution
+#
+# Use for changing resolution while mms is running. Particularly
+# useful with a projector.
+#
+#alternative_h_res = 800
+#alternative_v_res = 480
+
+# "burn-free" plasma :-)
+#
+# Idle time, in seconds, after wich screen luminosity is reduced
+# useful to prevent burn-in on plasma panels
+# 0 means disabled
+#
+blanktime = 0
+
+# Level of opacity of the blank screen (100-255)
+# default is 255
+# if less than 100, 100 is used instead
+#
+blankopacity = 240
+
+# what color do we want the screen to be when it is blanked?
+#
+blankcolor_r = 0
+blankcolor_g = 0
+blankcolor_b = 0
+
+### INPUT ####
+
+# Input devices
+#
+# choose between: keyboard, lirc and evdev
+#
+# multiple input can be enabled by specifying several lines
+#
+input = keyboard

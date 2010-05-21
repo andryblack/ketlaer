@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Krzysztof Parma <krzychp@tlen.pl>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.1.0rc5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2007-12-18 12:26+0200\n"
+"Last-Translator: Krzysztof Parma <krzychp@tlen.pl>\n"
+"Language-Team: POLISH <pl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: weather.cpp:236
+msgid "Error downloading weather data"
+msgstr "Błąd pobierania danych."
+
+#: weather.cpp:238
+msgid "Please check your connection"
+msgstr "Sprawdź połączenie"
+
+#: weather.cpp:239
+msgid "and/or configuration file"
+msgstr "i/lub plik konfiguracyjny"
+
+#: weather.cpp:274
+msgid "Weather"
+msgstr "Pogoda"
+
+#: weather.cpp:298
+msgid "City: "
+msgstr "Miasto: "
+
+#: weather.cpp:304
+msgid "Date: "
+msgstr "Data: "
+
+#: weather.cpp:310
+msgid "Condition: "
+msgstr "Warunki: "
+
+#: weather.cpp:319
+msgid "Temp: "
+msgstr "Temp: "
+
+#: weather.cpp:421
+msgid "No cities defined in WeatherConfig"
+msgstr "Nie zdefiniowano miast w WeatherConfig"
+
+#: weather.cpp:422
+msgid "Please define at least one city"
+msgstr "Proszę zdefiniować choć jedno miasto"
+
+#: weather_plugin.cpp:14 weather_plugin.cpp:33
+msgid "Weather forecast"
+msgstr "Prognoza pogody"
+
+#: weather_plugin.cpp:30
+msgid "See weather forecast"
+msgstr "Sprawdź prognozę"

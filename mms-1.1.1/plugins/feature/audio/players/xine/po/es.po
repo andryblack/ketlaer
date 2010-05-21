@@ -1,0 +1,51 @@
+# translation of es.po to
+# MMS translation to Spanish.
+# Copyright (C) 2005 Alan Mizrahi
+# This file is distributed under the same license as MMS.
+# Alan Mizrahi, alan at mizrahi dot com dot ve
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: es\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-02-23 22:39-0430\n"
+"Last-Translator: Pablo Castorino <pablo@castorinop.com.ar>\n"
+"Language-Team:  <en@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: xine.cpp:88
+msgid "Audio device unavailable: "
+msgstr "Dispostivo de audio no disponible: "
+
+#: xine.cpp:391
+msgid "Xine engine warning"
+msgstr "Advertencia del motor Xine"
+
+#: xine.cpp:404
+msgid "Xine engine error"
+msgstr "Error en el motor Xine"
+
+#: xine.cpp:408
+msgid "Xine engine message"
+msgstr "Mensaje del motor Xine"
+
+#~ msgid "The audio device is busy. Is another application using it?"
+#~ msgstr ""
+#~ "El dispositivo de audio está ocupado. ¿Hay alguna otra aplicación "
+#~ "usándolo?"
+
+#~ msgid "Error connecting to server"
+#~ msgstr "Error conectándose a servidor"
+
+#~ msgid "The server might be down or busy"
+#~ msgstr "El servidor puede estar caido o ocupado"
+
+#~ msgid "Please try again later"
+#~ msgstr "Por favor intente luego"
+
+#~ msgid "Could not open file"
+#~ msgstr "No se pudo abrir el archivo"

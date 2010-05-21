@@ -1,0 +1,82 @@
+### EPG ####
+
+version = 6
+
+# XMLTV file location
+#
+epg_data = /var/lib/mms/TV.xml
+
+# Script to update the xml file
+#
+# Comment the next line in once you have modified the gen_tvlisting.sh
+# script to your needs
+#
+#epg_update_script = /usr/lib/mms/gen_tvlisting.sh
+
+# Timezone EPG-Data originates from
+epg_timezone = 
+
+# Path to Channel-Logos
+icon_path = /etc/vdr/logos
+
+# Interval to Check for new Data
+#
+interval = 360
+
+# Minutes a Timeslot covers
+#
+timeslot_interval = 30
+
+# How many Timeslots to display
+#
+timeslots = 4
+
+# How to display Channel-Info (If for any channel a Logo is not available, display_channel_name is always TRUE)
+# display_channel_name is also TRUE if display_channel_logo is FALSE ;-)
+# 
+display_channel_name = true
+
+# Display Channellogo
+#
+display_channel_logo = true
+
+# Use Svdrp ?
+# Epg-Plugin uses Simple VDR-Protocol for Interaction with a VDR
+#
+use_svdrp = false
+
+# Hostname to Connect to
+#
+svdrp_host = localhost
+
+# Port for Svdrp on VDR (Default is 2001)
+#
+svdrp_port = 2001
+
+# If VDR runs with a different code-page turn on conversion
+#
+svdrp_convert = false
+
+# If VDR runs with a different code-page - specify codepage here
+#
+svdrp_locale = ISO-8859-15
+
+# Pipe in Epg-Data is Newline ?
+#
+svdrp_pipe_is_nl = true
+
+# List of Channels to Display (e.g. 1-5,7-9,-40)
+#
+svdrp_channels = 1-80
+
+# Timer Lead (Minutes to start Timer before Event starts
+#
+svdrp_timer_lead = 10
+
+# Timer Trailer (Minutes to End Timer after Event ends
+#
+svdrp_timer_trailer =  10
+
+svdrp_tv_path = /usr/local/bin/vdr-sxfe
+
+svdrp_tv_opts = --lirc --fullscreen --aspect=auto --post=tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 --video=xv --audio=alsa --reconnect xvdr://localhost

@@ -1,0 +1,66 @@
+<window>
+   <id>1001</id>
+   <defaultcontrol>10</defaultcontrol>
+   <width>800</width>
+   <height>600</height>
+   <controls>
+      <control>
+         <description>Image Control</description>
+         <type>image</type>
+         <id>1</id>
+         <posx>0</posx>
+         <posy>0</posy>
+         <width>800</width>
+         <height>600</height>
+         <layer>0</layer>
+	 <texture>general/bg.png</texture>
+      </control>
+   
+      <control>
+         <description>Script label</description>
+         <type>label</type>
+         <id>2</id>
+         <posx>90</posx>
+         <posy>10</posy>
+         <width>400</width>
+         <height>45</height>
+         <layer>2</layer>
+         <label>Windowexample2</label>
+      </control>
+	
+      <control>
+         <description>Button Control 1</description>
+         <type>button</type>
+         <id>10</id>
+         <posx>90</posx>
+         <posy>100</posy>
+         <width>150</width>
+         <height>40</height>
+         <layer>2</layer>
+         <onprev>11</onprev>
+         <onnext>11</onnext>
+	 <label>Button1</label>
+	 <texturefocus>button-focus.png</texturefocus>
+         <texturenofocus>button-nofocus.png</texturenofocus>
+	 <textoffset>15</textoffset>
+      </control>
+
+      <control>
+         <description>Button Control 2</description>
+         <type>button</type>
+         <id>11</id>
+         <posx>90</posx>
+         <posy>150</posy>
+         <width>150</width>
+         <height>40</height>
+         <layer>2</layer>
+         <onprev>10</onprev>
+         <onnext>10</onnext>
+         <label>Button2</label>
+         <texturefocus>button-focus.png</texturefocus>
+         <texturenofocus>button-nofocus.png</texturenofocus>
+	 <textoffset>15</textoffset>
+      </control>
+
+   </controls>
+</window>

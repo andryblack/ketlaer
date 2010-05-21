@@ -1,0 +1,21 @@
+# translation of cs-1.0.8.1.po to Czech
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER, 2005.
+#
+# Miroslav Flídr <flidr@kky.zcu.cz>, 2005, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: cs-1.0.8.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-11-28 16:21+0100\n"
+"PO-Revision-Date: 2006-12-19 09:05+0100\n"
+"Last-Translator: \n"
+"Language-Team: Czech <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: mpeg_out.cpp:62
+msgid "Trying to write to an unitialized device"
+msgstr "Zkouším zapisovat na neinicializované zařízení"

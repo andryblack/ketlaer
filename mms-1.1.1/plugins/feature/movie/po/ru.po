@@ -1,0 +1,429 @@
+# translation of ru.po to Русский
+# MMS Russian translation
+# Copyright (C) 2003-2005 Sergey V. Katunin
+# This file is distributed under the same license as the MMS package.
+# Sergey Katunin <sergo@avtograd.ru>, 2004.
+# Sergey V. Katunin <sergo@avtograd.ru>, 2005.
+# kostos <kostos@mysmart.ie>, 2007
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mmsv2 1.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2005-03-20 18:36+0400\n"
+"Last-Translator: Sergey N. Svinolobov <sens@verizon.net>\n"
+"Language-Team: Русский <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: imdb.cpp:21
+msgid "Unable to retrieve web page "
+msgstr "Не могу загрузить web страницу "
+
+#: simple_movie.cpp:27
+#, fuzzy
+msgid "Play video"
+msgstr "Воспр. фильмов"
+
+#: simple_movie.cpp:31 graphical_movie.cpp:330 graphical_movie.cpp:339
+msgid "Enter directory"
+msgstr "Вход в каталог"
+
+#: simple_movie.cpp:35 graphical_movie.cpp:369
+msgid "Go up one directory"
+msgstr "На уровень вверх"
+
+#: simple_movie.cpp:38 graphical_movie.cpp:371 graphical_movie.cpp:374
+#: collection.cpp:163
+msgid "Return to startmenu"
+msgstr "Назад в главное меню"
+
+#: simple_movie.cpp:80 graphical_movie.cpp:459 movie.hpp:350
+msgid "Folder is empty"
+msgstr "Папка пуста"
+
+#: simple_movie.cpp:238 graphical_movie.cpp:42 movie_db.cpp:1657
+#: movie_db.cpp:1771
+#, fuzzy
+msgid "Videos"
+msgstr "Свойства видео:"
+
+#: simple_movie.cpp:281 movie_db.cpp:1275 movie_db.cpp:1706 movie_db.cpp:1820
+msgid "Search: "
+msgstr "Поиск: "
+
+#: movie.cpp:49
+#, fuzzy
+msgid "Video Options"
+msgstr "Свойства фильма"
+
+#: movie.cpp:60 movie.cpp:131
+msgid "reload"
+msgstr "перезагрузка"
+
+#: movie.cpp:70 graphical_movie.cpp:551 graphical_movie.cpp:556
+#: collection.cpp:233 collection.cpp:239 movie_db.cpp:434 movie_db.cpp:1634
+msgid "icon view"
+msgstr "в виде иконок"
+
+#: movie.cpp:73 graphical_movie.cpp:533 graphical_movie.cpp:544
+#: collection.cpp:211 collection.cpp:224
+msgid "list view"
+msgstr "в виде списка"
+
+#: movie.cpp:76
+msgid "display mode"
+msgstr "режим изображения"
+
+#: movie.cpp:114
+msgid "No such plugin player: "
+msgstr "Нет такого плагина"
+
+#: movie.cpp:119
+msgid " does not provide any options"
+msgstr " не предоставляет настроек"
+
+#: movie.cpp:126 movie.cpp:425
+msgid "Options"
+msgstr "Опции"
+
+#: movie.cpp:131
+msgid "sorting"
+msgstr "сортировка"
+
+#: movie.cpp:132
+msgid "cd device"
+msgstr "Компакт-диск"
+
+#: movie.cpp:132
+msgid "audio device"
+msgstr "звуковое устройство"
+
+#: movie.cpp:170
+#, fuzzy
+msgid "video player"
+msgstr "видеопроигрыватель"
+
+#: movie.cpp:175
+msgid "vcd player"
+msgstr "проигрыватель видео-CD"
+
+#: movie.cpp:180
+msgid "dvd player"
+msgstr "проигрыватель DVD"
+
+#: movie.cpp:337
+msgid "Play"
+msgstr "Воспр."
+
+#: movie.cpp:338
+msgid "Pause"
+msgstr "Пауза"
+
+#: movie.cpp:339
+msgid "Stop"
+msgstr "Стоп"
+
+#: movie.cpp:340
+msgid "Fast forward"
+msgstr "Перемотка Вперёд"
+
+#: movie.cpp:341
+msgid "Fast backward"
+msgstr "Перемотка Назад"
+
+#: movie.cpp:408 collection.cpp:187 movie_plugin.cpp:28 movie_plugin.cpp:58
+#: movie_plugin.cpp:115
+#, fuzzy
+msgid "Video"
+msgstr "Свойства видео:"
+
+#: movie.cpp:419
+#, fuzzy
+msgid "Switch video playback to fullscreen"
+msgstr "Перекл.воспр. в полноэкранный режим"
+
+#: movie.cpp:423
+msgid "Search"
+msgstr "Поиск"
+
+#: movie.cpp:474
+#, fuzzy
+msgid "Starting playback..."
+msgstr "Воспроизведение..."
+
+#: graphical_movie.cpp:27 movie_db.cpp:52
+msgid "Could not create directory "
+msgstr "Не могу создать каталог: "
+
+#: graphical_movie.cpp:221 graphical_movie.cpp:275 movie_db.cpp:479
+msgid "current folder"
+msgstr "текущий каталог"
+
+#: graphical_movie.cpp:333 graphical_movie.cpp:341
+msgid "Play all files in dir"
+msgstr "Воспр. всё в каталоге"
+
+#: graphical_movie.cpp:336
+msgid "Play movie"
+msgstr "Воспр. видео"
+
+#: graphical_movie.cpp:347
+#, fuzzy
+msgid "Update imdb information"
+msgstr "Обновить информацию о фильме"
+
+#: graphical_movie.cpp:351
+#, fuzzy
+msgid "Delete imdb information"
+msgstr "Обновить информацию о фильме"
+
+#: graphical_movie.cpp:356
+#, fuzzy
+msgid "Get information on imdb"
+msgstr "Обновить информацию о фильме"
+
+#: graphical_movie.cpp:362
+#, fuzzy
+msgid "Print file information"
+msgstr "Просмотр Информации"
+
+#: graphical_movie.cpp:365
+#, fuzzy
+msgid "Print imdb information"
+msgstr "Просмотр информации"
+
+#: graphical_movie.cpp:406
+#, fuzzy
+msgid "No available information about this file"
+msgstr "IMDb информация о фильме не найдена"
+
+#: graphical_movie.cpp:411
+#, fuzzy
+msgid "General information:"
+msgstr "Общие Настройки"
+
+#: graphical_movie.cpp:418
+msgid "Video details:"
+msgstr "Свойства видео:"
+
+#: graphical_movie.cpp:425
+#, fuzzy
+msgid "Audio details:"
+msgstr "Свойства Аудио"
+
+#: graphical_movie.cpp:692
+msgid "directories first"
+msgstr "каталоги первыми"
+
+#: graphical_movie.cpp:975
+#, fuzzy
+msgid "No IMDb information found about videos"
+msgstr "IMDb информация о фильме не найдена"
+
+#: graphical_movie.cpp:976
+#, fuzzy
+msgid "Use the reget video information action"
+msgstr "Пожалуйста обновите информацию о фильме"
+
+#: graphical_movie.cpp:977
+#, fuzzy
+msgid "to download information about a video"
+msgstr "скачать IMDB данные о фильме"
+
+#: graphical_movie.cpp:994
+msgid "Could not write options to file "
+msgstr "Невозможно записать настройки в файл "
+
+#: graphical_movie.cpp:1013
+msgid "Could not open options file "
+msgstr "Невозможно открыть файл настроек: "
+
+#: collection.cpp:31
+#, fuzzy
+msgid "Video Coll."
+msgstr "Фильмография"
+
+#: collection.cpp:38
+#, fuzzy
+msgid "No options available for video collection"
+msgstr "Нет опций для фильмографии"
+
+#: collection.cpp:147
+msgid "Print information"
+msgstr "Просмотр Информации"
+
+#: collection.cpp:151
+#, fuzzy
+msgid "Update video information"
+msgstr "Обновить информацию о фильме"
+
+#: collection.cpp:155
+msgid "Remove video"
+msgstr ""
+
+#: collection.cpp:160
+msgid "Search IMDb"
+msgstr "Поиск в IMDb:"
+
+#: movie_plugin.cpp:19
+#, fuzzy
+msgid "Could not find any videos"
+msgstr "Фильмы не найдены"
+
+#: movie_plugin.cpp:21
+msgid "Please specify a correct path "
+msgstr "Пожалуйста укажите корректный путь "
+
+#: movie_plugin.cpp:22
+msgid "in the configuration file"
+msgstr "в файле настроек"
+
+#: movie_plugin.cpp:36
+msgid "Reloading directories"
+msgstr "Перезагрузка каталогов"
+
+#: movie_plugin.cpp:94
+#, fuzzy
+msgid "Play videos from harddrive"
+msgstr "Фильмы с жесткого диска"
+
+#: movie_plugin.cpp:98
+#, fuzzy
+msgid "Play videos"
+msgstr "Воспр. фильмов"
+
+#: movie_plugin.cpp:103
+msgid "Play a dvd/vcd/svcd"
+msgstr "Фильмы с dvd/vcd/svcd"
+
+#: movie_db.cpp:49
+#, fuzzy
+msgid "Video database could not be opened or created"
+msgstr "База данных фильмов не может быть ни открыта ни создана"
+
+#: movie_db.cpp:259 movie_db.cpp:264
+msgid "Upgrading video database schema"
+msgstr ""
+
+#: movie_db.cpp:408
+#, fuzzy
+msgid "No IMDb information found about video"
+msgstr "IMDb информация о фильме не найдена"
+
+#: movie_db.cpp:409
+msgid "Please update information"
+msgstr "Обновите информацию"
+
+#: movie_db.cpp:665
+msgid "Director: "
+msgstr "Режиссер: "
+
+#: movie_db.cpp:669
+msgid "Writing Credits: "
+msgstr "Сценарист: "
+
+#: movie_db.cpp:677 movie_db.cpp:1530
+msgid "Runtime: "
+msgstr "Длительность: "
+
+#: movie_db.cpp:685 movie_db.cpp:1537
+msgid "Genre: "
+msgstr "Жанр: "
+
+#: movie_db.cpp:709
+msgid "Tagline: "
+msgstr "Дополн.: "
+
+#: movie_db.cpp:740
+msgid "Plot: "
+msgstr "Сюжет: "
+
+#: movie_db.cpp:765 movie_db.cpp:769
+msgid "Rating:"
+msgstr "Оценка:"
+
+#: movie_db.cpp:804
+msgid "Cast: "
+msgstr "В ролях: "
+
+#: movie_db.cpp:853
+#, fuzzy
+msgid "Getting details about video"
+msgstr "Получение информации о фильме"
+
+#: movie_db.cpp:863 movie_db.cpp:1065
+msgid "value of information_source not valid:"
+msgstr "Ошибка в значении information_source:"
+
+#: movie_db.cpp:1052
+#, fuzzy
+msgid "Looking up video in IMDb database"
+msgstr "Поиск фильма в базе данных IMDb"
+
+#: movie_db.cpp:1263
+msgid "IMDb lookup"
+msgstr "поиск в IMDb"
+
+#: movie_db.cpp:1287
+msgid "No results found..."
+msgstr "Не найдено..."
+
+#: movie_db.cpp:1319
+msgid " result found"
+msgstr " найдено"
+
+#: movie_db.cpp:1321
+msgid " results found"
+msgstr " найдено"
+
+#: movie_db.cpp:1525
+msgid "Rating: "
+msgstr "Оценка:"
+
+#: movie_db.cpp:1592
+msgid "Duration: "
+msgstr "Продолжительность: "
+
+#: movie_db.cpp:1598
+msgid "Resolution: "
+msgstr "Оценка: "
+
+#: movie_db.cpp:1604
+msgid "Geometry: "
+msgstr "Геометрия: "
+
+#: movie_db.cpp:1610
+msgid "Audio codec: "
+msgstr "Звуковой кодек: "
+
+#: movie_db.cpp:1616
+msgid "Audio bitrate: "
+msgstr "Битрейт звука: "
+
+#: movie_db.cpp:1659 movie_db.cpp:1773 movie_collection_plugin.cpp:16
+#: movie_collection_plugin.cpp:45
+#, fuzzy
+msgid "Video Collection"
+msgstr "Фильмография"
+
+#: movie_collection_plugin.cpp:38
+#, fuzzy
+msgid "View video collection"
+msgstr "Просмотр фильмографии"
+
+#: movie.hpp:519 movie.hpp:539
+msgid "The disc does not contain any recognizable files"
+msgstr "Диск не содержит распознаваемых файлов!"
+
+#, fuzzy
+#~ msgid "Delete movie"
+#~ msgstr "Воспр. видео"
+
+#~ msgid "Movie"
+#~ msgstr "Видео"
+
+#~ msgid "Movies"
+#~ msgstr "Видео"

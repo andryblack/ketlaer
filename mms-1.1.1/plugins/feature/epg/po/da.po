@@ -1,0 +1,222 @@
+# mms Danish translation
+# Copyright (C) 2003-2009 Anders Rune Jensen
+# This file is distributed under the same license as the mmsv2 package.
+# Anders Rune Jensen <anders@gnulinux.dk>, 2003-2006
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-18 13:03+0100\n"
+"PO-Revision-Date: 2007-09-30 01:13+0200\n"
+"Last-Translator: Anders Rune Jensen <anders@gnulinux.dk>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: epg_plugin.cpp:10 epg_plugin.cpp:44 epg_plugin.cpp:99 epg.cpp:172
+#: epg.cpp:2738 svdrp.cpp:1581 svdrp.cpp:1656 svdrp.cpp:1942
+msgid "Electronic Program Guide"
+msgstr "TV Program Guide"
+
+#: epg_plugin.cpp:19 epg.cpp:2310
+msgid "Rereading TV Data"
+msgstr "Genindlæser TV data"
+
+#: epg_plugin.cpp:89
+msgid "View Electronic Program Guide"
+msgstr "Se TV Program Guiden"
+
+#: epg_plugin.cpp:94 epg.cpp:1899
+msgid "Show Timer"
+msgstr "Se timer"
+
+#: epg.cpp:634
+msgid "Upgrading EPG database schema"
+msgstr "Opgraderer EPG database-skemaet"
+
+#: epg.cpp:806
+msgid "Monday"
+msgstr "Mandag"
+
+#: epg.cpp:807
+msgid "Tuesday"
+msgstr "Tirsdag"
+
+#: epg.cpp:808
+msgid "Wednesday"
+msgstr "Onsdag"
+
+#: epg.cpp:809
+msgid "Thursday"
+msgstr "Torsdag"
+
+#: epg.cpp:810
+msgid "Friday"
+msgstr "Fredag"
+
+#: epg.cpp:811
+msgid "Saturday"
+msgstr "Lørdag"
+
+#: epg.cpp:812
+msgid "Sunday"
+msgstr "Søndag"
+
+#: epg.cpp:1045
+msgid "logo not found:"
+msgstr "logo ikke fundet:"
+
+#: epg.cpp:1063
+msgid "Error in channel id, please report this problem"
+msgstr "Fejl i kanal id, rapporter venligst dette problem"
+
+#: epg.cpp:1081
+msgid "Your TV Data is too old or inaccessible"
+msgstr "Din TV datafil er for gammel eller ikke tilgængelig"
+
+#: epg.cpp:1103 epg.cpp:2997
+msgid "Timer is not assigned to Epg-Event - "
+msgstr "Timer ikke sat til noget epg-event - "
+
+#: epg.cpp:1105 epg.cpp:2999
+msgid "modification is not possible!"
+msgstr "modification ikke mulig!"
+
+#: epg.cpp:1113 svdrp.cpp:2021
+msgid "Delete Timer?"
+msgstr "Slet timer?"
+
+#: epg.cpp:1114 epg.cpp:1279 svdrp.cpp:2022
+msgid "Yes"
+msgstr "Ja"
+
+#: epg.cpp:1115 epg.cpp:1280 svdrp.cpp:2023
+msgid "No"
+msgstr "Nej"
+
+#: epg.cpp:1212 epg.cpp:1253
+msgid "Timer created !"
+msgstr "Timer oprettet!"
+
+#: epg.cpp:1216 epg.cpp:1257
+msgid "Timer not created !"
+msgstr "Timer ikke oprettet!"
+
+#: epg.cpp:1278
+msgid "Timer is recording - really delete?"
+msgstr "Timer er ved at optage, virkelig slet?"
+
+#: epg.cpp:1322
+msgid "Timer deleted !"
+msgstr "Timer slettet!"
+
+#: epg.cpp:1326
+msgid "Timer not deleted !"
+msgstr "Timer ikke slettet!"
+
+#: epg.cpp:1448 epg.cpp:2093 svdrp.cpp:1691
+msgid "EPG"
+msgstr "EPG"
+
+#: epg.cpp:1481 epg.cpp:1904
+msgid "Search"
+msgstr "Søg"
+
+#: epg.cpp:1881
+msgid "Print description"
+msgstr "Print beskrivelse"
+
+#: epg.cpp:1885
+msgid "Reload Data"
+msgstr "Genindlæser data"
+
+#: epg.cpp:1889 epg.cpp:3014 epg.cpp:3018
+msgid "Toggle Timer"
+msgstr "Skift timer"
+
+#: epg.cpp:1894
+msgid "Switch to Channel"
+msgstr "Skift til kanal"
+
+#: epg.cpp:1909 epg.cpp:3026
+msgid "Return to startmenu"
+msgstr "Retur til startmenuen"
+
+#: epg.cpp:2203
+msgid " on "
+msgstr " på "
+
+#: epg.cpp:2322
+msgid "Could not find epg update program"
+msgstr "Kunne ikke finde epg opdateringsprogram"
+
+#: epg.cpp:2380 epg.cpp:2399 epg.cpp:2438 epg.cpp:2599
+msgid "No Epg available"
+msgstr "Ingen EPG tilgængelig"
+
+#: epg.cpp:2748
+msgid "EPG TV listings reloaded from Svdrp-Host"
+msgstr "EPG TV programmer genindlæst fra Svdrp"
+
+#: epg.cpp:2754
+msgid "EPG TV listings couldn't be loaded from Svdrp-Host"
+msgstr "EPG TV programer kunne ikke læses fra Svdrp"
+
+#: epg.cpp:2765
+msgid "EPG TV listings file reloaded"
+msgstr "EPG TV program filen genindlæst"
+
+#: epg.cpp:2767
+msgid "The new data file will be used"
+msgstr "Det nye data fil vil blive brugt"
+
+#: epg.cpp:2768
+msgid "the next time you enter EPG"
+msgstr "næste gang du går ind i EPG"
+
+#: epg.cpp:3022
+msgid "Delete Timer"
+msgstr "Slet timer"
+
+#: epg.cpp:3114
+msgid "EPG - Show Timer"
+msgstr "EPG - Vis timer"
+
+#: svdrp.cpp:876
+msgid "Dualchannel"
+msgstr "Flerekanals"
+
+#: svdrp.cpp:876
+msgid "2-channel"
+msgstr "tokanals"
+
+#: svdrp.cpp:879
+msgid "Dolby Digital"
+msgstr "Dolby Digital"
+
+#: svdrp.cpp:886
+msgid "Listening Movie"
+msgstr "Lyttefilm"
+
+#: svdrp.cpp:1686
+msgid "EPG - Create Timer"
+msgstr "EPG - Opret timer"
+
+#: svdrp.cpp:1688
+msgid "EPG - Modify Timer"
+msgstr "EPG - Ændre timer"
+
+#: svdrp.cpp:1911
+msgid "Active Timer"
+msgstr "Aktiv timer"
+
+#: svdrp.cpp:1913
+msgid ", Is recording"
+msgstr ", optager"
+
+#: svdrp.cpp:1915
+msgid ", (VPS)"
+msgstr ", (VPS)"

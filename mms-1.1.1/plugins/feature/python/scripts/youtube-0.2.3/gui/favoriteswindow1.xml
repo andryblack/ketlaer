@@ -1,0 +1,65 @@
+<window>
+   <id>1002</id>
+   <defaultcontrol>10</defaultcontrol>
+   <width>800</width>
+   <height>600</height>
+   <controls>
+      <control>
+         <description>Background</description>
+         <type>rectangle</type>
+         <id>1</id>
+         <posx>250</posx>
+         <posy>232</posy>
+         <width>300</width>
+         <height>135</height>
+         <layer>0</layer>
+	 <alpha>200</alpha>
+	 <rectanglecolor>0x000000</rectanglecolor>
+      </control>
+   
+      <control>
+         <description>Add to favorites</description>
+         <type>label</type>
+         <id>2</id>
+         <posx>250</posx>
+         <posy>252</posy>
+         <width>300</width>
+         <height>40</height>
+         <layer>2</layer>
+	 <align>center</align>
+         <label>Add to favorites</label>
+      </control>
+
+      <control>
+         <description>Add button</description>
+         <type>button</type>
+         <id>10</id>
+         <posx>265</posx>
+         <posy>312</posy>
+         <width>125</width>
+         <height>30</height>
+         <layer>2</layer>
+         <onright>11</onright>
+         <label>Add</label>
+         <texturefocus>gui/button-focus.png</texturefocus>
+         <texturenofocus>gui/button-nofocus.png</texturenofocus>
+	 <align>center</align>
+      </control>
+
+      <control>
+         <description>Download button</description>
+         <type>button</type>
+         <id>11</id>
+         <posx>410</posx>
+         <posy>312</posy>
+         <width>125</width>
+         <height>30</height>
+         <layer>2</layer>
+         <onleft>10</onleft>
+         <label>Download</label>
+         <texturefocus>gui/button-focus.png</texturefocus>
+         <texturenofocus>gui/button-nofocus.png</texturenofocus>
+	 <align>center</align>
+      </control>
+   </controls>
+</window>

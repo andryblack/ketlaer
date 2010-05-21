@@ -1,0 +1,14 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS LircConfig
+#define S_PARAMETER_CLASS S_LircConfig
+#define STRING_PARAMETER_CLASS "LircConfig"
+
+#define MMS_CONFIG_VERSION "2"
+
+PARAMETER_NUM("lirc_delay",        lirc_delay,         200)
+PARAMETER_NUM("lirc_rate",         lirc_rate,            1)
+PARAMETER_NUM("lirc_fast",         lirc_fast,            3)
+
+#include "config_pre_post.hpp"

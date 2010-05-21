@@ -1,0 +1,40 @@
+# translation of ru.po to Русский
+# MMS Russian translation
+# Copyright (C) 2003-2005 Sergey V. Katunin
+# This file is distributed under the same license as the MMS package.
+# Sergey Katunin <sergo@avtograd.ru>, 2004.
+# Sergey V. Katunin <sergo@avtograd.ru>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mmsv2 1.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-24 09:38+0200\n"
+"PO-Revision-Date: 2005-03-20 18:36+0400\n"
+"Last-Translator: Sergey N. Svinolobov <sens@verizon.net>\n"
+"Language-Team: Русский <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: genericplayer.cpp:84 genericplayer.cpp:92
+msgid "Cannot open options file!"
+msgstr "Невозможно открыть файл настроек!"
+
+#: genericplayer.cpp:108 genericplayer.cpp:126
+msgid "Option file malformed, list of entries not correctly terminated"
+msgstr "Ошибка в файле настроек: некорректно завершен список параметров"
+
+#: genericplayer.cpp:114 genericplayer.cpp:132 genericplayer.cpp:139
+#: genericplayer.cpp:155 genericplayer.cpp:174
+msgid "Option file malformed, skipping line"
+msgstr "Ошибка в файле настроек, пропускаю строку"
+
+#: genericplayer.cpp:150
+msgid "Option file malformed, option value without option entry"
+msgstr "Ошибка в файле настроек: значение задано без переменной"
+
+#: genericplayer.cpp:165
+msgid "Option file malformed, got '$' line without previous option entry"
+msgstr ""
+"Ошибка в файле настроек: обн.символ '$', а предыдщее значение неопределено"

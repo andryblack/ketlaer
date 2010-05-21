@@ -1,0 +1,3 @@
+./mpegout_plugin.cpp
+./mpeg_out.hpp
+./mpeg_out.cpp

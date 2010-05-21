@@ -1,0 +1,112 @@
+# Finnish translations for mms package.
+# Copyright (C) 2006 Eerik Saarikalle
+# This file is distributed under the same license as the mms package.
+# Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>, 2008
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-09-21 14:45+0200\n"
+"Last-Translator: Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: clock.cpp:130 clock.cpp:236 clock_opts.cpp:36
+msgid "off"
+msgstr "pois"
+
+#: clock.cpp:243 clock_opts.cpp:48 clock_opts.cpp:72
+msgid "Audio"
+msgstr "Ääni"
+
+#: clock.cpp:246 clock_opts.cpp:54
+msgid "current"
+msgstr "nykyinen"
+
+#: clock.cpp:275
+msgid "Could not find alarm update program"
+msgstr "Hälytysten päivitysohjelmistoa ei löydy"
+
+#: clock.cpp:304
+msgid "Could not write alarms to file: "
+msgstr "Hälytysten tallennus tiedostoon epäonnistui: "
+
+#: clock.cpp:344 clock_opts.cpp:35
+msgid "on"
+msgstr "päällä"
+
+#: clock.cpp:346
+msgid "Riiiing!"
+msgstr "Hälytys!"
+
+#: clock.cpp:353
+msgid "tomorrow"
+msgstr "huomenna"
+
+#: clock.cpp:355
+msgid "today"
+msgstr "tänään"
+
+#: clock.cpp:420
+msgid "sunday"
+msgstr "sunnuntai"
+
+#: clock.cpp:421
+msgid "monday"
+msgstr "maanantai"
+
+#: clock.cpp:422
+msgid "tuesday"
+msgstr "tiistai"
+
+#: clock.cpp:423
+msgid "wednesday"
+msgstr "keskiviikko"
+
+#: clock.cpp:424
+msgid "thursday"
+msgstr "torstai"
+
+#: clock.cpp:425
+msgid "friday"
+msgstr "perjantai"
+
+#: clock.cpp:426
+msgid "saturday"
+msgstr "lauantai"
+
+#: clock_opts.cpp:29
+msgid "Clock Options"
+msgstr "Kellon asetukset"
+
+#: clock_opts.cpp:43
+msgid "alarm"
+msgstr "hälytys"
+
+#: clock_opts.cpp:62
+msgid "playlist"
+msgstr "soittolista"
+
+#: clock_opts.cpp:92 clock_plugin.cpp:33
+msgid "Clock"
+msgstr "Kello"
+
+#: clock_alarms.cpp:302
+msgid "Add Alarm"
+msgstr "Lisää hälytys"
+
+#: clock_alarms.cpp:309
+msgid "Day: "
+msgstr "Päivä:"
+
+#: clock_alarms.cpp:312
+msgid "Time: "
+msgstr "Kellonaika:"
+
+#: clock_alarms.cpp:338
+msgid "Alarms"
+msgstr "Hälytykset"

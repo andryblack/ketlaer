@@ -1,0 +1,419 @@
+# translation of cs.po to
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER, 2005.
+#
+# Miroslav Flídr <flidr@kky.zcu.cz>, 2005, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: cs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-12-21 22:06+0100\n"
+"Last-Translator: \n"
+"Language-Team:  <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: imdb.cpp:21
+msgid "Unable to retrieve web page "
+msgstr "Není možné získat webovou stránku "
+
+#: simple_movie.cpp:27
+#, fuzzy
+msgid "Play video"
+msgstr "Hrát filmy"
+
+#: simple_movie.cpp:31 graphical_movie.cpp:330 graphical_movie.cpp:339
+msgid "Enter directory"
+msgstr "Vstoupit do adresáře"
+
+#: simple_movie.cpp:35 graphical_movie.cpp:369
+msgid "Go up one directory"
+msgstr "Jít do adresáře o úroveň výše"
+
+#: simple_movie.cpp:38 graphical_movie.cpp:371 graphical_movie.cpp:374
+#: collection.cpp:163
+msgid "Return to startmenu"
+msgstr "Zpět do hlavní nabídky"
+
+#: simple_movie.cpp:80 graphical_movie.cpp:459 movie.hpp:350
+msgid "Folder is empty"
+msgstr "Adresář je prázdný"
+
+#: simple_movie.cpp:238 graphical_movie.cpp:42 movie_db.cpp:1657
+#: movie_db.cpp:1771
+#, fuzzy
+msgid "Videos"
+msgstr "Detaily o videu:"
+
+#: simple_movie.cpp:281 movie_db.cpp:1275 movie_db.cpp:1706 movie_db.cpp:1820
+msgid "Search: "
+msgstr "Hledat: "
+
+#: movie.cpp:49
+#, fuzzy
+msgid "Video Options"
+msgstr "Volby filmu"
+
+#: movie.cpp:60 movie.cpp:131
+msgid "reload"
+msgstr "opět nahrát"
+
+#: movie.cpp:70 graphical_movie.cpp:551 graphical_movie.cpp:556
+#: collection.cpp:233 collection.cpp:239 movie_db.cpp:434 movie_db.cpp:1634
+msgid "icon view"
+msgstr "pohled s ikonami"
+
+#: movie.cpp:73 graphical_movie.cpp:533 graphical_movie.cpp:544
+#: collection.cpp:211 collection.cpp:224
+msgid "list view"
+msgstr "pohled se seznamem"
+
+#: movie.cpp:76
+msgid "display mode"
+msgstr "mód zobrazení"
+
+#: movie.cpp:114
+msgid "No such plugin player: "
+msgstr "Tento zásuvný modul přehrávače neexistuje: "
+
+#: movie.cpp:119
+msgid " does not provide any options"
+msgstr " neposkytuje žádné volby"
+
+#: movie.cpp:126 movie.cpp:425
+msgid "Options"
+msgstr "Volby"
+
+#: movie.cpp:131
+msgid "sorting"
+msgstr "třídění"
+
+#: movie.cpp:132
+msgid "cd device"
+msgstr "CD zařízení"
+
+#: movie.cpp:132
+msgid "audio device"
+msgstr "zvukové zařízení"
+
+#: movie.cpp:170
+#, fuzzy
+msgid "video player"
+msgstr "přehrávač filmů"
+
+#: movie.cpp:175
+msgid "vcd player"
+msgstr "přehrávač VCD"
+
+#: movie.cpp:180
+msgid "dvd player"
+msgstr "DVD přehrávač"
+
+#: movie.cpp:337
+msgid "Play"
+msgstr "Přehrát"
+
+#: movie.cpp:338
+msgid "Pause"
+msgstr "Pauza"
+
+#: movie.cpp:339
+msgid "Stop"
+msgstr "Stop"
+
+#: movie.cpp:340
+msgid "Fast forward"
+msgstr "Rychle vpřed"
+
+#: movie.cpp:341
+msgid "Fast backward"
+msgstr "Rychle vzad"
+
+#: movie.cpp:408 collection.cpp:187 movie_plugin.cpp:28 movie_plugin.cpp:58
+#: movie_plugin.cpp:115
+#, fuzzy
+msgid "Video"
+msgstr "Detaily o videu:"
+
+#: movie.cpp:419
+#, fuzzy
+msgid "Switch video playback to fullscreen"
+msgstr "Přepnout přehrávání na celou obrazovku"
+
+#: movie.cpp:423
+msgid "Search"
+msgstr "Hledat"
+
+#: movie.cpp:474
+msgid "Starting playback..."
+msgstr "Spouštím přehrávání..."
+
+#: graphical_movie.cpp:27 movie_db.cpp:52
+msgid "Could not create directory "
+msgstr "Není možné vytvořit adresář "
+
+#: graphical_movie.cpp:221 graphical_movie.cpp:275 movie_db.cpp:479
+msgid "current folder"
+msgstr "aktuální adresář"
+
+#: graphical_movie.cpp:333 graphical_movie.cpp:341
+msgid "Play all files in dir"
+msgstr "Přehrát všechny soubory a aresáři"
+
+#: graphical_movie.cpp:336
+msgid "Play movie"
+msgstr "Přehrát film"
+
+#: graphical_movie.cpp:347
+msgid "Update imdb information"
+msgstr "Aktualizovat IMDb informaci"
+
+#: graphical_movie.cpp:351
+msgid "Delete imdb information"
+msgstr "Smazat IMDb informaci"
+
+#: graphical_movie.cpp:356
+#, fuzzy
+msgid "Get information on imdb"
+msgstr "Aktualizovat informaci o filmu"
+
+#: graphical_movie.cpp:362
+msgid "Print file information"
+msgstr "Vytisknout informaci o souboru"
+
+#: graphical_movie.cpp:365
+msgid "Print imdb information"
+msgstr "Vytisknout imdb informaci"
+
+#: graphical_movie.cpp:406
+msgid "No available information about this file"
+msgstr "Není dostupná žádná informace o tomto souboru"
+
+#: graphical_movie.cpp:411
+msgid "General information:"
+msgstr "Obecné informace:"
+
+#: graphical_movie.cpp:418
+msgid "Video details:"
+msgstr "Detaily o videu:"
+
+#: graphical_movie.cpp:425
+msgid "Audio details:"
+msgstr "Detaily o zvuku:"
+
+#: graphical_movie.cpp:692
+msgid "directories first"
+msgstr "nejprve adresáře"
+
+#: graphical_movie.cpp:975
+#, fuzzy
+msgid "No IMDb information found about videos"
+msgstr "Nebylo možné nalézt žádnou IMDb informaci o filmech"
+
+#: graphical_movie.cpp:976
+#, fuzzy
+msgid "Use the reget video information action"
+msgstr "Použij činnost opětovného získání informace"
+
+#: graphical_movie.cpp:977
+#, fuzzy
+msgid "to download information about a video"
+msgstr "ke stažení informací o filmu"
+
+#: graphical_movie.cpp:994
+msgid "Could not write options to file "
+msgstr "Není možné uložit volby do souboru "
+
+#: graphical_movie.cpp:1013
+msgid "Could not open options file "
+msgstr "Není možné otevřít soubor s volbami "
+
+#: collection.cpp:31
+#, fuzzy
+msgid "Video Coll."
+msgstr "Sbírka filmů"
+
+#: collection.cpp:38
+#, fuzzy
+msgid "No options available for video collection"
+msgstr "Nejsou dostupné žádné volby pro sbírku filmů"
+
+#: collection.cpp:147
+msgid "Print information"
+msgstr "Vytisknout informaci"
+
+#: collection.cpp:151
+#, fuzzy
+msgid "Update video information"
+msgstr "Aktualizovat informaci o filmu"
+
+#: collection.cpp:155
+msgid "Remove video"
+msgstr ""
+
+#: collection.cpp:160
+msgid "Search IMDb"
+msgstr "Prohledat IMDb"
+
+#: movie_plugin.cpp:19
+#, fuzzy
+msgid "Could not find any videos"
+msgstr "Nebyly nalezeny žádné filmy"
+
+#: movie_plugin.cpp:21
+msgid "Please specify a correct path "
+msgstr "Prosím udejte správnou cestu "
+
+#: movie_plugin.cpp:22
+msgid "in the configuration file"
+msgstr "v souboru nastavení"
+
+#: movie_plugin.cpp:36
+msgid "Reloading directories"
+msgstr "Znovu nahrávám adresáře"
+
+#: movie_plugin.cpp:94
+#, fuzzy
+msgid "Play videos from harddrive"
+msgstr "Hrát filmy z pevného disku"
+
+#: movie_plugin.cpp:98
+#, fuzzy
+msgid "Play videos"
+msgstr "Hrát filmy"
+
+#: movie_plugin.cpp:103
+msgid "Play a dvd/vcd/svcd"
+msgstr "Přehrát DVD/VCD/SVCD"
+
+#: movie_db.cpp:49
+#, fuzzy
+msgid "Video database could not be opened or created"
+msgstr "Nebylo možné otevřít nebo vytvořit databázi filmů"
+
+#: movie_db.cpp:259 movie_db.cpp:264
+#, fuzzy
+msgid "Upgrading video database schema"
+msgstr "Aktualizuji databázové schéma filmů"
+
+#: movie_db.cpp:408
+#, fuzzy
+msgid "No IMDb information found about video"
+msgstr "Nebylo možné nalézt žádnou IMDb informaci o filmu"
+
+#: movie_db.cpp:409
+msgid "Please update information"
+msgstr "Prosím aktualizujte informaci"
+
+#: movie_db.cpp:665
+msgid "Director: "
+msgstr "Režisér: "
+
+#: movie_db.cpp:669
+msgid "Writing Credits: "
+msgstr "Poděkování: "
+
+#: movie_db.cpp:677 movie_db.cpp:1530
+msgid "Runtime: "
+msgstr "Délka: "
+
+#: movie_db.cpp:685 movie_db.cpp:1537
+msgid "Genre: "
+msgstr "Žánr: "
+
+#: movie_db.cpp:709
+msgid "Tagline: "
+msgstr "Dějová linie: "
+
+#: movie_db.cpp:740
+msgid "Plot: "
+msgstr "Zápletka: "
+
+#: movie_db.cpp:765 movie_db.cpp:769
+msgid "Rating:"
+msgstr "Ohodnocení:"
+
+#: movie_db.cpp:804
+msgid "Cast: "
+msgstr "Obsazení: "
+
+#: movie_db.cpp:853
+#, fuzzy
+msgid "Getting details about video"
+msgstr "Získávám detaily o filmu"
+
+#: movie_db.cpp:863 movie_db.cpp:1065
+msgid "value of information_source not valid:"
+msgstr "hodnota information_source není platná:"
+
+#: movie_db.cpp:1052
+#, fuzzy
+msgid "Looking up video in IMDb database"
+msgstr "Vyhledávám film v IMDb databázi"
+
+#: movie_db.cpp:1263
+msgid "IMDb lookup"
+msgstr "Prohledávání IMDb"
+
+#: movie_db.cpp:1287
+msgid "No results found..."
+msgstr "Nebyly nalezený žádné údaje..."
+
+#: movie_db.cpp:1319
+msgid " result found"
+msgstr " nalezen údaje"
+
+#: movie_db.cpp:1321
+msgid " results found"
+msgstr " nalezeny údaje"
+
+#: movie_db.cpp:1525
+msgid "Rating: "
+msgstr "Hodnocení: "
+
+#: movie_db.cpp:1592
+msgid "Duration: "
+msgstr "Délka: "
+
+#: movie_db.cpp:1598
+msgid "Resolution: "
+msgstr "Rozlišení: "
+
+#: movie_db.cpp:1604
+msgid "Geometry: "
+msgstr "Formát obrazu: "
+
+#: movie_db.cpp:1610
+msgid "Audio codec: "
+msgstr "Zvukový kodek: "
+
+#: movie_db.cpp:1616
+msgid "Audio bitrate: "
+msgstr "Datový tok zvuku: "
+
+#: movie_db.cpp:1659 movie_db.cpp:1773 movie_collection_plugin.cpp:16
+#: movie_collection_plugin.cpp:45
+#, fuzzy
+msgid "Video Collection"
+msgstr "Sbírka filmů"
+
+#: movie_collection_plugin.cpp:38
+#, fuzzy
+msgid "View video collection"
+msgstr "Zobrazit sbírku filmů"
+
+#: movie.hpp:519 movie.hpp:539
+msgid "The disc does not contain any recognizable files"
+msgstr "Disk neobsahuje žádné rozpoznatelné soubory"
+
+#~ msgid "Delete movie"
+#~ msgstr "Smazat film"
+
+#~ msgid "Movie"
+#~ msgstr "Film"
+
+#~ msgid "Movies"
+#~ msgstr "Filmy"

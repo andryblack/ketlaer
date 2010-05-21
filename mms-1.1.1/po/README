@@ -1,0 +1,12 @@
+Since MMS is now built from a core and several plugins, each plugin
+has it's own translation. In order to find all translatable strings
+use the following command:
+
+find ./ -name po
+
+In the root directory.
+
+If you want to find out if you, as a translater, has translated all
+strings, use the following command:
+
+for i in `find ./ -name po`; do make -C $i; done

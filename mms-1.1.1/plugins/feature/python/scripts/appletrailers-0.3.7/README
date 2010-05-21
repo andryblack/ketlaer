@@ -1,0 +1,18 @@
+Author: Fredde
+
+REQUIREMENTS:
+mms-1.1.0 rev-1560+
+python 2.5 with sqlite3 support
+
+BASEDIR variable:
+Open the appletrailers.py script and change the BASEDIR 
+variable. The dir it points to have to exist. This dir
+will store the database and the downloaded trailer images.
+
+The db will be created if it doesn't exist. If you want "fresh" 
+trailers just delete the db-file (BASEDIR/appletrailers.db).
+
+DOWNLOADDIR variable:
+Open the appletrailers.py script and change the DOWNLOADDIR
+variable. The dir it points to have to exist. This dir 
+will store downloaded trailers.

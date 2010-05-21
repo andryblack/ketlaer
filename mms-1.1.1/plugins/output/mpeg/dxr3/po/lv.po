@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Martins Zabarovskis <martins@zabarovski.lv>, 2008.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-26 09:21+0100\n"
+"PO-Revision-Date: 2008-12-01 22:25+0200\n"
+"Last-Translator: Martins Zabarovskis <martins@zabarovski.lv>\n"
+"Language-Team: LATVIAN <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: dxr3out.cpp:125 dxr3out.cpp:239 dxr3out.cpp:246
+msgid "Could not open device to set DXR3 zoom: "
+msgstr "Nevar atvērt ierīci lai iestādītu DXR3 tālummaiņu: "
+
+#: dxr3out.cpp:180 dxr3out.cpp:187
+msgid "Could not open device: "
+msgstr "Nevar atvērt ierīci: "
+
+#: dxr3out.cpp:194
+msgid "Unable to set playmode"
+msgstr "Nevar iestatīt atskaņošanas veidu"
+
+#: dxr3out.cpp:220
+msgid ""
+"DXR3 output only supports the resolutions 960x540 (16:9 anamorphic), 720x540 "
+"(4:3) and 720x405 (16:9)"
+msgstr ""
+"DXR3 atbalsta tikai rezolūcijas 960x540 (16:9 anamorphic), 720x540 "
+"(4:3) un 720x405 (16:9)"
+
+#: dxr3out.cpp:233
+msgid "Zoom option is not supported by DXR3 driver."
+msgstr "Tālummaiņas opcija nav pieejama DXR3 draiverī."
+
+#: dxr3out.cpp:248
+msgid "Set DXR3 zoom using device "
+msgstr "Iestatīt DXR3 tālummaiņu iekārtā "
+
+#: dxr3out.cpp:250
+msgid "Failed to set zoom value in the DXR3 driver."
+msgstr "Kļūda iestatot tālummaiņas vērtību DXR3 draiverī."

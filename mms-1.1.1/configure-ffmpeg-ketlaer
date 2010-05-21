@@ -1,0 +1,5 @@
+cd libs/ffmpeg
+./configure --arch=mips --cross-prefix=mipsel-linux- --cross-compile \
+	--enable-gpl --enable-swscale \
+   	--source-path=../ --extra-cflags="-mips32 -O2" \
+   	--enable-debug 

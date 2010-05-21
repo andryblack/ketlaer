@@ -1,0 +1,66 @@
+# translation of es.po to
+# MMS translation to Spanish.
+# Copyright (C) 2005 Alan Mizrahi
+# This file is distributed under the same license as MMS.
+# Alan Mizrahi, alan at mizrahi dot com dot ve
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: es\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-26 09:21+0100\n"
+"PO-Revision-Date: 2008-02-23 22:34-0430\n"
+"Last-Translator: Pablo Castorino <pablo@castorinop.com.ar>\n"
+"Language-Team:  <en@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: weather.cpp:236
+msgid "Error downloading weather data"
+msgstr "Error bajando datos climáticos"
+
+#: weather.cpp:238
+msgid "Please check your connection"
+msgstr "Por favor chequee su conexión"
+
+#: weather.cpp:239
+msgid "and/or configuration file"
+msgstr "y/o archivo de configuración"
+
+#: weather.cpp:274
+msgid "Weather"
+msgstr "Clima"
+
+#: weather.cpp:298
+msgid "City: "
+msgstr "Ciudad: "
+
+#: weather.cpp:304
+msgid "Date: "
+msgstr "Fecha: "
+
+#: weather.cpp:310
+msgid "Condition: "
+msgstr "Condición: "
+
+#: weather.cpp:319
+msgid "Temp: "
+msgstr "Temperatura: "
+
+#: weather.cpp:421
+msgid "No cities defined in WeatherConfig"
+msgstr "No hay ciudades definideas en WeatherConfig"
+
+#: weather.cpp:422
+msgid "Please define at least one city"
+msgstr "Por favor define al menos una ciudad"
+
+#: weather_plugin.cpp:14 weather_plugin.cpp:33
+msgid "Weather forecast"
+msgstr "Pronóstico del tiempo"
+
+#: weather_plugin.cpp:30
+msgid "See weather forecast"
+msgstr "Ver pronóstico del tiempo"

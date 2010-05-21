@@ -1,0 +1,105 @@
+# Italian translations for mms package.
+# Copyright (C) 2008 THE mms'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the mms package.
+# Roman Müllenschläder <mms@prodeia.de>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0.work\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-04-15 14:03+0200\n"
+"Last-Translator: Roman Müllenschläder <mms@prodeia.de>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: vbox.cpp:251
+msgid "Delete marked Messages ?"
+msgstr "Cancellare i messagi selezionati?"
+
+#: vbox.cpp:253
+msgid "Yes"
+msgstr "Sì"
+
+#: vbox.cpp:254
+msgid "No"
+msgstr "No"
+
+#: vbox.cpp:316 vbox.cpp:323 vbox.cpp:483 vbox.cpp:498
+msgid "*** Unknown ***"
+msgstr "*** Sconosciuto ***"
+
+#: vbox.cpp:370
+msgid "VBox"
+msgstr "VBox"
+
+#: vbox.cpp:378
+msgid "Could not connect to"
+msgstr "Impossibile connettersi a"
+
+#: vbox.cpp:384
+msgid "Host"
+msgstr "Host"
+
+#: vbox.cpp:384
+msgid "Port"
+msgstr "Porta"
+
+#: vbox.cpp:392
+msgid "Username"
+msgstr "Username"
+
+#: vbox.cpp:392
+msgid "Password"
+msgstr "Password"
+
+#: vbox.cpp:401
+msgid "New"
+msgstr "Nuovo"
+
+#: vbox.cpp:401
+msgid "Total"
+msgstr "Totale"
+
+#: vbox.cpp:414
+msgid "Time"
+msgstr "Ora"
+
+#: vbox.cpp:421
+msgid "Min"
+msgstr "Min."
+
+#: vbox.cpp:427
+msgid "CallerId"
+msgstr "CallerID"
+
+#: vbox.cpp:434
+msgid "Name"
+msgstr "Nome"
+
+#: vbox.cpp:559
+msgid "Call from"
+msgstr "Chiamata da"
+
+#: vbox.cpp:559
+msgid "at"
+msgstr "a"
+
+#: vbox.cpp:685
+msgid "Togggle New-Flag"
+msgstr "Inverti il flag Nuovo"
+
+#: vbox.cpp:689
+msgid "Toggle Delete-Flag"
+msgstr "Inverti il flag Cancella"
+
+#: vbox_plugin.cpp:14 vbox_plugin.cpp:38
+msgid "VBox - Client"
+msgstr "VBox - Client"
+
+#: vbox_plugin.cpp:30
+msgid "Check VBox"
+msgstr "Controlla VBox"

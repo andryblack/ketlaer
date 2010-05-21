@@ -1,0 +1,5 @@
+weather_config.cpp
+weather_config.hpp
+weather.cpp
+weather.hpp
+weather_plugin.cpp

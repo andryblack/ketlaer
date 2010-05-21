@@ -1,0 +1,27 @@
+#########################################
+# Example configuration file for evdev input based on Playstation 2 remote
+#
+# Syntax:
+# mode, command, key, multiple keypresses
+#
+# some modes inherit from other modes, which means that you can't
+# define the same key in both. Otherwise you are free to use the same
+# keys.
+#
+# all inherit from general and audio_general
+# all audio modes inherit from audio_general
+# choose_playlist and playlist inherit from playlist_general
+# 
+# For more information see: http://mms.kicks-ass.org/wiki/index.php/Config_file
+
+version = 3
+
+general,prev,Y,yes
+general,next,X,yes
+general,left,TopBtn,yes
+general,right,ThumbBtn,yes
+
+general,back,BtnA
+general,action,BtnB
+
+general,second_action,BtnC

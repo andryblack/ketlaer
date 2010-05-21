@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 18:07-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: libpython/mmsv2/videoplayer.cpp:17
+msgid "Video"
+msgstr ""
+
+#: libpython/mmsv2/videoplayer.cpp:27
+msgid "No video support detected"
+msgstr ""
+
+#: libpython/mmsv2/videoplayer.cpp:51
+msgid "Starting playback..."
+msgstr ""
+
+#: libpython/mmsv2/audioplayer.cpp:22
+msgid "No audio support detected"
+msgstr ""
+
+#: python.cpp:118
+msgid "does not exist"
+msgstr ""
+
+#: python.cpp:140
+msgid "Python Options"
+msgstr ""
+
+#: python.cpp:145
+msgid "reload"
+msgstr ""
+
+#: python_plugin.cpp:10 python_plugin.cpp:34
+msgid "Extras"
+msgstr ""
+
+#: python_plugin.cpp:24
+msgid "Run pyglets"
+msgstr ""

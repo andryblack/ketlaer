@@ -1,0 +1,53 @@
+# translation of fr.po to Français
+# MMS French Translation.
+# Copyright (C) 2003 Nicolas Vignot
+# This file is distributed under the same license as MMS.
+# FIRST AUTHOR <nvignot@netscape.net>, 2003.
+# Nicolas Vignot <nvignot@netscape.net>, 2004.
+# Yann Cézard <eesprit@free.fr>, 2007-2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fr\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-24 09:38+0200\n"
+"PO-Revision-Date: 2008-10-18 17:00+0100\n"
+"Last-Translator: Yann Cézard <eesprit@free.fr>\n"
+"Language-Team: Français <fr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.3\n"
+"Plural-Forms:  nplurals=2; plural=(n > 1);\n"
+
+#: dxr3out.cpp:125 dxr3out.cpp:239 dxr3out.cpp:246
+msgid "Could not open device to set DXR3 zoom: "
+msgstr "Ouverture impossible du périphérique pour appliquer le zoom DXR3 : "
+
+#: dxr3out.cpp:180 dxr3out.cpp:187
+msgid "Could not open device: "
+msgstr "Ouverture impossible du périphérique: "
+
+#: dxr3out.cpp:194
+msgid "Unable to set playmode"
+msgstr "Impossible de régler le mode de lecture"
+
+#: dxr3out.cpp:220
+msgid ""
+"DXR3 output only supports the resolutions 960x540 (16:9 anamorphic), 720x540 "
+"(4:3) and 720x405 (16:9)"
+msgstr ""
+"la sortie DXR3 supporte uniquement les résolutions960x540 (16:9 anamorphic),"
+" 720x540 (4:3) ou 720x405 (16:9)"
+
+#: dxr3out.cpp:233
+msgid "Zoom option is not supported by DXR3 driver."
+msgstr "L'option de zoom n'est pas supporté par le driver DXR3."
+
+#: dxr3out.cpp:248
+msgid "Set DXR3 zoom using device "
+msgstr "Activation du zoom DXR3 sur le périphérique "
+
+#: dxr3out.cpp:250
+msgid "Failed to set zoom value in the DXR3 driver."
+msgstr "Echec de l'activation du zoom dans le driver DXR3."

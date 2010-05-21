@@ -1,0 +1,678 @@
+# translation of cs.po to
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER, 2005.
+#
+# Miroslav Flídr <flidr@kky.zcu.cz>, 2005, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: cs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-12-15 21:36+0100\n"
+"Last-Translator: \n"
+"Language-Team:  <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: cd.cpp:54
+msgid "Could not open the dvd/cd drive"
+msgstr "Není možné otevřít zařízení cd/dvd"
+
+#: cd.cpp:80
+msgid "Could not set drive speed"
+msgstr "Není možné nastavit rychlost zařízení"
+
+#: cd.cpp:86
+msgid "The drive does not support speed selection"
+msgstr "Zařízení nepodporuje výběr rychlosti"
+
+#: cd.cpp:100
+msgid "There is no disc in the drive"
+msgstr "V zařízení není žádný disk"
+
+#: cd.cpp:107
+msgid "The tray is open"
+msgstr "Mechanika je otevřená"
+
+#: cd.cpp:109
+msgid "Please close it"
+msgstr "Prosím zavřete jej"
+
+#: cd.cpp:116
+msgid "The drive is not ready"
+msgstr "Zařízení není připraveno"
+
+#: cd.cpp:118
+msgid "Please try again later"
+msgstr "Prosím opakujte požadavek později"
+
+#: common.cpp:92
+msgid "false"
+msgstr "vypnuto"
+
+#: common.cpp:92
+msgid "no"
+msgstr "ne"
+
+#: common.cpp:92
+msgid "off"
+msgstr "vypnuto"
+
+#: common.cpp:661
+msgid "Failed to open iconv"
+msgstr "Nezdařilo se otevřít iconv"
+
+#: common.cpp:685
+msgid "String conversion failed"
+msgstr "Nezdařil se převod řetězců"
+
+#: common.cpp:906
+msgid "Could not create directory "
+msgstr "Není možné vytvořit adresář "
+
+#: common.cpp:912
+msgid "Internal error, please report this"
+msgstr "Interní chyba; prosím, nahlaste ji"
+
+#: common.cpp:913
+msgid "File is not a directory: "
+msgstr "Soubor není adresářem: "
+
+#: common.cpp:1030
+msgid "Unable to open/create the file lock!!!"
+msgstr "Není možné otevřít/vytvořit zámek souboru!!!"
+
+#: config_macros.hpp:188 config_macros.hpp:200
+msgid "Opening configuration file "
+msgstr "Otevírám soubor s nastaveními "
+
+#: config_macros.hpp:209
+msgid "Config file not found "
+msgstr "Nebyl nalezen soubor s nastaveními "
+
+#: config_macros.hpp:223
+msgid "Error while reading line "
+msgstr "Chyba při čtení řádku"
+
+#: config_macros.hpp:224
+msgid "missing '='"
+msgstr "chybí '='"
+
+#: config_macros.hpp:240
+msgid " is version "
+msgstr "má verzi "
+
+#: config_macros.hpp:240
+msgid " and MMS expecting version "
+msgstr " a MMS očekává verzi "
+
+#: config_macros.hpp:241 config_macros.hpp:249
+msgid "Please upgrade your config file"
+msgstr "Prosím aktualizujte váš soubor s nastaveními "
+
+#: config_macros.hpp:248 plugins/input/input_device.cpp:193
+msgid "Version string not found"
+msgstr "Nebyl nalezen řetězec udávající verzi"
+
+#: config_macros.hpp:258
+msgid "Unknown token '"
+msgstr "Neznámý symbol "
+
+#: config_macros.hpp:259
+msgid "' on line "
+msgstr " na řádce "
+
+#: config_macros.hpp:279
+msgid "Can't write configuration file!"
+msgstr "Není možné zapsat soubor s nastavením!"
+
+#: global.cpp:271
+msgid "Playback control"
+msgstr "Řízení přehrávání"
+
+#: global.cpp:319
+msgid "Playlist Commands"
+msgstr "Příkazy seznamu skladeb"
+
+#: libfspp.cpp:19 libfspp.cpp:39
+msgid "Unknown sorting order"
+msgstr "Neznámé pořadí třídění"
+
+#: mms.cpp:57
+msgid "Critical: couldn't set environment variable "
+msgstr "Kritická: není možné nastavit proměnnou prostředí "
+
+#: mms.cpp:58 mms.cpp:253 mms.cpp:266 mms.cpp:272 mms.cpp:363
+msgid "Error: "
+msgstr "Chyba: "
+
+#: mms.cpp:82
+msgid "MMS options:"
+msgstr "Nastavení mms:"
+
+#: mms.cpp:89
+msgid "<relative> : filename relative to config directory"
+msgstr ""
+"<relative> : jméno souboru s cestou relativní ke konfiguračnímu adresáři "
+
+#: mms.cpp:90
+msgid "<absolute> : full path filename"
+msgstr "<absolute> : jméno souboru s úplnou cestou"
+
+#: mms.cpp:97
+msgid " -o : output device ["
+msgstr "-o : výstupní zařízení ["
+
+#: mms.cpp:113
+msgid " -i : input device ["
+msgstr "-i : vstupní zařízení ["
+
+#: mms.cpp:128
+msgid " -h : show this help and exit"
+msgstr " -h : ukaž tuto nápovědu a ukonči"
+
+#: mms.cpp:129
+msgid " -d : daemonize (run in background)"
+msgstr " -d : spustit jako démona (běží na pozadí)"
+
+#: mms.cpp:130 movie-library/movie-library.cpp:547
+#: audio-library/audio-library.cpp:613
+msgid " -c <absolute> : use alternative config directory"
+msgstr " -c <absolute> : použij alternativní konfigurační adresář"
+
+#: mms.cpp:131 pic-library/pic-library.cpp:451
+#: movie-library/movie-library.cpp:548 audio-library/audio-library.cpp:614
+msgid " -p <absolute> : use alternative personal directory (db, playlist)"
+msgstr ""
+" -p <absolute> : použij alternativní osobní adresář (databáze, seznam "
+"skladeb)"
+
+#: mms.cpp:132
+msgid " -f : fullscreen\n"
+msgstr " -f zvětšit na celou obrazovku\n"
+
+#: mms.cpp:133
+msgid " -u <username> : run mms as username"
+msgstr " -u <username> : spusť mms pod uživatelem username"
+
+#: mms.cpp:134
+msgid ""
+"\n"
+" -U <username> : run mms as username and reset most environment variables"
+msgstr ""
+"\n"
+" -U  <username> :  spusť mms pod uživatelem username a znovu nastav většinu "
+"proměnných prostředí"
+
+#: mms.cpp:135
+msgid ""
+"\n"
+" -e : dump the list of currently set environment variables; useful for "
+"setting up and/or debug mms"
+msgstr ""
+"\n"
+" -e : vypiš seznam právě nastavených proměnných prostředí; užitečné pro "
+"nastavení nebo ladění mms"
+
+#: mms.cpp:136
+msgid " -v|V : show version and exit"
+msgstr " -v|V : ukaž verzi a skonči"
+
+#: mms.cpp:143
+msgid ""
+" -r <relative> : use replay file as input (requires replay as input device)"
+msgstr ""
+" -r <relative> : použij soubor pro opakované přehrání jako vstup (vyžaduje "
+"opakované přehrání jako vstupní zařízení)"
+
+#: mms.cpp:144
+msgid ""
+" -b : benchmark MMS by replaying as fast as possible (requires replay as "
+"input device) "
+msgstr ""
+" -b : otestuj mms co nejrychlejším opakovaným přehráváním (vyžaduje "
+"opakované přehrání jako vstupní zařízení) "
+
+#: mms.cpp:145
+msgid " -w <relative> : write replay to specified file"
+msgstr "-w <relative> : zapiš opakované přehrávání do zadaného souboru"
+
+#: mms.cpp:237
+msgid "Critical: couldn't find user: "
+msgstr "Kritická: není možné nalézt uživatele: "
+
+#: mms.cpp:252 mms.cpp:258
+msgid "Critical: couldn't set group privileges!"
+msgstr "Kritická: není možné nastavit práva skupiny!"
+
+#: mms.cpp:265
+msgid "Warning: failed to set supplementary groups!"
+msgstr "Varování: nezdařilo se nastavení doplňkových skupin!"
+
+#: mms.cpp:271 mms.cpp:276
+msgid "Critical: couldn't set user privileges!"
+msgstr "Kritická: není možné nastavit uživatelská práva!"
+
+#: mms.cpp:282
+msgid "Critical: couldn't set user privileges permanently!"
+msgstr "Kritická: není možné trvale nastavit uživatelská práva!"
+
+#: mms.cpp:287
+msgid "Critical: couldn't set group privileges permanently!"
+msgstr "Kritická: není možné trvale nastavit práva skupiny!"
+
+#: mms.cpp:347
+msgid "Full list of active groups for user "
+msgstr "Úplný seznam uživatelových aktivních skupin "
+
+#: mms.cpp:356
+msgid "Critical: out of memory!"
+msgstr "Kritická: došla paměť!"
+
+#: mms.cpp:362
+msgid "Warning: couldn't fetch a list of secondary groups for user "
+msgstr ""
+"Varování: není možné stáhnout seznam uživatelových sekundárních skupin "
+
+#: mms.cpp:523
+msgid ""
+"\n"
+"It appears mms is running as superuser."
+msgstr ""
+"\n"
+"Zdá se, že mms běží s právy superuživatele."
+
+#: mms.cpp:524
+msgid ""
+"Not only is this totally unnecessary, but it also constitutes a security "
+"risk "
+msgstr ""
+"Nejenže je to zcela zbytečné, ale navíc to představuje bezpečnostní riziko "
+
+#: mms.cpp:525
+msgid "and thus it is strongly discouraged!\n"
+msgstr "a tudíž to není doporučováno!\n"
+
+#: mms.cpp:526
+msgid ""
+"If you really really want to give mms superuser privileges, run it like this:"
+msgstr ""
+"Chcete-li přesto udělit mms práva superuživatele, tak jej prosím spouštějte "
+"takto:"
+
+#: mms.cpp:527
+msgid "mms -u root [other options]\n"
+msgstr "mms -u root [další volby]\n"
+
+#: mms.cpp:544
+msgid ""
+"Another instance of MMS or an instance of movie/pic/audio library is already "
+"running.\n"
+msgstr "Je již spuštěna jiná instance MMS nebo knihoven movie/pic/audio.\n"
+
+#: mms.cpp:549 pic-library/pic-library.cpp:390
+#: movie-library/movie-library.cpp:492 audio-library/audio-library.cpp:558
+#, c-format
+msgid "File lock is currently owned by another process (pid %d). Aborting\n"
+msgstr ""
+"Zámek souboru je momentálně vlastněn jiným procesem (pid %d). Přerušuji\n"
+
+#: mms.cpp:558
+msgid "Full list of environment variables:\n"
+msgstr "Úplný seznam proměnných prostředí:\n"
+
+#: mms.cpp:569
+msgid "Unable to find or create HOME directory"
+msgstr "Není možné vytvořit adresář HOME"
+
+#: mms.cpp:588
+msgid "CD/DVD not configured properly and media enabled in Config, exiting"
+msgstr ""
+"CD/DVD není správně nakonfigurováno a medium není povoleno v konfiguraci, "
+"ukončuji"
+
+#: mms.cpp:617 mms.cpp:618 mms.cpp:619 mms.cpp:620
+#: pic-library/pic-library.cpp:458 pic-library/pic-library.cpp:459
+#: movie-library/movie-library.cpp:555 movie-library/movie-library.cpp:556
+#: audio-library/audio-library.cpp:621 audio-library/audio-library.cpp:622
+msgid "Using "
+msgstr "Používám "
+
+#: mms.cpp:617
+msgid " as primary configuration directory"
+msgstr " jako primární adresář s nastavením"
+
+#: mms.cpp:618
+msgid " as fallback configuration directory"
+msgstr " jako nouzový adresář s nastavením"
+
+#: mms.cpp:619
+msgid " as personal data directory"
+msgstr " jako osobní adresář s nastavením"
+
+#: mms.cpp:620
+msgid " as cache location"
+msgstr " jako umístění vyrovnávací paměti"
+
+#: mms.cpp:647
+msgid "No input plugin found"
+msgstr "Nebyl nalezen vstupní zásuvný modul"
+
+#: mms.cpp:652
+msgid "No output device specified! Use the -o option."
+msgstr "Nebylo vybráno žádné výstupní zařízení! Použijte přepínač -o."
+
+#: option.cpp:14
+msgid ""
+"The size of the translated and the english option lists does not match: "
+msgstr "Velikosti přeložených a anglických seznamů voleb si neodpovídají: "
+
+#: options.cpp:68
+msgid "There are no options to show"
+msgstr ""
+
+#: options.cpp:162 theme.cpp:131
+msgid "Go back"
+msgstr "Vrátit se zpět"
+
+#: options.cpp:245 options.cpp:375
+msgid "reload"
+msgstr "opět nahrát"
+
+#: options.cpp:285 options.cpp:374 startmenu.cpp:52 startmenu.cpp:525
+msgid "Options"
+msgstr "Volby"
+
+#: options.cpp:502 global_options.cpp:157
+msgid "Could not create options directory: "
+msgstr "Není možné vytvořit adresář s volbami: "
+
+#: options.cpp:507 options.cpp:532
+msgid "Warning: module "
+msgstr "Varování: modul "
+
+#: options.cpp:507 options.cpp:532
+msgid " did not set save_name"
+msgstr " nenastavil save_name"
+
+#: options.cpp:515 theme.cpp:285 global_options.cpp:165
+msgid "Could not write options to file "
+msgstr "Není možné uložit volby do souboru "
+
+#: options.cpp:540 theme.cpp:304 global_options.cpp:186
+msgid "Could not open options file "
+msgstr "Není možné otevřít soubor s volbami "
+
+#: pic-library/pic-library.cpp:165
+msgid "Upgrading pictures database schema"
+msgstr "Aktualizuji schéma databáze obrázků"
+
+#: pic-library/pic-library.cpp:386 movie-library/movie-library.cpp:487
+#: audio-library/audio-library.cpp:553
+msgid ""
+"An instance of MMS or another instance of movie/pic/audio library is already "
+"running\n"
+msgstr "Již běží instance MMS nebo jiná instance knihovny movie/pic/audio\n"
+
+#: pic-library/pic-library.cpp:445
+msgid "My Media System picture library creation tool"
+msgstr "Nástroj pro vytváření knihovny obrázků programy My Media System"
+
+#: pic-library/pic-library.cpp:447
+msgid "Usage: ./mms-pic-library"
+msgstr "Použití: ./mms-pic-library"
+
+#: pic-library/pic-library.cpp:449 movie-library/movie-library.cpp:546
+#: audio-library/audio-library.cpp:612
+msgid "Options:"
+msgstr "Volby:"
+
+#: pic-library/pic-library.cpp:450
+msgid " -c <absolute> : use alternate config directory"
+msgstr " -c <absolute> : použij alternativní konfigurační soubor"
+
+#: pic-library/pic-library.cpp:452 movie-library/movie-library.cpp:549
+#: audio-library/audio-library.cpp:615
+msgid ""
+" -d <path> : Override watch paths in configuration file with <path> (can be "
+"used multiple times)"
+msgstr ""
+" -d <path> : potlačit sledovanou cestu v konfiguračním souboru a nahradit ji "
+"<path> (může být použito i vícekrát)"
+
+#: pic-library/pic-library.cpp:458 movie-library/movie-library.cpp:555
+#: audio-library/audio-library.cpp:621
+msgid " as configuration directory"
+msgstr " jako adresář s nastavením"
+
+#: pic-library/pic-library.cpp:459 movie-library/movie-library.cpp:556
+#: audio-library/audio-library.cpp:622
+msgid " as personal directory"
+msgstr " jako osobní adresář"
+
+#: plugins/feature/module.cpp:27 plugins/input/input.hpp:195
+#: plugins/input/input.hpp:198 plugins/input/input.hpp:200
+#: plugins/input/input.hpp:211 plugins/input/input.hpp:234
+#: plugins/input/input.hpp:288
+msgid "current folder"
+msgstr "aktuální adresář"
+
+#: plugins/input/input.hpp:201 plugins/input/input.hpp:203
+msgid "all folders"
+msgstr "všechny adresáře"
+
+#: plugins/input/input_device.cpp:93
+msgid "Input configuration file not found "
+msgstr "Vstupní soubor s nastavením nebyl nalezen "
+
+#: plugins/input/input_device.cpp:162
+msgid "Adding "
+msgstr "Přidávám "
+
+#: plugins/input/input_device.cpp:185
+msgid "Wrong version of input file found: "
+msgstr "Nalezena chybná verze vstupního souboru: "
+
+#: plugins/input/input_device.cpp:186 plugins/input/input_device.cpp:194
+msgid "Please upgrade your input file"
+msgstr "Prosím aktualizujte vstupní soubor"
+
+#: plugins/input/input_device.cpp:187
+msgid "Got version "
+msgstr "Má verzi "
+
+#: plugins/input/input_device.cpp:187 themes.cpp:123
+msgid " expected "
+msgstr " očekávána "
+
+#: plugins/input/input_device.cpp:220 plugins/input/input_device.cpp:233
+msgid "Unknown cur_map: "
+msgstr "Neznámé cur_map:"
+
+#: plugins/output/common-output.cpp:48
+msgid "Too many strings to print"
+msgstr "Příliš mnoho řetězců k tisku"
+
+#: plugins/output/common-output.cpp:50
+msgid "Nothing to print"
+msgstr "Není co tisknout"
+
+#: plugins/output/mpeg/mpeg.cpp:59
+msgid "Can't find codec mpeg2"
+msgstr "Není možné nalézt mpeg2 kodek"
+
+#: plugins/output/mpeg/mpeg.cpp:91
+msgid "Could not open codec"
+msgstr "Nebylo možné otevřít kodek"
+
+#: plugins/output/renderer.cpp:721 plugins/output/renderer.cpp:1553
+#: plugins/output/renderer.cpp:1620
+msgid "The image "
+msgstr "Obrázek "
+
+#: plugins/output/renderer.cpp:721 plugins/output/renderer.cpp:1438
+#: plugins/output/renderer.cpp:1553 plugins/output/renderer.cpp:1620
+msgid " could not be loaded"
+msgstr "nemohl být nahrán"
+
+#: plugins/output/renderer.cpp:1438
+msgid "The font "
+msgstr "Písmo "
+
+#: plugins/plugin.hpp:41
+msgid "Unnamed"
+msgstr "Nepojmenované"
+
+#: search.cpp:23 search.cpp:27 search.cpp:295 search.cpp:418
+msgid "all"
+msgstr "všechny"
+
+#: search.cpp:122 startmenu.cpp:521
+msgid "Search"
+msgstr "Hledat"
+
+#: search.cpp:133 search.cpp:334
+msgid "Search: "
+msgstr "Hledat: "
+
+#: search.cpp:436
+msgid "No search results found"
+msgstr "Nebyly nalezeny žádné výsledky hledání"
+
+#: shutdown.cpp:37
+msgid "Shutdown in"
+msgstr "Vypnutí za"
+
+#: shutdown.cpp:43
+msgid "Shutdown Now"
+msgstr "Vypínám teď"
+
+#: shutdown.cpp:88
+msgid "Canceled Shutdown"
+msgstr "Přerušeno vypínání"
+
+#: extra_menu.hpp:46
+msgid "Extra Menu"
+msgstr "Extra nabídka"
+
+#: theme.cpp:128
+msgid "Use theme"
+msgstr "Použít motiv"
+
+#: theme.cpp:251 startmenu.cpp:529
+msgid "Themes"
+msgstr "Motivy"
+
+#: theme.cpp:330
+msgid "Falling back to standard theme"
+msgstr "Vracím se ke standardnímu motivu"
+
+#: theme.cpp:337
+msgid "Couldn't find any themes to open"
+msgstr "Nebylo možné nalézt žádný motiv, který by šlo otevřít"
+
+#: themes.cpp:89 themes.cpp:92
+msgid "Could not open theme"
+msgstr "Nebylo možné otevřít motiv"
+
+#: themes.cpp:108
+msgid "Illegal line in theme file, missing '=' on line "
+msgstr "Nepřípustná řádka v souboru motivu; na řádce chybí '=' "
+
+#: themes.cpp:122
+msgid "Unsupported theme version, got version "
+msgstr "Nepodporovaná verze motivu, získaná verze "
+
+#: themes.cpp:125
+msgid "Unsupported theme version"
+msgstr "Nepodporovaná verze motivu"
+
+#: movie-library/movie-library.cpp:246 movie-library/movie-library.cpp:251
+msgid "Upgrading movie database schema"
+msgstr "Aktualizuji schéma databáze filmů"
+
+#: movie-library/movie-library.cpp:542
+msgid "My Media System movie library creation tool"
+msgstr "Nástroj pro tvorbu knihovny filmů aplikace My Media System"
+
+#: movie-library/movie-library.cpp:544
+msgid "Usage: ./mms-movie-library"
+msgstr "Použití: ./mms-movie-library"
+
+#: global_options.cpp:44
+msgid "name mismatch in cd configuration, please check your config"
+msgstr "neshoda jmen v nastavení cd, prosím zkontrolujte si svá nastavení"
+
+#: global_options.cpp:52
+msgid "cd device"
+msgstr "CD zařízení"
+
+#: global_options.cpp:64
+msgid "audio device (music)"
+msgstr "audio zařízení (hudba)"
+
+#: global_options.cpp:67
+msgid "audio device (movies)"
+msgstr "audio zařízení (filmy)"
+
+#: global_options.cpp:81
+msgid "directories first"
+msgstr "nejprve adresáře"
+
+#: global_options.cpp:82
+msgid "by name"
+msgstr "podle názvu"
+
+#: global_options.cpp:83
+msgid "by date"
+msgstr "podle data"
+
+#: global_options.cpp:90
+msgid "sorting"
+msgstr "třídění"
+
+#: startmenu.cpp:59
+msgid "Global Options"
+msgstr "Globální volby"
+
+#: startmenu.cpp:164 startmenu.cpp:167 startmenu.cpp:550 startmenu.cpp:553
+msgid "Open/Close Tray"
+msgstr "Otevřít/zavřít mechaniku"
+
+#: startmenu.cpp:476
+msgid "Do you really want to exit?"
+msgstr "Opravdu si přejete skončit?"
+
+#: startmenu.cpp:479 startmenu.cpp:560 startmenu.cpp:561
+msgid "Quit"
+msgstr "Ukončit"
+
+#: startmenu.cpp:481
+msgid "Halt System"
+msgstr "Zastavit systém"
+
+#: startmenu.cpp:482
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: startmenu.cpp:533
+msgid "Utilities"
+msgstr ""
+
+#: startmenu.cpp:540 startmenu.cpp:542
+msgid "Switch resolution"
+msgstr "Přepnout rozlišení"
+
+#: audio-library/audio-library.cpp:340
+msgid "Upgrading audio database schema"
+msgstr "Aktualizuji schéma databáze hudby"
+
+#: audio-library/audio-library.cpp:608
+msgid "My Media System audio library creation tool"
+msgstr "Nástroj pro tvorbu knihovny hudby aplikace My Media System"
+
+#: audio-library/audio-library.cpp:610
+msgid "Usage: ./mms-audio-library"
+msgstr "Použití: ./mms-audio-library"

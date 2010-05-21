@@ -1,0 +1,112 @@
+# translation of de.po to Deutsch
+# translation of mmsv2.
+# Copyright (C) 2007 Roman Müllenschläder <mms@prodeia.de>
+# This file is distributed under the same license as the mmsv2 mmsv2.
+#
+# Earlier authors:
+#
+#
+# Oliver Beck <manofwar@web.de>, 2002-2003.
+# Roman Müllenschläder <mms@prodeia.de>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: de\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2006-10-10 21:32+0200\n"
+"Last-Translator: Roman Müllenschläder <mms@prodeia.de>\n"
+"Language-Team: Deutsch <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: mplayer.cpp:43
+msgid "General options"
+msgstr "Globale Einstellungen"
+
+#: mplayer.cpp:46
+msgid "DVD options"
+msgstr "DVD Optionen"
+
+#: mplayer.cpp:49
+msgid "VCD options"
+msgstr "VCD Optionen"
+
+#: mplayer.cpp:52
+msgid "none"
+msgstr "Keine"
+
+#: mplayer.cpp:74
+msgid "subtitle language"
+msgstr "Untertitel Sprache"
+
+#: mplayer.cpp:77 mplayer.cpp:85 mplayer.cpp:95 mplayer.cpp:115
+#: mplayer.cpp:137
+msgid "default"
+msgstr "Vorgabe"
+
+#: mplayer.cpp:79
+msgid "dvd audio language"
+msgstr "DVD Audio Sprache"
+
+#: mplayer.cpp:90
+msgid "font"
+msgstr "Schriftart"
+
+#: mplayer.cpp:109
+msgid "font size"
+msgstr "Schriftgröße"
+
+#: mplayer.cpp:122
+msgid "dvd title"
+msgstr "DVD Titel"
+
+#: mplayer.cpp:123
+msgid "vcd title"
+msgstr "VCD Titel"
+
+#: mplayer.cpp:128
+msgid "on"
+msgstr "An"
+
+#: mplayer.cpp:129 mplayer.cpp:146
+msgid "off"
+msgstr "Aus"
+
+#: mplayer.cpp:132
+msgid "Fullscreen"
+msgstr "Vollbildmodus"
+
+#: mplayer.cpp:138
+msgid "16:9"
+msgstr "16:9"
+
+#: mplayer.cpp:139
+msgid "4:3"
+msgstr "4:3"
+
+#: mplayer.cpp:143
+msgid "Monitor aspect"
+msgstr "Bildschirm"
+
+#: mplayer.cpp:149
+msgid "wide (2.35:1)"
+msgstr "Breit (2.35:1)"
+
+#: mplayer.cpp:152
+msgid "square"
+msgstr "Quadrat"
+
+#: mplayer.cpp:155
+msgid "Force geometry"
+msgstr "Geometrie"
+
+#: mplayer.cpp:323
+msgid "midentify failed to parse the length of file: "
+msgstr "'midentify' konnte bei folgender Datei die Länge nicht ermitteln: "
+
+#: mplayer.cpp:461 mplayer.cpp:574
+msgid "Video"
+msgstr "Filme"

@@ -1,0 +1,7 @@
+### EVDEV ####
+
+version = 1
+
+# Path to the evdev device
+#
+evdev_dev = /dev/input/event0

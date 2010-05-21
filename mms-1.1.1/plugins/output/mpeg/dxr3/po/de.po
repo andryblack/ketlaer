@@ -1,0 +1,55 @@
+# translation of de.po to Deutsch
+# translation of mmsv2.
+# Copyright (C) 2007 Roman Müllenschläder <mms@prodeia.de>
+# This file is distributed under the same license as the mmsv2 mmsv2.
+#
+# Earlier authors:
+#
+#
+# Oliver Beck <manofwar@web.de>, 2002-2003.
+# Roman Müllenschläder <mms@prodeia.de>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: de\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-24 09:38+0200\n"
+"PO-Revision-Date: 2006-10-10 21:32+0200\n"
+"Last-Translator: Roman Müllenschläder <mms@prodeia.de>\n"
+"Language-Team: Deutsch <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: dxr3out.cpp:125 dxr3out.cpp:239 dxr3out.cpp:246
+msgid "Could not open device to set DXR3 zoom: "
+msgstr "Konnte das Gerät nicht öffnen um den Zoom-Level zu setzen: "
+
+#: dxr3out.cpp:180 dxr3out.cpp:187
+msgid "Could not open device: "
+msgstr "Konnte das Gerät nicht öffnen: "
+
+#: dxr3out.cpp:194
+msgid "Unable to set playmode"
+msgstr "Kann den Abspielmodus nicht setzen"
+
+#: dxr3out.cpp:220
+msgid ""
+"DXR3 output only supports the resolutions 960x540 (16:9 anamorphic), 720x540 "
+"(4:3) and 720x405 (16:9)"
+msgstr ""
+"DXR3 Ausgabe unterstützt nur die Auflösung 960x540 (16:9 anamorph), 720x540 "
+"(4:3) oder 720x405 (16:9)"
+
+#: dxr3out.cpp:233
+msgid "Zoom option is not supported by DXR3 driver."
+msgstr "Zoom-Option wird vom DXR3-Treiber nicht unterstützt"
+
+#: dxr3out.cpp:248
+msgid "Set DXR3 zoom using device "
+msgstr "Setze DXR3 Zoom-Level für Gerät: "
+
+#: dxr3out.cpp:250
+msgid "Failed to set zoom value in the DXR3 driver."
+msgstr "Konnte Zoom-Level im DXR3-Treiber nicht setzen."

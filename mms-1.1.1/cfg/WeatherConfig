@@ -1,0 +1,50 @@
+## Weather ####
+#
+# This service is based on data coming from Google Weather
+#
+# acmelabs 2008 - Andreas Saur - Weather Plugin for MMS 1.1.0
+
+version = 5
+
+# /var/lib/mms/ must be writeable.
+ 
+################################
+#  Define Unit System
+################################
+#
+# if language code is omited, Unit system is Fahrenheit.
+#  
+#  unit_system=[Fahrenheit|Celsius]
+ 
+unit_system = Celsius
+
+################################
+#  Enter locations
+################################
+#
+# Use %2C for comma
+#     %20 for space
+ 
+weather_location=Aalborg%2C%20Denmark&hl=da
+#weather_location=Wuppertal%2C%20Deutschland&hl=de
+#weather_location=Bologna&2C%20Italy&hl=it
+ 
+# If your city doesn't work, just try at
+#   http://www.google.com/ig/api?weather=<city name>, <country name>&hl=<language>
+#
+# Look up your language code here:
+#   http://code.google.com/apis/adsense/developer/adsense_api_locales.html
+
+##############################################
+#  UserAgent (Application) wget pretends to be
+##############################################
+#
+
+user_agent = mymediasystem
+
+##############################################
+#  Codepage of XML-File
+##############################################
+#
+
+codepage = ISO-8859-15

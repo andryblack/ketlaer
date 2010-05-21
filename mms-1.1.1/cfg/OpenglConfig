@@ -1,0 +1,96 @@
+########################################################
+# My Media System - Opengl configuration file
+#
+# For more information on the options refer to the complete
+# documentation:
+#
+# http://mms.kicks-ass.org/wiki/index.php/Main_Page
+#
+
+version = 7 
+
+
+# Opengl screen/window size
+#
+# It's also useful to upscale/downscale the GUI of mms in combination with 
+# the resolution values set in the main Config file
+#
+#default:
+# opengl_h: (horizontal) same value as the one in h_res set in the main Config file
+# opengl_v: (vertical) same value as the one in v_res set in the main Config file
+
+
+
+# borderless
+# Window borderless attribute
+#
+# default:
+# borderless = false
+
+borderless = false
+
+
+# mousecursor 
+# Mouse cursor visibility
+#
+# values are:
+# enabled - mouse cursor is visible both in window and full screen modes
+# disabled - mouse cursor is always disabled
+# nofs - mouse cursor is visible if mms runs in window mode, otherwise it's hidden
+# default:
+# mousecursor = nofs 
+
+mousecursor = enabled 
+
+
+# transfer_mode
+# How the plugin transfers data from system memory to the graphic card memory
+# values are:
+# DMA - The plugin will try to use DMA to transfer data to the graphic card. It requires a version of OpenGL that supports 
+#       the GL_ARB_texture_rectangle extension and it uses the glBufferSubData() API 
+# mmap -The plugin will try to map texture buffers to the client's address space. It requires a version of OpenGL that supports
+#	the GL_EXT_pixel_buffer_object extension and it uses the glMapBuffer() API
+# standard - it uses the glTexSubImage2D() API to transfer texture data to the texture buffers. It requires 
+# 	the GL_ARB_texture_rectangle extension to render NPOS (non-power-of-two) sized textures. This is the most compatible
+# 	method albeit the slower.
+# default:
+# transfer_mode = standard
+
+transfer_mode = DMA
+
+
+# benchmark 
+# The Opengl plugin may print some benchmarks results from time to time
+#
+# values are:
+# 0 - benchmarking is disabled
+# higher values instruct the plugin to print benchmark results every <value>*100 drawings.
+# default:
+# benchmark = 5
+
+benchmark = 5
+
+ 
+# vsync
+# This option sets the vertical sync mode
+#
+# WARNING: it has no effect if vertical sync is enabled system wide (for example from the nvidia-settings applet)
+# values are:
+# 0      - no vertical sync is performed
+# 1      - drawings are done during the vertical sync
+# x > 1  - drawings are done each x vertical syncs... this actually slows things down for no reason, but if you're happy with it...
+# default:
+# vsync = 0
+
+
+# verbose
+# If enabled, you get more messages on console
+# Verbosity also depends on debug_level in the main Config file
+#
+# values are:
+# true
+# false
+# default:
+# verbose = false
+
+

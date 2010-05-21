@@ -1,0 +1,15 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS WeatherConfig
+#define S_PARAMETER_CLASS S_WeatherConfig
+#define STRING_PARAMETER_CLASS "WeatherConfig"
+
+#define MMS_CONFIG_VERSION "5"
+
+PARAMETER_LIST("weather_location", weather_location)
+PARAMETER_STR("unit_system", unit_system, "Celsius")
+PARAMETER_STR("user_agent", user_agent, "mymediasystem")
+PARAMETER_STR("codepage", codepage, "ISO-8859-15")
+
+#include "config_pre_post.hpp"

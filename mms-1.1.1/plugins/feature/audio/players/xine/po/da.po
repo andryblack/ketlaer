@@ -1,0 +1,48 @@
+# mms Danish translation
+# Copyright (C) 2003-2007 Anders Rune Jensen
+# This file is distributed under the same license as the mmsv2 package.
+# Anders Rune Jensen <anders@gnulinux.dk>, 2003-2006
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2007-09-30 01:13+0200\n"
+"Last-Translator: Anders Rune Jensen <anders@gnulinux.dk>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: xine.cpp:88
+msgid "Audio device unavailable: "
+msgstr ""
+
+#: xine.cpp:391
+msgid "Xine engine warning"
+msgstr ""
+
+#: xine.cpp:404
+msgid "Xine engine error"
+msgstr ""
+
+#: xine.cpp:408
+msgid "Xine engine message"
+msgstr ""
+
+#~ msgid "The audio device is busy. Is another application using it?"
+#~ msgstr "Lydenheden er optaget. Benytter et andet program den?"
+
+#~ msgid "Error connecting to server"
+#~ msgstr "Problemer i tilslutningen til serveren"
+
+#~ msgid "The server might be down or busy"
+#~ msgstr "Serveren er måske nede eller belastet"
+
+#~ msgid "Please try again later"
+#~ msgstr "Prøv venligst igen senere"
+
+#~ msgid "Could not open file"
+#~ msgstr "Kunne ikke åbne filen"

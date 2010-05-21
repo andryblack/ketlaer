@@ -1,0 +1,9 @@
+### DVB ####
+
+version = 1
+
+# DVB device
+#
+# The device to use
+#
+dvb_device = /dev/dvb/adapter0/video0

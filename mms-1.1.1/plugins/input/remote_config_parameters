@@ -1,0 +1,12 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS RemoteConfig
+#define S_PARAMETER_CLASS S_RemoteConfig
+#define STRING_PARAMETER_CLASS "RemoteConfig"
+
+#define MMS_CONFIG_VERSION "1"
+
+PARAMETER_STR("remote_layout",     remote_layout,      "full_layout")
+
+#include "config_pre_post.hpp"

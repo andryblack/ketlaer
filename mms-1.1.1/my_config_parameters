@@ -1,0 +1,117 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS Config
+#define S_PARAMETER_CLASS S_Config
+#define STRING_PARAMETER_CLASS "Config"
+
+/************************************
+  mms DEFAULT CONFIGURATION VALUES
+ ************************************/
+
+#ifndef  PREFIX
+#define  PREFIX        "/usr/local"
+#endif
+
+#define MMS_SHARE      PREFIX "/share/mms"
+#define DEFAULT_CONFIG "config"
+
+#define MMS_CONFIG_VERSION "27"
+//#define MMS_INPUT_CONFIG_VERSION "13"
+#define MMS_THEME_VERSION "36"
+
+/************************************
+   mms configuration parameters
+ ************************************/
+
+// EJECT
+PARAMETER_BOOL("openclose",	   openclose,	       false)
+PARAMETER_BOOL("tray_open",	   tray_open,	       false)
+PARAMETER_STR("eject_closeopts",   eject_closeopts,    "-t")
+PARAMETER_STR("eject_openopts",    eject_openopts,     " ")
+PARAMETER_STR("eject_path",        eject_path,	       "/usr/bin/eject")
+
+// INPUT
+PARAMETER_LIST("input",             input)
+
+// GENERAL
+PARAMETER_BOOL("blur",		   blur,	       false)
+PARAMETER_BOOL("fullscreen",       fullscreen,         false)
+PARAMETER_BOOL("cursor",       	   cursor,             true)
+PARAMETER_NUM("h_res",             h_res,              800)
+PARAMETER_NUM("v_res",             v_res,              600)
+PARAMETER_NUM("alternative_h_res", alternative_h_res,  0)
+PARAMETER_NUM("alternative_v_res", alternative_v_res,  0)
+PARAMETER_NUM("blanktime",         blanktime,          0)
+PARAMETER_NUM("blankcolor_r",      blankcolor_r,       0)
+PARAMETER_NUM("blankcolor_g",      blankcolor_g,       0)
+PARAMETER_NUM("blankcolor_b",      blankcolor_b,       0)
+PARAMETER_NUM("blankopacity",      blankopacity,       0)
+PARAMETER_NUM("image_cache",       image_cache,        10)
+PARAMETER_STR("temp_image_loc",	   temp_image_loc,     "")
+PARAMETER_PAIR("cdrom",		   cdpath)
+PARAMETER_PAIR("cdrom_name",	   cdname)
+PARAMETER_NUM("jump",    	   jump,     	       10)
+PARAMETER_NUM("idle_time",    	   idle_time,  	       1)
+PARAMETER_BOOL("show_quit",	   show_quit,	       true)
+PARAMETER_STR("shutdown_script",   shutdown_script,    "")
+PARAMETER_NUM("debug_level",	   debug_level,	       2)
+PARAMETER_BOOL("media",		   media,	       true)
+PARAMETER_BOOL("busy_indicator",   busy_indicator,     true)
+PARAMETER_STR("autostart",         autostart,          "")
+
+// media
+PARAMETER_STR("first_dev_name",	    first_dev_name,	"Default")
+PARAMETER_BOOL("first_dev_digital", first_dev_digital,	true)
+PARAMETER_NUM("first_dev_channels", first_dev_channels,	2)
+PARAMETER_STR("first_dev_output",   first_dev_output,	"alsa")
+PARAMETER_STR("first_dev_path",	    first_dev_path,	"default")
+PARAMETER_STR("second_dev_name",     second_dev_name,	"")
+PARAMETER_BOOL("second_dev_digital", second_dev_digital, false)
+PARAMETER_NUM("second_dev_channels",  second_dev_channels, 2)
+PARAMETER_STR("second_dev_output",   second_dev_output,	"oss")
+PARAMETER_STR("second_dev_path",     second_dev_path,	"/dev/dsp1")
+PARAMETER_STR("third_dev_name",     third_dev_name,	"")
+PARAMETER_BOOL("third_dev_digital", third_dev_digital, true)
+PARAMETER_NUM("third_dev_channels",  third_dev_channels, 6)
+PARAMETER_STR("third_dev_output",   third_dev_output,	"alsa")
+PARAMETER_STR("third_dev_path",     third_dev_path,	"spdif")
+
+PARAMETER_PAIR("filetypes_p",      filetypes_p)
+
+PARAMETER_BOOL("convert",	   convert,		false)
+PARAMETER_STR("convert_locale",	   convert_locale,	"ISO-8859-1")
+PARAMETER_STR("convert_mp3_locale",convert_mp3_locale,	"ISO-8859-1")
+
+// internal
+PARAMETER_STR("replay_read",	   replay_read,		"last_replay.rep")
+PARAMETER_BOOL("benchmark",	   benchmark,		false)
+PARAMETER_STR("replay_write",	   replay_write,	"last_replay.rep")
+PARAMETER_BOOL("sam",		   sam,			false)
+PARAMETER_STR("outdev",		   outdev,		"dxr3")
+PARAMETER_STR("homedir",	   homedir,		"")
+PARAMETER_STR("var_data_dir",	   var_data_dir,	"")
+PARAMETER_NUM("last_key",	   last_key,		time(0))
+PARAMETER_NUM("priority_change",   priority_change,	false)
+
+
+// Tiny Public functions to give write access to some variables
+
+// seond action menu active?
+PUBLIC_PARM(void s_sam(bool c) { sam = c; })
+
+PUBLIC_PARM(void s_replay_read(std::string s) { replay_read = s; })
+PUBLIC_PARM(void s_benchmark(bool b) { benchmark = b; })
+PUBLIC_PARM(void s_fullscreen(bool f) { fullscreen = f; })
+PUBLIC_PARM(void s_replay_write(std::string s) { replay_write = s; })
+PUBLIC_PARM(void s_outdev(std::string s) { outdev = s; })
+PUBLIC_PARM(void set_res(int v, int h) { h_res = h; v_res = v; })
+PUBLIC_PARM(void s_input(const std::list<std::string>& i) { input = i; })
+PUBLIC_PARM(void s_shutdown_script(std::string s) {shutdown_script = s;})
+PUBLIC_PARM(void s_debug_level(int level) {debug_level = level;})
+PUBLIC_PARM(void s_homedir(std::string d) { homedir = d; })
+PUBLIC_PARM(void s_var_data_dir(std::string d) { var_data_dir = d; })
+PUBLIC_PARM(void s_temp_image_loc(std::string t) { temp_image_loc = t; })
+PUBLIC_PARM(void set_tray_open(bool md) { tray_open = md; })
+PUBLIC_PARM(void s_last_key(int time) { last_key = time; })
+#include "config_pre_post.hpp"

@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Martins Zabarovskis <martins@zabarovski.lv>, 2008.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-26 09:21+0100\n"
+"PO-Revision-Date: 2008-12-01 22:00+0200\n"
+"Last-Translator: Martins Zabarovskis <martins@zabarovski.lv>\n"
+"Language-Team: LATVIAN <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: weather.cpp:236
+msgid "Error downloading weather data"
+msgstr "Kļuda ielādējot laika prognozi"
+
+#: weather.cpp:238
+msgid "Please check your connection"
+msgstr "Lūdzu pārbaudiet pieslēgumu"
+
+#: weather.cpp:239
+msgid "and/or configuration file"
+msgstr "un/vai konfigurācijas failu"
+
+#: weather.cpp:274
+msgid "Weather"
+msgstr "Laiks"
+
+#: weather.cpp:298
+msgid "City: "
+msgstr "Pilsēta: "
+
+#: weather.cpp:304
+msgid "Date: "
+msgstr "Datums: "
+
+#: weather.cpp:310
+msgid "Condition: "
+msgstr "Apstākļi: "
+
+#: weather.cpp:319
+msgid "Temp: "
+msgstr "Temp.: "
+
+#: weather.cpp:421
+msgid "No cities defined in WeatherConfig"
+msgstr "Nav definēta pilsēta failā WeatherConfig"
+
+#: weather.cpp:422
+msgid "Please define at least one city"
+msgstr "Lūdzu definējiet vismaz vienu pilsētu"
+
+#: weather_plugin.cpp:14 weather_plugin.cpp:33
+msgid "Weather forecast"
+msgstr "Laika prognoze"
+
+#: weather_plugin.cpp:30
+msgid "See weather forecast"
+msgstr "Skatīt laika prognozi"

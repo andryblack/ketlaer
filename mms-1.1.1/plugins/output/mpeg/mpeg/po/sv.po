@@ -1,0 +1,22 @@
+# mmsv2 Swedish translation
+# Copyright (C) 2004-2007 Martin Vopatek
+# This file is distributed under the same license as mmsv2.
+# Martin Vopatek <voppe1@spray.se>, 2004-2007
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms-1.0.9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-11-28 16:21+0100\n"
+"PO-Revision-Date: 2007-03-06 16:29+0100\n"
+"Last-Translator: Martin Vopatek <voppe1@spray.se>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#: mpeg_out.cpp:62
+msgid "Trying to write to an unitialized device"
+msgstr "Försöker skriva till en oinitierad enhet"

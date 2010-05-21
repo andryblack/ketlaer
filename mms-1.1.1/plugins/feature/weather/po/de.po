@@ -1,0 +1,65 @@
+# translation of mms.po to English
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Andreas Saur <acmelabs@t-online.de>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: mms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-26 09:21+0100\n"
+"PO-Revision-Date: 2008-02-02 20:25+0100\n"
+"Last-Translator: Andreas Saur <acmelabs@t-online.de>\n"
+"Language-Team: English <en@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: weather.cpp:236
+msgid "Error downloading weather data"
+msgstr "Fehler beim holen der Wetterdaten"
+
+#: weather.cpp:238
+msgid "Please check your connection"
+msgstr "Bitte überprüfen Sie Ihre Verbindung"
+
+#: weather.cpp:239
+msgid "and/or configuration file"
+msgstr "und/oder die Konfigurationsdatei"
+
+#: weather.cpp:274
+msgid "Weather"
+msgstr "Wetter"
+
+#: weather.cpp:298
+msgid "City: "
+msgstr "Stadt: "
+
+#: weather.cpp:304
+msgid "Date: "
+msgstr "Datum: "
+
+#: weather.cpp:310
+msgid "Condition: "
+msgstr "Momentan: "
+
+#: weather.cpp:319
+msgid "Temp: "
+msgstr "Temp: "
+
+#: weather.cpp:421
+msgid "No cities defined in WeatherConfig"
+msgstr "Keine Orte in der WeatherConfig !"
+
+#: weather.cpp:422
+msgid "Please define at least one city"
+msgstr "Bitte wenigstens eine Stadt angeben"
+
+#: weather_plugin.cpp:14 weather_plugin.cpp:33
+msgid "Weather forecast"
+msgstr "Wettervorhersage"
+
+#: weather_plugin.cpp:30
+msgid "See weather forecast"
+msgstr "Wettervorhersage"

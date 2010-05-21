@@ -1,0 +1,1536 @@
+#! /bin/sh
+
+TMPLOG="configure.log"
+rm -f "$TMPLOG"
+
+cc_check() {
+  echo >> "$TMPLOG"
+  cat "$TMPC" >> "$TMPLOG"
+  echo >> "$TMPLOG"
+  echo "$_cc $_inc_extra $_ld_static $_ld_extra $TMPC -o $TMPO $@" >> "$TMPLOG"
+  rm -f "$TMPO"
+  ( "$_cc" $_inc_extra $_ld_static $_ld_extra "$TMPC" -o "$TMPO" "$@" ) >> "$TMPLOG" 2>&1
+  TMP="$?"
+  echo >> "$TMPLOG"
+  echo "ldd $TMPO" >> "$TMPLOG"
+  ( ldd "$TMPO" ) >> "$TMPLOG" 2>&1
+  echo >> "$TMPLOG"
+  return "$TMP"
+}
+
+die () {
+  echo
+  echo "Error: $@" >&2
+  echo >&2
+  exit 1
+}
+
+# Use this before starting a check
+echocheck() {
+  echo "============ Checking for $@ ============" >> "$TMPLOG"
+  echo ${_echo_n} "Checking for $@ ... ${_echo_c}"
+}
+
+# Use this to echo the results of a check
+echores() {
+  echo "Result is: $@" >> "$TMPLOG"
+  echo "##########################################" >> "$TMPLOG"
+  echo "" >> "$TMPLOG"
+  echo "$@"
+}
+
+for I in "$TMPDIR" "$TEMPDIR" "/tmp" ; do
+  test "$I" && break
+done
+
+for parm in "$@" ; do
+  if test "$parm" = "--help" || test "$parm" = "-help" || test "$parm" = "-h" ; then
+    cat << EOF
+
+Usage: $0 [OPTIONS]...
+
+Configuration:
+  -h, --help             display this help and exit
+
+Installation directories:
+  --prefix=DIR           use this prefix for installing mms [/usr/local]
+  --sysconfdir=DIR       use this prefix for system configuration files [/etc]
+  --bindir=DIR           use this prefix for installing executeable files [$prefx/bin]
+  --libdir=DIR           use this prefix for installing library files [$prefx/lib]
+  --datadir=DIR          use this prefix for installing shared data files [$prefix/share]]
+  --config=DIR           use this configuration directory [/etc/mms]
+
+Options:
+  --disable-audio	 Disable all music support
+  --disable-fancy-audio	 Disable fancy audio features like id3 tags,
+			 audio covers etc.
+  --enable-gst-audio	 Enable Gstreamer audio player
+  --enable-alsaplayer	 Enable Alsaplayer audio player
+  --disable-xine-audio	 Disable Xine audio player
+
+  --disable-movie	 Disable all movie support
+  --disable-fancy-movie  Disable fancy movie features like downloading
+  			 movie information from imdb.
+  --disable-ffmpeg-thumb Disable internal thumbnailer. Mms will need
+                         MPlayer to generate thumbnails (slower).
+
+  --disable-picture	 Disable all picture support
+
+  --disable-epg		 Disable Electronic Program Guide
+
+  --enable-clock	 Enable Clock / Alarm
+
+  --enable-notify-area	 Enable Notification Area
+
+  --enable-weather	 Enable Weather forecast
+
+  --enable-vbox		 Enable VBox
+
+  --enable-game	         Enable game emulator support
+  --disable-fancy-game   Disable fancy game features such as covers
+
+  --enable-tv            Enable simple TV entry in startmenu
+
+  --enable-res-switch	 Enable switch resolution on the fly
+
+  --enable-lirc	         Enable lirc input
+  --enable-evdev         Enable evdev input
+  --disable-mouse        Disable mouse input (mouse requires SDL)
+
+  --disable-sdl		 Disable sdl output
+  --enable-opengl	 Enable opengl output
+  --enable-dxr3	         Enable dxr3 output
+  --enable-dvb	         Enable dvb output
+  --enable-mpeg	         Enable writing the output to a mpeg file on disc
+  --enable-lcd	         Enable LCD display output
+
+  --use-internal-ffmpeg  Uses internal ffmpeg instead of external ffmpeg
+
+  --disable-x11-sdl	 Disable X11 sdl output (for framebuffer)
+
+  --enable-python	 Enable support for writing plugins in Python
+
+  --disable-inotify	 Disable automatic folder change updating
+
+  --disable-nls		 Disable gettext
+
+  --enable-benchmark	 Enable benchmarking
+  --enable-debug	 Compile mms with debugging symbols (for gdb)
+			 and debugging messages
+  --optimize-for-size    Build MMS with -Os instead of -O3
+  --disable-optimization Build MMS for i386 instead of specific architecture
+
+EOF
+    exit 0
+  fi
+done # for parm in ...
+
+cc=mipsel-linux-gcc
+CC=mipsel-linux-gcc
+
+if { echo '#if __GNUC__ > 3 || (__GNUC__ == 3 && __GNUC_MINOR__ >= 97)'
+ echo ' yes '
+ echo '#endif'; } | ${CC} -E - | grep yes > /dev/null; then
+ _gcc_version_major="4"
+elif { echo '#if __GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ >= 97)'
+   echo ' yes '
+   echo '#endif'; } | ${CC} -E - | grep yes > /dev/null; then
+ _gcc_version_major="3"
+else
+ _gcc_version_major="2"
+fi
+
+if { echo '#if __GNUC__ > 2 && (__GNUC_MINOR__ >= 4)'
+   echo ' yes '
+   echo '#endif'; } | ${CC} -E - | grep yes > /dev/null; then
+ _gcc_version_minor="4"
+elif { echo '#if __GNUC__ > 2 && (__GNUC_MINOR__ >= 3)'
+   echo ' yes '
+   echo '#endif'; } | ${CC} -E - | grep yes > /dev/null; then
+ _gcc_version_minor="3"
+else
+ _gcc_version_minor="2"
+fi
+
+# cpu detection also from mplayer
+
+cpu_detect() {
+
+  _mmx=no
+  _3dnow=no
+  _3dnowex=no
+  _mmx2=no
+  _sse=no
+  _sse2=no
+  _mtrr=no
+  proc=i386 
+  iproc=386
+
+  _optimizing="$proc"
+}
+
+##########################################
+# iconv probe
+#
+# Taken from mplayers configure script.
+cat > test.c << EOF
+#include <stdio.h>
+#include <unistd.h>
+#include <iconv.h>
+#define INBUFSIZE 1024
+#define OUTBUFSIZE 4096
+
+char inbuffer[INBUFSIZE];
+char outbuffer[OUTBUFSIZE];
+
+int main(void) {
+  size_t numread;
+  iconv_t icdsc;
+  char *tocode="UTF-8";
+  char *fromcode="cp1250";
+  if ((icdsc = iconv_open (tocode, fromcode)) != (iconv_t)(-1)) {
+    while ((numread = read (0, inbuffer, INBUFSIZE))) {
+      char *iptr=inbuffer;
+      char *optr=outbuffer;
+      size_t inleft=numread;
+      size_t outleft=OUTBUFSIZE;
+      if (iconv(icdsc, (char **)&iptr, &inleft, &optr, &outleft)
+          != (size_t)(-1)) {
+        write (1, outbuffer, OUTBUFSIZE - outleft);
+      }
+    }
+    if (iconv_close(icdsc) == -1)
+      ;
+  }
+}
+EOF
+if $CC -o test.o test.c ; then
+  iconv='#define use_iconv 1'
+  rm test.o
+else
+  iconv='#undef use_iconv'
+fi
+rm test.c
+
+##########################################
+# imlib probe
+
+imlib2=yes
+
+##########################################
+# pcrecpp check
+
+pcrecpp=yes
+
+##########################################
+# ncurses probe
+#
+
+ncurses=yes
+
+##########################################
+# ffmpeg probe
+#
+
+ffmpeg_external=no
+ffmpeg_new=yes
+
+ffmpeg_check() {
+
+if test $_external_ffmpeg = "no"; then
+echo "Skipping external ffmpeg check, using internal"
+echo ""
+return
+fi
+
+echo "Checking for external ffmpeg (pre 25.02.08)"
+
+cat > test.c << EOF
+#include <avcodec.h>
+#include <swscale.h>
+int main(void) { avcodec_find_encoder_by_name(""); sws_freeContext(0); return 0; }
+EOF
+
+if pkg-config --exists libavcodec libavformat libswscale libavutil && gcc `pkg-config --cflags libavcodec libavutil libswscale libavformat` -o test.o test.c `pkg-config --libs libavcodec libavutil libswscale libavformat` >/dev/null 2>&1 ; then
+rm test.o
+ffmpeg_external=yes
+ffmpeg_new=no
+fi
+rm test.c
+
+if test $ffmpeg_external = "yes"; then
+echo "- test ok"
+echo ""
+else
+echo "- test failed"
+echo ""
+fi
+
+}
+
+ffmpeg_new_check() {
+
+if test $_external_ffmpeg = "no"; then
+echo "Skipping external ffmpeg check, using internal"
+echo ""
+return
+fi
+
+echo "Checking for external ffmpeg (post 25.02.08)"
+
+cat > test.c << EOF
+#include <libavcodec/avcodec.h>
+#include <libswscale/swscale.h>
+int main(void) { avcodec_find_encoder_by_name(""); sws_freeContext(0); return 0; }
+EOF
+
+if pkg-config --exists libavcodec libavformat libswscale libavutil && gcc `pkg-config --cflags libavcodec libavutil libswscale libavformat` -o test.o test.c `pkg-config --libs libavcodec libavutil libswscale libavformat` >/dev/null 2>&1 ; then
+rm test.o
+ffmpeg_new=yes
+ffmpeg_external=yes
+fi
+rm test.c
+
+if test $ffmpeg_external = "yes"; then
+echo "- test ok"
+echo ""
+else
+echo "- test failed, using internal ffmpeg version"
+echo ""
+fi
+}
+
+
+##########################################
+# boost probe
+#
+
+external_boost=no
+
+echo "Checking for external boost library"
+
+cat > test.c << EOF
+#include <boost/foreach.hpp>
+
+#include <vector>
+
+int main( void ) { std::vector<int> i; i.push_back(1); BOOST_FOREACH(int number, i); return 0; }
+EOF
+
+boost_include_hack="-isystem /usr/include/boost/ -isystem /usr/include/boost-1_36/ -isystem /usr/include/boost-1_35/ -isystem /usr/include/boost-1_34_1/ -isystem /usr/include/boost-1_34_0/"
+
+if g++ -I /usr/include $boost_include_hack test.c -o test.o > /dev/null 2>&1 ; then
+external_boost=yes
+fi
+
+if test $external_boost = "yes"; then
+echo "- test ok"
+echo ""
+else
+echo "- test failed, using internal boost version"
+echo ""
+fi
+
+##########################################
+# sdl probe
+#
+
+sdl_check() {
+
+echo "Checking for sdl"
+
+cat > test.c << EOF
+#include <SDL/SDL.h>
+int main( void ) { SDL_SetVideoMode(1, 1, 32, SDL_SWSURFACE); return 0; }
+EOF
+
+sdl=no
+if gcc -o test.o test.c `sdl-config --libs` > /dev/null 2>&1 ; then
+sdl=yes
+rm test.o
+fi
+rm test.c
+
+if test $sdl = "no" ; then
+die "Please install sdl!"
+else
+echo "- test ok"
+echo ""
+fi
+
+}
+
+##########################################
+# opengl probe
+#
+
+opengl_check() {
+
+echo "Checking for openGL"
+
+cat > test.c << EOF
+#include <GL/gl.h>
+#include <GL/glext.h>
+int main( void ) { glViewport( 0, 0, 0, 0 ); return 0; }
+EOF
+
+opengl=no
+if gcc -o test.o test.c -lGL > /dev/null 2>&1 ; then
+opengl=yes
+rm test.o
+fi
+rm test.c
+
+if test $opengl = "no" ; then
+die "Please install opengl!"
+else
+echo "- test ok"
+echo ""
+fi
+
+}
+
+##########################################
+# python probe
+#
+
+python_check() {
+
+echo "Checking for correct version of python"
+
+python_version="2.6"
+python=yes
+}
+
+##########################################
+# taglib probe
+#
+
+taglib_check() {
+_taglib=yes
+}
+
+##########################################
+# sqlite probe
+#
+
+sqlite_check() {
+sqlite=yes
+}
+
+##########################################
+# alsaplayer probe
+#
+
+alsaplayer_check() {
+
+echo "Checking for alsaplayer"
+
+cat > test.c << EOF
+#include <alsaplayer/control.h>
+int main( void ) { return (int) (ap_set_position (0, 0)); }
+EOF
+
+alsaplayer=no
+if gcc -o test.o test.c -lalsaplayer > /dev/null 2>&1 ; then
+alsaplayer=yes
+rm test.o
+fi
+rm test.c
+
+if test $alsaplayer = "no" ; then
+die "Test failed! Please install alsaplayer"
+else
+echo "- test ok"
+echo ""
+fi
+
+}
+
+##########################################
+# xine probe
+#
+
+xine_check() {
+
+echo "Checking for xine-lib"
+
+cat > test.c << EOF
+#include <xine.h>
+int main( void ) { return XINE_PARAM_AUDIO_VOLUME; }
+EOF
+
+xine=no
+if gcc -o test.o test.c `xine-config --libs` > /dev/null 2>&1 ; then
+xine=yes
+rm test.o
+fi
+rm test.c
+
+if test $xine = "no" ; then
+die "Test failed! Please install xine-lib"
+else
+echo "- test ok"
+echo ""
+fi
+
+}
+
+##########################################
+# gstreamer probe
+#
+
+gstreamer_check() {
+
+echo "Checking for gstreamer"
+
+cat > test.c << EOF
+#include <gst/gst.h>
+int main( void ) { return GST_SECOND; }
+EOF
+
+gstreamer=no
+if gcc -o test.o test.c `pkg-config --silence-errors --libs --cflags gstreamer-0.10` > /dev/null 2>&1 ; then
+gstreamer=yes
+rm test.o
+fi
+rm test.c
+
+if test $gstreamer = "no" ; then
+die "Test failed! Please install gstreamer"
+else
+echo "- test ok"
+echo ""
+fi
+
+}
+
+##########################################
+# commoncpp2 probe
+#
+
+commoncpp2_check() {
+cpp2=yes
+}
+
+##########################################
+# dxr3 probe
+#
+
+dxr3_check() {
+
+cat > test.c << EOF
+#include <linux/em8300.h>
+int main( void ) { return EM8300_PLAYMODE_PLAY; }
+EOF
+
+dxr3=no
+if gcc -o test.o test.c > /dev/null 2>&1 ; then
+dxr3=yes
+rm test.o
+fi
+rm test.c
+
+if test $dxr3 = "no" ; then
+die "Please install the dxr3 libraries!"
+fi
+
+}
+
+##########################################
+# lirc probe
+#
+
+lirc_check() {
+
+cat > test.c << EOF
+#include "lirc/lirc_client.h"
+int main( void ) { return lirc_init("mms",1); }
+EOF
+
+lirc=no
+if gcc -o test.o -llirc_client test.c > /dev/null 2>&1 ; then
+lirc=yes
+rm test.o
+fi
+rm test.c
+
+if test $lirc = "no" ; then
+die "Please install the lirc libraries!"
+fi
+
+}
+
+##########################################
+# libfs++ probe
+#
+
+libfs_check() {
+
+cat > test.c << EOF
+#include <iterator>
+class test_iterator
+ : public std::iterator <std::input_iterator_tag, void, void, void, void>
+{
+};
+
+int main(){}
+EOF
+
+libfs=no
+if g++ -o test.o test.c > /dev/null 2>&1 ; then
+libfs=yes
+rm test.o
+echo "- test ok"
+echo ""
+else
+echo "- test failed. Enabling workaround"
+echo ""
+fi
+rm test.c
+}
+
+##########################################
+# X11 probe
+#
+
+x11_check() {
+
+cat > test.c << EOF
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+int main(void) { (void) XCreateWindow(0,0,0,0,0,0,0,0,0,0,0,0); return 0; }
+EOF
+
+_x11=no
+if gcc -o test.o test.c -lXext -lX11 > /dev/null 2>&1 ; then
+_x11=yes
+rm test.o
+echo "- test ok"
+echo ""
+else
+echo "- test failed"
+echo ""
+fi
+rm test.c
+}
+
+##########################################
+# inotify-tools probe
+#
+
+inotify_check() {
+
+cat > test.c << EOF
+extern "C" {
+#include <inotifytools/inotifytools.h>
+#include <inotifytools/inotify.h>
+}
+
+int main( void ) { struct inotify_event *event; event = inotifytools_next_event(-1); return 0; }
+EOF
+
+inotify=no
+if g++ -o test.o test.c -linotifytools > /dev/null 2>&1 ; then
+inotify=yes
+rm test.o
+fi
+rm test.c
+
+if test $inotify = "no" ; then
+die "Please install inotify-tools!"
+fi
+
+}
+
+# Default variables:
+
+_music_all=yes
+_movie_all=yes
+_picture_all=yes
+_game_all=no
+_tv_all=no
+
+_epg=yes
+
+_clock=no
+
+_notify_area=no
+
+_weather=no
+
+_vbox=no
+
+_aplayer_alsaplayer=no
+_aplayer_xine=yes
+_aplayer_gst=no
+
+_imms=no
+
+_ffmpeg_thumb=yes
+
+_faudio=yes
+_fmovie=yes
+_fgame=yes
+
+_res_switch=no
+
+_lirc=no
+_evdev=no
+_mouse=yes
+
+_mpeg=no
+_external_ffmpeg=yes
+
+_vo_dxr3=no
+_vo_opengl=no
+_vo_sdl=yes
+_vo_dvb=no
+_vo_mpeg=no
+_vo_lcd=no
+_x11=yes
+
+_inotify=yes
+_nls=yes
+_fpython=no
+
+_bench=no
+_debug=no
+_optimization=yes
+_size_optimization=no
+
+_sqlite=no
+
+_prefix="/usr/local"
+_config=""
+_sysconfdir=""
+_bindir=""
+_libdir=""
+_datatdir=""
+
+for ac_option do
+  case "$ac_option" in
+  --prefix=*)
+    _prefix=`echo $ac_option | cut -d '=' -f 2`
+    ;;
+  --sysconfdir=*)
+    _sysconfdir=`echo $ac_option | cut -d '=' -f 2`
+    ;;
+  --bindir=*)
+    _bindir=`echo $ac_option | cut -d '=' -f 2`
+    ;;
+  --libdir=*)
+    _libdir=`echo $ac_option | cut -d '=' -f 2`
+    ;;
+  --datadir=*)
+    _datadir=`echo $ac_option | cut -d '=' -f 2`
+    ;;
+  --config=*)
+    _config=`echo $ac_option/ | cut -d '=' -f 2`
+    ;;
+  --disable-audio)
+    _music_all=no
+    ;;
+  --disable-movie)
+    _movie_all=no
+    ;;
+  --disable-picture)
+    _picture_all=no
+    ;;
+  --enable-game)
+    _game_all=yes
+    ;;
+  --enable-tv)
+    _tv_all=yes
+    ;;
+  --enable-res-switch)
+    _res_switch=yes
+    ;;
+  --enable-alsaplayer)
+    _aplayer_alsaplayer=yes
+    ;;
+  --disable-xine-audio)
+    _aplayer_xine=no
+    ;;
+  --enable-gst-audio)
+    _aplayer_gst=yes
+    ;;
+  --disable-fancy-audio)
+    _faudio=no
+    ;;
+  --disable-fancy-movie)
+    _fmovie=no
+    ;;
+  --disable-ffmpeg-thumb)
+    _ffmpeg_thumb=no
+    ;;
+  --disable-fancy-game)
+    _fgame=no
+    ;;
+  --disable-epg)
+    _epg=no
+    ;;
+  --enable-clock)
+    _clock=yes
+    ;;
+  --enable-notify-area)
+    _notify_area=yes
+    ;;
+  --enable-weather)
+    _weather=yes
+    ;;
+  --enable-vbox)
+    _vbox=yes
+    ;;
+  --enable-lirc)
+    _lirc=yes
+    ;;
+  --enable-evdev)
+    _evdev=yes
+    ;;
+  --disable-mouse)
+    _mouse=no
+    ;;
+  --disable-sdl)
+    _vo_sdl=no
+    ;;
+  --enable-opengl)
+    _vo_opengl=yes
+    ;;
+  --enable-dvb)
+    _vo_dvb=yes
+    ;;
+  --enable-dxr3)
+    _vo_dxr3=yes
+    ;;
+  --enable-lcd)
+    _vo_lcd=yes
+    ;;
+  --enable-mpeg)
+    _vo_mpeg=yes
+    ;;
+  --use-internal-ffmpeg)
+    _external_ffmpeg=no
+    ;;
+  --disable-x11-sdl)
+    _x11=no
+    ;;
+  --enable-python)
+    _fpython=yes
+    ;;
+  --disable-inotify)
+    _inotify=no
+    ;;
+  --disable-nls)
+    _nls=no
+    ;;
+  --enable-benchmark)
+    _bench=yes
+    ;;
+  --enable-debug)
+    _debug=yes
+    ;;
+  --disable-optimization)
+    _optimization=no
+    ;;
+  --optimize-for-size)
+    _size_optimization=yes
+    ;;
+
+   # for compatibility to autoconf generated configure
+   # ignore them for now, maybe some of them should be really used, too.
+  --host=*|--build=*|--target=*)
+    ;;
+  --program-prefix=*|--exec-prefix=*|--sbindir=*|--includedir=*|--libexecdir=*)
+    ;;
+  --localstatedir=*|--sharedstatedir=*)
+    ;;
+  --mandir=*|--infodir=*)
+    ;;
+  *)
+    echo "Unknown parameter: $ac_option"
+    exit
+    ;;
+
+  esac
+done
+
+test -n "$_sysconfdir" || _sysconfdir="/etc"
+test -n "$_bindir"     || _bindir="$_prefix/bin"
+test -n "$_libdir"     || _libdir="$_prefix/lib"
+test -n "$_datadir"    || _datadir="$_prefix/share"
+test -n "$_config"     || _config="$_sysconfdir/mms/"
+
+# check if any output devices needs mpeg support
+if test $_vo_dxr3 = "yes"; then
+_mpeg=yes
+elif test $_vo_dvb = "yes"; then
+_mpeg=yes
+elif test $_vo_mpeg = "yes"; then
+_mpeg=yes
+fi
+
+_sqlite=yes
+
+sqlite_check
+
+# check for installed programs
+
+if test $_fpython = "yes"; then
+    python_check
+fi
+
+if test $_faudio = "yes"; then
+    taglib_check
+fi
+
+if test $_music_all = "yes"; then
+    if test $_aplayer_alsaplayer = "yes"; then
+	alsaplayer_check
+    fi
+    if test $_aplayer_xine = "yes"; then
+	xine_check
+    fi
+    if test $_aplayer_gst = "yes"; then
+	gstreamer_check
+    fi
+fi
+
+if test $_vo_sdl = "yes"; then
+   sdl_check
+else
+   _mouse=no
+fi
+
+if test $_vo_opengl = "yes"; then
+    # opengl uses SDL for creating the window
+    if test $_vo_sdl = "no"; then
+	sdl_check
+    fi
+    opengl_check
+fi
+
+if test $_mpeg = "yes"; then
+    ffmpeg_check
+    if test $ffmpeg_new = "yes"; then
+	ffmpeg_new_check
+    fi
+elif test $_ffmpeg_thumb = "yes"; then
+    ffmpeg_check
+    if test $ffmpeg_new = "yes"; then
+	ffmpeg_new_check
+    fi
+fi
+
+if test $_vo_dxr3 = "yes"; then
+   dxr3_check
+fi
+
+if test $_lirc = "yes"; then
+   lirc_check
+fi
+
+if test $_inotify = "yes"; then
+   inotify_check
+fi
+
+_python_install="$KETLAER/lib/python"$python_version"/site-packages/"
+
+# libfs++
+
+echo "Checking namespace compatibility for libfs++"
+
+libfs_check
+
+# commoncpp2
+
+_commoncpp2_libs="`pkg-config --silence-errors --libs libccext2`"
+_commoncpp2_cflags="`pkg-config --silence-errors --cflags libccext2`"
+_commoncpp2_local="no"
+
+commoncpp2_check
+
+# libavcodec
+
+ffmpeg_output="using external library"
+
+if test $_mpeg = "yes" || test $_ffmpeg_thumb = "yes" && test $ffmpeg_external = "no"; then
+   ffmpeg_output="using internal library"
+   echo "configuring libavcodec"
+   echo "for detailed output look in libavcodec-config.log"
+   echo ""
+
+   flags=''
+   if test $_gcc_version_major = "4"; then
+    flags='-funit-at-a-time'
+   fi
+   if test $_gcc_version_major = "3" && test $_gcc_version_minor = "4"; then
+    flags='-ftracer -funit-at-a-time'
+   fi
+   if test $_gcc_version_major = "3" && test $_gcc_version_minor = "3"; then
+    flags='-ftracer'
+   fi
+   if test $(uname -m) = "x86_64"; then
+	   flags="-fPIC $flags"
+   fi
+
+   if eval ./configure-ffmpeg-ketlaer >libavcodec-config.log
+   then :
+        echo "libavcodec configured properly"
+    else
+        die "configure failed for libavcodec"
+   fi
+fi
+
+if test $_gcc_version_major = "2"; then
+ gcc_ver_major_2='#define gcc_ver_major_2 1'
+fi
+
+if test $_gcc_version_major = "3" || test $_gcc_version_major = "4"; then
+ gcc_ver_major_3='#define gcc_ver_major_3 1'
+fi
+
+if test $ffmpeg_external = "yes"; then
+ ffmpeg_type="#define ffmpeg_type_external 1"
+fi
+
+if test $_music_all = "yes" ; then
+ music='#define c_music 1'
+ music_desc="music: all"
+else
+ music_desc="music: disabled"
+fi
+
+if test $_movie_all = "yes"; then
+ movie='#define c_movie 1'
+ movie_desc="movie: all"
+else
+ movie_desc="movie: disabled"
+fi
+
+if test $_picture_all = "yes"; then
+ picture='#define c_picture 1'
+ picture_desc="picture: all"
+else
+ picture_desc="picture: disabled"
+fi
+
+if test $_faudio = "yes"; then
+ faudio='#define use_graphical_audio 1'
+fi
+
+if test $_imms = "yes"; then
+ imms='#define use_imms 1'
+fi
+
+if test $_fmovie = "yes"; then
+ fmovie='#define use_graphical_movie 1'
+fi
+
+if test $_ffmpeg_thumb = "yes"; then
+ ffmpeg_thumbnailer='#define use_ffmpeg_thumbnailer 1'
+fi
+
+if test $ffmpeg_new = "yes"; then
+ ffmpeg_split='#define ffmpeg_include_split 1'
+fi
+
+if test $_epg = "yes"; then
+ epg='#define use_epg 1'
+fi
+
+if test $_notify_area = "yes"; then
+ notify_area='#define use_notify_area 1'
+fi
+
+if test $_clock = "yes"; then
+    if test $_notify_area = "no"; then
+	echo "Notify area is disabled, consider enabling it make the clock more useful."
+    fi
+    if test $_music_all = "no"; then
+	echo "Alarm feature has been disabled because Audio is disabled"
+    fi
+ clock='#define use_clock 1'
+fi
+
+if test $_weather = "yes"; then
+ weather='#define use_weather 1'
+fi
+
+if test $_vbox = "yes"; then
+ vbox='#define use_vbox 1'
+fi
+
+if test $_game_all = "yes"; then
+ game='#define c_game 1'
+ game_desc="game: all"
+else
+ game_desc="game: disabled"
+fi
+
+if test $_fgame = "yes"; then
+ fgame='#define use_graphical_game 1'
+fi
+
+tv_desc="tv: disabled"
+if test $_tv_all = "yes"; then
+ tv='#define use_tv 1'
+ tv_desc="tv: yes"
+fi
+
+res_desc="resolution switch: disabled"
+if test $_res_switch = "yes"; then
+ res='#define use_res_switch 1'
+ res_desc="resolution switch: yes"
+fi
+
+if test $_lirc = "yes"; then
+ lirc='#define use_lirc 1'
+fi
+
+if test $_evdev = "yes"; then
+ evdev='#define use_evdev 1'
+fi
+
+if test $_mouse = "yes"; then
+ mouse='#define use_mouse 1'
+fi
+
+if test $_mpeg = "yes"; then
+ mpeg='#define use_mpeg 1'
+fi
+
+if test $_vo_dxr3 = "yes"; then
+ dxr3='#define use_dxr3 1'
+fi
+
+if test $_vo_mpeg = "yes"; then
+ mpeg_out='#define use_mpeg_write 1'
+fi
+
+if test $_vo_sdl = "yes"; then
+ sdl='#define use_sdl 1'
+fi
+
+if test $_vo_opengl = "yes"; then
+ opengl='#define use_opengl 1'
+fi
+
+if test $_vo_dvb = "yes"; then
+ dvb='#define use_dvb 1'
+fi
+
+if test $_vo_lcd = "yes"; then
+ lcd='#define use_lcd 1'
+fi
+
+if test $_fpython = "yes"; then
+ fpython='#define use_python 1'
+fi
+
+if test $_inotify = "yes"; then
+ inotify='#define use_inotify 1'
+fi
+
+if test $_nls = "yes"; then
+ nls='#define use_nls 1'
+fi
+
+if test $_bench = "yes"; then
+ benchmark='#define output_benchmark 1'
+fi
+
+if test $_sqlite = "yes"; then
+ sqlite='#define use_sqlite 1'
+fi
+
+if test $libfs = "no"; then
+ namespace='#define CXX_NAMESPACES_WORKAROUND 1'
+fi
+
+if test $_x11 = "yes" ; then
+ x11='#define use_x11 1'
+fi
+
+prefix="#define mms_prefix \"$_prefix\""
+config="#define mms_config \"$_config\""
+
+cat <<EOF
+
+Configuring mms
+
+EOF
+
+if test $_optimization = "yes"; then
+cpu_detect
+else
+_optimizing=i486
+fi
+
+build_dir=`pwd`
+
+if test $external_boost = "yes"; then
+boost_include=$boost_include_hack
+else
+boost_include=-isystem$build_dir/libs
+fi
+
+cat <<EOF
+
+Checking your c++ compiler version... $cc_version
+
+done configuring mms
+EOF
+
+echo ""
+echo "Creating config.h"
+mms_config_opts="$@"
+if [ -z "$mms_config_opts" ]; then
+mms_config_opts="<default>"
+fi
+mms_config_opts="#define MMS_CONFIG_OPTIONS \"$mms_config_opts\""
+cat > config.h << EOF
+#ifndef MMS_CONFIG_H
+#define MMS_CONFIG_H  1
+
+/* this recaps any configure option supplied by usr */
+$mms_config_opts
+
+/* prefix (where to find configuration, and theme files */
+$prefix
+$config
+
+/* gcc version */
+$gcc_ver_major_3
+$gcc_ver_major_2
+
+/* Music support */
+$music
+
+/* fancy audio support */
+$faudio
+
+/* Movie support */
+$movie
+
+/* fancy movie support */
+$fmovie
+
+/* ffmpeg thumbnailer */
+$ffmpeg_thumbnailer
+
+/* FFMPEG include split */
+$ffmpeg_split
+
+/* Picture support */
+$picture
+
+/* Game support */
+$game
+$game_disc
+
+/* IMMS support */
+$imms
+
+/* graphical game support */
+$fgame
+
+/* EPG support */
+$epg
+
+/* Notification Area support */
+$notify_area
+
+/* WEATHER support */
+$weather
+
+/* VBOX support */
+$vbox
+
+/* Tv */
+$tv
+
+/* Resolution */
+$res
+
+/* lirc */
+$lirc
+
+/* evdev */
+$evdev
+
+/* mouse */
+$mouse
+
+$x11
+
+/* Output */
+$dxr3
+$sdl
+$opengl
+$dvb
+$mpeg_out
+$lcd
+$ffmpeg_type
+$mpeg
+
+/* sqlite */
+$sqlite
+
+/* Python support */
+$fpython
+
+/* libfs++ */
+$namespace
+
+/* inotify support */
+$inotify
+
+/* gettext */
+$nls
+$iconv
+
+/* benchmark */
+$benchmark
+
+/* debug */
+$debug
+#endif
+EOF
+
+echo ""
+echo "Creating config.mak"
+cat > config.mak << EOF
+PREFIX = $_prefix
+CONFIG = $_config
+CONFIGDIR = $_config
+BINDIR = $_bindir
+LIBDIR = $_libdir
+DATADIR = $_datadir/mms
+PLUGINDIR = $_libdir/mms/plugins
+INSTALL = install-sh
+DESTDIR = ""
+
+# po/Makefiles
+LANGUAGES = da de cs pt sv fr ru es fi pl it lv
+
+# commoncpp2
+COMMONCPP2_LOCAL = $_commoncpp2_local
+COMMONCPP2_CFLAGS = $_commoncpp2_cflags
+COMMONCPP2_LIBS = $_commoncpp2_libs -lpcrecpp
+
+# debug
+DEBUG = $_debug
+GCC_VER_MAJOR = $_gcc_version_major
+GCC_VER_MINOR = $_gcc_version_minor
+
+# music support
+MUSIC = $_music_all
+APLAYER_ALSA = $_aplayer_alsaplayer
+APLAYER_XINE = $_aplayer_xine
+APLAYER_GST = $_aplayer_gst
+
+# audio
+AUDIO= $_music_all
+
+# graphical audio
+FAUDIO= $_faudio
+
+# imms support
+IMMS = $_imms
+
+# movie support
+MOVIE = $_movie_all
+
+# picture support
+PICTURE = $_picture_all
+
+# graphical movie
+FMOVIE = $_fmovie
+
+# use ffmpeg or mplayer for movie thumbnailing
+FFMPEG_THUMBNAILER = $_ffmpeg_thumb
+
+#sqlite
+SQLITE = $_sqlite
+
+# game support
+GAME = $_game_all
+
+# graphical game
+FGAME = $_fgame
+
+# epg support
+EPG = $_epg
+
+# clock support
+CLOCK = $_clock
+
+# notify-area support
+NOTIFYAREA = $_notify_area
+
+# weather support
+WEATHER = $_weather
+
+# vbox support
+VBOX = $_vbox
+
+# tv support
+TV = $_tv_all
+
+# resolution support
+RESOLUTION = $_res_switch
+
+# lirc
+LIRC = $_lirc
+
+# evdev
+EVDEV = $_evdev
+
+# mouse
+MOUSE = $_mouse
+
+# vo
+VO_DXR3 = $_vo_dxr3
+VO_SDL = $_vo_sdl
+VO_OPENGL = $_vo_opengl
+VO_DVB = $_vo_dvb
+VO_LCD = $_vo_lcd
+VO_MPEG = $_vo_mpeg
+
+X11 = $_x11
+
+MPEG = $_mpeg
+FFMPEG_EXTERNAL = $ffmpeg_external
+
+# Python
+PYTHON = $_fpython
+PYTHON_VERSION = $python_version
+PYTHON_INSTALL = $_python_install
+
+# Inotify
+INOTIFY = $_inotify
+
+# benchmark
+BENCH = $_bench
+
+# boost
+EXTERNAL_BOOST = $external_boost
+BOOST_INCLUDE=$boost_include
+
+BUILD_DIR = $build_dir
+
+#optimize
+OPTIMIZE = $_optimizing
+SIZE_OPTIMIZE = $_size_optimization
+
+EOF
+
+cat << EOF
+
+Done configuring!
+
+mms configured with:
+====================
+prefix: "$_prefix"
+
+Options:
+--------
+$music_desc
+EOF
+
+if test "$music_desc" != "music: disabled"; then
+if test $_music_all = "yes"; then
+cat << EOF
+ - fancy audio: $_faudio
+EOF
+fi
+cat << EOF
+ - imms: $_imms
+EOF
+
+if test $_aplayer_xine = "yes"; then
+cat << EOF
+ - player: Xine
+EOF
+fi
+if test $_aplayer_gst = "yes"; then
+cat << EOF
+ - player: Gstreamer
+EOF
+fi
+if test $_aplayer_alsaplayer = "yes"; then
+cat << EOF
+ - player: Alsaplayer
+EOF
+fi
+fi
+
+cat << EOF
+$movie_desc
+EOF
+
+if test $_ffmpeg_thumb = "yes"; then
+cat << EOF
+ - thumbnailer: ffmpeg
+EOF
+else
+cat << EOF
+ - thumbnailer: mplayer
+EOF
+fi
+
+cat << EOF
+$picture_desc
+$game_desc
+epg: $_epg
+clock: $_clock
+notify area: $_notify_area
+weather: $_weather
+vbox: $_vbox
+python: $_fpython
+$tv_desc
+$res_desc
+EOF
+
+cat << EOF
+
+Input:
+------
+keyboard: yes
+lirc: $_lirc
+evdev: $_evdev
+
+Output:
+-------
+dxr3: $_vo_dxr3
+sdl: $_vo_sdl
+opengl: $_vo_opengl
+dvb: $_vo_dvb
+lcd: $_vo_lcd
+mpeg: $_vo_mpeg
+EOF
+if test $_mpeg = "yes"; then
+cat << EOF
+ - ffmpeg: $ffmpeg_output
+EOF
+fi
+
+cat << EOF
+
+Misc:
+-----
+inotify: $_inotify
+gettext: $_nls
+benchmark: $_bench
+external boost: $external_boost
+external ffmpeg: $ffmpeg_external
+debug: $_debug
+optimizing for architecture: $_optimizing
+optimizing for size: $_size_optimization
+======================
+
+EOF
+
+# clean up after tests
+rm -f configure.log

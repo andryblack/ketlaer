@@ -1,0 +1,50 @@
+.\" Erstellt von Roman Müllenschläder <mms@prodeia.de>
+.
+.TH MMS_PIC_LIBRARY 1 "01.07.2008" "My Media System - mms-pic-library" "Dienstprogramme für Benutzer"
+.SH BEZEICHNUNG
+mms-pic-library \- Erstellt Vorschaubilder und die Bilddatenbank
+\fIpictures.db\fP von Bilderverzeichnissen für MMS offline.
+.SH "ÜBERSICHT"
+\fBmms-pic-library\fP [ \-\-help|\-h ] [ \-c  \fIPfad\fP] [ \-p  \fIPfad\fP] [ \-d  \fIPfad\fP ] [ \-d  \fIPfad\fP ] ...
+.SH BESCHREIBUNG
+\fBmms-pic-library\fP scannt die in \fICONFIGDIR/PictureConfig\fP
+angegebenen \fIVerzeichnisse\fP nach Bild-Dateien, schreibt die Daten in die
+Datenbank und erstellt Vorschaubilder (Thumbnails) in dem in
+\fICONFIGDIR/Config\fP angegebenen Temp-Verzeichnis.
+Dies beschleunigt die Navigation innerhalb der Bildergalerien.
+.PP
+
+.SH OPTIONEN
+.TP
+\fB\-\-help|\-h\fP
+Gibt eine Hilfe aus, in der die Funktionen kurz erläutert sind.
+.TP
+\fB\-c <absoluter Pfad>\fP
+Nutze alternatives Konfigurationsverzeichnis.
+.TP
+\fB\-p <absoluter Pfad>\fP
+Nutze alternatives persönliches Verzeichnis (Datenbanken, Playlisten).
+.TP
+\fB\-d <Pfad>\fP
+Scanne anstatt der in der \fICONFIGDIR/PictureConfig\fP angegebenen Pfade den
+mittels \fB-d\fP gegebenen Pfad. Diese Option kann mehrfach verwendet werden:
+
+mms-pic-library \-d /pfad/eins/ \-d /pfad/zwei/
+
+.SH DATEIEN
+Die Vorschaubilder werden im Verzeichnis
+.I "temp_image_loc"
+abgelegt, welches in der Datei \fICONFIGDIR/Config\fP festgelegt wird.
+In der Regel ist dies:
+.I "/var/cache/mms/"
+
+.SH "SIEHE AUCH"
+.BR mms (1),
+.BR mms-audio-library (1),
+.BR mms-movie-library (1)
+
+Für weitere Informationen (Wiki, Forum) siehe auch \fBwww.mymediasystem.org\fP
+
+.SH AUTOR
+.TP
+Anders Rune Jensen anders@gnulinux.dk

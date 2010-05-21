@@ -1,0 +1,17 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS MplayerConfig
+#define S_PARAMETER_CLASS S_MplayerConfig
+#define STRING_PARAMETER_CLASS "MplayerConfig"
+
+#define MMS_CONFIG_VERSION "3"
+
+PARAMETER_STR("mplayer_opts",       mplayer_opts,       "-cache 8192 -vo xv")
+PARAMETER_STR("mplayer_slave_opts",  mplayer_slave_opts, "-monitoraspect 16:9")
+PARAMETER_STR("mplayer_dvd_opts",    mplayer_dvd_opts,   "-cache 8192 -vo xv")
+PARAMETER_STR("mplayer_path",      mplayer_path,       "/usr/bin/mplayer")
+PARAMETER_STR("mplayer_ttf_font",      mplayer_ttf_font,       "/usr/share/fonts/arial.ttf")
+PARAMETER_BOOL("dvdnav",      	   dvdnav,             false)
+
+#include "config_pre_post.hpp"

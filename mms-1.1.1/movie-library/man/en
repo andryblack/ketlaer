@@ -1,0 +1,52 @@
+.\" Done by Roman Müllenschläder <mms@prodeia.de>
+.
+.TH MMS_MOVIE_LIBRARY 1 "01.07.2008" "My Media System - mms-movie-library" "user commands"
+.SH NAME
+mms-movie-library \- Generates movie thumbnails and database \fImoviehd.db\fP
+of whole movie-dirs offline.
+.SH "SYNOPSIS"
+\fBmms-movie-library\fP [ \-\-help|\-h ] [ \-c  \fIpath\fP] [ \-p  \fIpath\fP]
+[ \-d  \fIpath\fP ] [ \-d  \fIpath\fP ] ...
+.SH DESCRIPTION
+\fBmms-movie-library\fP scans the \fIdirs\fP given in \fICONFIGDIR/MovieConfig\fP
+for movies, fills the database and prepares the corresponding thumbnails in
+MMS's tmp-dir which is defined in \fICONFIGDIR/Config\fP.
+
+This speeds up navigation in Movies as MMS does not need to generate the
+thumbs at runtime.
+.PP
+
+.SH OPTIONS
+.TP
+\fB\-\-help|\-h\fP
+Offers a short help and description of the commandline options
+.TP
+\fB\-c <absolute path>\fP
+Sets an alternate config-dir.
+.TP
+\fB\-p <absolute path>\fP
+Sets an alternative personal-dir (databases, etc.).
+.TP
+\fB\-d <path>\fP
+Scans the paths given with \fB-d\fP instead of those given in
+\fICONFIGDIR/MovieConfig\fP. This option might be used multiple times:
+
+mms-movie-library \-d /path/one/ \-d /path/two/
+
+.SH DATEIEN
+The tmp-dir is defined with
+.I "temp_image_loc"
+in MMS's config-file \fICONFIGDIR/Config\fP.
+Normaly this is:
+.I "/var/cache/mms/"
+
+.SH "SEE ALSO"
+.BR mms (1),
+.BR mms-audio-library (1),
+.BR mms-pic-library (1)
+
+For further documentation or information (wiki, forum): \fBmms.mymediasystem.org\fP
+
+.SH AUTHOR
+.TP
+Anders Rune Jensen anders@gnulinux.dk

@@ -1,0 +1,5 @@
+./game.cpp
+./game.hpp
+./game_config.cpp
+./game_plugin.cpp
+./game_config.hpp

@@ -1,0 +1,7 @@
+./epg_plugin.cpp
+./epg_config.cpp
+./epg.hpp
+./epg_config.hpp
+./epg.cpp
+./svdrp.hpp
+./svdrp.cpp

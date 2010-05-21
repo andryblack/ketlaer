@@ -1,0 +1,30 @@
+# mmsv2 Swedish translation
+# Copyright (C) 2004-2007 Martin Vopatek
+# This file is distributed under the same license as mmsv2.
+# Martin Vopatek <voppe1@spray.se>, 2004-2007
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms-1.0.9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-19 17:04+0100\n"
+"PO-Revision-Date: 2007-03-06 16:29+0100\n"
+"Last-Translator: Martin Vopatek <voppe1@spray.se>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#: lcd.cpp:129
+msgid "Error connecting to server "
+msgstr "Fel vid anslutning till server "
+
+#: lcd.cpp:131
+msgid " on port "
+msgstr " på port "
+
+#: lcd.cpp:132
+msgid "Check to see that the server is running and operating normally"
+msgstr "Kontrollera att servern är igång och fungerar normalt"

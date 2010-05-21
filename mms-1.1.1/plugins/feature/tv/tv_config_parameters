@@ -1,0 +1,13 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS TVConfig
+#define S_PARAMETER_CLASS S_TVConfig
+#define STRING_PARAMETER_CLASS "TVConfig"
+
+#define MMS_CONFIG_VERSION "1"
+
+PARAMETER_STR("tv_path",      tv_path,       "/usr/bin/tvtime")
+PARAMETER_STR("tvopts",       tv_opts,       "")
+
+#include "config_pre_post.hpp"

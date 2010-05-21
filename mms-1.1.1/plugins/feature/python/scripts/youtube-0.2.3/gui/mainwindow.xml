@@ -1,0 +1,190 @@
+<window>
+   <id>1001</id>
+   <defaultcontrol>22</defaultcontrol>
+   <width>800</width>
+   <height>600</height>
+   <controls>
+      <control>
+         <description>Image Control</description>
+         <type>image</type>
+         <id>1</id>
+         <posx>0</posx>
+         <posy>0</posy>
+         <width>800</width>
+         <height>600</height>
+         <layer>0</layer>
+	 <texture>general/bg.png</texture>
+	 <routecontrol>13</routecontrol>
+      </control>
+   
+      <control>
+         <description>Plugin image</description>
+         <type>image</type>
+         <id>2</id>
+         <posx>25</posx>
+         <posy>10</posy>
+         <width>50</width>
+         <height>50</height>
+         <layer>2</layer>
+         <texture>python/script.png</texture>
+      </control>
+
+      <control>
+         <description>Script label</description>
+         <type>label</type>
+         <id>3</id>
+         <posx>90</posx>
+         <posy>10</posy>
+         <width>500</width>
+         <height>45</height>
+         <layer>2</layer>
+         <label>YouTube</label>
+      </control>
+
+      <control>
+         <description>My favorites</description>
+         <type>button</type>
+         <id>22</id>
+         <posx>25</posx>
+         <posy>100</posy>
+         <width>205</width>
+         <height>35</height>
+         <layer>2</layer>
+         <onnext>16</onnext>
+         <onright>13</onright>
+         <label>My favorites</label>
+         <texturefocus>gui/button-focus.png</texturefocus>
+         <texturenofocus>gui/button-nofocus.png</texturenofocus>
+         <textoffset>18</textoffset>
+      </control>
+
+      <control>
+         <description>Recently added</description>
+         <type>button</type>
+         <id>16</id>
+         <posx>25</posx>
+         <posy>150</posy>
+         <width>205</width>
+         <height>35</height>
+         <layer>2</layer>
+	 <onprev>22</onprev>
+         <onnext>17</onnext>
+         <onright>13</onright>
+         <label>Just added</label>
+         <texturefocus>gui/button-focus.png</texturefocus>
+         <texturenofocus>gui/button-nofocus.png</texturenofocus>
+         <textoffset>18</textoffset>
+      </control>
+
+      <control>
+         <description>Recently featured</description>
+         <type>button</type>
+         <id>17</id>
+         <posx>25</posx>
+         <posy>200</posy>
+         <width>205</width>
+         <height>35</height>
+         <layer>2</layer>
+         <onprev>16</onprev>
+         <onnext>18</onnext>
+         <onright>13</onright>
+         <label>Featured</label>
+         <texturefocus>gui/button-focus.png</texturefocus>
+         <texturenofocus>gui/button-nofocus.png</texturenofocus>
+         <textoffset>18</textoffset>
+      </control>
+
+      <control>
+         <description>Top favorites</description>
+         <type>button</type>
+         <id>18</id>
+         <posx>25</posx>
+         <posy>250</posy>
+         <width>205</width>
+         <height>35</height>
+         <layer>2</layer>
+         <onprev>17</onprev>
+         <onnext>19</onnext>
+         <onright>13</onright>
+         <label>Top favorites</label>
+         <texturefocus>gui/button-focus.png</texturefocus>
+         <texturenofocus>gui/button-nofocus.png</texturenofocus>
+         <textoffset>18</textoffset>
+      </control>
+
+      <control>
+         <description>Top rated</description>
+         <type>button</type>
+         <id>19</id>
+         <posx>25</posx>
+         <posy>300</posy>
+         <width>205</width>
+         <height>35</height>
+         <layer>2</layer>
+         <onprev>18</onprev>
+         <onnext>20</onnext>
+         <onright>13</onright>
+         <label>Top rated</label>
+         <texturefocus>gui/button-focus.png</texturefocus>
+         <texturenofocus>gui/button-nofocus.png</texturenofocus>
+         <textoffset>18</textoffset>
+      </control>
+
+      <control>
+         <description>Search</description>
+         <type>button</type>
+         <id>20</id>
+         <posx>25</posx>
+         <posy>350</posy>
+         <width>205</width>
+         <height>35</height>
+         <layer>2</layer>
+         <onprev>19</onprev>
+         <onright>13</onright>
+         <label>Search</label>
+         <texturefocus>gui/button-focus.png</texturefocus>
+         <texturenofocus>gui/button-nofocus.png</texturenofocus>
+         <textoffset>18</textoffset>
+      </control>
+
+      <control>
+         <description>BG search</description>
+         <type>rectangle</type>
+         <id>21</id>
+         <posx>25</posx>
+         <posy>405</posy>
+         <width>200</width>
+         <height>30</height>
+         <layer>2</layer>
+	 <alpha>50</alpha>
+	 <rectanglecolor>0xdedede</rectanglecolor>
+      </control>
+
+      <control>
+         <description>Search field</description>
+         <type>textfield</type>
+         <id>14</id>
+         <posx>28</posx>
+         <posy>405</posy>
+         <width>197</width>
+         <height>30</height>
+         <layer>3</layer>
+      </control>
+
+      <control>
+         <description>Movie list</description>
+         <type>list</type>
+         <id>13</id>
+         <posx>260</posx>
+         <posy>100</posy>
+         <width>515</width>
+         <height>430</height>
+         <layer>3</layer>
+         <onleft>22</onleft>
+         <texturefocus>gui/list-focus.png</texturefocus>
+         <texturenofocus>gui/list-nofocus.png</texturenofocus>
+	 <textoffset>8</textoffset>
+      </control>
+
+   </controls>
+</window>

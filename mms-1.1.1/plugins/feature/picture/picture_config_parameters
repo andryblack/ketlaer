@@ -1,0 +1,14 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS PictureConfig
+#define S_PARAMETER_CLASS S_PictureConfig
+#define STRING_PARAMETER_CLASS "PictureConfig"
+
+#define MMS_CONFIG_VERSION "4"
+
+PARAMETER_LIST("picture_dir",      picture_dirs)
+PARAMETER_LIST("picture_dir_no_watch",      picture_dirs_no_watch)
+PARAMETER_LIST("exclude_picture_dir", excluded_picture_dirs)
+
+#include "config_pre_post.hpp"

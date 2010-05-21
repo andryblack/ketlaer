@@ -1,0 +1,19 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS MovieConfig
+#define S_PARAMETER_CLASS S_MovieConfig
+#define STRING_PARAMETER_CLASS "MovieConfig"
+
+#define MMS_CONFIG_VERSION "13"
+
+PARAMETER_LIST("mov_dir",          movie_dirs)
+PARAMETER_LIST("mov_dir_no_watch",          movie_dirs_no_watch)
+PARAMETER_BOOL("graphical_movie_mode",  graphical_movie_mode,	true)
+PARAMETER_BOOL("movie_db",         movie_db,           true)
+PARAMETER_STR("information_source",         information_source,           "english")
+PARAMETER_BOOL("playback_in_mms",         playback_in_mms,           false)
+PARAMETER_NUM("thumbnail_accur", thumbnail_accur, 3)
+PARAMETER_PAIR("filetypes_m",      filetypes_m)
+PARAMETER_NUM("thumbnail_noblanks", thumbnail_noblanks, 0)
+#include "config_pre_post.hpp"

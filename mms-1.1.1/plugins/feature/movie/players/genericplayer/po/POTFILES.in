@@ -1,0 +1,5 @@
+./genericplayer_plugin.cpp
+./genericplayer.cpp
+./genericplayer_config.cpp
+./genericplayer.hpp
+./genericplayer_config.hpp

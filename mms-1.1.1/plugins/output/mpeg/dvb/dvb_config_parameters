@@ -1,0 +1,12 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS DvbConfig
+#define S_PARAMETER_CLASS S_DvbConfig
+#define STRING_PARAMETER_CLASS "DvbConfig"
+
+#define MMS_CONFIG_VERSION "1"
+
+PARAMETER_STR("dvb_device",	   dvb_device,		"/dev/dvb/adapter0/video0")
+
+#include "config_pre_post.hpp"

@@ -1,0 +1,104 @@
+# Finnish translations for mms package.
+# Copyright (C) 2008 Rolf Ahrenberg
+# This file is distributed under the same license as the mms package.
+# Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>, 2008
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-09-21 14:41+0200\n"
+"Last-Translator: Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: vbox.cpp:251
+msgid "Delete marked Messages ?"
+msgstr "Poistetaanko valitut viestit?"
+
+#: vbox.cpp:253
+msgid "Yes"
+msgstr "Kyllä"
+
+#: vbox.cpp:254
+msgid "No"
+msgstr "Ei"
+
+#: vbox.cpp:316 vbox.cpp:323 vbox.cpp:483 vbox.cpp:498
+msgid "*** Unknown ***"
+msgstr "*** Tuntematon ***"
+
+#: vbox.cpp:370
+msgid "VBox"
+msgstr "VBox"
+
+#: vbox.cpp:378
+msgid "Could not connect to"
+msgstr "Yhteyden muodostus epäonnistui"
+
+#: vbox.cpp:384
+msgid "Host"
+msgstr "Osoite"
+
+#: vbox.cpp:384
+msgid "Port"
+msgstr "Portti"
+
+#: vbox.cpp:392
+msgid "Username"
+msgstr "Käyttäjätunnus"
+
+#: vbox.cpp:392
+msgid "Password"
+msgstr "Salasana"
+
+#: vbox.cpp:401
+msgid "New"
+msgstr "Uusi"
+
+#: vbox.cpp:401
+msgid "Total"
+msgstr "Kaikkiaan"
+
+#: vbox.cpp:414
+msgid "Time"
+msgstr "Kellonaika"
+
+#: vbox.cpp:421
+msgid "Min"
+msgstr "min"
+
+#: vbox.cpp:427
+msgid "CallerId"
+msgstr "Soittotunnus"
+
+#: vbox.cpp:434
+msgid "Name"
+msgstr "Nimi"
+
+#: vbox.cpp:559
+msgid "Call from"
+msgstr "Puhelu"
+
+#: vbox.cpp:559
+msgid "at"
+msgstr "kello"
+
+#: vbox.cpp:685
+msgid "Togggle New-Flag"
+msgstr "Aseta 'uusi'-lippu päälle/pois"
+
+#: vbox.cpp:689
+msgid "Toggle Delete-Flag"
+msgstr "Aseta 'tuhoa'-lippu päälle/pois"
+
+#: vbox_plugin.cpp:14 vbox_plugin.cpp:38
+msgid "VBox - Client"
+msgstr "VBox-asiakas"
+
+#: vbox_plugin.cpp:30
+msgid "Check VBox"
+msgstr "Tarkista VBox"

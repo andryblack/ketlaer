@@ -1,0 +1,29 @@
+# translation of cs-1.0.8.1.po to Czech
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER, 2005.
+#
+# Miroslav Flídr <flidr@kky.zcu.cz>, 2005, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: cs-1.0.8.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2006-12-19 09:05+0100\n"
+"Last-Translator: \n"
+"Language-Team: Czech <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: sdlout.cpp:75
+msgid "Could not initialize"
+msgstr "Nebylo možné inicializovat"
+
+#: sdlout.cpp:89 sdlout.cpp:497
+msgid "Could not set video mode "
+msgstr "Není možné nastavit video mód "
+
+#: sdlout.cpp:91 sdlout.cpp:499
+msgid "error"
+msgstr "chyba"

@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Martins Zabarovskis <martins@zabarovskis.lv>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-11-28 17:30+0100\n"
+"Last-Translator: Martins Zabarovskis <martins@zabarovski.lv>\n"
+"Language-Team: LATVIAN <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: clock.cpp:130 clock.cpp:236 clock_opts.cpp:36
+msgid "off"
+msgstr "izslēgts"
+
+#: clock.cpp:243 clock_opts.cpp:48 clock_opts.cpp:72
+msgid "Audio"
+msgstr "Audio"
+
+#: clock.cpp:246 clock_opts.cpp:54
+msgid "current"
+msgstr "esošais"
+
+#: clock.cpp:275
+msgid "Could not find alarm update program"
+msgstr "Nevar atrast programmu modinātāja mainīšanai"
+
+#: clock.cpp:304
+msgid "Could not write alarms to file: "
+msgstr "Nevar ierakstīt modinātāju failā: "
+
+#: clock.cpp:344 clock_opts.cpp:35
+msgid "on"
+msgstr "ieslēgts"
+
+#: clock.cpp:346
+msgid "Riiiing!"
+msgstr "Zvāāāāāāāāāāns!"
+
+#: clock.cpp:353
+msgid "tomorrow"
+msgstr "rīt"
+
+#: clock.cpp:355
+msgid "today"
+msgstr "šodien"
+
+#: clock.cpp:420
+msgid "sunday"
+msgstr "svētdien"
+
+#: clock.cpp:421
+msgid "monday"
+msgstr "pirmdien"
+
+#: clock.cpp:422
+msgid "tuesday"
+msgstr "otrdien"
+
+#: clock.cpp:423
+msgid "wednesday"
+msgstr "trešdien"
+
+#: clock.cpp:424
+msgid "thursday"
+msgstr "ceturtdien"
+
+#: clock.cpp:425
+msgid "friday"
+msgstr "piektdien"
+
+#: clock.cpp:426
+msgid "saturday"
+msgstr "sestdien"
+
+#: clock_opts.cpp:29
+msgid "Clock Options"
+msgstr "Pulksteņa iestatījumi"
+
+#: clock_opts.cpp:43
+msgid "alarm"
+msgstr "modinātājs"
+
+#: clock_opts.cpp:62
+msgid "playlist"
+msgstr "repertuārs"
+
+#: clock_opts.cpp:92 clock_plugin.cpp:33
+msgid "Clock"
+msgstr "Pulkstenis"
+
+#: clock_alarms.cpp:302
+msgid "Add Alarm"
+msgstr "Pievienot modinātāju"
+
+#: clock_alarms.cpp:309
+msgid "Day: "
+msgstr "Diena: "
+
+#: clock_alarms.cpp:312
+msgid "Time: "
+msgstr "Laiks: "
+
+#: clock_alarms.cpp:338
+msgid "Alarms"
+msgstr "Modinātāji"

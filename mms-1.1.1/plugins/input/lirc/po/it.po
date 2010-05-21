@@ -1,0 +1,33 @@
+# translation of it.po to Italiano
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: it\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-24 09:38+0200\n"
+"PO-Revision-Date: 2007-03-15 23:15+0100\n"
+"Last-Translator:  <lorenzodes@fastwebnet.it>\n"
+"Language-Team: Italiano <it@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: lirc.cpp:71
+msgid "Could not connect to lirc daemon"
+msgstr "Impossibile connettersi al demone di lirc"
+
+#: lirc.cpp:118
+msgid "Reconnected to the lirc socket"
+msgstr "Riconnesso al socket di lirc"
+
+#: lirc.cpp:135
+msgid "Lost connection to the lirc socket: "
+msgstr "Persa connessione al socket di lirc: "
+
+#: lirc.cpp:151 lirc.cpp:157
+msgid "Error: "
+msgstr "Errore: "

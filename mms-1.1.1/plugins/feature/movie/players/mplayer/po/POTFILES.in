@@ -1,0 +1,5 @@
+./mplayer_config.hpp
+./mplayer.cpp
+./mplayer_plugin.cpp
+./mplayer.hpp
+./mplayer_config.cpp

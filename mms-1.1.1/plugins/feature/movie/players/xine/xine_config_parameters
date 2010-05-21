@@ -1,0 +1,13 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS XineConfig
+#define S_PARAMETER_CLASS S_XineConfig
+#define STRING_PARAMETER_CLASS "XineConfig"
+
+#define MMS_CONFIG_VERSION "1"
+
+PARAMETER_STR("cxfeopts",	   cxfe_opts,	       "-vo xv")
+PARAMETER_STR("cxfe_path",	   cxfe_path,	       "/usr/bin/cxfe")
+
+#include "config_pre_post.hpp"

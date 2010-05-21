@@ -1,0 +1,10 @@
+This document will describe preconditions for running the tests.
+
+test-name # preconditions
+###################################################
+two-movie-playback # Empty playlist: after starting the second movie
+		     mms will crash
+		   # Non-empty playlist: music will begin playing
+		     after the second movie even if music was not
+		     playing before hand
+

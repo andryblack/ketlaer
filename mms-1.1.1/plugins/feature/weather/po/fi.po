@@ -1,0 +1,65 @@
+# Finnish translations for mms package.
+# Copyright (C) 2006 Eerik Saarikalle
+# This file is distributed under the same license as the mms package.
+# Eerik Saarikalle <eerik.saarikalle@helsinki.fi>, 2006
+# Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>, 2008
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-26 09:21+0100\n"
+"PO-Revision-Date: 2008-09-21 14:42+0200\n"
+"Last-Translator: Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: weather.cpp:236
+msgid "Error downloading weather data"
+msgstr "Sääennusteen lataus epäonnistui"
+
+#: weather.cpp:238
+msgid "Please check your connection"
+msgstr "Tarkista verkkoyhteytesi"
+
+#: weather.cpp:239
+msgid "and/or configuration file"
+msgstr "ja/tai asetustiedostosi"
+
+#: weather.cpp:274
+msgid "Weather"
+msgstr "Sää"
+
+#: weather.cpp:298
+msgid "City: "
+msgstr "Kaupunki:"
+
+#: weather.cpp:304
+msgid "Date: "
+msgstr "Päivämäärä:"
+
+#: weather.cpp:310
+msgid "Condition: "
+msgstr "Säätila:"
+
+#: weather.cpp:319
+msgid "Temp: "
+msgstr "Lämpötila:"
+
+#: weather.cpp:421
+msgid "No cities defined in WeatherConfig"
+msgstr "Kaupunkeja ei ole määritelty asetustiedostossa"
+
+#: weather.cpp:422
+msgid "Please define at least one city"
+msgstr "Ole hyvä ja määritä vähintään yksi kaupunki"
+
+#: weather_plugin.cpp:14 weather_plugin.cpp:33
+msgid "Weather forecast"
+msgstr "Sääennuste"
+
+#: weather_plugin.cpp:30
+msgid "See weather forecast"
+msgstr "Katso sääennuste"

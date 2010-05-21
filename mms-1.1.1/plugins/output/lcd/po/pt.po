@@ -1,0 +1,28 @@
+# MMS Portuguese Translation.
+# Copyright (C) 2003, 2005 Luis Correia
+# This file is distributed under the same license as MMS.
+# Luis Correia <lfcorreia@users.sf.net, 2003.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: mmsv2 1.0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-19 17:04+0100\n"
+"PO-Revision-Date: 2006-07-17 19:51+0200\n"
+"Last-Translator: Luis Correia <lfcorreia@users.sf.net>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lcd.cpp:129
+msgid "Error connecting to server "
+msgstr "Erro ao ligar ao servidor "
+
+#: lcd.cpp:131
+msgid " on port "
+msgstr " na porta "
+
+#: lcd.cpp:132
+msgid "Check to see that the server is running and operating normally"
+msgstr "Verifique se o servidor está ligado"

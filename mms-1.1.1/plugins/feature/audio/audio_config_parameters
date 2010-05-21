@@ -1,0 +1,31 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS AudioConfig
+#define S_PARAMETER_CLASS S_AudioConfig
+#define STRING_PARAMETER_CLASS "AudioConfig"
+
+#define MMS_CONFIG_VERSION "13"
+
+// AUDIO
+PARAMETER_BOOL("graphical_audio_mode",  graphical_audio_mode,	true)
+PARAMETER_LIST("audio_dir",        audio_dirs)
+PARAMETER_LIST("audio_dir_no_watch",        audio_dirs_no_watch)
+PARAMETER_BOOL("audio_stop_on_clear",audio_stop_on_clear,true)
+PARAMETER_BOOL("audio_mode_playnow",audio_mode_playnow,	false)
+PARAMETER_STR("audio_player",      audio_player,       "Xine Audio")
+PARAMETER_BOOL("last_fm",   	   last_fm,		false)
+PARAMETER_STR("last_fm_path",      last_fm_path,	"/usr/lib/lastfmsubmitd/lastfmsubmit")
+PARAMETER_STR("last_fm_username",  last_fm_username,	"")
+PARAMETER_BOOL("display_buttons",  display_buttons,	false)
+
+// SCREEN SAVER
+PARAMETER_BOOL("notify_area_on_screensaver",  na_on_scr, true)
+
+PARAMETER_PAIR("filetypes_a",      filetypes_a)
+
+// INTERNAL
+PARAMETER_BOOL("audio_started",	   audio_started,	false)
+PUBLIC_PARM(void s_audio_started(bool b) { audio_started = b; })
+
+#include "config_pre_post.hpp"

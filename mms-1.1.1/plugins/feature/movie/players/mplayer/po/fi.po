@@ -1,0 +1,106 @@
+# Finnish translations for mms package.
+# Copyright (C) 2006 Eerik Saarikalle
+# This file is distributed under the same license as the mms package.
+# Eerik Saarikalle <eerik.saarikalle@helsinki.fi>, 2006
+# Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>, 2008
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-09-21 14:20+0200\n"
+"Last-Translator: Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: mplayer.cpp:43
+msgid "General options"
+msgstr "Yleiset asetukset"
+
+#: mplayer.cpp:46
+msgid "DVD options"
+msgstr "DVD-asetukset"
+
+#: mplayer.cpp:49
+msgid "VCD options"
+msgstr "VCD-asetukset"
+
+#: mplayer.cpp:52
+msgid "none"
+msgstr "tyhjä"
+
+#: mplayer.cpp:74
+msgid "subtitle language"
+msgstr "tekstityskieli"
+
+#: mplayer.cpp:77 mplayer.cpp:85 mplayer.cpp:95 mplayer.cpp:115
+#: mplayer.cpp:137
+msgid "default"
+msgstr "oletus"
+
+#: mplayer.cpp:79
+msgid "dvd audio language"
+msgstr "DVD-äänen kieli"
+
+#: mplayer.cpp:90
+msgid "font"
+msgstr "kirjasin"
+
+#: mplayer.cpp:109
+msgid "font size"
+msgstr "kirjasimen koko"
+
+#: mplayer.cpp:122
+msgid "dvd title"
+msgstr "DVD-nimike"
+
+#: mplayer.cpp:123
+msgid "vcd title"
+msgstr "VCD-nimike"
+
+#: mplayer.cpp:128
+msgid "on"
+msgstr "päällä "
+
+#: mplayer.cpp:129 mplayer.cpp:146
+msgid "off"
+msgstr "pois"
+
+#: mplayer.cpp:132
+msgid "Fullscreen"
+msgstr "Kokonäyttö"
+
+#: mplayer.cpp:138
+msgid "16:9"
+msgstr "16:9"
+
+#: mplayer.cpp:139
+msgid "4:3"
+msgstr "4:3"
+
+#: mplayer.cpp:143
+msgid "Monitor aspect"
+msgstr "Näytön kuvasuhde"
+
+#: mplayer.cpp:149
+msgid "wide (2.35:1)"
+msgstr "laajakuva (2.35:1)"
+
+#: mplayer.cpp:152
+msgid "square"
+msgstr "neliömäinen"
+
+#: mplayer.cpp:155
+msgid "Force geometry"
+msgstr "Pakota geometria"
+
+#: mplayer.cpp:323
+msgid "midentify failed to parse the length of file: "
+msgstr "tiedoston pituuden tunnistus epäonnistui: "
+
+#: mplayer.cpp:461 mplayer.cpp:574
+msgid "Video"
+msgstr "Video"

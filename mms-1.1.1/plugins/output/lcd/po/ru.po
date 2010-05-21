@@ -1,0 +1,30 @@
+# translation of ru.po to Русский
+# MMS Russian translation
+# Copyright (C) 2003-2005 Sergey V. Katunin
+# This file is distributed under the same license as the MMS package.
+# Sergey Katunin <sergo@avtograd.ru>, 2004.
+# Sergey V. Katunin <sergo@avtograd.ru>, 2005.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: mmsv2 1.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-19 17:04+0100\n"
+"PO-Revision-Date: 2005-03-20 18:36+0400\n"
+"Last-Translator: Sergey N. Svinolobov <sens@verizon.net>\n"
+"Language-Team: Русский <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lcd.cpp:129
+msgid "Error connecting to server "
+msgstr "Ошибка соединения с сервером"
+
+#: lcd.cpp:131
+msgid " on port "
+msgstr " в порту "
+
+#: lcd.cpp:132
+msgid "Check to see that the server is running and operating normally"
+msgstr "Проверьте, работает ли сервер"

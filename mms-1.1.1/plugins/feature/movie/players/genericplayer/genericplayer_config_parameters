@@ -1,0 +1,17 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS GenericPlayerConfig
+#define S_PARAMETER_CLASS S_GenericPlayerConfig
+#define STRING_PARAMETER_CLASS "GenericPlayerConfig"
+
+#define MMS_CONFIG_VERSION "1"
+
+PARAMETER_STR("generic_dvd_opts",	   	generic_dvd_opts, "%f %a dvd://%t")
+PARAMETER_STR("generic_vcd_opts",               generic_vcd_opts, "%f %a")
+PARAMETER_STR("generic_movie_opts",		generic_movie_opts, "%f %a")
+PARAMETER_STR("genericplayer_dvd_path",	   	genericplayer_dvd_path,	       "/usr/bin/xine")
+PARAMETER_STR("genericplayer_vcd_path",	   	genericplayer_vcd_path,	       "/usr/bin/xine")
+PARAMETER_STR("genericplayer_movie_path",	genericplayer_movie_path,      "/usr/bin/xine")
+
+#include "config_pre_post.hpp"

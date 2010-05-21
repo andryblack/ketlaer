@@ -1,0 +1,6 @@
+export PKG_CONFIG_PATH=$KETLAER/lib/pkgconfig
+MMS=$KETLAER
+./configure-ketlaer --prefix=$MMS  --disable-sdl --use-internal-ffmpeg --disable-xine-audio --disable-inotify --disable-optimization --disable-mouse --sysconfdir=$MMS/etc --bindir=$MMS/bin --libdir=$MMS/lib --datadir=$MMS/share --config=$MMS/etc/mms --enable-debug --enable-python --enable-tv --disable-epg
+make -i clean
+make
+make install

@@ -1,0 +1,48 @@
+# translation of de.po to Deutsch
+# translation of mmsv2.
+# Copyright (C) 2007 Roman Müllenschläder <mms@prodeia.de>
+# This file is distributed under the same license as the mmsv2 mmsv2.
+#
+# Earlier authors:
+#
+#
+# Oliver Beck <manofwar@web.de>, 2002-2003.
+# Roman Müllenschläder <mms@prodeia.de>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: de\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-24 09:38+0200\n"
+"PO-Revision-Date: 2006-10-10 21:32+0200\n"
+"Last-Translator: Roman Müllenschläder <mms@prodeia.de>\n"
+"Language-Team: Deutsch <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: genericplayer.cpp:84 genericplayer.cpp:92
+msgid "Cannot open options file!"
+msgstr "Fehler beim öffnen der Optionen-Datei!"
+
+#: genericplayer.cpp:108 genericplayer.cpp:126
+msgid "Option file malformed, list of entries not correctly terminated"
+msgstr ""
+"Die Optionen-Datei (.ops) ist fehlerhaft: Liste der Einträge ist nicht "
+"korrekt abgeschlossen"
+
+#: genericplayer.cpp:114 genericplayer.cpp:132 genericplayer.cpp:139
+#: genericplayer.cpp:155 genericplayer.cpp:174
+msgid "Option file malformed, skipping line"
+msgstr "Die Optionen-Datei (.ops) ist fehlerhaft: Überspringe Zeile"
+
+#: genericplayer.cpp:150
+msgid "Option file malformed, option value without option entry"
+msgstr "Die Optionen-Datei (.ops) ist fehlerhaft: Wert ohne Option"
+
+#: genericplayer.cpp:165
+msgid "Option file malformed, got '$' line without previous option entry"
+msgstr ""
+"Die Optionen-Datei (.ops) ist fehlerhaft: Abschließendes '$' ohne "
+"vorhergehenden Wert"

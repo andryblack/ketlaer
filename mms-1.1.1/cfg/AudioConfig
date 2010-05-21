@@ -1,0 +1,87 @@
+### AUDIO ####
+
+version = 13
+
+# Directories
+#
+# you can add several folders by simple having multiple entries
+#
+# audio folders
+audio_dir = /media/
+
+# If your directories are stored on a network storage you can specify
+# them underneath instead of specifying them as audio_dir. The
+# difference is that MMS will not try to add needless inotify watches
+# to directories specified in this way
+#
+#audio_dir_no_watch = /media/
+
+# Graphical audio
+#
+# Graphical audio mode enable id3/ogg tags support and cover support
+# if images are found next to the music files
+#
+graphical_audio_mode = true
+
+# Audio player
+# Select the audio player to be used
+# choose between: Xine Audio, Gstreamer, Alsaplayer
+#
+audio_player = Xine Audio
+
+# Add playnow functionality
+#
+# Enabling this option adds a new key (audio_add,playnow) that in
+# audio add can be used to quickly listen to a whole folder of tracks.
+# This is very useful if one often listens to whole albums.
+#
+# Please note that using this command will DESTROY your current
+# playlist, so don't enable this unless you are fully aware of this :)
+#
+audio_mode_playnow = true
+
+# Stop playback when clearing the playlist?
+#
+audio_stop_on_clear = true
+
+# Show notification area in screensaver
+#
+# This option is only applicable if notification area is enabled
+#
+notify_area_on_screensaver = true
+
+# Last.fm support?
+#
+# Will report your listening pattern to last.fm using the daemon lastfmsubmitd
+#
+last_fm = false
+
+# Last.fm path
+#
+# Path to lastfmsubmitd executable
+#
+last_fm_path = /usr/lib/lastfmsubmitd/lastfmsubmit
+
+# Last.fm user name
+#
+# Your user name on last.fm, you still need to configure lastfmsubmit
+# with your username and password, this is only for loved tracks and
+# top tracks
+last_fm_username = 
+
+# Show playback control buttons in playlist mode
+#
+# Very useful for touchscreen devices
+#
+display_buttons = false
+
+# Audio filetypes
+#
+# The extension must be in lowercase
+#
+filetypes_a = mp3, mp3
+filetypes_a = ogg, ogg
+filetypes_a = wav, wav
+filetypes_a = flac, flac
+filetypes_a = wma, wma
+

@@ -1,0 +1,25 @@
+#########################################
+# Configuration file for input
+#
+# Syntax:
+# mode, command, key
+#
+# some modes inherit from other modes, which means that you can't
+# define the same key in both. Otherwise you are free to use the same
+# keys.
+#
+# all inherit from general
+# all audio modes inherit from audio_general
+# choose_playlist and playlist inherit from playlist_general
+
+version = 10
+
+audio_add,playlist_mode,INS
+audio_add,radio_playlist_add,k
+audio_add,radio_my_stations_add,j
+audio_add,radio_my_stations_remove,h
+audio_add,add_all,r
+audio_add,play_now,n
+audio_add,similar,F12
+graphical_audio,add_dir,a
+graphical_audio,cover,v

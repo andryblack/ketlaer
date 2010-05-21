@@ -1,0 +1,65 @@
+# mms Danish translation
+# Copyright (C) 2003-2008 Anders Rune Jensen
+# This file is distributed under the same license as the mmsv2 package.
+# Anders Rune Jensen <anders@gnulinux.dk>, 2003-2006
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-26 09:21+0100\n"
+"PO-Revision-Date: 2007-09-30 01:13+0200\n"
+"Last-Translator: Anders Rune Jensen <anders@gnulinux.dk>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: weather.cpp:236
+msgid "Error downloading weather data"
+msgstr "Problemer med at hente vejr-data"
+
+#: weather.cpp:238
+msgid "Please check your connection"
+msgstr "Check venligst din forbindelse"
+
+#: weather.cpp:239
+msgid "and/or configuration file"
+msgstr "og/eller din konfigurationsfil"
+
+#: weather.cpp:274
+msgid "Weather"
+msgstr "Vejr"
+
+#: weather.cpp:298
+msgid "City: "
+msgstr "By:"
+
+#: weather.cpp:304
+msgid "Date: "
+msgstr "Dato: "
+
+#: weather.cpp:310
+msgid "Condition: "
+msgstr "Forhold: "
+
+#: weather.cpp:319
+msgid "Temp: "
+msgstr "Temp: "
+
+#: weather.cpp:421
+msgid "No cities defined in WeatherConfig"
+msgstr "Ingen byer defineret i WeatherConfig"
+
+#: weather.cpp:422
+msgid "Please define at least one city"
+msgstr "Definer venligst mindst en by"
+
+#: weather_plugin.cpp:14 weather_plugin.cpp:33
+msgid "Weather forecast"
+msgstr "Vejrudsigt"
+
+#: weather_plugin.cpp:30
+msgid "See weather forecast"
+msgstr "Se vejrudsigt"

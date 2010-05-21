@@ -1,0 +1,15 @@
+### PYTHON ####
+
+version = 1
+
+# Script directory
+#
+# the dir where the python scripts are stored
+#
+script_dir = /etc/mms/scripts
+
+# Script filetypes
+#
+# The extension must be in lowercase
+#
+filetypes_s = py, py

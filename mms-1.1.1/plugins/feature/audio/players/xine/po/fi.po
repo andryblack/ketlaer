@@ -1,0 +1,33 @@
+# Finnish translations for mms package.
+# Copyright (C) 2006 Eerik Saarikalle
+# This file is distributed under the same license as the mms package.
+# Eerik Saarikalle <eerik.saarikalle@helsinki.fi>, 2006
+# Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>, 2008
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-09-21 14:34+0200\n"
+"Last-Translator: Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: xine.cpp:88
+msgid "Audio device unavailable: "
+msgstr "Äänilaitetta ei saatavilla: "
+
+#: xine.cpp:391
+msgid "Xine engine warning"
+msgstr "Xine-moottorin varoitus"
+
+#: xine.cpp:404
+msgid "Xine engine error"
+msgstr "Xine-moottorin virhe"
+
+#: xine.cpp:408
+msgid "Xine engine message"
+msgstr "Xine-moottorin viesti"

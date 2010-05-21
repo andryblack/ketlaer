@@ -1,0 +1,5 @@
+./lirc_config.hpp
+./lirc.hpp
+./lirc.cpp
+./lirc_config.cpp
+./lirc_plugin.cpp

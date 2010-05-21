@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Krzysztof Parma <krzychp@tlen.pl>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.1.0rc5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2007-12-18 12:26+0200\n"
+"Last-Translator: Krzysztof Parma <krzychp@tlen.pl>\n"
+"Language-Team: POLISH <pl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: game.cpp:58
+msgid "Game Options"
+msgstr "Opcje Gier"
+
+#: game.cpp:74
+msgid "reload"
+msgstr "odśwież"
+
+#: game.cpp:219 game.cpp:1076
+msgid "Games"
+msgstr "Gry"
+
+#: game.cpp:259
+msgid "Upgrading game database schema"
+msgstr "Aktualizuje schemat bazy gier"
+
+#: game.cpp:340 game_plugin.cpp:25 game_plugin.cpp:55 game_plugin.cpp:89
+msgid "Game"
+msgstr "Gra"
+
+#: game.cpp:409
+msgid "Folder is empty"
+msgstr "Katalog jest pusty"
+
+#: game.cpp:561
+msgid "No options available for games"
+msgstr "Opcje niedostępne dla gier"
+
+#: game.cpp:612 game.cpp:660 game.cpp:801
+msgid "current folder"
+msgstr "bieżący folder"
+
+#: game.cpp:919
+msgid "Enter directory"
+msgstr "Wejdź do katalogu"
+
+#: game.cpp:922
+msgid "Play game"
+msgstr "Uruchom grę"
+
+#: game.cpp:925
+msgid "Search"
+msgstr "Szukaj"
+
+#: game.cpp:927
+msgid "Options"
+msgstr "Opcje"
+
+#: game.cpp:931
+msgid "Go up one directory"
+msgstr "O jeden katalog do góry"
+
+#: game.cpp:933 game.cpp:936
+msgid "Return to startmenu"
+msgstr "Powrót do menu głównego"
+
+#: game.cpp:1121
+msgid "Search: "
+msgstr "Szukaj: "
+
+#: game.cpp:1393 game.cpp:1779
+msgid "Starting game..."
+msgstr "Uruchamiam grę..."
+
+#: game.cpp:1776 game.cpp:1790
+msgid "The disc does not contain any recognizable files"
+msgstr "Płyta nie zawiera żadnych obsługiwanych plików"
+
+#: game_plugin.cpp:16
+msgid "Could not find any games"
+msgstr "NIe znaleziono gier"
+
+#: game_plugin.cpp:18
+msgid "Please specify a correct path "
+msgstr "Określ poprawną ścieżkę"
+
+#: game_plugin.cpp:19
+msgid "in the configuration file"
+msgstr "w pliku konfiguracyjnym"
+
+#: game_plugin.cpp:33
+msgid "Reloading directories"
+msgstr "Odświeżenie katalogów"
+
+#: game_plugin.cpp:74
+msgid "Play games from harddrive"
+msgstr "Odtwórz grę z HDD"
+
+#: game_plugin.cpp:78
+msgid "Play games"
+msgstr "Gry"
+
+#: game_plugin.cpp:83
+msgid "Play PSX or roms from cd/dvd"
+msgstr "Odtwórz PSX lub ROM z cd/dvd"

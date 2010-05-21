@@ -1,0 +1,17 @@
+### ALSAPLAYER ####
+
+version = 1
+
+# Alsaplayer binary
+#
+# If alsaplayer is selected as audio player you need to specify the
+# path to the binary
+#
+alsaplayer_path = /usr/bin/alsaplayer
+
+# Alsaplayer options
+#
+# Can be used to change the frequency if needed (such as -F 48000),
+# see alsalayer --help for options
+#
+alsaplayer_options = -r

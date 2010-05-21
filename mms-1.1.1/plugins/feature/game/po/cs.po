@@ -1,0 +1,113 @@
+# translation of cs.po to
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER, 2005.
+#
+# Miroslav Flídr <flidr@kky.zcu.cz>, 2005, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: cs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-12-21 21:42+0100\n"
+"Last-Translator: \n"
+"Language-Team:  <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: game.cpp:58
+msgid "Game Options"
+msgstr "Herní volby"
+
+#: game.cpp:74
+msgid "reload"
+msgstr "opět nahrát"
+
+#: game.cpp:219 game.cpp:1076
+msgid "Games"
+msgstr "Hry"
+
+#: game.cpp:259
+msgid "Upgrading game database schema"
+msgstr "Aktualizuji databázové schéma her"
+
+#: game.cpp:340 game_plugin.cpp:25 game_plugin.cpp:55 game_plugin.cpp:89
+msgid "Game"
+msgstr "Hra"
+
+#: game.cpp:409
+msgid "Folder is empty"
+msgstr "Adresář je prázdný"
+
+#: game.cpp:561
+msgid "No options available for games"
+msgstr "Pro hry nejsou dostupné žádné volby"
+
+#: game.cpp:612 game.cpp:660 game.cpp:801
+msgid "current folder"
+msgstr "aktuální adresář"
+
+#: game.cpp:919
+msgid "Enter directory"
+msgstr "Vstoupit do adresáře"
+
+#: game.cpp:922
+msgid "Play game"
+msgstr "Hrát hru"
+
+#: game.cpp:925
+msgid "Search"
+msgstr "Hledat"
+
+#: game.cpp:927
+msgid "Options"
+msgstr "Volby"
+
+#: game.cpp:931
+msgid "Go up one directory"
+msgstr "Jít do adresáře o úroveň výše"
+
+#: game.cpp:933 game.cpp:936
+msgid "Return to startmenu"
+msgstr "Zpět do hlavní nabídky"
+
+#: game.cpp:1121
+msgid "Search: "
+msgstr "Hledat: "
+
+#: game.cpp:1393 game.cpp:1779
+msgid "Starting game..."
+msgstr "Spouštím hru..."
+
+#: game.cpp:1776 game.cpp:1790
+msgid "The disc does not contain any recognizable files"
+msgstr "Disk neobsahuje žádné rozpoznatelné soubory"
+
+#: game_plugin.cpp:16
+msgid "Could not find any games"
+msgstr "Nebyly nalezeny žádné hry"
+
+#: game_plugin.cpp:18
+msgid "Please specify a correct path "
+msgstr "Prosím udejte správnou cestu "
+
+#: game_plugin.cpp:19
+msgid "in the configuration file"
+msgstr "v souboru nastavení"
+
+#: game_plugin.cpp:33
+msgid "Reloading directories"
+msgstr "Znovu nahrávám adresáře"
+
+#: game_plugin.cpp:74
+msgid "Play games from harddrive"
+msgstr "Hrát hry z pevného disku"
+
+#: game_plugin.cpp:78
+msgid "Play games"
+msgstr "Hrát hry"
+
+#: game_plugin.cpp:83
+msgid "Play PSX or roms from cd/dvd"
+msgstr "Hrát PSX nebo ROMy z cd/dvd"

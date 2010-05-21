@@ -1,0 +1,29 @@
+# Finnish translations for mms package.
+# Copyright (C) 2006 Eerik Saarikalle
+# This file is distributed under the same license as the mms package.
+# Eerik Saarikalle <eerik.saarikalle@helsinki.fi>, 2006
+# Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>, 2008
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-24 09:38+0200\n"
+"PO-Revision-Date: 2008-09-21 14:46+0200\n"
+"Last-Translator: Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: evdev.cpp:244
+msgid "Could not connect to evdev device "
+msgstr "Ei saatu yhteyttä 'evdev'-laitteeseen "
+
+#: evdev.cpp:248
+msgid "Connected to device "
+msgstr "Yhteys muodostettu laitteeseen "
+
+#: evdev.cpp:320
+msgid "Unknown input type"
+msgstr "Tuntematon syötetyyppi"

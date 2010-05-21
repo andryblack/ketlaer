@@ -1,0 +1,673 @@
+# mms Danish translation
+# Copyright (C) 2003-2009 Anders Rune Jensen
+# This file is distributed under the same license as the mmsv2 package.
+# Anders Rune Jensen <anders@gnulinux.dk>, 2003-2006
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2007-09-30 01:13+0200\n"
+"Last-Translator: Anders Rune Jensen <anders@gnulinux.dk>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: cd.cpp:54
+msgid "Could not open the dvd/cd drive"
+msgstr "Kunne ikke åbne dvd/cd-rom drev"
+
+#: cd.cpp:80
+msgid "Could not set drive speed"
+msgstr "Kunne ikke sætte drevets hastighed"
+
+#: cd.cpp:86
+msgid "The drive does not support speed selection"
+msgstr "Drevet understøtter ikke ændring af hastigheden"
+
+#: cd.cpp:100
+msgid "There is no disc in the drive"
+msgstr "Der er ingen disk i drevet"
+
+#: cd.cpp:107
+msgid "The tray is open"
+msgstr "Cd-skuffen er åben"
+
+#: cd.cpp:109
+msgid "Please close it"
+msgstr "Luk den venligst"
+
+#: cd.cpp:116
+msgid "The drive is not ready"
+msgstr "Drevet er ikke klar"
+
+#: cd.cpp:118
+msgid "Please try again later"
+msgstr "Prøv venligst igen senere"
+
+#: common.cpp:92
+msgid "false"
+msgstr "falsk"
+
+#: common.cpp:92
+msgid "no"
+msgstr "nej"
+
+#: common.cpp:92
+msgid "off"
+msgstr "slået fra"
+
+#: common.cpp:661
+msgid "Failed to open iconv"
+msgstr "Kunne ikke åbne iconv"
+
+#: common.cpp:685
+msgid "String conversion failed"
+msgstr "Streng konvertering fejlede"
+
+#: common.cpp:906
+msgid "Could not create directory "
+msgstr "Kunne ikke oprette katalog "
+
+#: common.cpp:912
+msgid "Internal error, please report this"
+msgstr "Intern fejl, rapporter venligst dette problem"
+
+#: common.cpp:913
+msgid "File is not a directory: "
+msgstr "Fil er ikke et katalog: "
+
+#: common.cpp:1030
+msgid "Unable to open/create the file lock!!!"
+msgstr "Kunne ikke åbne/oprette fillås!!!"
+
+#: config_macros.hpp:188 config_macros.hpp:200
+msgid "Opening configuration file "
+msgstr "Åbner konfigurationsfilen "
+
+#: config_macros.hpp:209
+msgid "Config file not found "
+msgstr " Konfigurationsfilen ikke fundet "
+
+#: config_macros.hpp:223
+msgid "Error while reading line "
+msgstr "Fejl i linje "
+
+#: config_macros.hpp:224
+msgid "missing '='"
+msgstr "manglende '='"
+
+#: config_macros.hpp:240
+msgid " is version "
+msgstr " er version "
+
+#: config_macros.hpp:240
+msgid " and MMS expecting version "
+msgstr " og MMS forventer version "
+
+#: config_macros.hpp:241 config_macros.hpp:249
+msgid "Please upgrade your config file"
+msgstr "Opdater venligst din konfigurationsfil"
+
+#: config_macros.hpp:248 plugins/input/input_device.cpp:193
+msgid "Version string not found"
+msgstr "Versionsstreng ikke fundet"
+
+#: config_macros.hpp:258
+msgid "Unknown token '"
+msgstr "Ukendt værdi '"
+
+#: config_macros.hpp:259
+msgid "' on line "
+msgstr "' på linje "
+
+#: config_macros.hpp:279
+msgid "Can't write configuration file!"
+msgstr "Kan ikke skrive konfigurationsfilen!"
+
+#: global.cpp:271
+msgid "Playback control"
+msgstr "Kontroller afspilning"
+
+#: global.cpp:319
+msgid "Playlist Commands"
+msgstr "Kommandoer til brug i playlisten"
+
+#: libfspp.cpp:19 libfspp.cpp:39
+msgid "Unknown sorting order"
+msgstr "Ukendt sorteringsorden"
+
+#: mms.cpp:57
+msgid "Critical: couldn't set environment variable "
+msgstr "Kritisk fejl: kunne ikke sætte env. variable "
+
+#: mms.cpp:58 mms.cpp:253 mms.cpp:266 mms.cpp:272 mms.cpp:363
+msgid "Error: "
+msgstr "Fejl: "
+
+#: mms.cpp:82
+msgid "MMS options:"
+msgstr "MMS valgmuligheder:"
+
+#: mms.cpp:89
+msgid "<relative> : filename relative to config directory"
+msgstr "<relativ> : filnavn relativt til konfigurationskataloget"
+
+#: mms.cpp:90
+msgid "<absolute> : full path filename"
+msgstr "<absolut> : fuld sti til filnavnet"
+
+#: mms.cpp:97
+msgid " -o : output device ["
+msgstr " -o : skærm enhed ["
+
+#: mms.cpp:113
+msgid " -i : input device ["
+msgstr " -i : input enhed ["
+
+#: mms.cpp:128
+msgid " -h : show this help and exit"
+msgstr "-h : vis denne hjælp og afslut derefter"
+
+#: mms.cpp:129
+msgid " -d : daemonize (run in background)"
+msgstr " -d : kør som dæmon (kører i baggrunden)"
+
+#: mms.cpp:130 movie-library/movie-library.cpp:547
+#: audio-library/audio-library.cpp:613
+msgid " -c <absolute> : use alternative config directory"
+msgstr " -c <absolut> : brug alternativ konfigurationskatalog"
+
+#: mms.cpp:131 pic-library/pic-library.cpp:451
+#: movie-library/movie-library.cpp:548 audio-library/audio-library.cpp:614
+msgid " -p <absolute> : use alternative personal directory (db, playlist)"
+msgstr ""
+" -p <absolut> : brug alternativ personlig katalog (db, afspilningsliste)"
+
+#: mms.cpp:132
+msgid " -f : fullscreen\n"
+msgstr " -f : fuldskærm\n"
+
+#: mms.cpp:133
+msgid " -u <username> : run mms as username"
+msgstr " -u <brugernavn> : kør mms som brugernavn"
+
+#: mms.cpp:134
+msgid ""
+"\n"
+" -U <username> : run mms as username and reset most environment variables"
+msgstr ""
+"\n"
+" -U <brugernavn> : kør mms som brugernavn og reset de fleste env. variable"
+
+#: mms.cpp:135
+msgid ""
+"\n"
+" -e : dump the list of currently set environment variables; useful for "
+"setting up and/or debug mms"
+msgstr ""
+"\n"
+" -e : udskriv en liste af de nuværende env. variable; brugbar til opsætning "
+"og debugging af mms"
+
+#: mms.cpp:136
+msgid " -v|V : show version and exit"
+msgstr "-v|V : vis versionsnummer og afslut"
+
+#: mms.cpp:143
+msgid ""
+" -r <relative> : use replay file as input (requires replay as input device)"
+msgstr ""
+" -r <relativ>: benyt replayfil som input (kræver replay som inputenhed)"
+
+#: mms.cpp:144
+msgid ""
+" -b : benchmark MMS by replaying as fast as possible (requires replay as "
+"input device) "
+msgstr ""
+" -b : benchmark MMS ved at replaye kommandoer så hurtigt som muligt (kræver "
+"replay som inputenhed)"
+
+#: mms.cpp:145
+msgid " -w <relative> : write replay to specified file"
+msgstr " -w <relativ> : skriv replay til den specificerede fil"
+
+#: mms.cpp:237
+msgid "Critical: couldn't find user: "
+msgstr "Kritisk fejl: kunne ikke finde bruger: "
+
+#: mms.cpp:252 mms.cpp:258
+msgid "Critical: couldn't set group privileges!"
+msgstr "Kritisk fejl: kunne ikke sætte grupperettigheder!"
+
+#: mms.cpp:265
+msgid "Warning: failed to set supplementary groups!"
+msgstr "Advarsel: kunne ikke sætte supplerende grupper!"
+
+#: mms.cpp:271 mms.cpp:276
+msgid "Critical: couldn't set user privileges!"
+msgstr "Kritisk fejl: kunne ikke sætte brugerrettigheder!"
+
+#: mms.cpp:282
+msgid "Critical: couldn't set user privileges permanently!"
+msgstr "Fritisk fejl: kunne ikke sætte brugerrettigheder permanent!"
+
+#: mms.cpp:287
+msgid "Critical: couldn't set group privileges permanently!"
+msgstr "Kritisk fejl: kunne ikke sætte grupperettigheder permanent!"
+
+#: mms.cpp:347
+msgid "Full list of active groups for user "
+msgstr "Fuld liste af aktive grupper for bruger "
+
+#: mms.cpp:356
+msgid "Critical: out of memory!"
+msgstr "Kritisk fejl: løb tør for hukommelse!"
+
+#: mms.cpp:362
+msgid "Warning: couldn't fetch a list of secondary groups for user "
+msgstr "Advarsel: kunne ikke hente en liste af sekundær grupper for bruger "
+
+#: mms.cpp:523
+msgid ""
+"\n"
+"It appears mms is running as superuser."
+msgstr ""
+"\n"
+"Det tyder på at mms kører som superbruger."
+
+#: mms.cpp:524
+msgid ""
+"Not only is this totally unnecessary, but it also constitutes a security "
+"risk "
+msgstr "Dette ikke kun unødvendigt, men er en stor sikkerhedstrussel "
+
+#: mms.cpp:525
+msgid "and thus it is strongly discouraged!\n"
+msgstr "og derfor er det bedst ikke at gøre det!\n"
+
+#: mms.cpp:526
+msgid ""
+"If you really really want to give mms superuser privileges, run it like this:"
+msgstr ""
+"Hvis du virkelig gerne vil give mms superbruger-retttigheder, så kører mms "
+"vha:"
+
+#: mms.cpp:527
+msgid "mms -u root [other options]\n"
+msgstr "mms -u root [andre instillinger]\n"
+
+#: mms.cpp:544
+msgid ""
+"Another instance of MMS or an instance of movie/pic/audio library is already "
+"running.\n"
+msgstr ""
+"En anden instans af MMS eller film/billede/lyd-bibliotek kører allerede.\n"
+
+#: mms.cpp:549 pic-library/pic-library.cpp:390
+#: movie-library/movie-library.cpp:492 audio-library/audio-library.cpp:558
+#, c-format
+msgid "File lock is currently owned by another process (pid %d). Aborting\n"
+msgstr "Fil lås er pt ejet af en anden process (pid %d). Afslutter\n"
+
+#: mms.cpp:558
+msgid "Full list of environment variables:\n"
+msgstr "Komplet liste af env. variable:\n"
+
+#: mms.cpp:569
+msgid "Unable to find or create HOME directory"
+msgstr "Kunne ikke find eller oprette hjemmekatalog"
+
+#: mms.cpp:588
+msgid "CD/DVD not configured properly and media enabled in Config, exiting"
+msgstr ""
+"CD/DVD er ikke konfigureret ordentligt og media sat i Config, afslutter"
+
+#: mms.cpp:617 mms.cpp:618 mms.cpp:619 mms.cpp:620
+#: pic-library/pic-library.cpp:458 pic-library/pic-library.cpp:459
+#: movie-library/movie-library.cpp:555 movie-library/movie-library.cpp:556
+#: audio-library/audio-library.cpp:621 audio-library/audio-library.cpp:622
+msgid "Using "
+msgstr "Benytter "
+
+#: mms.cpp:617
+msgid " as primary configuration directory"
+msgstr " som primært konfigurationskatalog"
+
+#: mms.cpp:618
+msgid " as fallback configuration directory"
+msgstr " som konfigurationskatalog at falde tilbage på"
+
+#: mms.cpp:619
+msgid " as personal data directory"
+msgstr " som personligt datakatalog"
+
+#: mms.cpp:620
+msgid " as cache location"
+msgstr " som caching"
+
+#: mms.cpp:647
+msgid "No input plugin found"
+msgstr "Ingen input plugin fundet"
+
+#: mms.cpp:652
+msgid "No output device specified! Use the -o option."
+msgstr "Ingen grafikenhed specificeret! Benyt -o for at vælge en."
+
+#: option.cpp:14
+msgid ""
+"The size of the translated and the english option lists does not match: "
+msgstr ""
+"Størrelsen af den oversatte og den engelske installingsliste stemmer ikke: "
+
+#: options.cpp:68
+msgid "There are no options to show"
+msgstr "Der er ingen indstillinger at vise"
+
+#: options.cpp:162 theme.cpp:131
+msgid "Go back"
+msgstr "Gå tilbage"
+
+#: options.cpp:245 options.cpp:375
+msgid "reload"
+msgstr "genindlæs"
+
+#: options.cpp:285 options.cpp:374 startmenu.cpp:52 startmenu.cpp:525
+msgid "Options"
+msgstr "Indstillinger"
+
+#: options.cpp:502 global_options.cpp:157
+msgid "Could not create options directory: "
+msgstr "Kunne ikke oprette katalog med instillinger: "
+
+#: options.cpp:507 options.cpp:532
+msgid "Warning: module "
+msgstr "Advarsel: modul "
+
+#: options.cpp:507 options.cpp:532
+msgid " did not set save_name"
+msgstr " satte ikke variablen save_name"
+
+#: options.cpp:515 theme.cpp:285 global_options.cpp:165
+msgid "Could not write options to file "
+msgstr "Kunne ikke skrive indstillinger til filen "
+
+#: options.cpp:540 theme.cpp:304 global_options.cpp:186
+msgid "Could not open options file "
+msgstr "Kunne ikke åbne indstillinger fra filen "
+
+#: pic-library/pic-library.cpp:165
+msgid "Upgrading pictures database schema"
+msgstr "Opdater skemaet for billededatabasen"
+
+#: pic-library/pic-library.cpp:386 movie-library/movie-library.cpp:487
+#: audio-library/audio-library.cpp:553
+msgid ""
+"An instance of MMS or another instance of movie/pic/audio library is already "
+"running\n"
+msgstr ""
+"En instans af MMS eller et anden film/billede/lyd-bibliotek kører allerede.\n"
+
+#: pic-library/pic-library.cpp:445
+msgid "My Media System picture library creation tool"
+msgstr "My Media System værktøj til at lave billedarkiv"
+
+#: pic-library/pic-library.cpp:447
+msgid "Usage: ./mms-pic-library"
+msgstr "Benyttelse: ./mms-pic-library"
+
+#: pic-library/pic-library.cpp:449 movie-library/movie-library.cpp:546
+#: audio-library/audio-library.cpp:612
+msgid "Options:"
+msgstr "Indstillinger:"
+
+#: pic-library/pic-library.cpp:450
+msgid " -c <absolute> : use alternate config directory"
+msgstr " -c <absolut> : brug alternativ konfigurationskatalog"
+
+#: pic-library/pic-library.cpp:452 movie-library/movie-library.cpp:549
+#: audio-library/audio-library.cpp:615
+msgid ""
+" -d <path> : Override watch paths in configuration file with <path> (can be "
+"used multiple times)"
+msgstr ""
+" -d <sti> : Overskriv katalogerne i konfigurationsfilen med <sti> (kan "
+"skrives flere gange)"
+
+#: pic-library/pic-library.cpp:458 movie-library/movie-library.cpp:555
+#: audio-library/audio-library.cpp:621
+msgid " as configuration directory"
+msgstr " som konfigurationskatalog"
+
+#: pic-library/pic-library.cpp:459 movie-library/movie-library.cpp:556
+#: audio-library/audio-library.cpp:622
+msgid " as personal directory"
+msgstr " som personlig katalog"
+
+#: plugins/feature/module.cpp:27 plugins/input/input.hpp:195
+#: plugins/input/input.hpp:198 plugins/input/input.hpp:200
+#: plugins/input/input.hpp:211 plugins/input/input.hpp:234
+#: plugins/input/input.hpp:288
+msgid "current folder"
+msgstr "nuvær. katalog"
+
+#: plugins/input/input.hpp:201 plugins/input/input.hpp:203
+msgid "all folders"
+msgstr "alle kataloger"
+
+#: plugins/input/input_device.cpp:93
+msgid "Input configuration file not found "
+msgstr "Input konfigurationsfilen kunne ikke findes "
+
+#: plugins/input/input_device.cpp:162
+msgid "Adding "
+msgstr "Benytter "
+
+#: plugins/input/input_device.cpp:185
+msgid "Wrong version of input file found: "
+msgstr "Forkert version af inputfilen fundet: "
+
+#: plugins/input/input_device.cpp:186 plugins/input/input_device.cpp:194
+msgid "Please upgrade your input file"
+msgstr "Opdater venligst din inputfil"
+
+#: plugins/input/input_device.cpp:187
+msgid "Got version "
+msgstr " fik version "
+
+#: plugins/input/input_device.cpp:187 themes.cpp:123
+msgid " expected "
+msgstr " forventede "
+
+#: plugins/input/input_device.cpp:220 plugins/input/input_device.cpp:233
+msgid "Unknown cur_map: "
+msgstr "Ukendt cur_map: "
+
+#: plugins/output/common-output.cpp:48
+msgid "Too many strings to print"
+msgstr "For mange strenge at printe"
+
+#: plugins/output/common-output.cpp:50
+msgid "Nothing to print"
+msgstr "Ingenting at printe"
+
+#: plugins/output/mpeg/mpeg.cpp:59
+msgid "Can't find codec mpeg2"
+msgstr "Kunne ikke finde codec'et mpeg2"
+
+#: plugins/output/mpeg/mpeg.cpp:91
+msgid "Could not open codec"
+msgstr "Kunne ikke åbne codec"
+
+#: plugins/output/renderer.cpp:721 plugins/output/renderer.cpp:1553
+#: plugins/output/renderer.cpp:1620
+msgid "The image "
+msgstr "Billedet "
+
+#: plugins/output/renderer.cpp:721 plugins/output/renderer.cpp:1438
+#: plugins/output/renderer.cpp:1553 plugins/output/renderer.cpp:1620
+msgid " could not be loaded"
+msgstr " kunne ikke indlæses"
+
+#: plugins/output/renderer.cpp:1438
+msgid "The font "
+msgstr "Skriftypen "
+
+#: plugins/plugin.hpp:41
+msgid "Unnamed"
+msgstr "Unavngivet"
+
+#: search.cpp:23 search.cpp:27 search.cpp:295 search.cpp:418
+msgid "all"
+msgstr "alle"
+
+#: search.cpp:122 startmenu.cpp:521
+msgid "Search"
+msgstr "Søg"
+
+#: search.cpp:133 search.cpp:334
+msgid "Search: "
+msgstr "Søg: "
+
+#: search.cpp:436
+msgid "No search results found"
+msgstr "Ingen søgeresultater fundet"
+
+#: shutdown.cpp:37
+msgid "Shutdown in"
+msgstr "Luk ned om"
+
+#: shutdown.cpp:43
+msgid "Shutdown Now"
+msgstr "Luk ned nu"
+
+#: shutdown.cpp:88
+msgid "Canceled Shutdown"
+msgstr "Stop nedlukning"
+
+#: extra_menu.hpp:46
+msgid "Extra Menu"
+msgstr "Extra Menu"
+
+#: theme.cpp:128
+msgid "Use theme"
+msgstr "Benyt tema"
+
+#: theme.cpp:251 startmenu.cpp:529
+msgid "Themes"
+msgstr "Temaer"
+
+#: theme.cpp:330
+msgid "Falling back to standard theme"
+msgstr "Falder tilbage til standard tema"
+
+#: theme.cpp:337
+msgid "Couldn't find any themes to open"
+msgstr "Kunne ikke finde nogen temaer som kunne åbnes"
+
+#: themes.cpp:89 themes.cpp:92
+msgid "Could not open theme"
+msgstr "Kunne ikke åbne tema"
+
+#: themes.cpp:108
+msgid "Illegal line in theme file, missing '=' on line "
+msgstr "Fejl i tema-definitionsfilen, manglede '=' på linje "
+
+#: themes.cpp:122
+msgid "Unsupported theme version, got version "
+msgstr "Ikke understøttet tema-version, fik version "
+
+#: themes.cpp:125
+msgid "Unsupported theme version"
+msgstr "Ikke understøttet tema-version"
+
+#: movie-library/movie-library.cpp:246 movie-library/movie-library.cpp:251
+msgid "Upgrading movie database schema"
+msgstr "Opgraderer skemaet for filmdatabasen"
+
+#: movie-library/movie-library.cpp:542
+msgid "My Media System movie library creation tool"
+msgstr "My Media System værktøj til at optimere filmbibliotek"
+
+#: movie-library/movie-library.cpp:544
+msgid "Usage: ./mms-movie-library"
+msgstr "Benyttelse: ./mms-movie-library"
+
+#: global_options.cpp:44
+msgid "name mismatch in cd configuration, please check your config"
+msgstr "navne fejl i cd konfiguration, check venligst din konfiguraiton"
+
+#: global_options.cpp:52
+msgid "cd device"
+msgstr "cd enhed"
+
+#: global_options.cpp:64
+msgid "audio device (music)"
+msgstr "lydenhed (musik)"
+
+#: global_options.cpp:67
+msgid "audio device (movies)"
+msgstr "lydenhed (film)"
+
+#: global_options.cpp:81
+msgid "directories first"
+msgstr "kataloger først"
+
+#: global_options.cpp:82
+msgid "by name"
+msgstr "efter navn"
+
+#: global_options.cpp:83
+msgid "by date"
+msgstr "efter dato"
+
+#: global_options.cpp:90
+msgid "sorting"
+msgstr "sortering"
+
+#: startmenu.cpp:59
+msgid "Global Options"
+msgstr "Globale indstillinger"
+
+#: startmenu.cpp:164 startmenu.cpp:167 startmenu.cpp:550 startmenu.cpp:553
+msgid "Open/Close Tray"
+msgstr "Åben/Luk Skuffe"
+
+#: startmenu.cpp:476
+msgid "Do you really want to exit?"
+msgstr "Vil du virkelig afslutte?"
+
+#: startmenu.cpp:479 startmenu.cpp:560 startmenu.cpp:561
+msgid "Quit"
+msgstr "Afslut"
+
+#: startmenu.cpp:481
+msgid "Halt System"
+msgstr "Luk systemet ned"
+
+#: startmenu.cpp:482
+msgid "Cancel"
+msgstr "Fortryd"
+
+#: startmenu.cpp:533
+msgid "Utilities"
+msgstr "Værktøjer"
+
+#: startmenu.cpp:540 startmenu.cpp:542
+msgid "Switch resolution"
+msgstr "Skift opløsning"
+
+#: audio-library/audio-library.cpp:340
+msgid "Upgrading audio database schema"
+msgstr "Opgraderer skemaet for musikdatabasen"
+
+#: audio-library/audio-library.cpp:608
+msgid "My Media System audio library creation tool"
+msgstr "My Media System værktøj til at generere musikbibliotek"
+
+#: audio-library/audio-library.cpp:610
+msgid "Usage: ./mms-audio-library"
+msgstr "Benyttelse: ./mms-audio-library"

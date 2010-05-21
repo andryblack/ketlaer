@@ -1,0 +1,116 @@
+# MMS Portuguese Translation.
+# Copyright (C) 2003, 2005 Luis Correia
+# This file is distributed under the same license as MMS.
+# Luis Correia <lfcorreia@users.sf.net, 2003.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mmsv2 1.0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2006-07-17 19:51+0200\n"
+"Last-Translator: Luis Correia <lfcorreia@users.sf.net>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: game.cpp:58
+msgid "Game Options"
+msgstr "Opções de jogo"
+
+#: game.cpp:74
+msgid "reload"
+msgstr "reler"
+
+#: game.cpp:219 game.cpp:1076
+msgid "Games"
+msgstr "Jogos"
+
+#: game.cpp:259
+msgid "Upgrading game database schema"
+msgstr ""
+
+#: game.cpp:340 game_plugin.cpp:25 game_plugin.cpp:55 game_plugin.cpp:89
+#, fuzzy
+msgid "Game"
+msgstr "Jogos"
+
+#: game.cpp:409
+msgid "Folder is empty"
+msgstr "Directoria vazia"
+
+#: game.cpp:561
+#, fuzzy
+msgid "No options available for games"
+msgstr "Sem descrição disponível"
+
+#: game.cpp:612 game.cpp:660 game.cpp:801
+msgid "current folder"
+msgstr ""
+
+#: game.cpp:919
+msgid "Enter directory"
+msgstr "Entrar directoria"
+
+#: game.cpp:922
+msgid "Play game"
+msgstr "Jogar"
+
+#: game.cpp:925
+msgid "Search"
+msgstr "Pesquisa"
+
+#: game.cpp:927
+msgid "Options"
+msgstr "Opções"
+
+#: game.cpp:931
+msgid "Go up one directory"
+msgstr "Directoria acima"
+
+#: game.cpp:933 game.cpp:936
+msgid "Return to startmenu"
+msgstr "Voltar ao menu inicial"
+
+#: game.cpp:1121
+msgid "Search: "
+msgstr "Pesquisa: "
+
+#: game.cpp:1393 game.cpp:1779
+#, fuzzy
+msgid "Starting game..."
+msgstr "Iniciando jogo..."
+
+#: game.cpp:1776 game.cpp:1790
+msgid "The disc does not contain any recognizable files"
+msgstr "Este CD não contém conteudo multimédia"
+
+#: game_plugin.cpp:16
+msgid "Could not find any games"
+msgstr "Não encontro jogos"
+
+#: game_plugin.cpp:18
+msgid "Please specify a correct path "
+msgstr "Confirma que o caminho é correcto "
+
+#: game_plugin.cpp:19
+msgid "in the configuration file"
+msgstr "no ficheiro de configuração"
+
+#: game_plugin.cpp:33
+msgid "Reloading directories"
+msgstr "Relendo directorias"
+
+#: game_plugin.cpp:74
+msgid "Play games from harddrive"
+msgstr "Jogar a partir do disco"
+
+#: game_plugin.cpp:78
+msgid "Play games"
+msgstr "Jogar"
+
+#: game_plugin.cpp:83
+#, fuzzy
+msgid "Play PSX or roms from cd/dvd"
+msgstr "Jogar roms do cd/dvd"

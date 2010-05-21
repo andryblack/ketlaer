@@ -1,0 +1,15 @@
+### RADIO ####
+
+version = 3
+
+# Enable radio
+#
+radio = true
+
+# Download internet radio stations automaticly
+#
+download_radio = true
+
+# Radio options
+#
+radiomplayeropts = -cache 128 -vo null

@@ -1,0 +1,188 @@
+# translation of cs.po to
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER, 2005.
+#
+# Miroslav Flídr <flidr@kky.zcu.cz>, 2005, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: cs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-12-21 22:33+0100\n"
+"Last-Translator: \n"
+"Language-Team:  <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: pictures.cpp:226 pictures.cpp:684 pictures.cpp:2051 pictures_plugin.cpp:10
+#: pictures_plugin.cpp:46 pictures_plugin.cpp:84
+msgid "Pictures"
+msgstr "Obrázky"
+
+#: pictures.cpp:241
+msgid "Picture Options"
+msgstr "Volby obrázku"
+
+#: pictures.cpp:255
+msgid "reload"
+msgstr "znovu nahrát"
+
+#: pictures.cpp:271
+msgid "slideshow delay"
+msgstr "prodleva zobrazovaní"
+
+#: pictures.cpp:277 pictures.cpp:291 pictures.cpp:318 pictures.cpp:333
+#: pictures.cpp:348
+msgid "no"
+msgstr "ne"
+
+#: pictures.cpp:278 pictures.cpp:292 pictures.cpp:319 pictures.cpp:334
+#: pictures.cpp:349 pictures.cpp:1475
+msgid "yes"
+msgstr "ano"
+
+#: pictures.cpp:285
+msgid "zoom to fullscreen"
+msgstr "zvětšit na celou obrazovku"
+
+#: pictures.cpp:299
+msgid "show previews"
+msgstr "ukázat náhledy"
+
+#: pictures.cpp:304 pictures.cpp:2415
+msgid "None"
+msgstr "Žádné"
+
+#: pictures.cpp:305
+msgid "Audio"
+msgstr "Zvuk"
+
+#: pictures.cpp:306 pictures.cpp:2415 pictures.cpp:2420 pictures.cpp:2433
+msgid "Title"
+msgstr "Název"
+
+#: pictures.cpp:307 pictures.cpp:2420 pictures.cpp:2433
+msgid "Full"
+msgstr "Plné"
+
+#: pictures.cpp:313
+msgid "show info"
+msgstr "zobrazit informaci"
+
+#: pictures.cpp:326
+msgid "recurse dirs in fullscreen"
+msgstr "prohledávat podadresáře v celoobrazovkovém režimu"
+
+#: pictures.cpp:341
+msgid "bg thumbnail generation"
+msgstr "generování náhledů"
+
+#: pictures.cpp:356
+msgid "random order slideshow"
+msgstr "prezentaci s náhodným pořadím"
+
+#: pictures.cpp:438
+msgid "Upgrading pictures database schema"
+msgstr "Aktualizuji databázové schéma pro obrázky"
+
+#: pictures.cpp:609 pictures.cpp:656 pictures.cpp:1022
+msgid "current folder"
+msgstr "aktuální adresář"
+
+#: pictures.cpp:741
+msgid "Generating thumbnails"
+msgstr "Generuji náhledy"
+
+#: pictures.cpp:775
+msgid "Folder is empty"
+msgstr "Adresář je prázdný"
+
+#: pictures.cpp:1364
+msgid "Show picture in fullscreen"
+msgstr "Zobrazit obrázek na celé obrazovce"
+
+#: pictures.cpp:1367
+msgid "Enter directory"
+msgstr "Vstoupit do adresáře"
+
+#: pictures.cpp:1374
+msgid "Recurse all folders on current level"
+msgstr "Prohledávat všechny adresáře na současné úrovni"
+
+#: pictures.cpp:1379
+msgid "Search"
+msgstr "Hledat"
+
+#: pictures.cpp:1381 pictures.cpp:1977
+msgid "Options"
+msgstr "Volby"
+
+#: pictures.cpp:1385
+msgid "Go up one directory"
+msgstr "Jít do adresáře o úroveň výše"
+
+#: pictures.cpp:1387 pictures.cpp:1390 pictures.cpp:1984
+msgid "Return to startmenu"
+msgstr "Zpět do hlavní nabídky"
+
+#: pictures.cpp:1960
+msgid "Zoom"
+msgstr "Zvětšit"
+
+#: pictures.cpp:1963
+msgid "Suspend slideshow"
+msgstr "Pozastavit prezentaci"
+
+#: pictures.cpp:1966
+msgid "Resume slideshow"
+msgstr "Znovu spustit prezentaci"
+
+#: pictures.cpp:1971
+msgid "Rotate left"
+msgstr "Otočit vlevo"
+
+#: pictures.cpp:1974
+msgid "Rotate right"
+msgstr "Otočit vpravo"
+
+#: pictures.cpp:1980
+msgid "Leave fullscreen"
+msgstr "Opustit celoobrazovkový režim"
+
+#: pictures.cpp:2098
+msgid "Search: "
+msgstr "Hledat: "
+
+#: pictures.cpp:2429
+msgid " ( paused )"
+msgstr " ( pozastaveno )"
+
+#: pictures.cpp:2468 pictures.cpp:2479
+msgid "The disc does not contain any recognizable files"
+msgstr "Disk neobsahuje žádné rozpoznatelné soubory"
+
+#: pictures_plugin.cpp:18
+msgid "Reloading directories"
+msgstr "Znovu nahrávám adresáře"
+
+#: pictures_plugin.cpp:26
+msgid "Could not find any pictures"
+msgstr "Nebyly nalezeny žádné obrázky"
+
+#: pictures_plugin.cpp:28
+msgid "Please specify a correct path "
+msgstr "Prosím udejte správnou cestu "
+
+#: pictures_plugin.cpp:29
+msgid "in the configuration file"
+msgstr "v souboru nastavení"
+
+#: pictures_plugin.cpp:75
+msgid "View pictures from harddrive"
+msgstr "Zobrazit obrázky z pevného disku"
+
+#: pictures_plugin.cpp:80
+msgid "View pictures from cd"
+msgstr "Zobrazit obrázky z CDčka"

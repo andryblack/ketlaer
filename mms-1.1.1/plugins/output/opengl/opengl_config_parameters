@@ -1,0 +1,20 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS OpenglConfig
+#define S_PARAMETER_CLASS S_OpenglConfig
+#define STRING_PARAMETER_CLASS "OpenglConfig"
+
+#define MMS_CONFIG_VERSION "7"
+
+PARAMETER_NUM("opengl_h",        opengl_h,         0)
+PARAMETER_NUM("benchmark",       glbenchmark,      0)
+PARAMETER_NUM("opengl_v",        opengl_v,         0)
+PARAMETER_STR("mousecursor",     mousecursor,      "nofs")
+PARAMETER_BOOL("borderless",     borderless,       false)
+PARAMETER_STR("transfer_mode",   transfer_mode,    "standard")
+PARAMETER_NUM("vsync",           vsync,            0)
+PARAMETER_BOOL("verbose",        verbose,          false)
+
+
+#include "config_pre_post.hpp"

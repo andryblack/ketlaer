@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: clock.cpp:130 clock.cpp:236 clock_opts.cpp:36
+msgid "off"
+msgstr ""
+
+#: clock.cpp:243 clock_opts.cpp:48 clock_opts.cpp:72
+msgid "Audio"
+msgstr ""
+
+#: clock.cpp:246 clock_opts.cpp:54
+msgid "current"
+msgstr ""
+
+#: clock.cpp:275
+msgid "Could not find alarm update program"
+msgstr ""
+
+#: clock.cpp:304
+msgid "Could not write alarms to file: "
+msgstr ""
+
+#: clock.cpp:344 clock_opts.cpp:35
+msgid "on"
+msgstr ""
+
+#: clock.cpp:346
+msgid "Riiiing!"
+msgstr ""
+
+#: clock.cpp:353
+msgid "tomorrow"
+msgstr ""
+
+#: clock.cpp:355
+msgid "today"
+msgstr ""
+
+#: clock.cpp:420
+msgid "sunday"
+msgstr ""
+
+#: clock.cpp:421
+msgid "monday"
+msgstr ""
+
+#: clock.cpp:422
+msgid "tuesday"
+msgstr ""
+
+#: clock.cpp:423
+msgid "wednesday"
+msgstr ""
+
+#: clock.cpp:424
+msgid "thursday"
+msgstr ""
+
+#: clock.cpp:425
+msgid "friday"
+msgstr ""
+
+#: clock.cpp:426
+msgid "saturday"
+msgstr ""
+
+#: clock_opts.cpp:29
+msgid "Clock Options"
+msgstr ""
+
+#: clock_opts.cpp:43
+msgid "alarm"
+msgstr ""
+
+#: clock_opts.cpp:62
+msgid "playlist"
+msgstr ""
+
+#: clock_opts.cpp:92 clock_plugin.cpp:33
+msgid "Clock"
+msgstr ""
+
+#: clock_alarms.cpp:302
+msgid "Add Alarm"
+msgstr ""
+
+#: clock_alarms.cpp:309
+msgid "Day: "
+msgstr ""
+
+#: clock_alarms.cpp:312
+msgid "Time: "
+msgstr ""
+
+#: clock_alarms.cpp:338
+msgid "Alarms"
+msgstr ""

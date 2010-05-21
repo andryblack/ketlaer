@@ -1,0 +1,18 @@
+Author: Fredde
+
+REQUIREMENTS:
+mms-1.1.0 rev-1628+
+python 2.5 with sqlite support
+
+BASEDIR variable:
+Open the youtube.py script and change the BASEDIR 
+variable. The dir it points to have to exist. This dir
+will store temporary downloaded data and favorites db.
+
+DOWNLOADDIR variable:
+Open the youtube.py script and change the DOWNLOADDIR
+variable. The dir it points to have to exist. This dir
+will store downloaded movies.
+
+Both variables defaults to '/tmp'
+

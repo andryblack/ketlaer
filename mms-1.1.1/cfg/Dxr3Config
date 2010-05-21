@@ -1,0 +1,26 @@
+### EM8300 ####
+
+version = 2
+
+# Path to em8300setup binary
+#
+em8300setup_path = /usr/bin/em8300setup
+
+# TV mode
+#
+# TV output (-p for pal or -n for ntsc)
+# followed by -o for 4:3 and -w for wide-screen (16:9)
+# for widescreen please change the resolution to 720x405
+#
+tv_mode = -p -o
+
+# DXR3 device index 
+# em8300-??
+#
+device_index = 0
+
+# Screen zoom
+#
+# Zoom of TV output if supported by driver
+#
+# zoom = 90

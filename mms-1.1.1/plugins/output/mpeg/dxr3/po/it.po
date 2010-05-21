@@ -1,0 +1,49 @@
+# translation of it.po to italiano
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Lorenzo Desole <lorenzodes@fastwebnet.it>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: it\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-24 09:38+0200\n"
+"PO-Revision-Date: 2007-12-03 22:24+0100\n"
+"Last-Translator: Lorenzo Desole <lorenzodes@fastwebnet.it>\n"
+"Language-Team: italiano <it@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: dxr3out.cpp:125 dxr3out.cpp:239 dxr3out.cpp:246
+msgid "Could not open device to set DXR3 zoom: "
+msgstr "Impossibile impostare lo zoom: "
+
+#: dxr3out.cpp:180 dxr3out.cpp:187
+msgid "Could not open device: "
+msgstr "Non riesco ad aprire il dispositivo: "
+
+#: dxr3out.cpp:194
+msgid "Unable to set playmode"
+msgstr "Non riesco ad impostare la modalità di riproduzione"
+
+#: dxr3out.cpp:220
+msgid ""
+"DXR3 output only supports the resolutions 960x540 (16:9 anamorphic), 720x540 "
+"(4:3) and 720x405 (16:9)"
+msgstr ""
+"l'output di DXR3 supporta esclusivamente le risoluzioni 960x540 (16:9 anamorphic),"
+"720x540 (4:3) o 720x405 (16:9)"
+
+#: dxr3out.cpp:233
+msgid "Zoom option is not supported by DXR3 driver."
+msgstr "L'opzione zoom non è supportata dal driver del dispositivo DXR3"
+
+#: dxr3out.cpp:248
+msgid "Set DXR3 zoom using device "
+msgstr "Impostazione zoom tramite il dispositivo "
+
+#: dxr3out.cpp:250
+msgid "Failed to set zoom value in the DXR3 driver."
+msgstr "Impossibile impostare lo zoom"

@@ -1,0 +1,28 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS GameConfig
+#define S_PARAMETER_CLASS S_GameConfig
+#define STRING_PARAMETER_CLASS "GameConfig"
+
+#define MMS_CONFIG_VERSION "3"
+
+PARAMETER_LIST("game_dir",          game_dirs)
+PARAMETER_LIST("game_dir_no_watch",          game_dirs_no_watch)
+PARAMETER_BOOL("psxemu_enable",    psxemu_enable,              false)
+
+PARAMETER_STR("mameopts",       mame_opts,       "-fullscreen -scale 3")
+PARAMETER_STR("snesopts",       snes_opts,       "-r 2")
+PARAMETER_STR("nesopts",       nes_opts,       "--fs 1 --joy1 1 --xres 720 --yres 576")
+PARAMETER_STR("gensopts",       gens_opts,       "--fs-mode")
+PARAMETER_STR("psxemuopts",       psxemu_opts,       "-nogui -runcd")
+
+PARAMETER_STR("mame_path",        mame_path,         "/usr/bin/xmame")
+PARAMETER_STR("snes_path",        snes_path,         "/usr/bin/zsnes")
+PARAMETER_STR("nes_path",        nes_path,         "/usr/bin/fceu")
+PARAMETER_STR("psxemu_path",        psxemu_path,         "/usr/bin/pcsx")
+PARAMETER_STR("gens_path",        gens_path,         "/usr/bin/gens")
+
+PARAMETER_PAIR("filetypes_g",      filetypes_g)
+
+#include "config_pre_post.hpp"

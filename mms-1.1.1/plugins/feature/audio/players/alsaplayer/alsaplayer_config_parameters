@@ -1,0 +1,13 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS AlsaplayerConfig
+#define S_PARAMETER_CLASS S_AlsaplayerConfig
+#define STRING_PARAMETER_CLASS "AlsaplayerConfig"
+
+#define MMS_CONFIG_VERSION "1"
+
+PARAMETER_STR("alsaplayer_path",   alsaplayer_path,    "/usr/bin/alsaplayer")
+PARAMETER_STR("alsaplayer_options",alsaplayer_options, "-r")
+
+#include "config_pre_post.hpp"

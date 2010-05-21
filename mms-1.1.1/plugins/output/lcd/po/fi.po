@@ -1,0 +1,30 @@
+# Finnish translations for mms package.
+# Copyright (C) 2006 Eerik Saarikalle
+# This file is distributed under the same license as the mms package.
+# Eerik Saarikalle <eerik.saarikalle@helsinki.fi>, 2006
+# Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>, 2008
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mms 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-19 17:04+0100\n"
+"PO-Revision-Date: 2008-09-21 14:18+0200\n"
+"Last-Translator: Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lcd.cpp:129
+msgid "Error connecting to server "
+msgstr "Palvelimeen "
+
+#: lcd.cpp:131
+msgid " on port "
+msgstr " ei saada yhteyttä portissa "
+
+#: lcd.cpp:132
+msgid "Check to see that the server is running and operating normally"
+msgstr "Tarkista palvelimen toiminta"
+

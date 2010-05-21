@@ -1,0 +1,17 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS RadioConfig
+#define S_PARAMETER_CLASS S_RadioConfig
+#define STRING_PARAMETER_CLASS "RadioConfig"
+
+#define MMS_CONFIG_VERSION "3"
+
+// AUDIO
+PARAMETER_BOOL("radio",		   radio,	true)
+PARAMETER_BOOL("download_radio",   download_radio,	true)
+
+// RADIO
+PARAMETER_STR("radiomplayeropts",  radiomplayer_opts,  "-cache 128 -vo null")
+
+#include "config_pre_post.hpp"

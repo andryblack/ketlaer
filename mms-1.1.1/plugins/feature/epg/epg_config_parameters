@@ -1,0 +1,57 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS EPGConfig
+#define S_PARAMETER_CLASS S_EPGConfig
+#define STRING_PARAMETER_CLASS "EPGConfig"
+
+#define MMS_CONFIG_VERSION "5"
+
+PARAMETER_STR("epg_data",	   epg_data,	       "/var/lib/mms/TV.xml")
+PARAMETER_STR("epg_update_script", epg_update_script,  "")
+
+PARAMETER_STR("epg_timezone", epg_timezone, "")
+
+/* Path to Channel-Logos */
+PARAMETER_STR("icon_path", icon_path,			"/etc/vdr/logos")
+
+/* Interval to Check for new Data */
+PARAMETER_NUM("interval",	interval,     360)
+
+/* Minutes a Timeslot covers */
+PARAMETER_NUM("timeslot_interval", timeslot_interval, 30)
+
+/* How many Timeslots to display */
+PARAMETER_NUM("timeslots", timeslots, 4)
+
+/* How to display Channel-Info (If for any channel a Logo is not available, display_channel_name is always TRUE) */
+
+/* Display Channelname */
+PARAMETER_BOOL("display_channel_name", display_channel_name, true)
+
+/* Display Channellogo */
+PARAMETER_BOOL("display_channel_logo", display_channel_logo, true)
+
+/* If Epg-Plugin uses Simple VDR-Protocol for Interaction with a VDR */
+PARAMETER_BOOL("use_svdrp",	   		use_svdrp,	      false)
+PARAMETER_STR("svdrp_host",	   		svdrp_host, "localhost")
+PARAMETER_NUM("svdrp_port",	   		svdrp_port,	       2001)
+
+PARAMETER_BOOL("svdrp_convert",	   	svdrp_convert, 	  false)
+PARAMETER_BOOL("svdrp_pipe_is_nl",	   	svdrp_pipe_is_nl, 	  true)
+
+PARAMETER_STR("svdrp_locale", 		svdrp_locale, "ISO-8859-15")
+
+/* List of Channels to Display (e.g. 1-5,7-9,-40) */
+PARAMETER_STR("svdrp_channels",		svdrp_channels,	 "1-80")
+
+/* Timer Lead (Minutes to start Timer before Event  starts */
+PARAMETER_NUM("svdrp_timer_lead", 	svdrp_timer_lead,    10)
+
+/* Timer Lead (Minutes to End Timer after Event ends */
+PARAMETER_NUM("svdrp_timer_trailer",svdrp_timer_trailer, 10)
+
+PARAMETER_STR("svdrp_tv_path",       svdrp_tv_path,       "/usr/bin/tvtime")
+PARAMETER_STR("svdrp_tv_opts",       svdrp_tv_opts,       "")
+
+#include "config_pre_post.hpp"

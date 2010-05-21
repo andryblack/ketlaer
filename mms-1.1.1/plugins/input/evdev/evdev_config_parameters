@@ -1,0 +1,12 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS EvdevConfig
+#define S_PARAMETER_CLASS S_EvdevConfig
+#define STRING_PARAMETER_CLASS "EvdevConfig"
+
+#define MMS_CONFIG_VERSION "1"
+
+PARAMETER_STR("evdev_dev",         evdev_dev,          "/dev/input/event0")
+
+#include "config_pre_post.hpp"

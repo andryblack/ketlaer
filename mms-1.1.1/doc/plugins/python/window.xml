@@ -1,0 +1,202 @@
+<window>
+   <id>Integer</id>
+   <defaultcontrol>Integer</defaultcontrol>
+   <controls>
+      <control>
+         <description>Image Control</description>
+         <type>image</type>
+         <id>Integer</id>
+         <posx>Integer</posx>
+         <posy>Integer</posy>
+         <width>Integer</width>
+         <height>Integer</height>
+         <layer>Integer</layer>
+         <onleft>Integer</onleft>
+         <onright>Integer</onright>
+         <onprev>Integer</onprev>
+         <onnext>Integer</onnext>
+         <visible>Boolean</visible>
+	 <texture>String</texture>
+      </control>
+
+      <control>
+         <description>Label Control</description>
+         <type>label</type>
+         <id>Integer</id>
+         <posx>Integer</posx>
+         <posy>Integer</posy>
+         <width>Integer</width>
+         <height>Integer</height>
+         <layer>Integer</layer>
+         <onleft>Integer</onleft>
+         <onright>Integer</onright>
+         <onprev>Integer</onprev>
+         <onnext>Integer</onnext>
+         <visible>Boolean</visible>
+	 <label>String</label>
+         <font>String</font>
+         <textcolor>String</textcolor>
+         <textoffset>Integer</textoffset>
+         <align>String</align>
+      </control>
+
+      <control>
+         <description>Button Control</description>
+         <type>button</type>
+         <id>Integer</id>
+         <posx>Integer</posx>
+         <posy>Integer</posy>
+         <width>Integer</width>
+         <height>Integer</height>
+         <layer>Integer</layer>
+         <onleft>Integer</onleft>
+         <onright>Integer</onright>
+         <onprev>Integer</onprev>
+         <onnext>Integer</onnext>
+         <visible>Boolean</visible>
+	 <label>String</label>
+	 <texturefocus>String</texturefocus>
+         <texturenofocus>String</texturenofocus>
+         <font>String</font>
+         <textcolor>String</textcolor>
+         <textcolorfocus>String</textcolorfocus>
+         <textoffset>Integer</textoffset>
+         <align>String</align>
+      </control>
+
+      <control>
+         <description>Rectangle Control</description>
+         <type>rectangle</type>
+         <id>Integer</id>
+         <posx>Integer</posx>
+         <posy>Integer</posy>
+         <width>Integer</width>
+         <height>Integer</height>
+         <layer>Integer</layer>
+         <onleft>Integer</onleft>
+         <onright>Integer</onright>
+         <onprev>Integer</onprev>
+         <onnext>Integer</onnext>
+         <visible>Boolean</visible>
+	 <alpha>Integer</alpha>
+         <rectanglecolor>String</rectanglecolor>
+      </control>
+
+      <control>
+         <description>List Control</description>
+         <type>list</type>
+         <id>Integer</id>
+         <posx>Integer</posx>
+         <posy>Integer</posy>
+         <width>Integer</width>
+         <height>Integer</height>
+         <layer>Integer</layer>
+         <onleft>Integer</onleft>
+         <onright>Integer</onright>
+         <onprev>Integer</onprev>
+         <onnext>Integer</onnext>
+         <visible>Boolean</visible>
+	 <texturefocus>String</texturefocus>
+         <texturenofocus>String</texturenofocus>
+         <font>String</font>
+         <textcolor>String</textcolor>
+         <textcolorfocus>String</textcolorfocus>
+         <textoffset>Integer</textoffset>
+         <align>String</align>
+         <itemheight>Integer</itemheight>
+         <itemspace>Integer</itemspace>
+      </control>
+
+       <control>
+         <description>TextBox Control</description>
+         <type>textbox</type>
+         <id>Integer</id>
+         <posx>Integer</posx>
+         <posy>Integer</posy>
+         <width>Integer</width>
+         <height>Integer</height>
+         <layer>Integer</layer>
+         <onleft>Integer</onleft>
+         <onright>Integer</onright>
+         <onprev>Integer</onprev>
+         <onnext>Integer</onnext>
+         <visible>Boolean</visible>
+         <font>String</font>
+         <textcolor>String</textcolor>
+         <rowheight>Integer</rowheight>
+         <rowspace>Integer</rowspace>
+      </control>
+
+      <control>
+         <description>TextField Control</description>
+         <type>textfield</type>
+         <id>Integer</id>
+         <posx>Integer</posx>
+         <posy>Integer</posy>
+         <width>Integer</width>
+         <height>Integer</height>
+         <layer>Integer</layer>
+         <onleft>Integer</onleft>
+         <onright>Integer</onright>
+         <onprev>Integer</onprev>
+         <onnext>Integer</onnext>
+         <visible>Boolean</visible>
+         <text>String</text>
+         <font>String</font>
+         <textcolor>String</textcolor>
+         <textoffset>Integer</textoffset>
+         <align>String</align>
+      </control>
+
+      <control>
+         <description>Progress Control</description>
+         <type>progress</type>
+         <id>Integer</id>
+         <posx>Integer</posx>
+         <posy>Integer</posy>
+         <width>Integer</width>
+         <height>Integer</height>
+         <layer>Integer</layer>
+         <onleft>Integer</onleft>
+         <onright>Integer</onright>
+         <onprev>Integer</onprev>
+         <onnext>Integer</onnext>
+         <visible>Boolean</visible>
+         <text>String</text>
+         <font>String</font>
+         <textcolor>String</textcolor>
+         <textoffset>Integer</textoffset>
+         <align>String</align>
+         <alpha>Integer</alpha>
+         <rectanglecolor>String</rectanglecolor>
+      </control>
+
+      <control>
+         <description>Image List Control</description>
+         <type>imagelist</type>
+         <id>Integer</id>
+         <posx>Integer</posx>
+         <posy>Integer</posy>
+         <width>Integer</width>
+         <height>Integer</height>
+         <layer>Integer</layer>
+         <onleft>Integer</onleft>
+         <onright>Integer</onright>
+         <onprev>Integer</onprev>
+         <onnext>Integer</onnext>
+         <visible>Boolean</visible>
+         <font>String</font>
+         <textcolor>String</textcolor>
+         <textcolorfocus>String</textcolorfocus>
+         <align>String</align>
+         <itemheight>Integer</itemheight>
+         <itemwidth>Integer</itemwidth>
+	 <textheight>Integer</textheight>
+	 <itemspacex>Integer</itemspacex>
+	 <itemspacey>Integer</itemspacey>
+	 <listcenterx>Boolean</listcenterx>
+	 <listcentery>Boolean</listcentery>
+      </control>
+
+   </controls>
+</window>

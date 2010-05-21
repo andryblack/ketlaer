@@ -1,0 +1,14 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS PythonConfig
+#define S_PARAMETER_CLASS S_PythonConfig
+#define STRING_PARAMETER_CLASS "PythonConfig"
+
+#define MMS_CONFIG_VERSION "1"
+
+// PYTHON
+PARAMETER_STR("script_dir",        script_dir,         "/etc/mms/scripts")
+PARAMETER_PAIR("filetypes_s",      filetypes_s)
+
+#include "config_pre_post.hpp"

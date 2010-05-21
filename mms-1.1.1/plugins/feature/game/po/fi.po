@@ -1,0 +1,113 @@
+# Finnish translations for mms package.
+# Copyright (C) 2006 Eerik Saarikalle
+# This file is distributed under the same license as the mms package.
+# Eerik Saarikalle <eerik.saarikalle@helsinki.fi>, 2006
+# Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>, 2008
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mmsv2 1.0.8.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-09-21 14:33+0200\n"
+"Last-Translator: Rolf Ahrenberg <Rolf.Ahrenberg@sci.fi>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: game.cpp:58
+msgid "Game Options"
+msgstr "Peliasetukset"
+
+#: game.cpp:74
+msgid "reload"
+msgstr "lataa uudelleen"
+
+#: game.cpp:219 game.cpp:1076
+msgid "Games"
+msgstr "Pelit"
+
+#: game.cpp:259
+msgid "Upgrading game database schema"
+msgstr "Päivitetään pelitietokannan mallia"
+
+#: game.cpp:340 game_plugin.cpp:25 game_plugin.cpp:55 game_plugin.cpp:89
+msgid "Game"
+msgstr "Peli"
+
+#: game.cpp:409
+msgid "Folder is empty"
+msgstr "Kansio on tyhjä"
+
+#: game.cpp:561
+msgid "No options available for games"
+msgstr "Peleille ei ole saatavilla asetuksia"
+
+#: game.cpp:612 game.cpp:660 game.cpp:801
+msgid "current folder"
+msgstr "nykyinen kansio"
+
+#: game.cpp:919
+msgid "Enter directory"
+msgstr "Avaa hakemisto"
+
+#: game.cpp:922
+msgid "Play game"
+msgstr "Pelaa peliä"
+
+#: game.cpp:925
+msgid "Search"
+msgstr "Hae"
+
+#: game.cpp:927
+msgid "Options"
+msgstr "Asetukset"
+
+#: game.cpp:931
+msgid "Go up one directory"
+msgstr "Siirry ylöspäin hakemistossa"
+
+#: game.cpp:933 game.cpp:936
+msgid "Return to startmenu"
+msgstr "Palaa alkuvalikkoon"
+
+#: game.cpp:1121
+msgid "Search: "
+msgstr "Haku: "
+
+#: game.cpp:1393 game.cpp:1779
+msgid "Starting game..."
+msgstr "Aloitetaan peli..."
+
+#: game.cpp:1776 game.cpp:1790
+msgid "The disc does not contain any recognizable files"
+msgstr "Levy ei sisällä tunnistettavia tiedostoja"
+
+#: game_plugin.cpp:16
+msgid "Could not find any games"
+msgstr "Pelejä ei löydy"
+
+#: game_plugin.cpp:18
+msgid "Please specify a correct path "
+msgstr "Ole hyvä ja aseta oikea polku"
+
+#: game_plugin.cpp:19
+msgid "in the configuration file"
+msgstr "asetustiedostossa"
+
+#: game_plugin.cpp:33
+msgid "Reloading directories"
+msgstr "Ladataan uudelleen hakemistoja"
+
+#: game_plugin.cpp:74
+msgid "Play games from harddrive"
+msgstr "Pelaa pelejä kiintolevyltä"
+
+#: game_plugin.cpp:78
+msgid "Play games"
+msgstr "Pelaa pelejä"
+
+#: game_plugin.cpp:83
+msgid "Play PSX or roms from cd/dvd"
+msgstr "Pelaa PSX/ROM-tiedostoja CD/DVD-levyltä"

@@ -1,0 +1,5 @@
+./picture_config.hpp
+./picture_config.cpp
+./pictures.hpp
+./pictures.cpp
+./pictures_plugin.cpp

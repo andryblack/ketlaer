@@ -1,0 +1,584 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Martins Zabarovskis <martins@zabarovski.lv>, 2008.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-25 10:31+0100\n"
+"PO-Revision-Date: 2008-11-28 14:45+0100\n"
+"Last-Translator: Martins Zabarovskis <martins@zabarovski.lv>\n"
+"Language-Team: LATVIAN <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: shoutcast.cpp:96 audio.cpp:223 players/audio_player.cpp:61
+#: players/audio_player.cpp:81 players/audio_player.cpp:88
+#: players/audio_player.cpp:133 graphical_audio.cpp:3069 audio_plugin.cpp:17
+#: audio_plugin.cpp:56 audio_plugin.cpp:69 audio_plugin.cpp:139
+#: dbaudiofile.cpp:113 dbaudiofile.cpp:132 graphical_audio.hpp:117
+#: graphical_audio.hpp:122 graphical_audio.hpp:127 graphical_audio.hpp:132
+msgid "Audio"
+msgstr "Audio"
+
+#: audio.cpp:147
+msgid "Could not write options to file "
+msgstr "Nevar saglabāt opcijas failā "
+
+#: audio.cpp:249
+msgid "Enter filename: "
+msgstr "Ievadiet faila nosaukumu: "
+
+#: audio.cpp:305 audio_opts.cpp:114
+msgid "from start"
+msgstr "no sākuma"
+
+#: audio.cpp:368 audio.cpp:456
+msgid "last.fm top tracks"
+msgstr "last.fm top ieraksti"
+
+#: audio.cpp:369 audio.cpp:451
+msgid "last.fm loved tracks"
+msgstr "last.fm mīļākie ieraksti"
+
+#: audio.cpp:490
+msgid "Playlist is corrupt"
+msgstr "Repertuārs ir sabojāts"
+
+#: audio.cpp:529 audio.cpp:797
+#, fuzzy
+msgid "My Radio Stations"
+msgstr "Ielādē radiostacijas"
+
+#: audio.cpp:537
+msgid "Downloading radio stations"
+msgstr "Ielādē radiostacijas"
+
+#: audio.cpp:543
+msgid "Failed to download radio stations"
+msgstr "Kļūda ielādējot radiostacijas"
+
+#: audio.cpp:555
+msgid "Could not find any internet radio stations"
+msgstr "Nevar atrast nevienu internet radiostaciju"
+
+#: audio.cpp:635
+msgid "Enter genre"
+msgstr "Ievadiet žanru"
+
+#: audio.cpp:637
+msgid "Play station now"
+msgstr "Atskaņot staciju"
+
+#: audio.cpp:644
+msgid "Add station to playlist"
+msgstr "Pievienot staciju Repertuārā"
+
+#: audio.cpp:649
+msgid "Remove station from my radio stations"
+msgstr "Izņemt radiostaciju no manām stacijām"
+
+#: audio.cpp:653
+msgid "Add station to my radio stations"
+msgstr "Pievienot radiostaciju manām stacijām"
+
+#: audio.cpp:658 audio.hpp:544
+msgid "Options"
+msgstr "Opcijas"
+
+#: audio.cpp:663 graphical_audio.cpp:1126 audio.hpp:496 audio.hpp:523
+msgid "Return to startmenu"
+msgstr "Atgriezties sākuma izvēlnē"
+
+#: audio.cpp:665 graphical_audio.cpp:1123 simple_audio.cpp:223
+msgid "Go up one directory"
+msgstr "Vienu līmeni atpakaļ"
+
+#: audio.cpp:776
+msgid "Could not write radio stations to file "
+msgstr "Nevar ierakstīt radiostacijas failā"
+
+#: audio.cpp:874 graphical_audio.cpp:2103 graphical_audio.cpp:2290
+msgid "Audio Library"
+msgstr "Audio Bibliotēka"
+
+#: audio.cpp:878 graphical_audio.cpp:2294
+msgid "Audio - Playlist"
+msgstr "Audio - Repertuārs"
+
+#: audio.cpp:920 graphical_audio.cpp:2148 graphical_audio.cpp:2340
+msgid "Search: "
+msgstr "Meklēt: "
+
+#: audio.cpp:955 audio.cpp:961 audio.cpp:1634 audio.cpp:1899 audio.cpp:2027
+#: audio.cpp:2029 graphical_audio.cpp:1139 graphical_audio.cpp:3025
+#: audio_opts.cpp:52 audio_opts.cpp:65 audio_opts.cpp:102 audio_opts.cpp:165
+#: audio.hpp:2228
+msgid "yes"
+msgstr "jā"
+
+#: audio.cpp:955 audio_opts.cpp:51 audio_opts.cpp:64 audio_opts.cpp:101
+#: audio_opts.cpp:164
+msgid "no"
+msgstr "nē"
+
+#: audio.cpp:967 audio.cpp:2032 graphical_audio.cpp:3082 audio_opts.cpp:78
+#: audio.hpp:1163 audio.hpp:1508 audio.hpp:1590
+#, fuzzy
+msgid "completely random"
+msgstr "īsta izlase"
+
+#: audio.cpp:971 audio.cpp:2035 audio_opts.cpp:83 audio.hpp:1530
+#: audio.hpp:1624
+msgid "intelligent"
+msgstr "inteliģenta"
+
+#: audio.cpp:975 audio.cpp:2038 audio_opts.cpp:79 audio.hpp:1520
+#: audio.hpp:1617
+#, fuzzy
+msgid "simple random"
+msgstr "winamp izlase"
+
+#: audio.cpp:1032
+msgid "Audio - Choose Playlist"
+msgstr "Audio - Izvēlēties Repertuāru"
+
+#: audio.cpp:1056
+msgid "Audio - Radio"
+msgstr "Audio - Radio"
+
+#: audio.cpp:1085 audio.cpp:1101 audio.hpp:1699 audio.hpp:1723 audio.hpp:1751
+#: audio.hpp:1781
+msgid "The disc does not contain any recognizable files"
+msgstr "Diskā nav neviena atpazīstama faila"
+
+#: audio.cpp:1434 audio.cpp:1604
+msgid "Playing track: "
+msgstr "Atskaņo ierakstu: "
+
+#: audio.cpp:1436 audio.cpp:1606 audio.cpp:1986 audio_s.cpp:147
+#: audio_s.cpp:150 audio_opts.cpp:77 audio.hpp:1352 audio.hpp:2189
+#: audio.hpp:2191
+msgid "off"
+msgstr "izslēgts"
+
+#: audio.cpp:1743
+msgid "Could not find audio player plugin specified in AudioConfig"
+msgstr "Nevar atrast audio atskaņotāja spraudni, kas definēts AudioConfig"
+
+#: audio.cpp:1753
+msgid "Could not find any audio player plugin"
+msgstr "Nevar atrast nevienu audio atskaņošanas spraudni"
+
+#: audio.cpp:1934
+msgid "Play"
+msgstr "Atskaņot"
+
+#: audio.cpp:1935
+msgid "Pause"
+msgstr "Pauze"
+
+#: audio.cpp:1936
+msgid "Stop"
+msgstr "Stop"
+
+#: audio.cpp:1937
+msgid "Fast forward"
+msgstr "Pārtīt uz priekšu"
+
+#: audio.cpp:1938
+msgid "Fast backward"
+msgstr "Pārtīt atpakaļ"
+
+#: audio.cpp:1939
+msgid "Next track"
+msgstr "Nākamais ieraksts"
+
+#: audio.cpp:1940
+msgid "Previous track"
+msgstr "Iepriekšējais ieraksts"
+
+#: audio.cpp:1941
+msgid "Increase volume"
+msgstr "Skaļāk"
+
+#: audio.cpp:1942
+msgid "Decrease volume"
+msgstr "Klusāk"
+
+#: audio.cpp:1943
+msgid "Mute"
+msgstr "Izslēgt skaņu"
+
+#: audio.cpp:1964
+msgid "Toggle playlist"
+msgstr "Pārslēgt repertuāru"
+
+#: audio.cpp:1993
+msgid "of"
+msgstr "no"
+
+#: audio_s.cpp:152
+msgid "real random"
+msgstr "īsta izlase"
+
+#: players/audio_player.cpp:52
+msgid "Track not present on the current media"
+msgstr "Ieraksts neatrodas uz esošā nesēja"
+
+#: players/audio_player.cpp:178
+msgid "Could not open options file "
+msgstr "Nevar atvērt opciju failu"
+
+#: graphical_audio.cpp:30
+msgid "Failed to connect to IMMS"
+msgstr "Kļūda piekļuvē IMMS"
+
+#: graphical_audio.cpp:221
+msgid "Upgrading audio database schema"
+msgstr "Atjaunina audio datubāzes shēmu"
+
+#: graphical_audio.cpp:532 graphical_audio.cpp:584 graphical_audio.cpp:684
+#: graphical_audio.cpp:1781 graphical_audio.cpp:2416
+msgid "current folder"
+msgstr "aktuālā direktorija"
+
+#: graphical_audio.cpp:1074
+msgid "No similar tracks found in local db"
+msgstr "Lokālajā datubāzē nav atrasts līdzīgs ieraksts"
+
+#: graphical_audio.cpp:1105 simple_audio.cpp:218
+msgid "Enter directory"
+msgstr "Atvērt direktoriju"
+
+#: graphical_audio.cpp:1108 simple_audio.cpp:212
+msgid "Add directory to playlist"
+msgstr "Pievienot direktoriju repertuāram"
+
+#: graphical_audio.cpp:1111
+msgid "Choose cover for folder"
+msgstr "Izvēlieties vāciņu direktorijai"
+
+#: graphical_audio.cpp:1115 simple_audio.cpp:209
+msgid "Add track to playlist"
+msgstr "Pievienot ierakstu repertuāram"
+
+#: graphical_audio.cpp:1117
+msgid "Generate playlist of similar tracks"
+msgstr "Veidot repertuāru no līdzīgiem ierakstiem"
+
+#: graphical_audio.cpp:1133
+msgid "Print information"
+msgstr "Drukāt informāciju"
+
+#: graphical_audio.cpp:1140
+msgid "Show Lyrics"
+msgstr "Rādīt dziesmu vārdus"
+
+#: graphical_audio.cpp:1142
+msgid "Show Screensaver"
+msgstr "Rādīt ekrānsaaudzētāju"
+
+#: graphical_audio.cpp:1163 graphical_audio.cpp:2483 graphical_audio.cpp:2926
+msgid "Extracting metadata"
+msgstr "Izdala metadatus"
+
+#: graphical_audio.cpp:1193 simple_audio.cpp:241 audio.hpp:564 audio.hpp:789
+msgid "Folder is empty"
+msgstr "Direktorija ir tukša"
+
+#: graphical_audio.cpp:1305
+msgid "choose a cover"
+msgstr "izvēlies vāciņa attēlu"
+
+#: graphical_audio.cpp:1408
+msgid "No covers found"
+msgstr "Nav vāciņa attēlu"
+
+#: graphical_audio.cpp:1541
+msgid "Audio - Information"
+msgstr "Audio - Informācija"
+
+#: graphical_audio.cpp:1573 graphical_audio.cpp:1598
+msgid "Artist:"
+msgstr "Izpildītājs:"
+
+#: graphical_audio.cpp:1575 graphical_audio.cpp:1608
+msgid "Album:"
+msgstr "Albūms:"
+
+#: graphical_audio.cpp:1577 graphical_audio.cpp:1619
+msgid "Title:"
+msgstr "Nosaukums:"
+
+#: graphical_audio.cpp:1579 graphical_audio.cpp:1655
+msgid "Year:"
+msgstr "Gads:"
+
+#: graphical_audio.cpp:1581 graphical_audio.cpp:1628
+msgid "Genres:"
+msgstr "Žanri:"
+
+#: graphical_audio.cpp:1583 graphical_audio.cpp:1664
+msgid "Bitrate:"
+msgstr "Bireits:"
+
+#: graphical_audio.cpp:1585 graphical_audio.cpp:1680
+msgid "Length:"
+msgstr "Garums:"
+
+#: graphical_audio.cpp:1588 graphical_audio.cpp:1696
+msgid "Rating:"
+msgstr "Vērtējums:"
+
+#: graphical_audio.cpp:1591 graphical_audio.cpp:1705
+msgid "Track:"
+msgstr "Dziesma:"
+
+#: graphical_audio.cpp:1694
+msgid "not rated yet"
+msgstr "nav vēl vērtēts"
+
+#: graphical_audio.cpp:2987
+msgid "something wrong in intelligent random"
+msgstr "problēmas ar inteliģento izlasi"
+
+#: graphical_audio.cpp:3086 graphical_audio.cpp:3088
+msgid "Next track: "
+msgstr "Nākamā dziesma: "
+
+#: graphical_audio.cpp:3092
+msgid "Next track: random"
+msgstr "Nākamā dziesma: izlase"
+
+#: audio_opts.cpp:23
+msgid "Audio Options"
+msgstr ""
+
+#: audio_opts.cpp:35
+msgid "reload"
+msgstr "pārlādēt"
+
+#: audio_opts.cpp:59
+msgid "repeat"
+msgstr "atkārtot"
+
+#: audio_opts.cpp:72
+msgid "shutdown on finished"
+msgstr "izslēgt sistēmu pēc atskaņošanas"
+
+#: audio_opts.cpp:96
+msgid "shuffle"
+msgstr "izlase"
+
+#: audio_opts.cpp:109
+msgid "show lyrics"
+msgstr "rādīt vārdus"
+
+#: audio_opts.cpp:115
+msgid "from end"
+msgstr "no beigām"
+
+#: audio_opts.cpp:122
+msgid "time view"
+msgstr "laika skats"
+
+#: audio_opts.cpp:148 audio_opts.cpp:157
+msgid "minimum bitrate"
+msgstr "minimālais bitreits"
+
+#: audio_opts.cpp:152
+msgid "n/a"
+msgstr "n/z"
+
+#: audio_opts.cpp:172
+msgid "bg metadata extraction"
+msgstr "bg metadatu atspiešana"
+
+#: audio_plugin.cpp:25
+msgid "Reloading directories"
+msgstr "Direktoriju pārlāde"
+
+#: audio_plugin.cpp:33
+msgid "Could not find any music"
+msgstr "Nevar atrast mūziku"
+
+#: audio_plugin.cpp:35
+msgid "Please specify a correct path "
+msgstr "Lūdzu norādiet pareizu ceļu"
+
+#: audio_plugin.cpp:36
+msgid "in the configuration file"
+msgstr "konfigurācijas failā"
+
+#: audio_plugin.cpp:110
+msgid "Play audio from harddrive"
+msgstr "Atskaņot mūziku no diska"
+
+#: audio_plugin.cpp:113
+msgid "Play audio"
+msgstr "Atskaņot audio"
+
+#: audio_plugin.cpp:119
+msgid "Play an audio cd"
+msgstr "Atskaņot mūzikas CD"
+
+#: audio_plugin.cpp:126
+msgid "Play Internet Radio"
+msgstr "Atskaņot Interneta Radio"
+
+#: shuffle_list.cpp:88
+msgid "List is empty, removal failed"
+msgstr "Saraksts ir tukšs, dzēšana neizdevās"
+
+#: audio.hpp:481
+msgid "Add all tracks to playlist"
+msgstr "Visas dziesmas uz Repertuāru"
+
+#: audio.hpp:487
+msgid "Play now"
+msgstr "Atskaņot tagad"
+
+#: audio.hpp:491
+msgid "Play track now"
+msgstr "Atskaņot dziesmu tagad"
+
+#: audio.hpp:501
+msgid "Play track"
+msgstr "Atskaņot dziesmu"
+
+#: audio.hpp:504
+msgid "Move track up"
+msgstr "Pārvietot dziesmu augšup"
+
+#: audio.hpp:507
+msgid "Move track down"
+msgstr "Pārvietot dziesmu lejup"
+
+#: audio.hpp:510
+msgid "Delete track"
+msgstr "Dzēst dziesmu"
+
+#: audio.hpp:513
+msgid "Jump to currently playing track"
+msgstr "Uz dziesmu kura tiek atskaņota"
+
+#: audio.hpp:516
+msgid "Queue track"
+msgstr "Rindot dziesmu"
+
+#: audio.hpp:518
+msgid "Dequeue track"
+msgstr "Izņemt no rindas"
+
+#: audio.hpp:527
+msgid "Clear playlist"
+msgstr "Iztīrīt repertuāru"
+
+#: audio.hpp:530
+msgid "Save playlist"
+msgstr "Saglabāt repertuāru"
+
+#: audio.hpp:535
+msgid "Load playlist"
+msgstr "Ielādēt repertuāru"
+
+#: audio.hpp:541
+msgid "Search"
+msgstr "Meklēt"
+
+#: audio.hpp:570
+msgid "Clearing playlist to play contents of folder"
+msgstr "Iztīrīt repertuāru un atskaņot direktorijas saturu"
+
+#: audio.hpp:571
+msgid "The old playlist has been saved as 'autosaved'"
+msgstr "Vecais repertuārs tika saglabāts kā 'autosaved'"
+
+#: audio.hpp:786 audio.hpp:1109
+msgid "Added directory to playlist"
+msgstr "Direktorija pievienota repertuāram"
+
+#: audio.hpp:805
+msgid "Looking up CD in database"
+msgstr "Meklēt CD datubāzē"
+
+#: audio.hpp:830
+msgid "Please, choose among:"
+msgstr "Lūdzu izvēlieties no:"
+
+#: audio.hpp:936
+msgid "No personal radio stations found"
+msgstr "Nav atrastas personīgās radiostacijas"
+
+#: audio.hpp:947
+msgid "The genre contains no stations"
+msgstr "Žanrā nav radiostaciju"
+
+#: audio.hpp:948
+msgid "or the stations could not be downloaded"
+msgstr "vai stacijas nevar ielādēt"
+
+#: audio.hpp:984 audio.hpp:1023
+msgid "Alsaplayer does not support rtsp"
+msgstr "Alsaplayer neatbalsta rtsp"
+
+#: audio.hpp:993
+msgid "Starting playback"
+msgstr "Sāk atskaņošanu"
+
+#: audio.hpp:997
+msgid "Failed to connect to the radio station"
+msgstr "Kļūda piekļūstot radiostacijai"
+
+#: audio.hpp:1032 audio.hpp:1117
+msgid "Added track to playlist"
+msgstr "Dziesma pievienota repertuāram"
+
+#: audio.hpp:1462
+msgid "No tracks in playlist"
+msgstr "Repertuārā nav dziesmu"
+
+#: audio.hpp:1482
+msgid "No saved playlists found"
+msgstr "Nav atrasti saglabātie repertuāri"
+
+#: audio.hpp:1706
+msgid "Add CD to playlist and start playback"
+msgstr "Pievienot CD repertuāram un atskaņot"
+
+#: audio.hpp:1709
+msgid "Examine CD"
+msgstr "Pārbaudīt CD"
+
+#: audio.hpp:1816
+msgid "Can not save playlist with an empty name"
+msgstr "Nevar saglabāt repertuāru bez vārda"
+
+#: audio.hpp:1818 audio.hpp:1831
+msgid "Please use another name"
+msgstr "Lūdzu izvēlieties citu vārdu"
+
+#: audio.hpp:1829
+msgid "Playlist with the chosen name already exists"
+msgstr "Repertuārs ar šādu vārdu jau eksistē"
+
+#: audio.hpp:1843
+msgid "Could not write playlist to file: "
+msgstr "Nevar ierakstīt repertuāru failā: "
+
+#: audio.hpp:1910
+msgid "Skipping track not present on the current media"
+msgstr "Izlaižam dziesmu kas nav uz esošā nesēja"
+
+#: audio.hpp:1923 audio.hpp:1931 audio.hpp:1937 audio.hpp:2081 audio.hpp:2090
+msgid "Playlist malformed, skipping line"
+msgstr "Repertuārs kļūdains, izlaižam rindu"
+
+#: audio.hpp:2068
+msgid "Could not open playlist: "
+msgstr "Nevar atvērt repertuāru: "

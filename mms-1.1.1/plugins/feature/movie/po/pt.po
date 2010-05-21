@@ -1,0 +1,432 @@
+# MMS Portuguese Translation.
+# Copyright (C) 2003, 2005 Luis Correia
+# This file is distributed under the same license as MMS.
+# Luis Correia <lfcorreia@users.sf.net, 2003.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mmsv2 1.0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2006-07-17 19:51+0200\n"
+"Last-Translator: Luis Correia <lfcorreia@users.sf.net>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: imdb.cpp:21
+msgid "Unable to retrieve web page "
+msgstr "erro na página web"
+
+#: simple_movie.cpp:27
+#, fuzzy
+msgid "Play video"
+msgstr "Ver filmes"
+
+#: simple_movie.cpp:31 graphical_movie.cpp:330 graphical_movie.cpp:339
+msgid "Enter directory"
+msgstr "Entrar directoria"
+
+#: simple_movie.cpp:35 graphical_movie.cpp:369
+msgid "Go up one directory"
+msgstr "Directoria acima"
+
+#: simple_movie.cpp:38 graphical_movie.cpp:371 graphical_movie.cpp:374
+#: collection.cpp:163
+msgid "Return to startmenu"
+msgstr "Voltar ao menu inicial"
+
+#: simple_movie.cpp:80 graphical_movie.cpp:459 movie.hpp:350
+msgid "Folder is empty"
+msgstr "Directoria vazia"
+
+#: simple_movie.cpp:238 graphical_movie.cpp:42 movie_db.cpp:1657
+#: movie_db.cpp:1771
+msgid "Videos"
+msgstr ""
+
+#: simple_movie.cpp:281 movie_db.cpp:1275 movie_db.cpp:1706 movie_db.cpp:1820
+msgid "Search: "
+msgstr "Pesquisa: "
+
+#: movie.cpp:49
+#, fuzzy
+msgid "Video Options"
+msgstr "Opções de Filme"
+
+#: movie.cpp:60 movie.cpp:131
+msgid "reload"
+msgstr "reler"
+
+#: movie.cpp:70 graphical_movie.cpp:551 graphical_movie.cpp:556
+#: collection.cpp:233 collection.cpp:239 movie_db.cpp:434 movie_db.cpp:1634
+msgid "icon view"
+msgstr ""
+
+#: movie.cpp:73 graphical_movie.cpp:533 graphical_movie.cpp:544
+#: collection.cpp:211 collection.cpp:224
+msgid "list view"
+msgstr ""
+
+#: movie.cpp:76
+#, fuzzy
+msgid "display mode"
+msgstr "Ver filme"
+
+#: movie.cpp:114
+msgid "No such plugin player: "
+msgstr ""
+
+#: movie.cpp:119
+msgid " does not provide any options"
+msgstr ""
+
+#: movie.cpp:126 movie.cpp:425
+msgid "Options"
+msgstr "Opções"
+
+#: movie.cpp:131
+msgid "sorting"
+msgstr "ordenando"
+
+#: movie.cpp:132
+msgid "cd device"
+msgstr "cd device"
+
+#: movie.cpp:132
+#, fuzzy
+msgid "audio device"
+msgstr "cd device"
+
+#: movie.cpp:170
+#, fuzzy
+msgid "video player"
+msgstr "Título VCD"
+
+#: movie.cpp:175
+#, fuzzy
+msgid "vcd player"
+msgstr "Título VCD"
+
+#: movie.cpp:180
+#, fuzzy
+msgid "dvd player"
+msgstr "Título DVD"
+
+#: movie.cpp:337
+msgid "Play"
+msgstr "Play"
+
+#: movie.cpp:338
+msgid "Pause"
+msgstr "Pausa"
+
+#: movie.cpp:339
+msgid "Stop"
+msgstr "Parar"
+
+#: movie.cpp:340
+msgid "Fast forward"
+msgstr "Fast Forward"
+
+#: movie.cpp:341
+msgid "Fast backward"
+msgstr "Fast Backward"
+
+#: movie.cpp:408 collection.cpp:187 movie_plugin.cpp:28 movie_plugin.cpp:58
+#: movie_plugin.cpp:115
+msgid "Video"
+msgstr ""
+
+#: movie.cpp:419
+msgid "Switch video playback to fullscreen"
+msgstr ""
+
+#: movie.cpp:423
+msgid "Search"
+msgstr "Pesquisa"
+
+#: movie.cpp:474
+#, fuzzy
+msgid "Starting playback..."
+msgstr "Iniciando playback..."
+
+#: graphical_movie.cpp:27 movie_db.cpp:52
+msgid "Could not create directory "
+msgstr "Não consigo criar directoria "
+
+#: graphical_movie.cpp:221 graphical_movie.cpp:275 movie_db.cpp:479
+msgid "current folder"
+msgstr ""
+
+#: graphical_movie.cpp:333 graphical_movie.cpp:341
+msgid "Play all files in dir"
+msgstr "Toca todos os ficheiros na directoria"
+
+#: graphical_movie.cpp:336
+msgid "Play movie"
+msgstr "Ver filme"
+
+#: graphical_movie.cpp:347
+#, fuzzy
+msgid "Update imdb information"
+msgstr "Informação IMDb"
+
+#: graphical_movie.cpp:351
+#, fuzzy
+msgid "Delete imdb information"
+msgstr "Informação IMDb"
+
+#: graphical_movie.cpp:356
+#, fuzzy
+msgid "Get information on imdb"
+msgstr "Informação IMDb"
+
+#: graphical_movie.cpp:362
+#, fuzzy
+msgid "Print file information"
+msgstr "Pmprimir informação"
+
+#: graphical_movie.cpp:365
+#, fuzzy
+msgid "Print imdb information"
+msgstr "Pmprimir informação"
+
+#: graphical_movie.cpp:406
+#, fuzzy
+msgid "No available information about this file"
+msgstr "para transferir informação sobre o filme"
+
+#: graphical_movie.cpp:411
+#, fuzzy
+msgid "General information:"
+msgstr "Opções Globais"
+
+#: graphical_movie.cpp:418
+msgid "Video details:"
+msgstr ""
+
+#: graphical_movie.cpp:425
+#, fuzzy
+msgid "Audio details:"
+msgstr "Opções de Audio"
+
+#: graphical_movie.cpp:692
+msgid "directories first"
+msgstr "directorias primeiro"
+
+#: graphical_movie.cpp:975
+#, fuzzy
+msgid "No IMDb information found about videos"
+msgstr "Não existe informação IMDb sobre esse filme"
+
+#: graphical_movie.cpp:976
+#, fuzzy
+msgid "Use the reget video information action"
+msgstr "Use a acção 'reget' para transferir informação sobre o filme"
+
+#: graphical_movie.cpp:977
+#, fuzzy
+msgid "to download information about a video"
+msgstr "para transferir informação sobre o filme"
+
+#: graphical_movie.cpp:994
+msgid "Could not write options to file "
+msgstr "Não consigo escrever ficheiro de opções "
+
+#: graphical_movie.cpp:1013
+msgid "Could not open options file "
+msgstr "Não consigo abrir ficheiro de opções "
+
+#: collection.cpp:31
+#, fuzzy
+msgid "Video Coll."
+msgstr "Opções de Filme"
+
+#: collection.cpp:38
+msgid "No options available for video collection"
+msgstr ""
+
+#: collection.cpp:147
+msgid "Print information"
+msgstr "Pmprimir informação"
+
+#: collection.cpp:151
+#, fuzzy
+msgid "Update video information"
+msgstr "Informação IMDb"
+
+#: collection.cpp:155
+msgid "Remove video"
+msgstr ""
+
+#: collection.cpp:160
+#, fuzzy
+msgid "Search IMDb"
+msgstr "Pesquisa: "
+
+#: movie_plugin.cpp:19
+#, fuzzy
+msgid "Could not find any videos"
+msgstr "Não consigo encontrar filmes"
+
+#: movie_plugin.cpp:21
+msgid "Please specify a correct path "
+msgstr "Confirma que o caminho é correcto "
+
+#: movie_plugin.cpp:22
+msgid "in the configuration file"
+msgstr "no ficheiro de configuração"
+
+#: movie_plugin.cpp:36
+msgid "Reloading directories"
+msgstr "Relendo directorias"
+
+#: movie_plugin.cpp:94
+#, fuzzy
+msgid "Play videos from harddrive"
+msgstr "Ver filme a partir do disco"
+
+#: movie_plugin.cpp:98
+#, fuzzy
+msgid "Play videos"
+msgstr "Ver filmes"
+
+#: movie_plugin.cpp:103
+msgid "Play a dvd/vcd/svcd"
+msgstr "Ver dvd/vcd/svcd"
+
+#: movie_db.cpp:49
+msgid "Video database could not be opened or created"
+msgstr ""
+
+#: movie_db.cpp:259 movie_db.cpp:264
+msgid "Upgrading video database schema"
+msgstr ""
+
+#: movie_db.cpp:408
+#, fuzzy
+msgid "No IMDb information found about video"
+msgstr "Não existe informação IMDb sobre esse filme"
+
+#: movie_db.cpp:409
+msgid "Please update information"
+msgstr "Por favor"
+
+#: movie_db.cpp:665
+msgid "Director: "
+msgstr "Realizador: "
+
+#: movie_db.cpp:669
+msgid "Writing Credits: "
+msgstr "Argumento: "
+
+#: movie_db.cpp:677 movie_db.cpp:1530
+msgid "Runtime: "
+msgstr "Tempo: "
+
+#: movie_db.cpp:685 movie_db.cpp:1537
+msgid "Genre: "
+msgstr "Género: "
+
+#: movie_db.cpp:709
+msgid "Tagline: "
+msgstr "Tagline: "
+
+#: movie_db.cpp:740
+msgid "Plot: "
+msgstr "Resumo: "
+
+#: movie_db.cpp:765 movie_db.cpp:769
+msgid "Rating:"
+msgstr "Classificação:"
+
+#: movie_db.cpp:804
+msgid "Cast: "
+msgstr "Elenco: "
+
+#: movie_db.cpp:853
+#, fuzzy
+msgid "Getting details about video"
+msgstr "A gerar detalhes para o filme"
+
+#: movie_db.cpp:863 movie_db.cpp:1065
+msgid "value of information_source not valid:"
+msgstr ""
+
+#: movie_db.cpp:1052
+#, fuzzy
+msgid "Looking up video in IMDb database"
+msgstr "Procurando filme na IMDB "
+
+#: movie_db.cpp:1263
+msgid "IMDb lookup"
+msgstr "Pesquisa IMDB"
+
+#: movie_db.cpp:1287
+msgid "No results found..."
+msgstr "Não encontro resultados..."
+
+#: movie_db.cpp:1319
+msgid " result found"
+msgstr " resultado encontrado"
+
+#: movie_db.cpp:1321
+msgid " results found"
+msgstr " resultados encontrados"
+
+#: movie_db.cpp:1525
+#, fuzzy
+msgid "Rating: "
+msgstr "Classificação:"
+
+#: movie_db.cpp:1592
+#, fuzzy
+msgid "Duration: "
+msgstr "Classificação:"
+
+#: movie_db.cpp:1598
+#, fuzzy
+msgid "Resolution: "
+msgstr "Classificação:"
+
+#: movie_db.cpp:1604
+msgid "Geometry: "
+msgstr ""
+
+#: movie_db.cpp:1610
+#, fuzzy
+msgid "Audio codec: "
+msgstr "modo audio"
+
+#: movie_db.cpp:1616
+#, fuzzy
+msgid "Audio bitrate: "
+msgstr "Bitrate:"
+
+#: movie_db.cpp:1659 movie_db.cpp:1773 movie_collection_plugin.cpp:16
+#: movie_collection_plugin.cpp:45
+#, fuzzy
+msgid "Video Collection"
+msgstr "Opções de Filme"
+
+#: movie_collection_plugin.cpp:38
+#, fuzzy
+msgid "View video collection"
+msgstr "Opções de Filme"
+
+#: movie.hpp:519 movie.hpp:539
+msgid "The disc does not contain any recognizable files"
+msgstr "Este CD não contém conteudo multimédia"
+
+#, fuzzy
+#~ msgid "Delete movie"
+#~ msgstr "Ver filme"
+
+#, fuzzy
+#~ msgid "Movie"
+#~ msgstr "Filmes"
+
+#~ msgid "Movies"
+#~ msgstr "Filmes"

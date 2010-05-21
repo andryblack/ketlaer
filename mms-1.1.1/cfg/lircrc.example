@@ -1,0 +1,227 @@
+# This only serves as an example of how mplayer, cxfe and dxr3player
+# can be configured
+#
+# When you're done editing to your needs, place the file at ~/.lircrc
+
+# mplayer bindings
+
+begin
+     button = PLAY
+     prog = mplayer
+     config = play
+end
+
+begin
+    button = PAUSE
+    prog = mplayer
+    config = pause
+end
+
+begin
+    button = STOP
+    prog = mplayer
+    config = quit
+end
+
+begin
+    button = REV
+    prog = mplayer
+    config = seek -10
+    repeat = 1
+end
+
+begin
+    button = FF
+    prog = mplayer
+    config = seek 10
+    repeat = 1
+end
+
+begin
+    button = PREV
+    prog = mplayer
+    config = pt_step -1
+    repeat = 1
+end
+
+begin
+    button = NEXT
+    prog = mplayer
+    config = pt_step 1
+    repeat = 1
+end
+
+begin
+     button = Ch+
+     prog = dxr3player
+     config = UP
+end
+
+# dxr3player bindings
+
+begin
+    button = Ch-
+    prog = dxr3player
+    config = DOWN
+end
+
+begin
+    button = Vol+
+    prog = dxr3player
+    config = LEFT
+end
+
+begin
+    button = Vol-
+    prog = dxr3player
+    config = RIGHT
+end
+
+begin
+    button = Ok
+    prog = dxr3player
+    config = ACTIVATE
+end
+
+begin
+    button = Menu
+    prog = dxr3player
+    config = MENU_ROOT
+end
+
+begin
+    button = TITLE
+    prog = dxr3player
+    config = MENU_TITLE
+end
+
+begin
+    button = ANGLE
+    prog = dxr3player
+    config = MENU_ANGLE
+end
+
+begin
+    button = Play
+    prog = dxr3player
+    config = PLAY
+end
+
+begin
+    button = Pause
+    prog = dxr3player
+    config = PAUSE
+end
+
+begin
+    button = Forward
+    prog = dxr3player
+    config = PLAY_FAST_FORWARD
+end
+
+begin
+    button = Rewind
+    prog = dxr3player
+    config = PLAY_FAST_BACKWARD
+end
+
+# CXFE bindings
+
+begin
+        button = Replay
+        prog   = cxfe
+        repeat = 0
+        config = PREV_EVENT
+end
+begin
+        button = Skip
+        prog   = cxfe
+        repeat = 0
+        config = NEXT_EVENT
+end
+begin
+        button = Ch+
+        prog   = cxfe
+        repeat = 0
+        config = UP_EVENT
+end
+begin
+        button = Ch-
+        prog   = cxfe
+        repeat = 0
+        config = DOWN_EVENT
+end
+begin
+        button = Vol-
+        prog   = cxfe
+        repeat = 0
+        config = LEFT_EVENT
+end
+begin
+        button = Vol+
+        prog   = cxfe
+        repeat = 0
+        config = RIGHT_EVENT
+end
+begin
+        button = Ok
+        prog   = cxfe
+        repeat = 0
+        config = SELECT_EVENT
+end
+begin
+        button = Pause
+        prog   = cxfe
+        repeat = 0
+        config = Pause
+end
+begin
+        button = Stop
+        prog   = cxfe
+        repeat = 0
+        config = Stop
+end
+begin
+        button = Power
+        prog   = cxfe
+        repeat = 0
+        config = Quit
+end
+begin
+        button = Forward
+        prog   = cxfe
+        repeat = 0
+        config = FF
+end
+begin
+        button = Rewind
+        prog   = cxfe
+        repeat = 0
+        config = REW
+end
+begin
+        button = 8
+        prog   = cxfe
+        repeat = 1
+        config = VOL_UP
+end
+begin
+        button = 7
+        prog   = cxfe
+        repeat = 1
+        config = VOL_DOWN
+end
+begin
+        button = Menu
+        prog   = cxfe
+        repeat = 0
+        config = Menu
+end
+
+# Control external programs using irexec
+
+begin
+    prog = irexec
+    button = Power
+    config = /etc/mms/vdr-hide
+end

@@ -1,0 +1,12 @@
+#include "define_guards.hpp"
+
+/* The name of the class */
+#define PARAMETER_CLASS ClockAlarms
+#define S_PARAMETER_CLASS S_ClockAlarms
+#define STRING_PARAMETER_CLASS "ClockAlarms"
+
+#define MMS_CONFIG_VERSION "1"
+
+PARAMETER_PAIR("alarm", alarms)
+
+#include "config_pre_post.hpp"

@@ -1,0 +1,114 @@
+# translation of es.po to
+# MMS translation to Spanish.
+# Copyright (C) 2005 Alan Mizrahi
+# This file is distributed under the same license as MMS.
+# Alan Mizrahi, alan at mizrahi dot com dot ve
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: es\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-28 13:06-0300\n"
+"PO-Revision-Date: 2008-02-23 22:32-0430\n"
+"Last-Translator: Pablo Castorino <pablo@castorinop.com.ar>\n"
+"Language-Team:  <en@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: game.cpp:58
+msgid "Game Options"
+msgstr "Opciones de Juegos"
+
+#: game.cpp:74
+msgid "reload"
+msgstr "recargar"
+
+#: game.cpp:219 game.cpp:1076
+msgid "Games"
+msgstr "Juegos"
+
+#: game.cpp:259
+msgid "Upgrading game database schema"
+msgstr "Actualizando Esquema de base de datos de Juego"
+
+#: game.cpp:340 game_plugin.cpp:25 game_plugin.cpp:55 game_plugin.cpp:89
+msgid "Game"
+msgstr "Juego"
+
+#: game.cpp:409
+msgid "Folder is empty"
+msgstr "El directorio está vacío"
+
+#: game.cpp:561
+msgid "No options available for games"
+msgstr "No hay opciones disponibles para juegos"
+
+#: game.cpp:612 game.cpp:660 game.cpp:801
+msgid "current folder"
+msgstr "directorio actual"
+
+#: game.cpp:919
+msgid "Enter directory"
+msgstr "Introduzca directorio"
+
+#: game.cpp:922
+msgid "Play game"
+msgstr "Jugar juego"
+
+#: game.cpp:925
+msgid "Search"
+msgstr "Búsqueda"
+
+#: game.cpp:927
+msgid "Options"
+msgstr "Opciones"
+
+#: game.cpp:931
+msgid "Go up one directory"
+msgstr "Subir un directorio"
+
+#: game.cpp:933 game.cpp:936
+msgid "Return to startmenu"
+msgstr "Volver al menú principal"
+
+#: game.cpp:1121
+msgid "Search: "
+msgstr "Búsqueda: "
+
+#: game.cpp:1393 game.cpp:1779
+msgid "Starting game..."
+msgstr "Iniciando Juego..."
+
+#: game.cpp:1776 game.cpp:1790
+msgid "The disc does not contain any recognizable files"
+msgstr "El disco no contiene archivos reproducibles"
+
+#: game_plugin.cpp:16
+msgid "Could not find any games"
+msgstr "No se pudo encontrar ningún juego"
+
+#: game_plugin.cpp:18
+msgid "Please specify a correct path "
+msgstr "Por favor especifique la ruta correcta "
+
+#: game_plugin.cpp:19
+msgid "in the configuration file"
+msgstr "en el archivo de configuración"
+
+#: game_plugin.cpp:33
+msgid "Reloading directories"
+msgstr "Recargando directorios"
+
+#: game_plugin.cpp:74
+msgid "Play games from harddrive"
+msgstr "Jugar juegos del disco duro"
+
+#: game_plugin.cpp:78
+msgid "Play games"
+msgstr "Jugar juegos"
+
+#: game_plugin.cpp:83
+msgid "Play PSX or roms from cd/dvd"
+msgstr "Jugar PSX o roms de cd/dvd"

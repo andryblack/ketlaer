@@ -1,0 +1,20 @@
+#########################################
+# Configuration file for input
+#
+# Syntax:
+# mode, command, key
+#
+# some modes inherit from other modes, which means that you can't
+# define the same key in both. Otherwise you are free to use the same
+# keys.
+#
+# all inherit from general
+
+version = 4
+
+epg,toggle_timer,t
+epg,switch_to_channel,c
+epg,reload,r
+epg,delete_timer,d
+epg,list_timer,l
+

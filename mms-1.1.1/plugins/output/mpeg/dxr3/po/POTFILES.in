@@ -1,0 +1,5 @@
+./dxr3out.cpp
+./dxr3out.hpp
+./dxr3_config.cpp
+./dxr3_config.hpp
+./dxr3out_plugin.cpp

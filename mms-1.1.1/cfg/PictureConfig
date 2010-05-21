@@ -1,0 +1,24 @@
+### PICTURES ####
+
+version = 4
+
+# Directories
+#
+# you can add several folders by simple having multiple entries
+#
+picture_dir = /media/
+
+# If your directories are stored on a network storage you can specify
+# them underneath instead of specifying them as picture_dir. The
+# difference is that MMS will not try to add needless inotify watches
+# to directories specified in this way
+#
+#picture_dir_no_watch = /media/
+
+# Pictures dirs to exclude
+#
+# Exclude dirs with the following names from coming up in pictures
+# You can specify as many as needed
+#
+# Eg.
+#exclude_picture_dir = .xvpic
