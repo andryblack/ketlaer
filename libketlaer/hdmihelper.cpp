@@ -93,19 +93,14 @@ public:
   {
     return NULL;
   }
-  ShowStatusAP()
-  {
-    ShowStatus(0, "init", 0, 0);
-  }
 };
 
-ShowStatusAP showStatusApp;
+void *__ShowStatusAP__ = (void*)ShowStatusAP::ShowStatus;
 
 static void *ProcessTimer(COMMAND_BUFFER *pcmd)
 {
-  if (pcmd->pHandler) {
+  if (pcmd->pHandler)
     pcmd->pHandler->HandleTimer(pcmd);
-  }
 }
 
 static bool g_stopMAIN = false;
@@ -123,9 +118,8 @@ void *MAIN_thread(void*)
   pfds[0].events = POLLIN;
   while(!g_stopMAIN) {
     if(poll(pfds, 1, 100) <= 0) {
-      if(GetLatestTimer(&cmd, NULL) == true) {
+      if(GetLatestTimer(&cmd, NULL) == true) 
 	ProcessTimer(&cmd);
-      }
       continue;
     }
     if(pfds[0].revents & POLLIN) {
@@ -139,9 +133,8 @@ void *MAIN_thread(void*)
 	  g_pHDMICallbacks->TvSystemChanged();
 	}
       }
-      else {
+      else
 	printf("unhandled event %d\n", cmd.type);
-      }
     }
   }
   return NULL;

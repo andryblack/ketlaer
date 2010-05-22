@@ -158,7 +158,7 @@ static void LoadAudioConfig()
   SetAudioForceChannelCtrl(31);//??
 }
 
-static HANDLE getSurfaceHandle (int width, int height, PIXEL_FORMAT pixFormat)
+HANDLE getSurfaceHandle (int width, int height, PIXEL_FORMAT pixFormat)
 {
   SURFACEDESC desc;
   HANDLE ret;

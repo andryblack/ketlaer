@@ -4,7 +4,7 @@ include $(TOP)/Make.inc
 
 OBJSONLY = HDMI_thread.o firmware_debug.o
 
-OBJS = init.o ConfigFile.o hdmihelper.o RemoteMap.o SetupClass.o
+OBJS = libketlaer.o ConfigFile.o hdmihelper.o RemoteMap.o SetupClass.o
 
 LIB=libketlaer.a
 

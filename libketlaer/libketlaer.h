@@ -12,6 +12,7 @@ int  ir_getfd();
 int  ir_getkey(bool translate=true); //0==none
 
 HANDLE         getScreenSurface();
+HANDLE         getSurfaceHandle (int width, int height, PIXEL_FORMAT pixFormat);
 VO_RECTANGLE  *getScreenRect();
 VideoPlayback *getVideoPlayback();
 
