@@ -1,5 +1,4 @@
 #include "rtd.hpp"
-#include "qtkeys.h"
 
 #include "config.h"
 
@@ -22,6 +21,8 @@
 #include <langinfo.h>
 #include <locale.h>
 #endif
+
+#include <qtkeys.h>
 
 Rtd::Rtd()
 {

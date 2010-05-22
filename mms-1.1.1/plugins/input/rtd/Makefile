@@ -12,8 +12,9 @@ PLUGIN_NAME = lib_ainput_rtd.so
 SRCS = rtd.cpp rtd_plugin.cpp
 OBJS = rtd.o rtd_plugin.o
 
-CXXFLAGS += -I../ -I../../ -I../../../ -I../../feature/ -I../../output/ \
-	 -fPIC -shared
+CXXFLAGS += -I$(KETLAER_DIR)/libketlaer \
+	-I../ -I../../ -I../../../ -I../../feature/ -I../../output/ \
+	-fPIC -shared
 
 all: $(OBJS)
 	$(DO_MAKE)
@@ -26,7 +27,7 @@ clean:
 	$(DO_MAKECLEAN)
 	@if test -f rtd.o ; then rm *.o ; fi
 	@if test -f $(PLUGIN_NAME) ; then rm *.so ; fi
-	@rm *~
+	@rm -f *~
 
 depend:
 	$(CXX) -MM $(CXXFLAGS) $(SRCS) 1> .depend
