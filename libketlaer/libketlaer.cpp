@@ -268,6 +268,7 @@ void init_libketlaer()
     ioctl(g_irfd, VENUS_IR_IOC_FLUSH_IRRP, NULL);
     ioctl(g_irfd, VENUS_IR_IOC_SET_PROTOCOL, g_pIrMap->GetProtocol());
     ioctl(g_irfd, VENUS_IR_IOC_SET_DEBOUNCE, 100); 
+    printf("ir protocol=%d\n", g_pIrMap->GetProtocol());
   }
 }
 

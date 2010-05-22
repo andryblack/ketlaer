@@ -359,7 +359,7 @@ static int hud_osd_command(struct osd_command_s *cmd)
     int w = cmd->dirty_area.x2 - cmd->dirty_area.x1 + 1;
     int h = cmd->dirty_area.y2 - cmd->dirty_area.y1 + 1;
 
-#define OSD_SCALE_X(x)	(int)((double)x * getScreenRect()->width / 720)
+#define OSD_SCALE_X(x)	(int)((double)x * getScreenRect()->width  / 720)
 #define OSD_SCALE_Y(y)	(int)((double)y * getScreenRect()->height / 576)
 
     int xs = OSD_SCALE_X(x);
@@ -560,9 +560,62 @@ static void deinit()
   uninit_libketlaer();
 }
 
+static struct {
+  int   key;
+  char *str;
+} vdr_keymap[] = {
+  {Key_0,             "0"        },
+  {Key_1,             "1"        },
+  {Key_2,             "2"        },
+  {Key_3,             "3"        },
+  {Key_4,             "4"        },
+  {Key_5,             "5"        },
+  {Key_6,             "6"        },
+  {Key_7,             "7"        },
+  {Key_7,             "8"        },
+  {Key_9,             "9"        },
+  {Key_Up,            "Up"       },
+  {Key_Down,          "Down"     },
+  {Key_Left,          "Left"     },
+  {Key_Right,         "Right"    },
+  {Key_Enter,         "Ok"       },
+  {Key_Home,          "Menu"     },
+  {Key_Backspace,     "Back"     },
+  {Key_MediaNext,     "Next"     },
+  {Key_MediaPrevious, "Previous" },
+  {Key_MediaPlay,     "Play"     },
+  {Key_MediaStop,     "Stop"     },
+  {Key_VolumeUp,      "Volume+"  },
+  {Key_VolumeDown,    "Volume-"  },
+  {Key_VolumeMute,    "Mute"     },
+  {Key_PowerOff,      "Power"    },
+  {Key_F9,            "Red"      },
+  {Key_F10,           "Green"    },
+  {Key_F11,           "Yellow"   },
+  {Key_F12,           "Blue"     },
+  {0, 0},
+};
+
 static void process_keyboard()
 {
-  printf("key = %lx\n", ir_getkey(false));
+  int idx = 0,key = ir_getkey();
+  char *str = NULL, cmd[32];
+
+  printf("[VDR]Key = %lx\n", key);
+
+  while(vdr_keymap[idx].str) {
+    if (vdr_keymap[idx].key == key) {
+      str = vdr_keymap[idx].str;
+      break;
+    }
+    idx++;
+  }
+
+  printf("[VDR]Mapped = %s\n", str ? str : "NOTHING");
+  if (str) {
+    snprintf(cmd, sizeof(cmd), "KEY %s\r\n", str);
+    write_control(cmd);
+  }
 }
 
 static void mainloop()

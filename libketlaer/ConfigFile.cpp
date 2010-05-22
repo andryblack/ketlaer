@@ -191,12 +191,7 @@ bool ConfigFile::CreateDefaultFile()
         fprintf(f,"//  Remote type :                                                             //\n");
         fprintf(f,"//                Emtec :                                                     //\n");
         fprintf(f,"//                         EKAH110                                            //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//                ScreanPlay :                                                //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//                                                                            //\n");
-        fprintf(f,"//                                                                            //\n");
+        fprintf(f,"//                ScreenPlay :                                                //\n");
         fprintf(f,"//                                                                            //\n");
         fprintf(f,"////////////////////////////////////////////////////////////////////////////////\n");
         fprintf(f,"\n");

@@ -120,7 +120,7 @@ bool IrMapFile::LoadFiles(char *dir)
   snprintf(name, sizeof(name), "%s/QTEvent.qtm",dir);
 
   if (stat(name,&buf)) {
-    if (CreateQTDefaultFile(name)) {
+    if (!CreateQTDefaultFile(name)) {
       perror(name);
       fprintf(stderr,"[RemoteMap]Error while creating '%s' default setting file !\n",name);
     }
@@ -299,14 +299,19 @@ bool IrMapFile::CreateQTDefaultFile(char *name)
     fprintf(f,"  { key = \"key_Home\" ; value = \"01000010\"; },\n");
     fprintf(f,"  { key = \"key_PageUp\" ; value = \"01000016\"; },\n");
     fprintf(f,"  { key = \"key_PageDown\" ; value = \"01000017\"; },\n");
-    fprintf(f,"  { key = \"key_Backspace\" ; value = \"01000002\"; },\n");
+    fprintf(f,"  { key = \"key_Backspace\" ; value = \"01000003\"; },\n");
     fprintf(f,"  { key = \"key_PowerOff\" ; value = \"010000b7\"; },\n");
     fprintf(f,"  { key = \"key_MediaPlay\" ; value = \"01000080\"; },\n");
+    fprintf(f,"  { key = \"key_MediaStop\" ; value = \"01000081\"; },\n");
+    fprintf(f,"  { key = \"key_MediaPrevious\" ; value = \"01000082\"; },\n");
     fprintf(f,"  { key = \"key_MediaNext\" ; value = \"01000083\"; },\n");
-    fprintf(f,"  { key = \"key_MediaStop\" ; value = \"01000082\"; },\n");
     fprintf(f,"  { key = \"key_VolumeUp\" ; value = \"01000072\"; },\n");
     fprintf(f,"  { key = \"key_VolumeDown\" ; value = \"01000070\"; },\n");
-    fprintf(f,"  { key = \"key_VolumeMute\" ; value = \"01000071\"; }\n");
+    fprintf(f,"  { key = \"key_VolumeMute\" ; value = \"01000071\"; },\n");
+    fprintf(f,"  { key = \"key_F9\" ; value = \"01000038\"; },\n");
+    fprintf(f,"  { key = \"key_F10\" ; value = \"01000039\"; },\n");
+    fprintf(f,"  { key = \"key_F11\" ; value = \"0100003a\"; },\n");
+    fprintf(f,"  { key = \"key_F12\" ; value = \"0100003b\"; }\n");
     fprintf(f,");\n");
     fprintf(f,"//EOF\n");
     fclose(f);

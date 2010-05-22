@@ -14,8 +14,12 @@
 
 SetupClass *SetupClass::m_ptr = new SetupClass();
 
+#if 0
 #define TRACEOK \
 printf("OK:SetupClass::%s(), %s:%d\n", __FUNCTION__, __FILE__, __LINE__)
+#else
+#define TRACEOK /*as nothing*/
+#endif
 #define TRACENI \
 printf("NI:SetupClass::%s(), %s:%d\n", __FUNCTION__, __FILE__, __LINE__)
 
