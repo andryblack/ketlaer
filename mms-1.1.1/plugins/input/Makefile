@@ -21,6 +21,8 @@ ifeq ($(EVDEV),yes)
 SUBDIRS += evdev
 endif
 
+SUBDIRS += rtd
+
 SRCS = input.cpp input_device.cpp remote.cpp remote_config.cpp
 OBJS = input.o input_device.o remote.o remote_config.o
 
