@@ -17,6 +17,18 @@
 
 #include <libfe.h>
 
+static void run_internal_player(const char *opts)
+{
+  S_SSaverobj::get_instance()->StopCounter();
+  run::aquire_exclusive_access();
+  S_Render::get_instance()->device->unlock();
+  run_vdr_frontend(opts);
+  S_Render::get_instance()->device->lock();
+  S_Render::get_instance()->complete_redraw();
+  run::release_exclusive_access();
+  S_SSaverobj::get_instance()->ResetCounter();
+}
+
 Tv::Tv()
 {
 #ifdef use_nls
@@ -34,14 +46,7 @@ std::string Tv::mainloop()
 #if 0
   run::exclusive_external_program(tv_conf->p_tv_path() + ' ' + tv_conf->p_tv_opts());
 #else
-  S_SSaverobj::get_instance()->StopCounter();
-  run::aquire_exclusive_access();
-  S_Render::get_instance()->device->unlock();
-  run_vdr_frontend(tv_conf->p_tv_opts().c_str());
-  S_Render::get_instance()->device->lock();
-  S_Render::get_instance()->complete_redraw();
-  run::release_exclusive_access();
-  S_SSaverobj::get_instance()->ResetCounter();
+  run_internal_player(tv_conf->p_tv_opts().c_str());
 #endif
 
   // make sure the screensaver doesn't kick in right after tv finishes
