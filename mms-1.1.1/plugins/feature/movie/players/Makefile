@@ -12,7 +12,7 @@ OBJS = movie_player.o
 CXXFLAGS += -I../ -I../../ -I../../../ -I../../../../ \
 	-I../../../output/ -I../../../input/ -fPIC -shared
 
-SUBDIRS += mplayer xine genericplayer
+SUBDIRS += mplayer xine genericplayer rtd
 
 all: $(OBJS)
 	$(DO_MAKE)
@@ -28,6 +28,7 @@ depend:
 	make -C mplayer depend
 	make -C xine depend
 	make -C genericplayer depend
+	make -C rtd depend
 	$(CXX) -MM $(CXXFLAGS) $(SRCS) 1> .depend
 
 # dependencies
