@@ -18,7 +18,7 @@ using std::string;
 
 static bool setfile(string &file)
 {
-  string path = "file://"+file;
+  string path = "file://"+file.substr(1);
 
   if (g_pb->LoadMedia((char*)path.c_str()) == S_OK) {
     g_pb->m_pFManager->SetRate(256);
