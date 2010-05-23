@@ -12,7 +12,8 @@ PLUGIN_NAME = lib_feature_movie_player_rtdmov.so
 SRCS += rtdmov.cpp rtdmov_plugin.cpp
 OBJS += rtdmov.o rtdmov_plugin.o
 
-CXXFLAGS += -I../ -I../../ -I../../../ -I../../../../ -I../../../../ \
+CXXFLAGS += -I$(KETLAER_DIR)/libketlaer \
+	-I../ -I../../ -I../../../ -I../../../../ -I../../../../ \
 	-I../../../../../ -I../../../../output/ \
 	-I../../../../input/ -fPIC -shared
 
@@ -26,13 +27,14 @@ CXXFLAGS += -I$(MMSDIR)/libs/ffmpeg/ -I$(MMSDIR)/libs/ffmpeg/libavcodec/ -I$(MMS
 endif
 endif
 
+RTDLIBS = -lketlaer -lpthread
+
 all: $(OBJS)
 	$(DO_MAKE)
-	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(NEEDED_PLAYER_OBJS)
+	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(NEEDED_PLAYER_OBJS) $(RTDLIBS)
 
 install: all
 	$(INSTALL) $(PLUGIN_NAME) $(DESTDIR)$(PLUGINDIR)/$(PLUGIN_NAME)
-	make -C po install
 
 clean:
 	$(DO_MAKECLEAN)
