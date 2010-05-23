@@ -3,20 +3,26 @@
 
 #include "remote.hpp"
 
-class Rtd : public Remote
+class RtdInp : public Remote
 {
 private:
+
+  ost::Event ev_suspended;
+  ost::Event ev_wakeup;
+
+  bool suspended;
+  bool stop;
 
 public:
   void run();
   bool init();
 
-  Rtd();
-  ~Rtd();
+  RtdInp();
+  ~RtdInp();
 
   std::string name()
   {
-    return "rtd";
+    return "rtdinp";
   }
 
   void suspend();

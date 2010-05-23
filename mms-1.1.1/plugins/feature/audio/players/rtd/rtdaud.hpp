@@ -5,7 +5,7 @@
 
 #include "audio_player.hpp"
 
-class Rtd : public AudioPlayer
+class RtdAud : public AudioPlayer
 {
 public:
   std::string cd_track_path(int track_nr);
@@ -45,8 +45,8 @@ public:
 
   void init();
 
-  Rtd();
-  ~Rtd();
+  RtdAud();
+  ~RtdAud();
 
 private:
 

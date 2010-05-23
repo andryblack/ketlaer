@@ -156,6 +156,8 @@ static int            osd_width  = OSD_DEF_WIDTH;;
 static int            osd_height = OSD_DEF_HEIGHT;
 static HANDLE         g_hOSD = NULL;
 static VideoPlayback *g_pb = NULL;
+static bool           g_bOSD = false;
+static bool           g_bStop = false;
 
 static bool init_connection(const char *ahost, const char *aport)
 {
@@ -353,14 +355,21 @@ static int hud_osd_command(struct osd_command_s *cmd)
 
   case OSD_Set_RLE: /* Create/update OSD window. Data is rle-compressed. */
     printf("HUD Set RLE\n");
-
+    g_bOSD = true;
     int x = cmd->x + cmd->dirty_area.x1;
     int y = cmd->y + cmd->dirty_area.y1;
     int w = cmd->dirty_area.x2 - cmd->dirty_area.x1 + 1;
     int h = cmd->dirty_area.y2 - cmd->dirty_area.y1 + 1;
 
+    /*fix scaling issues*/
+    x = 0;
+    w = osd_width;
+    //y = 0;
+    //h = osd_height;
+
 #define OSD_SCALE_X(x)	(int)((double)x * getScreenRect()->width  / 720)
 #define OSD_SCALE_Y(y)	(int)((double)y * getScreenRect()->height / 576)
+
 
     int xs = OSD_SCALE_X(x);
     int ys = OSD_SCALE_Y(y);
@@ -401,6 +410,7 @@ static int hud_osd_command(struct osd_command_s *cmd)
 
   case OSD_Close: /* Close OSD window */
     printf("HUD osd Close\n");
+    g_bOSD = false;
     DG_DrawRectangle(getScreenSurface(), 
 		     0, 
 		     0, 
@@ -526,7 +536,7 @@ static void play_stream()
   g_pb->m_pFManager->Run();
 }
 
-static bool init(char *args)
+static bool init(const char *args)
 {
   char *host, *port;
 
@@ -538,8 +548,24 @@ static bool init(char *args)
     return false;
   write_control("CONTROL\r\n");
   g_hOSD = getSurfaceHandle(HUD_MAX_WIDTH, HUD_MAX_HEIGHT, Format_32);
+  DG_DrawRectangle(g_hOSD, 
+		   0, 
+		   0, 
+		   HUD_MAX_WIDTH, 
+		   HUD_MAX_HEIGHT, 
+		   RESERVED_COLOR_KEY, 
+		   NULL);
   g_pb = getVideoPlayback();
   play_stream();
+  g_bOSD = false;
+  g_bStop = false;
+  DG_DrawRectangle(getScreenSurface(), 
+		   0, 
+		   0, 
+		   getScreenRect()->width, 
+		   getScreenRect()->height, 
+		   RESERVED_COLOR_KEY, 
+		   NULL);
   return true;
 }
 
@@ -601,7 +627,8 @@ static void process_keyboard()
   int idx = 0,key = ir_getkey();
   char *str = NULL, cmd[32];
 
-  printf("[VDR]Key = %lx\n", key);
+  if (!g_bOSD && (key == Key_Backspace)) 
+    g_bStop = true;
 
   while(vdr_keymap[idx].str) {
     if (vdr_keymap[idx].key == key) {
@@ -611,7 +638,7 @@ static void process_keyboard()
     idx++;
   }
 
-  printf("[VDR]Mapped = %s\n", str ? str : "NOTHING");
+  printf("[VDR]Key = %lx Mapped = %s\n", key, str ? str : "NOTHING");
   if (str) {
     snprintf(cmd, sizeof(cmd), "KEY %s\r\n", str);
     write_control(cmd);
@@ -624,7 +651,7 @@ static void mainloop()
   fd_set  set;
   int     ir_fd = ir_getfd();
 
-  while(true) {
+  while(!g_bStop) {
     tv.tv_sec  = 0;
     tv.tv_usec = 100000;
     FD_ZERO(&set);
@@ -639,7 +666,7 @@ static void mainloop()
   }
 }
 
-int run_vdr_frontend(char *args)
+int run_vdr_frontend(const char *args)
 {
   int ret = 0;
 

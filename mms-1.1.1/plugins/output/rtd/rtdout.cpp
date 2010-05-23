@@ -36,8 +36,8 @@ RTDdev::RTDdev()
 #ifdef use_nls
   // gettext
   setlocale(LC_ALL, ""); /* set from the environment variables */
-  bindtextdomain("mms-rtd", mms_prefix"/share/locale");
-  bind_textdomain_codeset("mms-rtd", nl_langinfo(CODESET));
+  bindtextdomain("mms-rtd-out", mms_prefix"/share/locale");
+  bind_textdomain_codeset("mms-rtd-out", nl_langinfo(CODESET));
 #endif
 }
 

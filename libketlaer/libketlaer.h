@@ -8,11 +8,12 @@
 void init_libketlaer();
 void uninit_libketlaer();
 
-int  ir_getfd();
-int  ir_getkey(bool translate=true); //0==none
+int ir_getfd();
+int ir_getkey();
+int it_getkey(bool &repeat);
 
-HANDLE         getScreenSurface();
-HANDLE         getSurfaceHandle (int width, int height, PIXEL_FORMAT pixFormat);
+HANDLE getScreenSurface();
+HANDLE getSurfaceHandle (int width, int height, PIXEL_FORMAT pixFormat);
 VO_RECTANGLE  *getScreenRect();
 VideoPlayback *getVideoPlayback();
 

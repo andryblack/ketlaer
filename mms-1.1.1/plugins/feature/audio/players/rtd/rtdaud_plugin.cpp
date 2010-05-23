@@ -1,5 +1,5 @@
 #include "plugin.hpp"
-#include "rtd.hpp"
+#include "rtdaud.hpp"
 
 class RtdAudioPlayerPlugin : public AudioPlayerPlugin
 {
@@ -7,10 +7,10 @@ public:
 
   RtdAudioPlayerPlugin() 
   {
-    player = new Rtd();
+    player = new RtdAud();
   }
 
-  std::string plugin_name() const { return "rtd"; }
+  std::string plugin_name() const { return "rtdaud"; }
 };
 
 MMS_PLUGIN(RtdAudioPlayerPlugin)

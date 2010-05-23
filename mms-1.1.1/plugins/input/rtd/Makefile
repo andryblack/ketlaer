@@ -7,27 +7,27 @@ MMSDIR = ../../../
 include $(MMSDIR)/config.mak
 include $(MMSDIR)/common.mak
 
-PLUGIN_NAME = lib_ainput_rtd.so
+PLUGIN_NAME = lib_ainput_rtdinp.so
 
-SRCS = rtd.cpp rtd_plugin.cpp
-OBJS = rtd.o rtd_plugin.o
+SRCS = rtdinp.cpp rtdinp_plugin.cpp
+OBJS = rtdinp.o rtdinp_plugin.o
 
 CXXFLAGS += -I$(KETLAER_DIR)/libketlaer \
 	-I../ -I../../ -I../../../ -I../../feature/ -I../../output/ \
 	-fPIC -shared
 
+RTDLIBS = -lketlaer -lpthread
+
 all: $(OBJS)
 	$(DO_MAKE)
-	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) 
+	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(RTDLIBS)
 
 install: all
 	$(INSTALL) $(PLUGIN_NAME) $(DESTDIR)$(PLUGINDIR)/$(PLUGIN_NAME)
 
 clean:
 	$(DO_MAKECLEAN)
-	@if test -f rtd.o ; then rm *.o ; fi
-	@if test -f $(PLUGIN_NAME) ; then rm *.so ; fi
-	@rm -f *~
+	@rm -f *.o *.so *~
 
 depend:
 	$(CXX) -MM $(CXXFLAGS) $(SRCS) 1> .depend

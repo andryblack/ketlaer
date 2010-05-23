@@ -7,25 +7,26 @@ MMSDIR = ../../../../../
 include $(MMSDIR)/config.mak
 include $(MMSDIR)/common.mak
 
-PLUGIN_NAME = lib_feature_audio_player_rtd.so
+PLUGIN_NAME = lib_feature_audio_player_rtdaud.so
 
-SRCS += rtd.cpp rtd_plugin.cpp
-OBJS += rtd.o   rtd_plugin.o
+SRCS += rtdaud.cpp rtdaud_plugin.cpp
+OBJS += rtdaud.o   rtdaud_plugin.o
 
 CXXFLAGS += -I../ -I../../ -I../../../ -I../../../../ -I../../../../ \
 	-I../../../../../ -I../../../../output/ \
 	-I../../../../input/ -fPIC -shared 
 
+RTDLIBS = -lketlaer -lpthread
+
 all: $(OBJS)
-	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(NEEDED_PLAYER_OBJS)
+	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(NEEDED_PLAYER_OBJS) $(RTDLIBS)
 
 install:
 	$(INSTALL) $(PLUGIN_NAME) $(DESTDIR)$(PLUGINDIR)/$(PLUGIN_NAME)
 
 clean:
 	$(DO_MAKECLEAN)
-	@if test -f rtd.o ; then rm *.o ; fi
-	@if test -f $(PLUGIN_NAME) ; then rm *.so ; fi
+	@rm -f *.o *.so *~
 
 depend:
 	$(CXX) -MM $(CXXFLAGS) $(SRCS) 1> .depend

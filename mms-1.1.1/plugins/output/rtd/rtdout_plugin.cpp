@@ -5,7 +5,7 @@ class RTDPlugin : public OutputPlugin
 {
 public:
   RTDPlugin() { device = new RTDdev; }
-  std::string plugin_name() const { return "rtd"; }
+  std::string plugin_name() const { return "rtdout"; }
 };
 
 MMS_PLUGIN(RTDPlugin)

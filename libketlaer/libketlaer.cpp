@@ -286,14 +286,22 @@ int ir_getfd()
   return g_irfd;
 }
 
-int ir_getkey(bool translate)
+int ir_getkey(bool &repeated)
 {
-  int key = 0;
+  int key = 0, rep = 0, qtkey;
 
   read(g_irfd, &key, sizeof(key));
-  if (key && translate)
-    key = g_pIrMap->GetQtKey(key);
-  return key;
+  read(g_irfd, &rep, sizeof(rep));
+  repeated = rep == 1;
+  qtkey = g_pIrMap->GetQtKey(key);
+  printf("[LIBKETLAER]ir %lx %lx %lx\n", key, rep, qtkey);
+  return qtkey;
+}
+
+int ir_getkey()
+{
+  bool dummy;
+  return ir_getkey(dummy);
 }
 
 HANDLE getScreenSurface()

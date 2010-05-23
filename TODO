@@ -3,13 +3,12 @@ mms:
 
 - debug crashes
 - cleanup build process for intel/mips and submit patches
+- virtual keyboard
 
 based on libketlaer.so:
 
-- infrared input (should use Qt keycodes)
 - audio player
 - movie player
-- tv player vdr
 - tv player usb
 
 mms pyglets:

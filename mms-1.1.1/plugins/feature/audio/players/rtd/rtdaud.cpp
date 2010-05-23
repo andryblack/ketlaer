@@ -1,4 +1,4 @@
-#include "rtd.hpp"
+#include "rtdaud.hpp"
 
 #include "audio_s.hpp"
 #include "config.hpp"
@@ -14,7 +14,7 @@ static int stop_status = 0;
 
 using std::string;
 
-string Rtd::cd_track_path(int track_nr)
+string RtdAud::cd_track_path(int track_nr)
 {
   std::ostringstream tmp;
 
@@ -23,7 +23,7 @@ string Rtd::cd_track_path(int track_nr)
   return tmp.str();
 }
 
-int Rtd::is_playing()
+int RtdAud::is_playing()
 {
   Audio_s *audio_state = S_Audio_s::get_instance();
 
@@ -31,7 +31,7 @@ int Rtd::is_playing()
     return 1;
 
 #ifndef KETLAER
-  RtdState state;
+  RtdAudState state;
   gst_element_get_state(player, &state, 0, 0);
 
   if ( (state == GST_STATE_PLAYING || state == GST_STATE_PAUSED))
@@ -41,20 +41,20 @@ int Rtd::is_playing()
     return 0;
 }
 
-int Rtd::is_buffering()
+int RtdAud::is_buffering()
 {
   return 0;
 }
 
-int Rtd::is_mute()
+int RtdAud::is_mute()
 {
   return (old_volume != 0);
 }
 
-void Rtd::gather_info()
+void RtdAud::gather_info()
 {
 #ifndef KETLAER
-  RtdFormat fmt = GST_FORMAT_TIME;
+  RtdAudFormat fmt = GST_FORMAT_TIME;
   gint64 pos = 0, len = 0;
 
  if (gst_element_query_position(player, &fmt, &pos) &&
@@ -65,7 +65,7 @@ void Rtd::gather_info()
 #endif
 }
 
-void Rtd::addfile(const Simplefile &file)
+void RtdAud::addfile(const Simplefile &file)
 {
   if (!check_media(file))
     return;
@@ -83,7 +83,7 @@ void Rtd::addfile(const Simplefile &file)
   audio_state->set_pause(false);
 }
 
-void Rtd::play()
+void RtdAud::play()
 {
   Audio_s *audio_state = S_Audio_s::get_instance();
 
@@ -101,7 +101,7 @@ void Rtd::play()
 #endif
 }
 
-void Rtd::stop_player()
+void RtdAud::stop_player()
 {
 #ifndef KETLAER
   Audio_s *audio_state = S_Audio_s::get_instance();
@@ -117,12 +117,12 @@ void Rtd::stop_player()
 #endif
 }
 
-void Rtd::pause()
+void RtdAud::pause()
 {
 #ifndef KETLAER
   Audio_s *audio_state = S_Audio_s::get_instance();
 
-  RtdState state;
+  RtdAudState state;
 
   if (gst_element_get_state(player, &state, 0, 0) &&
       state != GST_STATE_PAUSED) {
@@ -135,7 +135,7 @@ void Rtd::pause()
 #endif
 }
 
-void Rtd::ff()
+void RtdAud::ff()
 {
   gather_info();
 
@@ -143,7 +143,7 @@ void Rtd::ff()
     setpos(cur_time + 10);
 }
 
-void Rtd::fb()
+void RtdAud::fb()
 {
   gather_info();
 
@@ -156,12 +156,12 @@ void Rtd::fb()
     setpos(cur_time - 10);
 }
 
-int Rtd::getpos()
+int RtdAud::getpos()
 {
   return cur_time;
 }
 
-void Rtd::setpos(int p)
+void RtdAud::setpos(int p)
 {
 #ifndef KETLAER
   gst_element_seek(player, 1.0, GST_FORMAT_TIME,
@@ -170,7 +170,7 @@ void Rtd::setpos(int p)
 #endif
 }
 
-void Rtd::mute()
+void RtdAud::mute()
 {
   int vol = getvol();
 
@@ -183,7 +183,7 @@ void Rtd::mute()
   }
 }
 
-void Rtd::volup()
+void RtdAud::volup()
 {
   int vol = getvol() + 4;
   if (vol > 100)
@@ -191,7 +191,7 @@ void Rtd::volup()
   setvol(vol);
 }
 
-void Rtd::voldown()
+void RtdAud::voldown()
 {
   int vol = getvol() - 4;
   if (vol < 0)
@@ -199,7 +199,7 @@ void Rtd::voldown()
   setvol(vol);
 }
 
-void Rtd::setvol(int volume)
+void RtdAud::setvol(int volume)
 {
 #ifndef KETLAER
   g_object_set (G_OBJECT(player), "volume",
@@ -207,7 +207,7 @@ void Rtd::setvol(int volume)
 #endif
 }
 
-int Rtd::getvol()
+int RtdAud::getvol()
 {
 #ifndef KETLAER
   gdouble vol;
@@ -220,17 +220,17 @@ int Rtd::getvol()
 #endif
 }
 
-bool Rtd::supports_rtp() const
+bool RtdAud::supports_rtp() const
 {
   // FIXME: does it?
   return false;
 }
 
-void Rtd::reconfigure()
+void RtdAud::reconfigure()
 {
 }
 
-void Rtd::collect_info(const string& filename)
+void RtdAud::collect_info(const string& filename)
 {
   Simplefile s;
   s.path = filename;
@@ -242,12 +242,12 @@ void Rtd::collect_info(const string& filename)
   gather_info();
 }
 
-bool Rtd::loaded()
+bool RtdAud::loaded()
 {
   return is_loaded;
 }
 
-void Rtd::release_device()
+void RtdAud::release_device()
 {
   stop();
 
@@ -255,21 +255,21 @@ void Rtd::release_device()
   is_loaded = false;
 }
 
-void Rtd::restore_device()
+void RtdAud::restore_device()
 {
   is_loaded = true;
 }
 
-Rtd::Rtd()
+RtdAud::RtdAud()
   : AudioPlayer("", "", "", 0, 0, 0), is_loaded(true)
 {
 }
 
-void Rtd::init()
+void RtdAud::init()
 {
 }
 
-Rtd::~Rtd()
+RtdAud::~RtdAud()
 {
 }
 
