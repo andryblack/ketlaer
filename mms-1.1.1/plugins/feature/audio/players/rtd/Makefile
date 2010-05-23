@@ -12,7 +12,8 @@ PLUGIN_NAME = lib_feature_audio_player_rtdaud.so
 SRCS += rtdaud.cpp rtdaud_plugin.cpp
 OBJS += rtdaud.o   rtdaud_plugin.o
 
-CXXFLAGS += -I../ -I../../ -I../../../ -I../../../../ -I../../../../ \
+CXXFLAGS += -I$(KETLAER_DIR)/libketlaer \
+	-I../ -I../../ -I../../../ -I../../../../ -I../../../../ \
 	-I../../../../../ -I../../../../output/ \
 	-I../../../../input/ -fPIC -shared 
 
@@ -21,7 +22,7 @@ RTDLIBS = -lketlaer -lpthread
 all: $(OBJS)
 	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(NEEDED_PLAYER_OBJS) $(RTDLIBS)
 
-install:
+install: all
 	$(INSTALL) $(PLUGIN_NAME) $(DESTDIR)$(PLUGINDIR)/$(PLUGIN_NAME)
 
 clean:

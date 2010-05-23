@@ -10,9 +10,28 @@
 #include <iostream>
 #include <sstream>
 
-static int stop_status = 0;
+#include <libketlaer.h>
+
+static VideoPlayback *g_pb = NULL;
 
 using std::string;
+
+static bool setfile(string &file)
+{
+  string path = "file://"+file;
+
+  if (g_pb->LoadMedia((char*)path.c_str()) == S_OK) {
+    g_pb->m_pFManager->SetRate(256);
+    g_pb->m_pAudioOut->SetFocus();
+    g_pb->m_pAudioOut->SetVolume(0);
+    g_pb->SetVideoOut(VO_VIDEO_PLANE_V1, 0, 0);
+    g_pb->ScanFileStart(false);
+    g_pb->m_pFManager->Run();
+    return true;
+  }
+  else
+    return false;
+}
 
 string RtdAud::cd_track_path(int track_nr)
 {
@@ -30,15 +49,7 @@ int RtdAud::is_playing()
   if (audio_state->p_pause())
     return 1;
 
-#ifndef KETLAER
-  RtdAudState state;
-  gst_element_get_state(player, &state, 0, 0);
-
-  if ( (state == GST_STATE_PLAYING || state == GST_STATE_PAUSED))
-    return 1;
-  else
-#endif
-    return 0;
+  return 1;
 }
 
 int RtdAud::is_buffering()
@@ -67,76 +78,52 @@ void RtdAud::gather_info()
 
 void RtdAud::addfile(const Simplefile &file)
 {
+  printf("[RTDAUD]addfile %s\n", path.c_str());
+  path = file.path;
   if (!check_media(file))
     return;
-
   stop_player();
-
-
-#ifndef KETLAER
-  setfile(file);
-  gst_element_set_state(player, GST_STATE_PLAYING);
-#endif
+  setfile(path);
   Audio_s *audio_state = S_Audio_s::get_instance();
-
   audio_state->set_playing(true);
   audio_state->set_pause(false);
 }
 
 void RtdAud::play()
 {
+  printf("[RTDAUD]play\n");
   Audio_s *audio_state = S_Audio_s::get_instance();
-
-#ifndef KETLAER
-  if (audio_state->p_pause()) {
-    gst_element_set_state(player, GST_STATE_PLAYING);
-    audio_state->set_pause(false);
-  } else {
-    setfile(cur_nr);
-    setpos(0);
-    gst_element_set_state(player, GST_STATE_PLAYING);
-
-    S_Audio_s::get_instance()->set_playing(true);
-  }
-#endif
+  if (!cur_nr.path.empty())
+    addfile(cur_nr);
 }
 
 void RtdAud::stop_player()
 {
-#ifndef KETLAER
+  printf("[RTDAUD]stop_player\n");
+  if (g_pb->m_pFManager)
+    g_pb->m_pFManager->Stop();
   Audio_s *audio_state = S_Audio_s::get_instance();
   audio_state->set_playing(false);
-
-  gst_element_set_state(player, GST_STATE_READY);
-  gst_element_set_state (GST_ELEMENT (audiosink), GST_STATE_NULL);//unlock
-								  //audiodevice
-
   audio_state->p->set_title("");
   audio_state->p->set_artist("");
   audio_state->p->set_album("");
-#endif
 }
 
 void RtdAud::pause()
 {
-#ifndef KETLAER
   Audio_s *audio_state = S_Audio_s::get_instance();
-
-  RtdAudState state;
-
-  if (gst_element_get_state(player, &state, 0, 0) &&
-      state != GST_STATE_PAUSED) {
-    gst_element_set_state(player, GST_STATE_PAUSED);
-    audio_state->set_pause(true);
-  } else {
-    gst_element_set_state(player, GST_STATE_PLAYING);
+  
+  printf("[RTDAUD]pause\n");
+  if (audio_state->p_pause()) {
     audio_state->set_pause(false);
+  } else {
+    audio_state->set_pause(true);
   }
-#endif
 }
 
 void RtdAud::ff()
 {
+  printf("[RTDAUD]ff\n");
   gather_info();
 
   if (!((cur_time + 10) > total_time))
@@ -145,6 +132,7 @@ void RtdAud::ff()
 
 void RtdAud::fb()
 {
+  printf("[RTDAUD]fb\n");
   gather_info();
 
   if (cur_time == 0)
@@ -158,16 +146,13 @@ void RtdAud::fb()
 
 int RtdAud::getpos()
 {
+  printf("[RTDAUD]getpos %d\n", cur_time);
   return cur_time;
 }
 
 void RtdAud::setpos(int p)
 {
-#ifndef KETLAER
-  gst_element_seek(player, 1.0, GST_FORMAT_TIME,
-		   GST_SEEK_FLAG_FLUSH, GST_SEEK_TYPE_SET,
-		   p * GST_SECOND, GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE);
-#endif
+  printf("[RTDAUD]setpos %d seconds\n", p);
 }
 
 void RtdAud::mute()
@@ -201,23 +186,13 @@ void RtdAud::voldown()
 
 void RtdAud::setvol(int volume)
 {
-#ifndef KETLAER
-  g_object_set (G_OBJECT(player), "volume",
-		(gdouble) (1. * volume / 100), NULL);
-#endif
+  printf("[RTDAUD]setvol %d\n", volume);
 }
 
 int RtdAud::getvol()
 {
-#ifndef KETLAER
-  gdouble vol;
-
-  g_object_get (G_OBJECT(player), "volume", &vol, NULL);
-
-  return (gint) (vol * 100 + 0.5);
-#else
+  printf("[RTDAUD]getvol\n");
   return 100;
-#endif
 }
 
 bool RtdAud::supports_rtp() const
@@ -228,18 +203,12 @@ bool RtdAud::supports_rtp() const
 
 void RtdAud::reconfigure()
 {
+  printf("[RTDAUD]reconfigure\n");
 }
 
 void RtdAud::collect_info(const string& filename)
 {
-  Simplefile s;
-  s.path = filename;
-  s.type = "file";
-
-#ifndef KETLAER
-  setfile(s);
-#endif
-  gather_info();
+  printf("[RTDAUD]collect_info\n");
 }
 
 bool RtdAud::loaded()
@@ -249,20 +218,22 @@ bool RtdAud::loaded()
 
 void RtdAud::release_device()
 {
+  printf("[RTDAUD]release_device\n");
   stop();
-
-  //gst_object_unref (GST_OBJECT (player));
   is_loaded = false;
 }
 
 void RtdAud::restore_device()
 {
+  printf("[RTDAUD]restore_device\n");
   is_loaded = true;
 }
 
 RtdAud::RtdAud()
   : AudioPlayer("", "", "", 0, 0, 0), is_loaded(true)
 {
+  init_libketlaer();
+  g_pb = getVideoPlayback();
 }
 
 void RtdAud::init()
@@ -271,5 +242,6 @@ void RtdAud::init()
 
 RtdAud::~RtdAud()
 {
+  uninit_libketlaer();
 }
 

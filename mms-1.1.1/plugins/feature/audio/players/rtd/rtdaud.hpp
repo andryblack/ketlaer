@@ -34,7 +34,6 @@ public:
 
   bool supports_rtp() const;
 
-  //  void update_cdrom(const std::string& cdrom);
   void reconfigure();
 
   void collect_info(const std::string& filename);
@@ -49,8 +48,8 @@ public:
   ~RtdAud();
 
 private:
-
-  bool is_loaded;
+  std::string path;
+  bool        is_loaded;
 };
 
 #endif
