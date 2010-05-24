@@ -12,6 +12,7 @@
 
 #include <libketlaer.h>
 
+static bool g_bRunning = false;
 static VideoPlayback *g_pb = NULL;
 
 using std::string;
@@ -22,6 +23,7 @@ static bool do_playfile(string &file)
 
   printf("[RTDAUD]do_playfile %s\n", path.c_str());
   if (g_pb->LoadMedia((char*)path.c_str()) == S_OK) {
+    g_bRunning = true;
     g_pb->m_pFManager->SetRate(256);
     g_pb->m_pAudioOut->SetFocus();
     g_pb->m_pAudioOut->SetVolume(0);
@@ -48,11 +50,37 @@ string RtdAud::cd_track_path(int track_nr)
 int RtdAud::is_playing()
 {
   Audio_s *audio_state = S_Audio_s::get_instance();
+  CPlaybackFlowManager *pFManager = g_pb->m_pFManager;
 
+  if (pFManager) {
+    EVId    EventId;
+    EVCode  EventCode;
+    long    ParamSize;
+    long*   pParams;
+
+    if(pFManager->GetEvent(&EventId, 
+			   &EventCode, 
+			   &ParamSize, 
+			   &pParams, 
+			   10) == S_OK) {
+      switch(EventCode) {
+      case FE_Playback_FatalError:
+	g_bRunning = false;
+	break;
+      case FE_Playback_Completed:
+	g_bRunning = false;
+	break;
+      default:
+	printf("[RTDMOV]playback event %d not handled\n", EventCode);
+	break;
+      }
+      pFManager->FreeEventParams(EventId);
+    }
+  }
   if (audio_state->p_pause())
     return 1;
 
-  return 1;
+  return g_bRunning;
 }
 
 int RtdAud::is_buffering()
@@ -105,6 +133,8 @@ void RtdAud::play()
 void RtdAud::stop_player()
 {
   printf("[RTDAUD]stop_player\n");
+  if (g_pb->m_pFManager) 
+    g_pb->m_pFManager->Stop();
   Audio_s *audio_state = S_Audio_s::get_instance();
   audio_state->set_playing(false);
   audio_state->p->set_title("");
@@ -118,8 +148,12 @@ void RtdAud::pause()
   
   printf("[RTDAUD]pause\n");
   if (audio_state->p_pause()) {
+    if (g_pb->m_pFManager)
+      g_pb->m_pFManager->Run();
     audio_state->set_pause(false);
   } else {
+    if (g_pb->m_pFManager)
+      g_pb->m_pFManager->Pause();
     audio_state->set_pause(true);
   }
 }
