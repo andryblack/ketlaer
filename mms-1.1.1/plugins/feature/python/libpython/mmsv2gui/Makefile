@@ -23,7 +23,7 @@ CXXFLAGS += -I$(MMSDIR) -I$(MMSDIR)/plugins -I$(MMSDIR)/plugins/input -I$(MMSDIR
 
 all: $(OBJS)
 	$(DO_MAKE)
-	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(DEPOBJS) -lpython$(PYTHON_VERSION) -lm
+	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(DEPOBJS) $(PYTHON_LIB) -lm
 
 clean:
 	$(DO_MAKECLEAN)

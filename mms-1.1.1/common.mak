@@ -32,9 +32,13 @@ else
 INSTALLSTRIP = 
 endif
 
-STDFLAGS = -I$(KETLAER)/include -L$(KETLAER)/lib -I. \
+KETLAER_INCS = -I$(KETLAER)/include -I$(KETLAER_DIR)/libketlaer
+KETLAER_LIBS = -L$(KETLAER)/lib -lketlaer -lz -lpthread -ldl -lm
+
+STDFLAGS = -I$(KETLAER)/include -I. \
 	 -pthread -pipe $(OPTIMIZATION) $(EXTRA_FLAGS) $(OPTFLAGS)
 
+COMMON_LIBS += $(KETLAER_LIBS)
 COMMON_LIBS += $(COMMONCPP2_LIBS)
 STDFLAGS += $(COMMONCPP2_CFLAGS)
 

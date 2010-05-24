@@ -13,6 +13,6 @@ INCLUDES = -I $(TOP)/RebuildedInclude -I $(TOP)/libketlaer \
 LDFLAGS = -L $(TOP)/AsusLIB -L $(TOP)/AsusRPC
 
 
-CFLAGS   = -mips32 -O2 $(INCLUDES) 
-CXXFLAGS = -mips32 -O2 $(INCLUDES) --no-rtti --no-exceptions
+CFLAGS   = -mips32 -O2 $(INCLUDES) -fPIC
+CXXFLAGS = -mips32 -O2 $(INCLUDES) -fPIC
 

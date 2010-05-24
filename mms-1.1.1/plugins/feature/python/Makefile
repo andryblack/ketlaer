@@ -33,7 +33,7 @@ deps:
 python:	$(OBJS)
 	$(DO_MAKE)
 	make -C po
-	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(DEPOBJS) -lpython$(PYTHON_VERSION) -lm
+	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(DEPOBJS) -L$(KETLAER)/lib $(PYTHON_LIB) -lm
 
 install: all
 	$(INSTALL) $(PLUGIN_NAME) $(DESTDIR)$(PLUGINDIR)/$(PLUGIN_NAME)

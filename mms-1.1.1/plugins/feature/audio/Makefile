@@ -51,7 +51,7 @@ all: $(OBJS)
 	$(DO_MAKE)
 	make -C po
 	$(CXX) $(CXXFLAGS) -shared $(LINKOPTS) \
-	-ltag -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) players/audio_player.o
+	-ltag -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) players/audio_player.o $(COMMON_LIBS)
 
 install:
 	@for i in $(SUBDIRS); do $(MAKE) -C $$i install; done

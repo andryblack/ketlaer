@@ -2,7 +2,7 @@ TOP = ..
 
 include $(TOP)/Make.inc
 
-LIBS = -L$(KETLAER)/lib -lketlaer -pthread 
+LIBS = -L$(KETLAER)/lib -lketlaer -pthread -lz
 
 OBJS = vdr-ketlaerfe.o libfe.o
 

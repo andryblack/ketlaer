@@ -572,7 +572,8 @@ static bool init(const char *args)
 static void deinit()
 {
   if (g_pb) {
-    g_pb->m_pFManager->Stop();
+    if (g_pb->m_pFManager)
+      g_pb->m_pFManager->Stop();
     g_pb = NULL;
   }
   if (g_hOSD) {

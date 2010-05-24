@@ -12,16 +12,13 @@ PLUGIN_NAME = lib_output_rtdout.so
 SRCS = rtdout.cpp rtdout_plugin.cpp
 OBJS = rtdout.o rtdout_plugin.o
 
-CXXFLAGS += -O3 -I$(KETLAER_DIR)/libketlaer \
+CXXFLAGS += -O3 $(KETLAER_INCS) \
             -I../ -I../../ -I../../../ -I../../feature/ -I../../input/ \
 	    -fPIC -shared
 
-RTDLIBS = -lketlaer -lpthread
-
-
 all: $(OBJS)
 	$(DO_MAKE)
-	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(COMMON_LIBS) $(RTDLIBS)
+	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(COMMON_LIBS)
 
 install: all
 	$(INSTALL) $(PLUGIN_NAME) $(DESTDIR)$(PLUGINDIR)/$(PLUGIN_NAME)

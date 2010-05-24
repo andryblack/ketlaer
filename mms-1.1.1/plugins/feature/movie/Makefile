@@ -42,6 +42,8 @@ FFMPEG_LIBS = $(MMSDIR)/libs/ffmpeg/libavformat/libavformat.a $(MMSDIR)/libs/ffm
 endif
 endif
 
+RTDLIBS = -L$(KETLAER)/lib -lketlaer -lpthread 
+
 SUBDIRS += po
 
 SUBDIRS += players
@@ -50,10 +52,10 @@ all: $(OBJS) $(COLL)
 	$(DO_MAKE)
 	make -C po
 	$(CXX) $(CXXFLAGS) \
-	-Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) players/movie_player.o  $(FFMPEG_LIBS)
+	-Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) players/movie_player.o  $(FFMPEG_LIBS) $(RTDLIBS)
 ifeq ($(FMOVIE),yes)
 	$(CXX) $(CXXFLAGS) \
-	-Wl,-nostdlib -o $(PLUGIN_COLL_NAME) $(COLL)
+	-Wl,-nostdlib -o $(PLUGIN_COLL_NAME) $(COLL) $(RTDLIBS)
 endif
 
 install:
@@ -66,8 +68,7 @@ endif
 
 clean:
 	$(DO_MAKECLEAN)
-	@if test -f movie.o ; then rm *.o ; fi
-	@if test -f $(PLUGIN_NAME) ; then rm *.so ; fi
+	@rm -f *.o *.so *~
 
 depend:
 	make -C players depend

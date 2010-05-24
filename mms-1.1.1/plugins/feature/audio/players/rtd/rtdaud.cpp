@@ -16,10 +16,11 @@ static VideoPlayback *g_pb = NULL;
 
 using std::string;
 
-static bool setfile(string &file)
+static bool do_playfile(string &file)
 {
-  string path = "file://"+file.substr(1);
+  string path = "file://" + file;
 
+  printf("[RTDAUD]do_playfile %s\n", path.c_str());
   if (g_pb->LoadMedia((char*)path.c_str()) == S_OK) {
     g_pb->m_pFManager->SetRate(256);
     g_pb->m_pAudioOut->SetFocus();
@@ -29,8 +30,10 @@ static bool setfile(string &file)
     g_pb->m_pFManager->Run();
     return true;
   }
-  else
+  else {
+    printf("[RTDAUD]can not load media\n");
     return false;
+  }
 }
 
 string RtdAud::cd_track_path(int track_nr)
@@ -83,10 +86,12 @@ void RtdAud::addfile(const Simplefile &file)
   if (!check_media(file))
     return;
   stop_player();
-  setfile(path);
-  Audio_s *audio_state = S_Audio_s::get_instance();
-  audio_state->set_playing(true);
-  audio_state->set_pause(false);
+  if (path.length()) {
+    do_playfile(path);
+    Audio_s *audio_state = S_Audio_s::get_instance();
+    audio_state->set_playing(true);
+    audio_state->set_pause(false);
+  }
 }
 
 void RtdAud::play()
@@ -100,8 +105,6 @@ void RtdAud::play()
 void RtdAud::stop_player()
 {
   printf("[RTDAUD]stop_player\n");
-  if (g_pb->m_pFManager)
-    g_pb->m_pFManager->Stop();
   Audio_s *audio_state = S_Audio_s::get_instance();
   audio_state->set_playing(false);
   audio_state->p->set_title("");

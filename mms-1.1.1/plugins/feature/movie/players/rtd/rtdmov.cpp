@@ -23,9 +23,10 @@ static void do_play(const char *file)
   bool playing = true;
   bool pause = false;
 
-  printf("[RTDMOV]do_play %s\n", file);
+  printf("[RTDMOV]do_play '%s'\n", file);
 
   if (pb->LoadMedia((char*)file) == S_OK) {
+    printf("[RTDMOV]media loaded.\n");
     pFManager = pb->m_pFManager;
     pFManager->SetRate(256);
     pb->m_pAudioOut->SetFocus();
@@ -54,7 +55,10 @@ static void do_play(const char *file)
 	pFManager->FreeEventParams(EventId);
       }
     }
+    pFManager->Stop();
   }
+  else
+    printf("[RTDMOV]unable to load media\n");
 }
 
 static void play_file(const string& file)

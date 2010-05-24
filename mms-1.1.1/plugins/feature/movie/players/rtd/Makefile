@@ -12,7 +12,7 @@ PLUGIN_NAME = lib_feature_movie_player_rtdmov.so
 SRCS += rtdmov.cpp rtdmov_plugin.cpp
 OBJS += rtdmov.o rtdmov_plugin.o
 
-CXXFLAGS += -I$(KETLAER_DIR)/libketlaer \
+CXXFLAGS += $(KETLAER_INCS) \
 	-I../ -I../../ -I../../../ -I../../../../ -I../../../../ \
 	-I../../../../../ -I../../../../output/ \
 	-I../../../../input/ -fPIC -shared
@@ -27,11 +27,9 @@ CXXFLAGS += -I$(MMSDIR)/libs/ffmpeg/ -I$(MMSDIR)/libs/ffmpeg/libavcodec/ -I$(MMS
 endif
 endif
 
-RTDLIBS = -lketlaer -lpthread
-
 all: $(OBJS)
 	$(DO_MAKE)
-	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(NEEDED_PLAYER_OBJS) $(RTDLIBS)
+	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(NEEDED_PLAYER_OBJS) $(COMMON_LIBS)
 
 install: all
 	$(INSTALL) $(PLUGIN_NAME) $(DESTDIR)$(PLUGINDIR)/$(PLUGIN_NAME)

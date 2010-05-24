@@ -21,12 +21,12 @@ void video_firmware_configure();
 void sendDebugMemoryAndAllocateDumpMemory(long videoDumpSize, long audioDumpSize);
 
 static VoutUtil      *g_vo = NULL;
-static VideoPlayback *g_pPlayback = NULL;
 static IrMapFile     *g_pIrMap = NULL;
 static int            g_irfd = -1;
 static HANDLE         g_hScreen = NULL;
 static HANDLE         g_hDisplay = NULL;
 static VO_RECTANGLE   rect;
+static VideoPlayback *g_pb = NULL;
 
 /*callbacks*/
 extern "C" HRESULT *AUDIO_RPC_ToSystem_AudioHaltDone_0_svc(long *resvered, RPC_STRUCT *rpc, HRESULT *retval)
@@ -183,7 +183,13 @@ static void Init()
 
   pli_setThreadName("MAIN");
   pli_init();
-  //  preAllocateMemory();
+  /*
+  void *adr1, *adr2;
+  adr1 = pli_allocContinuousMemoryMesg("PreAlloc", 16*1024*1024, 0, 0);
+  adr2 = pli_allocContinuousMemoryMesg("PreAlloc", 16*1024*1024, 0, 0);
+  pli_freeContinuousMemoryMesg("PreAlloc", adr1);
+  pli_freeContinuousMemoryMesg("PreAlloc", adr2);
+  */
   md_open();
   se_open();
   DG_Init();
@@ -237,12 +243,12 @@ static void Init()
 		  0xff,
 		  ColorKey_Src,
 		  RESERVED_COLOR_KEY);
-  g_pPlayback = new VideoPlayback(MEDIATYPE_None);
+  g_pb = new VideoPlayback(MEDIATYPE_None);
 }
 
 static void UnInit()
 {
-  delete g_pPlayback;
+  delete g_pb;
   DG_ReleaseDisplayHandle(g_hDisplay);
   DG_CloseSurface(g_hScreen);
   delete g_vo;
@@ -316,5 +322,5 @@ VO_RECTANGLE *getScreenRect()
 
 VideoPlayback *getVideoPlayback()
 {
-  return g_pPlayback;
+  return g_pb;
 }

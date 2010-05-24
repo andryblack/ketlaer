@@ -12,15 +12,13 @@ PLUGIN_NAME = lib_ainput_rtdinp.so
 SRCS = rtdinp.cpp rtdinp_plugin.cpp
 OBJS = rtdinp.o rtdinp_plugin.o
 
-CXXFLAGS += -I$(KETLAER_DIR)/libketlaer \
+CXXFLAGS += $(KETLAER_INCS) \
 	-I../ -I../../ -I../../../ -I../../feature/ -I../../output/ \
 	-fPIC -shared
 
-RTDLIBS = -lketlaer -lpthread
-
 all: $(OBJS)
 	$(DO_MAKE)
-	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(RTDLIBS)
+	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(COMMON_LIBS)
 
 install: all
 	$(INSTALL) $(PLUGIN_NAME) $(DESTDIR)$(PLUGINDIR)/$(PLUGIN_NAME)

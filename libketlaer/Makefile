@@ -18,6 +18,7 @@ $(LIB) : $(OBJS) $(OBJSONLY)
 
 LIBS  = -L$(TOP)/AsusLIB -L$(TOP)/AsusRPC
 LIBS += -L$(TOP)/utility/config/lib/.libs -lconfig
+LIBS += -L$(KETLAER)/lib
 LIBS += -lPlaybackAppClass -lVoutUtil
 LIBS += -lDirectGraphics -lStreamingEngine
 LIBS += -lDrawScale 
@@ -50,7 +51,7 @@ LIBS += -lRPC -lrtxdr
 LIBS += -lz -lpthread -ldl
 
 $(LIBSO) : $(OBJS) $(OBJSONLY)
-	$(CXX) -shared -o $(LIBSO) $(OBJS) $(OBJSONLY) $(LIBS)
+	$(CXX) $(CXXFLAGS) -shared -o $(LIBSO) $(OBJS) $(OBJSONLY) $(LIBS)
 
 install: all
 	cp $(LIBSO) $(KETLAER)/lib

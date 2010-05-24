@@ -12,7 +12,8 @@ OBJS = movie_player.o
 CXXFLAGS += -I../ -I../../ -I../../../ -I../../../../ \
 	-I../../../output/ -I../../../input/ -fPIC -shared
 
-SUBDIRS += mplayer xine genericplayer rtd
+#SUBDIRS += mplayer xine genericplayer rtd
+SUBDIRS = rtd
 
 all: $(OBJS)
 	$(DO_MAKE)

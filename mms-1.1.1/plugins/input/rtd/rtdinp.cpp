@@ -27,7 +27,7 @@
 
 RtdInp::RtdInp()
 {
-  printf("[RTDINP]init..\n");
+  printf("[RTDINP]init\n");
   init_libketlaer();
   suspended = false;
   stop = false;
@@ -37,17 +37,15 @@ RtdInp::RtdInp()
   bindtextdomain("mms-rtd", mms_prefix"/share/locale");
   bind_textdomain_codeset("mms-rtd", nl_langinfo(CODESET));
 #endif
-  printf("[RTDINP]done.\n");
 }
 
 RtdInp::~RtdInp()
 {
-  printf("[RTDINP]uninit..\n");
+  printf("[RTDINP]uninit\n");
   stop = true;
   if (suspended)
     wake_up();
   uninit_libketlaer();
-  printf("[RTDINP]done.\n");
 }
 
 bool RtdInp::init()
@@ -57,21 +55,19 @@ bool RtdInp::init()
 
 void RtdInp::suspend()
 {
-  printf("[INPURTD]suspend..\n");
+  printf("[INPURTD]suspend\n");
   suspended = true;
   ev_suspended.wait();
   ev_suspended.reset();
-  printf("[RTDINP]done.\n");
 }
 
 void RtdInp::wake_up()
 {
-  printf("[RTDINP]wakeup..\n");
+  printf("[RTDINP]wakeup\n");
   if (suspended) {
     suspended = false;
     ev_wakeup.signal();
   }
-  printf("[RTDINP]done.\n");
 }
 
 static struct {
@@ -147,7 +143,6 @@ void RtdInp::run()
       if (str) {
         printf("[RTDINP]str = %s\n", str);
 	if (find_input(str, input)) {
-          printf("[RTDINP]add_input\n");
 	  input_master->add_input(input, name());
         }
       }

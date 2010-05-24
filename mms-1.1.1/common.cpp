@@ -1279,8 +1279,7 @@ void mmsSignals::clean_up(bool full_deinit){
     do_die = true;
     kill(0, SIGUSR1); /* wakes signal thread */
   }
-
-  else{
+  else {
     kill(0, SIGHUP);
   }
 }

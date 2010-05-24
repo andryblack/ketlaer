@@ -40,6 +40,8 @@
 #include <grp.h>
 #include "mms_signals.hpp"
 
+extern void init_libketlaer();
+extern void uninit_libketlaer();
 
 using std::vector;
 using std::string;
@@ -546,6 +548,8 @@ int main(int argc,char* argv[])
   if (user != "")
     if(!runasuser(user, resetenv))
       exit(1);
+  
+  init_libketlaer();
 
   if (dumpenv){
     print_info(gettext("Full list of environment variables:\n"));
@@ -782,6 +786,8 @@ int main(int argc,char* argv[])
   S_Global::get_instance()->clean_up();
 
   clean_up(true);
+
+  uninit_libketlaer();
 
   mmsSleep(5000); /* wait to be killed */
 
