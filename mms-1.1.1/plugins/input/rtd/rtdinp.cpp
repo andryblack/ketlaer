@@ -74,6 +74,7 @@ static struct {
   int   key;
   char *str;
 } rtd_keymap[] = {
+  /*
   {Key_0,             "0"        },
   {Key_1,             "1"        },
   {Key_2,             "2"        },
@@ -84,6 +85,7 @@ static struct {
   {Key_7,             "7"        },
   {Key_7,             "8"        },
   {Key_9,             "9"        },
+  */
   {Key_Up,            "UP"       },
   {Key_Down,          "DOWN"     },
   {Key_Left,          "LEFT"     },
@@ -91,15 +93,15 @@ static struct {
   {Key_PageUp,        "PGUP"     },
   {Key_PageDown,      "PGDOWN"   },
   {Key_Enter,         "ENTER"    },
-  {Key_Home,          "MENU"     },
+  {Key_Home,          "SPACE"    },
   {Key_Backspace,     "END"      },
-  {Key_MediaNext,     "NEXT"     },
-  {Key_MediaPrevious, "PREVIOUS" },
-  {Key_MediaPlay,     "PLAY"     },
-  {Key_MediaStop,     "STOP"     },
-  {Key_VolumeUp,      "Volume+"  },
-  {Key_VolumeDown,    "Volume-"  },
-  {Key_VolumeMute,    "MUTE"     },
+  {Key_MediaNext,     "9"        },
+  {Key_MediaPrevious, "8"        },
+  {Key_MediaPlay,     "3"        },
+  {Key_MediaStop,     "1"        },
+  {Key_VolumeUp,      "f"        },
+  {Key_VolumeDown,    "g"        },
+  {Key_VolumeMute,    "m"        },
   {Key_PowerOff,      "POWER"    },
   {Key_F9,            "RED"      },
   {Key_F10,           "GREEN"    },
