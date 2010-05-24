@@ -17,9 +17,14 @@ static VideoPlayback *g_pb = NULL;
 
 using std::string;
 
-static bool do_playfile(string &file)
+static bool do_playfile(const string &file)
 {
-  string path = "file://" + file;
+  string path;
+
+  if (file.find("://") != string::npos) 
+    path = file;
+  else
+    path = "file://" + file;
 
   printf("[RTDAUD]do_playfile %s\n", path.c_str());
   if (g_pb->LoadMedia((char*)path.c_str()) == S_OK) {
@@ -95,16 +100,7 @@ int RtdAud::is_mute()
 
 void RtdAud::gather_info()
 {
-#ifndef KETLAER
-  RtdAudFormat fmt = GST_FORMAT_TIME;
-  gint64 pos = 0, len = 0;
-
- if (gst_element_query_position(player, &fmt, &pos) &&
-     gst_element_query_duration(player, &fmt, &len)) {
-   total_time = len / GST_SECOND;
-   cur_time = pos / GST_SECOND;
- }
-#endif
+  cur_time = getpos();
 }
 
 void RtdAud::addfile(const Simplefile &file)
@@ -183,13 +179,26 @@ void RtdAud::fb()
 
 int RtdAud::getpos()
 {
+  class CNavigationFilter *pNav = g_pb->m_pSource;
+  int ret = 0;
+
+  if (pNav) {
+    NAVPLAYBACKSTATUS stat;
+
+    pNav->GetPlaybackStatus(&stat);
+    ret = stat.elapsedTime.seconds;
+  } 
   printf("[RTDAUD]getpos %d\n", cur_time);
-  return cur_time;
+  return ret;
 }
 
 void RtdAud::setpos(int p)
 {
+  unsigned cmdid;
+
   printf("[RTDAUD]setpos %d seconds\n", p);
+  if (g_pb->m_pSource) 
+    g_pb->m_pSource->PlayAtTime(-1, p, 0, &cmdid);
 }
 
 void RtdAud::mute()
