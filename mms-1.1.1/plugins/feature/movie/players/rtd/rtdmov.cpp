@@ -12,16 +12,18 @@
 #include <fstream>
 
 #include <libketlaer.h>
+#include <qtkeys.h>
 
 using std::string;
 
-static void do_play(const char *file)
+static int do_play(const char *file)
 {
+  int            ret = Key_MediaNext;
   VideoPlayback *pb = getVideoPlayback();
-  CFlowManager *pFManager;
-  bool stop = false;
-  bool playing = true;
-  bool pause = false;
+  CFlowManager  *pFManager;
+  bool           stop = false;
+  bool           playing = true;
+  bool           pause = false;
 
   printf("[RTDMOV]do_play '%s'\n", file);
 
@@ -40,7 +42,11 @@ static void do_play(const char *file)
       long    ParamSize;
       long*   pParams;
 
-      if(pFManager->GetEvent(&EventId, &EventCode, &ParamSize, &pParams, 10) == S_OK) {
+      if(pFManager->GetEvent(&EventId, 
+			     &EventCode, 
+			     &ParamSize, 
+			     &pParams, 
+			     10) == S_OK) {
 	switch(EventCode) {
 	case FE_Playback_FatalError:
 	  stop = true;
@@ -54,6 +60,34 @@ static void do_play(const char *file)
 	}
 	pFManager->FreeEventParams(EventId);
       }
+      if (!stop) {
+	fd_set  set;
+	timeval tv;
+	int     fd = ir_getfd();
+	
+	tv.tv_sec = 0;
+	tv.tv_usec = 0;
+	FD_ZERO(&set);
+	FD_SET(fd, &set);
+	if (select(fd+1, &set, NULL, NULL, &tv)) {
+	  int key = ir_getkey();
+
+	  switch(key) {
+	  case Key_MediaNext:
+	    ret = key;
+	    stop = true;
+	    break;
+	  case Key_MediaPrevious:
+	    ret = key;
+	    stop = true;
+	    break;
+	  case Key_MediaStop:
+	    ret = key;
+	    stop = true;
+	    break;
+	  }
+	}
+      }
     }
     pFManager->Stop();
   }
@@ -61,7 +95,11 @@ static void do_play(const char *file)
     printf("[RTDMOV]unable to load media\n");
 }
 
-static void play_file(const string& file)
+static void do_playlist(const string& list)
+{
+}
+
+static void play_file(const string& file, bool isList)
 {
   init_libketlaer();
   S_SSaverobj::get_instance()->StopCounter();
@@ -74,7 +112,10 @@ static void play_file(const string& file)
 		   getScreenRect()->height, 
 		   RESERVED_COLOR_KEY, 
 		   NULL);
-  do_play(file.c_str());
+  if (isList)
+    do_playlist(file);
+  else
+    do_play(file.c_str());
   S_Render::get_instance()->device->lock();
   S_Render::get_instance()->complete_redraw();
   run::release_exclusive_access();
@@ -100,24 +141,23 @@ RtdMov::~RtdMov()
 void RtdMov::play_movie(const string& paths, bool window)
 {
   printf("[RTDMOV]play_movie %s\n", paths.c_str());
-  string file = "file://" + paths.substr(1);
-  play_file(file);
+  play_file(paths, true);
 }
 
 void RtdMov::play_disc(const string& play_cmd)
 {
   printf("[RTDMOV]play_disc %s\n", play_cmd.c_str());
-  play_file(play_cmd);
+  play_file(play_cmd, false);
 }
 
 void RtdMov::play_vcd(const string& device)
 {
   printf("[RTDMOV]play_disc %s\n", device.c_str());
-  play_file(device);
+  play_file(device, false);
 }
 
 void RtdMov::play_dvd(const string& device)
 {
   printf("[RTDMOV]play_dvd %s\n", device.c_str());
-  play_dvd(device);
+  play_file(device, false);
 }
