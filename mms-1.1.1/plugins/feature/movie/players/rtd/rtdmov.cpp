@@ -15,6 +15,9 @@
 #include <qtkeys.h>
 
 using std::string;
+using std::vector;
+
+typedef vector<string> filearray;
 
 static int do_play(const char *file)
 {
@@ -93,10 +96,65 @@ static int do_play(const char *file)
   }
   else
     printf("[RTDMOV]unable to load media\n");
+  return ret;
+}
+
+static void add_element(const string& file, filearray &files)
+{
+  if (file.find("://") == string::npos) 
+    files.push_back("file://"+file);
+  else
+    files.push_back(file);
+}
+
+static void split_list(const string& list, filearray &files)
+{
+  string element;
+  const char *s = list.c_str();
+
+  while(*s) {
+    if (*s == ' ') {
+      if (element.length())
+	add_element(element, files);
+      element = "";
+      s++;
+    }
+    else {
+      if (*s == '\\' && s[1]) 
+	s++;
+      element += *s++;
+    }
+  }
+  if (element.length())
+    add_element(element, files);
 }
 
 static void do_playlist(const string& list)
 {
+  filearray files;
+  int       idx = 0;
+  bool      stop = false;
+
+  split_list(list, files);
+  while (!stop) {
+    switch(do_play(files[idx].c_str())) {
+    case Key_MediaPrevious:
+      if (idx) 
+	idx--;
+      else
+	stop = true;
+      break;
+    case Key_MediaNext:
+      if (idx < files.size() -1)
+	idx++;
+      else
+	stop = true;
+      break;
+    case Key_MediaStop:
+      stop = true;
+      break;
+    }
+  }
 }
 
 static void play_file(const string& file, bool isList)
@@ -126,6 +184,7 @@ static void play_file(const string& file, bool isList)
 RtdMov::RtdMov()
   : MoviePlayer(true, true, true, true)
 {
+  printf("[RTDMOV]init\n");
 #ifdef use_nls
   // gettext
   setlocale(LC_ALL, ""); /* set from the environment variables */
@@ -136,6 +195,7 @@ RtdMov::RtdMov()
 
 RtdMov::~RtdMov()
 {
+  printf("[RTDMOV]deinit\n");
 }
 
 void RtdMov::play_movie(const string& paths, bool window)
