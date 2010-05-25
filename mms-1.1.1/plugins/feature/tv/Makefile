@@ -23,7 +23,7 @@ all: $(OBJS)
 	make -C po
 	$(CXX) $(CXXFLAGS) -Wl,-nostdlib -o $(PLUGIN_NAME) $(OBJS) $(COMMON_LIBS) 
 
-install:
+install: all
 	$(INSTALL) $(PLUGIN_NAME) $(DESTDIR)$(PLUGINDIR)/$(PLUGIN_NAME)
 	make -C po install
 
