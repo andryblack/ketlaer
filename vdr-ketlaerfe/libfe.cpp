@@ -536,57 +536,6 @@ static void play_stream()
   g_pb->m_pFManager->Run();
 }
 
-static bool init(const char *args)
-{
-  char *host, *port;
-
-  host = "192.168.0.50";
-  port = "37890";
-
-  init_libketlaer();
-  if (!init_connection(host, port))
-    return false;
-  write_control("CONTROL\r\n");
-  g_hOSD = getSurfaceHandle(HUD_MAX_WIDTH, HUD_MAX_HEIGHT, Format_32);
-  DG_DrawRectangle(g_hOSD, 
-		   0, 
-		   0, 
-		   HUD_MAX_WIDTH, 
-		   HUD_MAX_HEIGHT, 
-		   RESERVED_COLOR_KEY, 
-		   NULL);
-  g_pb = getVideoPlayback();
-  play_stream();
-  g_bOSD = false;
-  g_bStop = false;
-  DG_DrawRectangle(getScreenSurface(), 
-		   0, 
-		   0, 
-		   getScreenRect()->width, 
-		   getScreenRect()->height, 
-		   RESERVED_COLOR_KEY, 
-		   NULL);
-  return true;
-}
-
-static void deinit()
-{
-  if (g_pb) {
-    if (g_pb->m_pFManager)
-      g_pb->m_pFManager->Stop();
-    g_pb = NULL;
-  }
-  if (g_hOSD) {
-    DG_CloseSurface(g_hOSD);
-    g_hOSD = NULL;
-  }
-  if (conn_fd >= 0) {
-    close(conn_fd);
-    conn_fd = -1;
-  }
-  uninit_libketlaer();
-}
-
 static struct {
   int   key;
   char *str;
@@ -665,6 +614,63 @@ static void mainloop()
 	process_keyboard();
     }
   }
+}
+
+static bool init(const char *args)
+{
+  char *str = strdup(args);
+  char *host, *port;
+
+  host = str;
+  port = strchr(str,':');
+  if (port) 
+    *port++ = 0;
+  else
+    port = "37890";
+
+  init_libketlaer();
+  if (!init_connection(host, port))
+    return false;
+  write_control("CONTROL\r\n");
+  g_hOSD = getSurfaceHandle(HUD_MAX_WIDTH, HUD_MAX_HEIGHT, Format_32);
+  DG_DrawRectangle(g_hOSD, 
+		   0, 
+		   0, 
+		   HUD_MAX_WIDTH, 
+		   HUD_MAX_HEIGHT, 
+		   RESERVED_COLOR_KEY, 
+		   NULL);
+  g_pb = getVideoPlayback();
+  play_stream();
+  g_bOSD = false;
+  g_bStop = false;
+  DG_DrawRectangle(getScreenSurface(), 
+		   0, 
+		   0, 
+		   getScreenRect()->width, 
+		   getScreenRect()->height, 
+		   RESERVED_COLOR_KEY, 
+		   NULL);
+  free(str);
+  return true;
+}
+
+static void deinit()
+{
+  if (g_pb) {
+    if (g_pb->m_pFManager)
+      g_pb->m_pFManager->Stop();
+    g_pb = NULL;
+  }
+  if (g_hOSD) {
+    DG_CloseSurface(g_hOSD);
+    g_hOSD = NULL;
+  }
+  if (conn_fd >= 0) {
+    close(conn_fd);
+    conn_fd = -1;
+  }
+  uninit_libketlaer();
 }
 
 int run_vdr_frontend(const char *args)

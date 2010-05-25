@@ -17,7 +17,7 @@
 
 #include <libfe.h>
 
-static void run_internal_player(const char *opts)
+static void run_vdr_ketlaerfe(const char *opts)
 {
   S_SSaverobj::get_instance()->StopCounter();
   run::aquire_exclusive_access();
@@ -43,11 +43,10 @@ std::string Tv::mainloop()
 {
   TVConfig *tv_conf = S_TVConfig::get_instance();
 
-#if 0
-  run::exclusive_external_program(tv_conf->p_tv_path() + ' ' + tv_conf->p_tv_opts());
-#else
-  run_internal_player(tv_conf->p_tv_opts().c_str());
-#endif
+  if (tv_conf->p_tv_path() == "vdr-ketlaerfe")
+    run_vdr_ketlaerfe(tv_conf->p_tv_opts().c_str());
+  else
+    run::exclusive_external_program(tv_conf->p_tv_path() + ' ' + tv_conf->p_tv_opts());
 
   // make sure the screensaver doesn't kick in right after tv finishes
   conf->s_last_key(time(0));
