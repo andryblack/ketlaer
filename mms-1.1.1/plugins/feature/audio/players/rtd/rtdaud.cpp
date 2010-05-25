@@ -12,7 +12,7 @@
 
 #include <libketlaer.h>
 
-static bool g_bRunning = false;
+static bool           g_bRunning = false;
 static VideoPlayback *g_pb = NULL;
 
 using std::string;
@@ -179,16 +179,15 @@ void RtdAud::fb()
 
 int RtdAud::getpos()
 {
-  class CNavigationFilter *pNav = g_pb->m_pSource;
-  int ret = 0;
+  int                ret = 0;
+  CNavigationFilter *pNav = g_pb->m_pSource;
 
   if (pNav) {
     NAVPLAYBACKSTATUS stat;
 
-    pNav->GetPlaybackStatus(&stat);
-    ret = stat.elapsedTime.seconds;
+    if (pNav->GetPlaybackStatus(&stat) == S_OK)
+      ret = stat.elapsedTime.seconds;
   } 
-  printf("[RTDAUD]getpos %d\n", cur_time);
   return ret;
 }
 
