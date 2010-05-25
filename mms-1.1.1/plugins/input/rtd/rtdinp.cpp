@@ -31,12 +31,6 @@ RtdInp::RtdInp()
   init_libketlaer();
   suspended = false;
   stop = false;
-#ifdef use_nls
-  // gettext
-  setlocale(LC_ALL, ""); /* set from the environment variables */
-  bindtextdomain("mms-rtd", mms_prefix"/share/locale");
-  bind_textdomain_codeset("mms-rtd", nl_langinfo(CODESET));
-#endif
 }
 
 RtdInp::~RtdInp()

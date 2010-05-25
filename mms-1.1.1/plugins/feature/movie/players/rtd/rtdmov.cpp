@@ -185,12 +185,6 @@ RtdMov::RtdMov()
   : MoviePlayer(true, true, true, true)
 {
   printf("[RTDMOV]init\n");
-#ifdef use_nls
-  // gettext
-  setlocale(LC_ALL, ""); /* set from the environment variables */
-  bindtextdomain("mms-rtdmov", mms_prefix"/share/locale");
-  bind_textdomain_codeset("mms-rtdmov", nl_langinfo(CODESET));
-#endif
 }
 
 RtdMov::~RtdMov()

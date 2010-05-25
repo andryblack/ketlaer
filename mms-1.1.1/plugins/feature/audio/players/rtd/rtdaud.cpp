@@ -43,6 +43,25 @@ static bool do_playfile(const string &file)
   }
 }
 
+
+RtdAud::RtdAud()
+  : AudioPlayer("", "", "", 0, 0, 0), is_loaded(true)
+{
+  printf("[RTDAUD]init\n");
+  init_libketlaer();
+  g_pb = getVideoPlayback();
+}
+
+RtdAud::~RtdAud()
+{
+  printf("[RTDAUD]deinit\n");
+  uninit_libketlaer();
+}
+
+void RtdAud::init()
+{
+}
+
 string RtdAud::cd_track_path(int track_nr)
 {
   std::ostringstream tmp;
@@ -272,21 +291,5 @@ void RtdAud::restore_device()
 {
   printf("[RTDAUD]restore_device\n");
   is_loaded = true;
-}
-
-RtdAud::RtdAud()
-  : AudioPlayer("", "", "", 0, 0, 0), is_loaded(true)
-{
-  init_libketlaer();
-  g_pb = getVideoPlayback();
-}
-
-void RtdAud::init()
-{
-}
-
-RtdAud::~RtdAud()
-{
-  uninit_libketlaer();
 }
 
