@@ -7,10 +7,11 @@ mms:
 
 based on libketlaer.so:
 
-- movie player dvd code
-- movie player more control keys
-- movie player osd feedback
-- tv player usb hardware
+- movie player: dvd playback control
+- movie player: more control keys
+- movie player: osd feedback
+- tv player: usb hardware
+- audio player: retrieve shoutcast playlist
 
 mms pyglets:
 ============
