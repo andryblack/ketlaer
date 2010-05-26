@@ -562,26 +562,56 @@ static void process_keyboard()
 
 static void mainloop()
 {
-  timeval tv;
-  fd_set  set;
-  int     ir_fd = ir_getfd();
-  int     maxfd = conn_fd;
+  CPlaybackFlowManager *pFManager = g_pb->m_pFManager;
+  timeval               tv;
+  fd_set                set;
+  int                   ir_fd = ir_getfd();
+  int                   maxfd = conn_fd;
+  int                   ret;
 
   if (ir_fd > maxfd) 
     maxfd = ir_fd;
   maxfd += 1;
 
   while(!g_bStop) {
-    tv.tv_sec  = 0;
-    tv.tv_usec = 100000;
-    FD_ZERO(&set);
-    FD_SET(conn_fd, &set);
-    FD_SET(ir_fd, &set);
-    if (select(maxfd, &set, NULL, NULL, &tv)) {
-      if (FD_ISSET(conn_fd, &set))
-	process_control();
-      if (FD_ISSET(ir_fd, &set))
-	process_keyboard();
+    EVId    EventId;
+    EVCode  EventCode;
+    long    ParamSize;
+    long*   pParams;
+
+    if(pFManager->GetEvent(&EventId, 
+			   &EventCode, 
+			   &ParamSize, 
+			   &pParams, 
+			   10) == S_OK) {
+      switch(EventCode) {
+      case FE_Playback_FatalError:
+	g_bStop = true;
+	break;
+      case FE_Playback_Completed:
+	g_bStop= true;
+	break;
+      default:
+	printf("[RTDMOV]playback event %d not handled\n", EventCode);
+	break;
+      }
+      pFManager->FreeEventParams(EventId);
+    }
+    if (!g_bStop) {
+      tv.tv_sec  = 0;
+      tv.tv_usec = 0;
+      FD_ZERO(&set);
+      FD_SET(conn_fd, &set);
+      FD_SET(ir_fd, &set);
+      ret = select(maxfd, &set, NULL, NULL, &tv);
+      if (ret < 0)
+	g_bStop = true;
+      else if (ret > 0) {
+	if (FD_ISSET(conn_fd, &set))
+	  process_control();
+	if (FD_ISSET(ir_fd, &set))
+	  process_keyboard();
+      }
     }
   }
 }
