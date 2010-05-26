@@ -159,41 +159,6 @@ static VideoPlayback *g_pb = NULL;
 static bool           g_bOSD = false;
 static bool           g_bStop = false;
 
-static bool init_connection(const char *ahost, const char *aport)
-{
-  hostent *hent;
-  int port = -1;
-  sockaddr_in addr;
-  int one = 1;
-
-  if (!(hent = gethostbyname(ahost))) {
-    herror(ahost);
-    return false;
-  }
-  port = atoi(aport);
-  if (port < 0) {
-    fprintf(stderr, "bad port\n");
-    return false;
-  }
-  snprintf(conn_url, sizeof(conn_url), "http://%s:%d", ahost, port);
-  memset(&addr, 0, sizeof(addr));
-  addr.sin_port = htons(port);
-  addr.sin_family = AF_INET;
-  memcpy(&addr.sin_addr.s_addr, hent->h_addr, sizeof(addr.sin_addr.s_addr));
-  if ((conn_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-    perror("socket");
-    return false;
-  }
-  if (connect(conn_fd, (sockaddr*)&addr, sizeof(addr)) < 0) {
-    perror("connect");
-    close(conn_fd);
-    return false;
-  }
-  fcntl(conn_fd, F_SETFL, O_NONBLOCK);
-  setsockopt(conn_fd, IPPROTO_TCP, TCP_NODELAY, &one, sizeof(int));
-  return true;
-}
-
 static void write_control(const char *str, size_t len)
 {
   size_t ret;
@@ -600,6 +565,11 @@ static void mainloop()
   timeval tv;
   fd_set  set;
   int     ir_fd = ir_getfd();
+  int     maxfd = conn_fd;
+
+  if (ir_fd > maxfd) 
+    maxfd = ir_fd;
+  maxfd += 1;
 
   while(!g_bStop) {
     tv.tv_sec  = 0;
@@ -607,13 +577,48 @@ static void mainloop()
     FD_ZERO(&set);
     FD_SET(conn_fd, &set);
     FD_SET(ir_fd, &set);
-    if (select(FD_SETSIZE, &set, NULL, NULL, &tv)) {
+    if (select(maxfd, &set, NULL, NULL, &tv)) {
       if (FD_ISSET(conn_fd, &set))
 	process_control();
       if (FD_ISSET(ir_fd, &set))
 	process_keyboard();
     }
   }
+}
+
+static bool init_connection(const char *ahost, const char *aport)
+{
+  hostent *hent;
+  int port = -1;
+  sockaddr_in addr;
+  int one = 1;
+
+  if (!(hent = gethostbyname(ahost))) {
+    herror(ahost);
+    return false;
+  }
+  port = atoi(aport);
+  if (port < 0) {
+    fprintf(stderr, "bad port\n");
+    return false;
+  }
+  snprintf(conn_url, sizeof(conn_url), "http://%s:%d", ahost, port);
+  memset(&addr, 0, sizeof(addr));
+  addr.sin_port = htons(port);
+  addr.sin_family = AF_INET;
+  memcpy(&addr.sin_addr.s_addr, hent->h_addr, sizeof(addr.sin_addr.s_addr));
+  if ((conn_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+    perror("socket");
+    return false;
+  }
+  if (connect(conn_fd, (sockaddr*)&addr, sizeof(addr)) < 0) {
+    perror("connect");
+    close(conn_fd);
+    return false;
+  }
+  fcntl(conn_fd, F_SETFL, O_NONBLOCK);
+  setsockopt(conn_fd, IPPROTO_TCP, TCP_NODELAY, &one, sizeof(int));
+  return true;
 }
 
 static bool init(const char *args)
@@ -628,10 +633,13 @@ static bool init(const char *args)
   else
     port = "37890";
 
+  printf("[VDR] %s:%s\n", host, port);
+
   init_libketlaer();
   if (!init_connection(host, port))
     return false;
   write_control("CONTROL\r\n");
+  write_control("CONFIG\r\n");
   g_hOSD = getSurfaceHandle(HUD_MAX_WIDTH, HUD_MAX_HEIGHT, Format_32);
   DG_DrawRectangle(g_hOSD, 
 		   0, 
@@ -640,8 +648,6 @@ static bool init(const char *args)
 		   HUD_MAX_HEIGHT, 
 		   RESERVED_COLOR_KEY, 
 		   NULL);
-  g_pb = getVideoPlayback();
-  play_stream();
   g_bOSD = false;
   g_bStop = false;
   DG_DrawRectangle(getScreenSurface(), 
@@ -651,6 +657,8 @@ static bool init(const char *args)
 		   getScreenRect()->height, 
 		   RESERVED_COLOR_KEY, 
 		   NULL);
+  g_pb = getVideoPlayback();
+  play_stream();
   free(str);
   return true;
 }
@@ -658,8 +666,7 @@ static bool init(const char *args)
 static void deinit()
 {
   if (g_pb) {
-    if (g_pb->m_pFManager)
-      g_pb->m_pFManager->Stop();
+    g_pb->UnloadMedia();
     g_pb = NULL;
   }
   if (g_hOSD) {
