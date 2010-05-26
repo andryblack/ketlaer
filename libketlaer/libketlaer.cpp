@@ -176,6 +176,27 @@ HANDLE getSurfaceHandle (int width, int height, PIXEL_FORMAT pixFormat)
   return ret;
 }
 
+static void prealloc()
+{
+  unsigned sizes[7] = {
+    0x1000000,
+    0x400000,
+    0x800000,
+    0x800000,
+    0x100000,
+    0x80000,
+    0x80000,
+  };
+  void *addrs[7];
+  int   i;
+
+  for(i = 0; i < 7; i++)
+    addrs[i] = pli_allocContinuousMemoryMesg("PreAlloc", sizes[i], 0, 0);
+  for (i = 0; i < 7; i++)
+    if (addrs[i])
+      pli_freeContinuousMemoryMesg("PreAlloc", addrs[i]);
+}
+
 static void Init()
 {
   CLNT_STRUCT clnt;
@@ -183,13 +204,7 @@ static void Init()
 
   pli_setThreadName("MAIN");
   pli_init();
-  /*
-  void *adr1, *adr2;
-  adr1 = pli_allocContinuousMemoryMesg("PreAlloc", 16*1024*1024, 0, 0);
-  adr2 = pli_allocContinuousMemoryMesg("PreAlloc", 16*1024*1024, 0, 0);
-  pli_freeContinuousMemoryMesg("PreAlloc", adr1);
-  pli_freeContinuousMemoryMesg("PreAlloc", adr2);
-  */
+  prealloc();
   md_open();
   se_open();
   DG_Init();
@@ -244,6 +259,7 @@ static void Init()
 		  ColorKey_Src,
 		  RESERVED_COLOR_KEY);
   g_pb = new VideoPlayback(MEDIATYPE_None);
+  g_pb->LoadMedia("file:///not_a_valid_file.wmv");
 }
 
 static void UnInit()
@@ -251,8 +267,8 @@ static void UnInit()
   delete g_pb;
   DG_ReleaseDisplayHandle(g_hDisplay);
   DG_CloseSurface(g_hScreen);
-  delete g_vo;
   DeInitHDMI();
+  delete g_vo;
   firmware_uninit();
   board_uninit();
   DG_UnInit();
@@ -274,7 +290,7 @@ void init_libketlaer()
     ioctl(g_irfd, VENUS_IR_IOC_FLUSH_IRRP, NULL);
     ioctl(g_irfd, VENUS_IR_IOC_SET_PROTOCOL, g_pIrMap->GetProtocol());
     ioctl(g_irfd, VENUS_IR_IOC_SET_DEBOUNCE, 100); 
-    printf("ir protocol=%d\n", g_pIrMap->GetProtocol());
+    printf("[LIBKETLAER]ir protocol=%d\n", g_pIrMap->GetProtocol());
   }
 }
 
