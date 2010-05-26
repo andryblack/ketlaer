@@ -4,6 +4,7 @@
 #include "config.hpp"
 #include "global_options.hpp"
 #include "updater.hpp"
+#include "shoutcast.hpp"
 
 #include <string>
 
@@ -21,7 +22,9 @@ static bool do_playfile(const string &file)
 {
   string path;
 
-  if (file.find("://") != string::npos) 
+  if (file.find("http://www.shoutcast.com/sbin/tunein-station.pls") != string::npos) 
+    path = Shoutcast::get_instance()->get_playlist(file).second;
+  else if (file.find("://") != string::npos) 
     path = file;
   else
     path = "file://" + file;
