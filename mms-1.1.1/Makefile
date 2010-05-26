@@ -63,21 +63,20 @@ SUBDIRS += plugins
 COMMON_LIBS += -lrt
 
 ifeq ($(MUSIC),yes)
-SUBDIRS += audio-library
+#SUBDIRS += audio-library
 endif
 
 ifeq ($(MOVIE),yes)
-SUBDIRS += movie-library
+#SUBDIRS += movie-library
 endif
 
 ifeq ($(PICTURE),yes)
-SUBDIRS += pic-library
+#SUBDIRS += pic-library
 endif
 
-EXTRALIBS = -lgettextlib $(KETLAER_DIR)/utility/libm2/libm2.a
+EXTRALIBS = -lgettextlib -L$(KETLAER_DIR)/utility/libm2 -lm2.a
 
 # plugins
-#SRCS += plugins/plugins.cpp plugins/output/common-output.cpp plugins/input/input.cpp plugins/feature/module.cpp
 OBJS += plugins/plugins.o plugins/output/output.o plugins/input/input-base.o plugins/feature/feature.o
 
 all: version.h $(PRG)
