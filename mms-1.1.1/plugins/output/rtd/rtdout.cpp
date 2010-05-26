@@ -112,6 +112,11 @@ void RTDdev::rtd_draw()
 
   unsigned *src = reinterpret_cast<unsigned*>(imlib_image_get_data_for_reading_only());
 
+  if (!src) {
+    printf("[RTDOUT] src == NULL\n");
+    return;
+  }
+
   foreach (rect& r, render->draw_rects)
     draw_rectangle(src, r.x, r.y, r.w, r.h);
 }
