@@ -1,3 +1,8 @@
+libketlaer:
+===========
+
+- rewrite HDMI_thread (does not terminate and causes segfault on program close)
+
 mms:
 ====
 
@@ -11,7 +16,6 @@ based on libketlaer.so:
 - movie player: more control keys
 - movie player: osd feedback
 - tv player: usb hardware
-- audio player: retrieve shoutcast playlist
 
 mms pyglets:
 ============
