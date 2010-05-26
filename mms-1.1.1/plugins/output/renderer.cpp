@@ -1092,7 +1092,7 @@ Render::Render()
   imlib_set_cache_size(4096 * 1024);
   imlib_set_font_cache_size(2048 * 1024);
 #else
-  imlib_set_cache_size(1024 * 1024);
+  imlib_set_cache_size(4096 * 1024);
   imlib_set_font_cache_size(512 * 1024);
 #endif
 
