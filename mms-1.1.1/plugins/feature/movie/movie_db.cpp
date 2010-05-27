@@ -612,7 +612,11 @@ void MovieDB::print_information(const CIMDBMovie& m)
 
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->movie_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
 
   // determine if the title already contains year, this is often the case with
   // movies produced several times
@@ -790,7 +794,11 @@ void MovieDB::print_information(const CIMDBMovie& m)
 
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->movie_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
 
   render->current.add(new TObj(title, information_header_font, 45, 15,
 			       themes->movie_header_font1, themes->movie_header_font2,
@@ -1484,7 +1492,11 @@ void MovieDB::print_list_view(vector<CIMDBMovie>& cur_files)
 {
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->movie_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
 
   PFObj *back = new PFObj(themes->startmenu_movie_dir, 25, 10, header_box_size, header_box_size, 2, true);
 
@@ -1595,7 +1607,11 @@ void MovieDB::print_icon_view(vector<CIMDBMovie>& cur_files)
 {
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->movie_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
 
   std::pair<int, int> header_size = string_format::calculate_string_size("abcltuwHPMjJg", header_font);
   int header_box_size = static_cast<int>(header_size.second * 0.75);

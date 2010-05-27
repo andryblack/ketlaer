@@ -19,4 +19,15 @@ public:
   RObj* clone() const { return new RObj(*this); }
 };
 
+
+class BgRObj : public RObj {
+public:
+  BgRObj(int l) 
+    : RObj(0,
+	   0, 
+	   S_Config::get_instance()->p_h_res(), 
+	   S_Config::get_instance()->p_v_res(),
+	   0, 0, 0, 255, l) {}
+};
+
 #endif

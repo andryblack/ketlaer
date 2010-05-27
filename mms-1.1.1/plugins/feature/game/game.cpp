@@ -1064,7 +1064,11 @@ void Game::graphical_print(const vector<GameEntry>& cur_files)
 {
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->game_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
 
   PObj *back = new PFObj(themes->startmenu_game_dir, 25, 10, header_box_size, header_box_size, 2, true);
 

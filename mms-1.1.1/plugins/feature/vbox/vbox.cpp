@@ -349,7 +349,11 @@ std::string VBox::Print(std::string status)
 		BeginAnimation();
 	}
 
+#if 0
     render->current.add(new PObj(themes->vbox_background, 0, 0, 0, SCALE_FULL));
+#else
+    render->current.add(new BgRObj(0));
+#endif
 
     PObj *icon = new PFObj(themes->startmenu_vbox, BORDER_LEFT, BORDER_TOP, header_box_size, header_box_size, 2, true);
 

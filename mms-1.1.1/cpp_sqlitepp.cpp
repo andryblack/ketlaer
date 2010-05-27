@@ -238,6 +238,11 @@ int SQLDatabase::Callback(void *self, int argc, char **argv, char **columnNames)
 SQLDatabase::SQLDatabase(char const *filename)
 : query_ris_(0)
 {
+  static bool limit_set = false;
+  if (!limit_set) {
+    sqlite3_soft_heap_limit(128*1024);
+    limit_set = true;
+  }
   sqlite3_open(filename, &db_);	
   sqlite3_create_function(db_, "fuzzycmp", 3, SQLITE_UTF8, 0, fuzzy_cmp_func, 0, 0);
   //  sqlite_function_type(db_, "fuzzycmp", SQLITE_TEXT);

@@ -74,7 +74,7 @@ ifeq ($(PICTURE),yes)
 #SUBDIRS += pic-library
 endif
 
-EXTRALIBS = -lgettextlib -L$(KETLAER_DIR)/utility/libm2 -lm2.a
+EXTRALIBS = -lgettextlib -L$(KETLAER_DIR)/utility/libm2 -lm2
 
 # plugins
 OBJS += plugins/plugins.o plugins/output/output.o plugins/input/input-base.o plugins/feature/feature.o
@@ -273,13 +273,13 @@ endif
 	$(MAKE) -C plugins install;
 
 ifeq ($(MUSIC),yes)
-	$(MAKE) -C audio-library install;
+#	$(MAKE) -C audio-library install;
 endif
 ifeq ($(MOVIE),yes)
-	$(MAKE) -C movie-library install;
+#	$(MAKE) -C movie-library install;
 endif
 ifeq ($(PICTURE),yes)
-	$(MAKE) -C pic-library install;
+#	$(MAKE) -C pic-library install;
 endif
 
         # create cache dir

@@ -252,7 +252,11 @@ void XmlEpgEvent::PrintDescription(Render *render, Themes *themes, int width, in
         S_Touch::get_instance()->register_area(TouchArea(rect(icon->x, icon->y, icon->w, icon->h), icon->layer, boost::bind(&XmlEpgEvent::no_op,
                 this)));
 
+#if 0
         render->current.add(new PObj(themes->epg_background, 0, 0, 0, SCALE_FULL));
+#else
+        render->current.add(new BgRObj(0));
+#endif
 
         render->current.add(icon);
 
@@ -1247,7 +1251,11 @@ void Epg::search_print(const vector<EpgEvent *>& events) {
 
     render->prepare_new_image();
 
+#if 0
     render->current.add(new PObj(themes->epg_background, 0, 0, 0, SCALE_FULL));
+#else
+    render->current.add(new BgRObj(0));
+#endif
 
     PObj *back = new PFObj(themes->startmenu_epg, border_left, y, header_box_size, header_box_size, 1, true);
 
@@ -1848,7 +1856,11 @@ void Epg::print() {
         BeginAnimation();
     }
 
+#if 0
     render->current.add(new PObj(themes->epg_background, 0, 0, 0, SCALE_FULL));
+#else
+    render->current.add(new BgRObj(0));
+#endif
 
     PObj *back = new PFObj(themes->startmenu_epg, border_left, y, header_box_size, header_box_size, 1, true);
 
@@ -2687,7 +2699,11 @@ void Epg::print_timers() {
         BeginAnimation();
     }
 
+#if 0
     render->current.add(new PObj(themes->epg_background, 0, 0, 0, SCALE_FULL));
+#else
+    render->current.add(new BgRObj(0));
+#endif
 
     PObj *back = new PFObj(themes->startmenu_timer, border_left, y, header_box_size, header_box_size, 1, true);
 

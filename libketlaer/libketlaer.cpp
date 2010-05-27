@@ -176,6 +176,7 @@ HANDLE getSurfaceHandle (int width, int height, PIXEL_FORMAT pixFormat)
   return ret;
 }
 
+/*
 static void prealloc()
 {
   unsigned sizes[7] = {
@@ -196,6 +197,7 @@ static void prealloc()
     if (addrs[i])
       pli_freeContinuousMemoryMesg("PreAlloc", addrs[i]);
 }
+*/
 
 static void Init()
 {
@@ -204,7 +206,6 @@ static void Init()
 
   pli_setThreadName("MAIN");
   pli_init();
-  prealloc();
   md_open();
   se_open();
   DG_Init();
@@ -219,8 +220,8 @@ static void Init()
   unsigned long audioPhyAddr;
   BYTE *videoDebugFlag;
   unsigned long videoPhyAddr;
-  pli_allocContinuousMemoryMesg("DBF", 4, (BYTE**)&audioDebugFlag, &audioPhyAddr);
-  pli_allocContinuousMemoryMesg("DBF", 4, (BYTE**)&videoDebugFlag, &videoPhyAddr);
+  pli_allocContinuousMemoryMesg("AudioDebugFlag", 4, (BYTE**)&audioDebugFlag, &audioPhyAddr);
+  pli_allocContinuousMemoryMesg("VideoDebugFlag", 4, (BYTE**)&videoDebugFlag, &videoPhyAddr);
 #define AUDIO_DEBUG_FLAG        0x00000001
 #define VIDEO_DEBUG_FLAG        0x00000001
   pli_IPCWriteULONG((BYTE*)audioDebugFlag, AUDIO_DEBUG_FLAG);
@@ -259,7 +260,8 @@ static void Init()
 		  ColorKey_Src,
 		  RESERVED_COLOR_KEY);
   g_pb = new VideoPlayback(MEDIATYPE_None);
-  g_pb->LoadMedia("file:///not_a_valid_file.wmv");
+  g_pb->LoadMedia("file:///tmp/DATA/media/video/kinder/lights.wmv");
+  pli_listAllMemory();
 }
 
 static void UnInit()
@@ -283,6 +285,7 @@ static int initcount = 0;
 void init_libketlaer()
 {
   if (!initcount++) {
+    printf("[LIBKETLAER]init\n");
     ConfigFile cfg;
     g_pIrMap = new IrMapFile(cfg.GetRemoteType());
     Init();
@@ -297,6 +300,7 @@ void init_libketlaer()
 void uninit_libketlaer()
 {
   if (!--initcount) {
+    printf("[LIBKETLAER]uninit\n");
     close(g_irfd);
     UnInit();
     delete g_pIrMap;

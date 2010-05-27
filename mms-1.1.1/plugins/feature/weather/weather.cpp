@@ -259,7 +259,12 @@ std::string Weather::Print( int current_pos, int max_entries )
 
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->weather_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
+
   std::pair<int, int> header_size = string_format::calculate_string_size("abcltuwHPMjJg", header_font);
   int header_box_size = static_cast<int>(header_size.second * 0.75);
 

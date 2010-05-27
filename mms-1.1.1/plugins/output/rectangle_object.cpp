@@ -1,6 +1,6 @@
-#include "rectangle_object.hpp"
 
 #include "renderer.hpp"
+#include "rectangle_object.hpp"
 
 RObj::RObj(int x_pos, int y_pos, int width, int height, 
      int red, int green, int blue, int alpha, int l)

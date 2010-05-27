@@ -1657,7 +1657,11 @@ void SvdrpEpgEvent::PrintDetails(Render *render, Themes *themes, int width, int 
     S_Touch::get_instance()->register_area(TouchArea(rect(icon->x, icon->y, icon->w, icon->h), icon->layer, boost::bind(&SvdrpEpgEvent::no_op,
             this)));
 
+#if 0
     render->current.add(new PObj(themes->epg_background, 0, 0, 0, SCALE_FULL));
+#else
+    render->current.add(new BgRObj(0));
+#endif
 
     render->current.add(icon);
 

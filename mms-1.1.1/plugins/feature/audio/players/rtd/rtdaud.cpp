@@ -151,8 +151,10 @@ void RtdAud::play()
 void RtdAud::stop_player()
 {
   printf("[RTDAUD]stop_player\n");
-  if (g_pb->m_pFManager) 
+  if (g_pb->m_pFManager) {
     g_pb->m_pFManager->Stop();
+    //g_pb->UnloadMedia();
+  }
   Audio_s *audio_state = S_Audio_s::get_instance();
   audio_state->set_playing(false);
   audio_state->p->set_title("");

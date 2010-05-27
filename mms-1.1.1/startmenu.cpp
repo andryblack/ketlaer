@@ -322,7 +322,11 @@ void Startmenu::print(const startmenu_row& row, const startmenu_item& current_it
 
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->startmenu_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
 
   int pos = 0;
   foreach (startmenu_row& cur_row, startmenu) {

@@ -864,7 +864,11 @@ void Audio::print_top()
 {
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->audio_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
 
   render->current.add(new PFObj(themes->startmenu_music_dir, 25, 10, header_box_size, header_box_size, 2, true));
 
@@ -991,7 +995,11 @@ void Audio::print_choose_playlist(const vector<string>& cur_files, const string&
 {
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->audio_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
 
   PObj *p = new PFObj(themes->audio_playlist_icon, 25, 10, header_box_size, header_box_size, 2, true);
   render->current.add(p);
@@ -1015,7 +1023,11 @@ void Audio::print_radio_list(const vector<string>& cur_files, const string& posi
 {
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->audio_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
 
   PObj *p = new PFObj(themes->startmenu_radio, 25, 10, header_box_size, header_box_size, 2, true);
   render->current.add(p);

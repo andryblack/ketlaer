@@ -2054,7 +2054,11 @@ void Pictures::print(const vector<Picture>& cur_list)
 {
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->pictures_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
 
   PObj *back = new PFObj(themes->startmenu_pictures_dir, 25, 10, header_box_size, header_box_size, 2, true);
 

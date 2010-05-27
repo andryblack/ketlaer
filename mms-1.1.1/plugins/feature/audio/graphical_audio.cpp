@@ -1522,7 +1522,11 @@ void GraphicalAudio::print_information()
 
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->audio_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
 
   render->current.add(new PFObj(themes->startmenu_music_dir, 25, 10, header_box_size, header_box_size, 2, true));
 
@@ -2079,7 +2083,11 @@ void GraphicalAudio::print_graphical(vector<Dbaudiofile>& cur_files)
 {
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->audio_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
 
   PObj *back = new PFObj(themes->startmenu_music_dir, 25, 10, header_box_size, header_box_size, 2, true);
 
@@ -2265,7 +2273,11 @@ void GraphicalAudio::print_tracklist(vector<Dbaudiofile>& cur_files)
 {
   render->prepare_new_image();
 
+#if 0
   render->current.add(new PObj(themes->audio_background, 0, 0, 0, SCALE_FULL));
+#else
+  render->current.add(new BgRObj(0));
+#endif
 
   PObj *back = new PFObj(themes->startmenu_music_dir, 25, 10, header_box_size, header_box_size, 2, true);
 
