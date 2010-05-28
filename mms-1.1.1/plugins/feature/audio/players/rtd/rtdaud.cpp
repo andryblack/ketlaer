@@ -98,7 +98,7 @@ int RtdAud::is_playing()
 	g_bRunning = false;
 	break;
       default:
-	printf("[RTDMOV]playback event %d not handled\n", EventCode);
+	printf("[RTDAUD]playback event %d not handled\n", EventCode);
 	break;
       }
       pFManager->FreeEventParams(EventId);
@@ -153,7 +153,7 @@ void RtdAud::stop_player()
   printf("[RTDAUD]stop_player\n");
   if (g_pb->m_pFManager) {
     g_pb->m_pFManager->Stop();
-    //g_pb->UnloadMedia();
+    g_pb->ClearEventQueue();
   }
   Audio_s *audio_state = S_Audio_s::get_instance();
   audio_state->set_playing(false);

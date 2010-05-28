@@ -93,6 +93,7 @@ static int do_play(const char *file)
       }
     }
     pFManager->Stop();
+    pb->ClearEventQueue();
   }
   else
     printf("[RTDMOV]unable to load media\n");

@@ -696,7 +696,9 @@ static bool init(const char *args)
 static void deinit()
 {
   if (g_pb) {
-    g_pb->UnloadMedia();
+    if (g_pb->m_pFManager)
+      g_pb->m_pFManager->Stop();
+    g_pb->ClearEventQueue();
     g_pb = NULL;
   }
   if (g_hOSD) {
