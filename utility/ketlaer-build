@@ -1,0 +1,23 @@
+GT=gettext-0.18
+
+for i in \
+zlib-1.2.5 \
+libpng-1.2.29 \
+freetype-2.3.7 \
+jpeg-8b \
+imlib2-1.4.0 \
+libiconv-1.13.1 \
+ncurses-5.7 \
+commoncpp2-1.5.2 \
+sqlite-3.6.23.1 \
+Python-2.6.5 \
+libxml2-2.7.7 \
+pcre-8.02 \
+taglib-1.6.3 
+do
+	echo build $i ..
+	cd $i
+	make -i clean
+	./ketlaer-build
+	cd ..
+done
