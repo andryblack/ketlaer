@@ -78,9 +78,9 @@ export QWS_KEYBOARD="usb"
 Starting mms:
 =============
 
-Add at least 64MB swapspace!
 Copy configs from mms dir to $KETLAER/etc/mms.
-Edit configs, using rtd as outputdevice, and rtd as AudioDevice.
+Edit configs, using rtdmov as outputdevice, rtdaud as AudioDevice
+and rtdinp as input.
 
 Run stopall.
 Run it with mms -u root -p /path_to_cache_dir_read_write
