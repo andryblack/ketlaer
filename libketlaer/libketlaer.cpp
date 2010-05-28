@@ -260,7 +260,7 @@ static void Init()
 		  ColorKey_Src,
 		  RESERVED_COLOR_KEY);
   g_pb = new VideoPlayback(MEDIATYPE_None);
-  g_pb->LoadMedia("file:///tmp/DATA/media/video/kinder/lights.wmv");
+  g_pb->LoadMedia("file:///file_not_found.wmv");
   pli_listAllMemory();
 }
 
