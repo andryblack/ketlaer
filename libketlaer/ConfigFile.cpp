@@ -230,7 +230,7 @@ bool ConfigFile::ReadFile()
   {
     if (strcmp(str,"RTD1073 CONFIG")==0)
     { 
-       printf("[ConfigFile]Loading configuration file... \n\n");
+       printf("[ConfigFile]Loading configuration file... \n");
        if (config_lookup_int(&cfg, "ScreenSize", &int_v))
        {
          if ((int_v<0)||(int_v>6)) ScreenSize=0; else ScreenSize=int_v;
