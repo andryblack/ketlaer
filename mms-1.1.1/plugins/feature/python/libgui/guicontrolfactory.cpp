@@ -85,6 +85,7 @@ pymms::gui::GUIControl* pymms::gui::GUIControlFactory::create(const TiXmlNode* p
    int iItemWidth = 30, iTextHeight = 20, iItemSpaceX = 10, iItemSpaceY = 1;
    int iRouteControl = -1;
    bool bListCenterX = false, bListCenterY = false;   
+   string strDescription = "(no description)";
 	
    /////////////////////////////////////////////////////////////////////////////
    // Read control properties from XML
@@ -105,6 +106,7 @@ pymms::gui::GUIControl* pymms::gui::GUIControlFactory::create(const TiXmlNode* p
    getInt(pControlNode, "onnext", iNext);
    getInt(pControlNode, "layer", iLayer);
    getInt(pControlNode, "routecontrol", iRouteControl);
+   getString(pControlNode, "description", strDescription);
    getString(pControlNode, "texture", strTexture);
    getBoolean(pControlNode, "visible", bVisible);
    getString(pControlNode, "label", strLabel);
@@ -162,8 +164,22 @@ pymms::gui::GUIControl* pymms::gui::GUIControlFactory::create(const TiXmlNode* p
    }
    else if(strType=="image")
    {
-      pControl = new GUIImageControl(iPosX, iPosY, iWidth, iHeight, 
-				    strTexture, iLayer);
+#if 1
+     //printf("%s %s\n", strDescription.c_str(), strTexture.c_str());
+     if (iLayer == 0) {
+       printf("%s replaced by rectangle\n", strTexture.c_str());
+       pControl = new GUIRectangleControl(0, 
+					  0,
+					  S_Config::get_instance()->p_h_res(),
+					  S_Config::get_instance()->p_v_res(),
+					  iLayer,
+					  255,
+					  "0x00000000");
+     }
+     else
+#endif
+       pControl = new GUIImageControl(iPosX, iPosY, iWidth, iHeight, 
+				      strTexture, iLayer);
    }
    else if(strType=="rectangle")
    {
