@@ -34,7 +34,7 @@ SetupClass::SetupClass()
   video_output   = VOUT_YUV;
   speaker_out    = TWO_CHANNEL;
   agc_mode       = AUDIO_AGC_DRC_OFF;
-  spdif_mode     = HDMI_LPCM;
+  spdif_mode     = SPDIF_LPCM;
 }
 SetupClass::~SetupClass()
 {
