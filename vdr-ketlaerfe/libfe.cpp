@@ -158,6 +158,7 @@ static HANDLE         g_hOSD = NULL;
 static VideoPlayback *g_pb = NULL;
 static bool           g_bOSD = false;
 static bool           g_bStop = false;
+static bool           g_bZoom = false;
 
 static void write_control(const char *str, size_t len)
 {
@@ -487,12 +488,39 @@ static void process_control()
   printf("control:%s\n", line);
   if (strncasecmp(line, "OSDCMD", 6) == 0) {
     handle_control_osdcmd();
+  } else if (strncasecmp(line, "FLUSH ", 6) == 0) {
+    if (g_pb->m_pSource) {
+      //how can we flush?
+    }
   }
+}
+
+static void apply_zoom()
+{
+  if (g_bZoom) {
+    VO_RECTANGLE r = *getScreenRect();
+    double scalex = 9.0 / 16.0 * 4.0 / 3.0;
+    double scaley = 9.0 / 16.0 * 4.0 / 3.0;
+
+    r.x = (r.width  - r.width  * scalex) / 2;
+    r.y = (r.height - r.height * scaley) / 2;
+    r.width  *= scalex;
+    r.height *= scaley;
+    zoomVideo(&r);
+  } 
+  else
+    zoomVideo(NULL);
 }
 
 static void play_stream()
 {
-  g_pb->LoadMedia(conn_url);
+  g_pb->LoadMedia(conn_url,
+		  NULL,
+		  MEDIATYPE_None,
+		  PLAYBACK_TYPE_NORMAL,
+		  NULL,
+		  NULL,
+		  256 * 1024);
   g_pb->m_pFManager->SetRate(256);
   g_pb->m_pAudioOut->SetFocus();
   g_pb->m_pAudioOut->SetVolume(0);
@@ -520,7 +548,7 @@ static struct {
   {Key_Left,          "Left"     },
   {Key_Right,         "Right"    },
   {Key_Enter,         "Ok"       },
-  {Key_Home,          "Menu"     },
+  {Key_Menu,          "Menu"     },
   {Key_Backspace,     "Back"     },
   {Key_MediaNext,     "Next"     },
   {Key_MediaPrevious, "Previous" },
@@ -542,8 +570,16 @@ static void process_keyboard()
   int idx = 0,key = ir_getkey();
   char *str = NULL, cmd[32];
 
-  if (!g_bOSD && (key == Key_Backspace)) 
+  if (key == Key_Home) {
     g_bStop = true;
+    return;
+  }
+
+  if (key == Key_Zoom) {
+    g_bZoom = !g_bZoom;
+    apply_zoom();
+    return;
+  }
 
   while(vdr_keymap[idx].str) {
     if (vdr_keymap[idx].key == key) {
@@ -557,7 +593,7 @@ static void process_keyboard()
   if (str) {
     snprintf(cmd, sizeof(cmd), "KEY %s\r\n", str);
     write_control(cmd);
-  }
+  } 
 }
 
 static void mainloop()
@@ -680,6 +716,7 @@ static bool init(const char *args)
 		   NULL);
   g_bOSD = false;
   g_bStop = false;
+  g_bZoom = false;
   DG_DrawRectangle(getScreenSurface(), 
 		   0, 
 		   0, 
@@ -709,6 +746,8 @@ static void deinit()
     close(conn_fd);
     conn_fd = -1;
   }
+  g_bZoom = false;
+  apply_zoom();
   uninit_libketlaer();
 }
 
@@ -716,10 +755,8 @@ int run_vdr_frontend(const char *args)
 {
   int ret = 0;
 
-  if (init(args)) {
+  if (init(args))
     mainloop();
-  }
   deinit();
-
   return ret;
 }

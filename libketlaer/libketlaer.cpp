@@ -344,3 +344,10 @@ VideoPlayback *getVideoPlayback()
 {
   return g_pb;
 }
+
+void zoomVideo(VO_RECTANGLE *pRect)
+{
+  if (!pRect)
+    pRect = &rect;
+  g_vo->Zoom(VO_VIDEO_PLANE_V1, *pRect);
+}

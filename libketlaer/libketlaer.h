@@ -14,7 +14,8 @@ int it_getkey(bool &repeat);
 
 HANDLE getScreenSurface();
 HANDLE getSurfaceHandle (int width, int height, PIXEL_FORMAT pixFormat);
-VO_RECTANGLE  *getScreenRect();
+VO_RECTANGLE *getScreenRect();
 VideoPlayback *getVideoPlayback();
+void zoomVideo(VO_RECTANGLE*);
 
 #endif
