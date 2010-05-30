@@ -1,0 +1,65 @@
+//Remote Map File
+
+name = "MEDION IR_CODE";
+
+////////////////////////////////////////////////////////////////////////////////
+//  Remote protocol                                                           //
+//                                                                            //
+//  0 = NEC                                                                   //
+//  1 = RC5                                                                   //
+//  2 = SHARP                                                                 //
+//  3 = SONY                                                                  //
+//  4 = C03                                                                   //
+//  5 = RC6                                                                   //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+protocol = 0;
+
+////////////////////////////////////////////////////////////////////////////////
+//  Remote map format.                                                        //
+//                                                                            //
+//  code = Enter the ir code, mappedto = Enter the event to be mapped         //
+//                                                                            //
+//  Your ir code can be obtened only with special app not already developped  //
+//                                                                            //
+//  The event list to be mapped http://doc.qt.nokia.com/4.6/qt.html#Key-enum  //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+remotemap =
+(
+  { code = "9669e486"; mappedto = "key_Up"; },
+  { code = "926de486"; mappedto = "key_Down"; },
+  { code = "956ae486"; mappedto = "key_Left"; },
+  { code = "936ce486"; mappedto = "key_Right"; },
+  { code = "946be486"; mappedto = "key_Enter"; },
+  { code = "9f60e486"; mappedto = "key_Home"; },
+  { code = "9d62e486"; mappedto = "key_Menu"; },
+  { code = "8e71e486"; mappedto = "key_PageUp"; },
+  { code = "8a75e486"; mappedto = "key_PageDown"; },
+  { code = "8877e486"; mappedto = "key_Backspace"; },
+  { code = "9e61e486"; mappedto = "key_PowerOff"; },
+  { code = "906fe486"; mappedto = "key_MediaPlay"; },
+  { code = "8c73e486"; mappedto = "key_MediaStop"; },
+  { code = "8d72e486"; mappedto = "key_MediaPrevious"; },
+  { code = "8b74e486"; mappedto = "key_MediaNext"; },
+  { code = "8976e486"; mappedto = "key_Less"; },
+  { code = "8778e486"; mappedto = "key_Greater"; },
+  { code = "837ce486"; mappedto = "key_VolumeUp"; },
+  { code = "857ae486"; mappedto = "key_VolumeDown"; },
+  { code = "847be486"; mappedto = "key_VolumeMute"; },
+  { code = "8679e486"; mappedto = "key_AudioCycleTrack"; },
+  { code = "827de486"; mappedto = "key_Subtitle"; },
+  { code = "807fe486"; mappedto = "key_View"; },
+  { code = "9c63e486"; mappedto = "key_Zoom"; },
+  { code = "9a65e486"; mappedto = "key_F9"; },
+  { code = "9966e486"; mappedto = "key_F10"; },
+  { code = "9867e486"; mappedto = "key_F11"; },
+  { code = "9768e486"; mappedto = "key_F12"; }
+);
+//EOF

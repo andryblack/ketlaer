@@ -55,6 +55,9 @@ $(LIBSO) : $(OBJS) $(OBJSONLY)
 
 install: all
 	cp $(LIBSO) $(KETLAER)/lib
+	-mkdir $(KETLAER)/etc
+	cp configfiles/settings.conf $(KETLAER)/etc
+	cp -r configfiles/remotes $(KETLAER)/etc
 
 clean:
 	rm -f $(LIB) $(LIBSO) $(OBJS)

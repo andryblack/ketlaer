@@ -1,0 +1,59 @@
+//Event map file for remote.
+
+name = "QT_Event V1";
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//  QT code can be added.                                                     //
+//                                                                            //
+//                                                                            //
+//  The event list to be mapped http://doc.qt.nokia.com/4.6/qt.html#Key-enum  //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+qt_event =
+(
+  { key = "key_0" ; value = "30"; },
+  { key = "key_1" ; value = "31"; },
+  { key = "key_2" ; value = "32"; },
+  { key = "key_3" ; value = "33"; },
+  { key = "key_4" ; value = "34"; },
+  { key = "key_5" ; value = "35"; },
+  { key = "key_6" ; value = "36"; },
+  { key = "key_7" ; value = "37"; },
+  { key = "key_8" ; value = "38"; },
+  { key = "key_9" ; value = "39"; },
+  { key = "key_Up"; value = "01000013";},
+  { key = "key_Down" ; value = "01000015"; },
+  { key = "key_Left" ; value = "01000012"; },
+  { key = "key_Right" ; value = "01000014"; },
+  { key = "key_Enter" ; value = "01000005"; },
+  { key = "key_Home" ; value = "01000010"; },
+  { key = "key_Menu" ; value = "01000055"; },
+  { key = "key_PageUp" ; value = "01000016"; },
+  { key = "key_PageDown" ; value = "01000017"; },
+  { key = "key_Backspace" ; value = "01000003"; },
+  { key = "key_PowerOff" ; value = "010000b7"; },
+  { key = "key_MediaPlay" ; value = "01000080"; },
+  { key = "key_MediaStop" ; value = "01000081"; },
+  { key = "key_MediaPrevious" ; value = "01000082"; },
+  { key = "key_MediaNext" ; value = "01000083"; },
+  { key = "key_Less" ; value = "3c"; }, 		// jump back
+  { key = "key_Greater" ; value = "3e"; }, 		// jump forward
+  { key = "key_VolumeUp" ; value = "01000072"; },
+  { key = "key_VolumeDown" ; value = "01000070"; },
+  { key = "key_VolumeMute" ; value = "01000071"; },
+  { key = "key_AudioCycleTrack"; value = "01000106"; },
+  { key = "key_Subtitle" ; value = "01000105"; },
+  { key = "key_View" ; value = "01000109"; }, 		//angle
+  { key = "key_Zoom" ; value = "01020006"; }, 
+  { key = "key_F9" ; value = "01000038"; },		// red
+  { key = "key_F10" ; value = "01000039"; },		// green
+  { key = "key_F11" ; value = "0100003a"; },		// yellow
+  { key = "key_F12" ; value = "0100003b"; }		// blue
+);
+//EOF

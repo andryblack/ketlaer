@@ -1,0 +1,60 @@
+//Remote Map File
+
+name = "EKAH110 IR_CODE";
+
+////////////////////////////////////////////////////////////////////////////////
+//  Remote protocol                                                           //
+//                                                                            //
+//  0 = NEC                                                                   //
+//  1 = RC5                                                                   //
+//  2 = SHARP                                                                 //
+//  3 = SONY                                                                  //
+//  4 = C03                                                                   //
+//  5 = RC6                                                                   //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+protocol = 0;
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//  Remote map format.                                                        //
+//                                                                            //
+//  code = Enter the ir code, mappedto = Enter the event to be mapped         //
+//                                                                            //
+//  Your ir code can be obtened only with special app not already developped  //
+//                                                                            //
+//  The event list to be mapped http://doc.qt.nokia.com/4.6/qt.html#Key-enum  //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+remotemap =
+(
+  { code =  "EE119F00"; mappedto = "key_0"; },
+  { code =  "FA059F00"; mappedto = "key_1"; },
+  { code =  "F6099F00"; mappedto = "key_2"; },
+  { code =  "EA159F00"; mappedto = "key_3"; },
+  { code =  "FB049F00"; mappedto = "key_4"; },
+  { code =  "F7089F00"; mappedto = "key_5"; },
+  { code =  "EB149F00"; mappedto = "key_6"; },
+  { code =  "FF009F00"; mappedto = "key_7"; },
+  { code =  "EF109F00"; mappedto = "key_8"; },
+  { code =  "F30C9F00"; mappedto = "key_9"; },
+  { code =  "BC439F00"; mappedto = "key_Up"; },
+  { code =  "F50A9F00"; mappedto = "key_Down"; },
+  { code =  "F9069F00"; mappedto = "key_Left"; },
+  { code =  "F10E9F00"; mappedto = "key_Right"; },
+  { code =  "FD029F00"; mappedto = "key_Enter"; },
+  { code =  "A55A9F00"; mappedto = "key_Home"; },
+  { code =  "A8579F00"; mappedto = "key_PowerOff"; },
+  { code =  "AF509F00"; mappedto = "key_MediaPlay"; },
+  { code =  "EC139F00"; mappedto = "key_MediaStop"; }
+);
+//EOF

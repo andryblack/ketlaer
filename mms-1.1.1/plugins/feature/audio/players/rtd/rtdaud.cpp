@@ -217,7 +217,7 @@ int RtdAud::getpos()
 
 void RtdAud::setpos(int p)
 {
-  unsigned cmdid;
+  uint32_t cmdid;
 
   printf("[RTDAUD]setpos %d seconds\n", p);
   if (g_pb->m_pSource) 

@@ -19,6 +19,23 @@ using std::vector;
 
 typedef vector<string> filearray;
 
+static void do_seek(VideoPlayback *pb, int offset)
+{
+  CNavigationFilter *pNav = pb->m_pSource;
+  NAVPLAYBACKSTATUS  stat;
+  int                newpos;
+  uint32_t           cmdid;
+
+  if (pNav) {
+    if (pNav->GetPlaybackStatus(&stat) == S_OK) {
+      newpos = stat.elapsedTime.seconds + offset;
+      if (newpos < 0) 
+	newpos = 0;
+      pNav->PlayAtTime(-1, newpos, 0, &cmdid);
+    }
+  }
+}
+
 static int do_play(const char *file)
 {
   int            ret = Key_MediaNext;
@@ -87,6 +104,12 @@ static int do_play(const char *file)
 	  case Key_MediaStop:
 	    ret = key;
 	    stop = true;
+	    break;
+	  case Key_Less:
+	    do_seek(pb, -1 * 60);
+	    break;
+	  case Key_Greater:
+	    do_seek(pb, +5 * 60);
 	    break;
 	  }
 	}
