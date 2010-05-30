@@ -183,8 +183,10 @@ void RtdAud::ff()
   printf("[RTDAUD]ff\n");
   gather_info();
 
+  /*
   if (!((cur_time + 10) > total_time))
-    setpos(cur_time + 10);
+  */
+  setpos(cur_time + 10);
 }
 
 void RtdAud::fb()
