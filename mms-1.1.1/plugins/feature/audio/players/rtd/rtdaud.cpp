@@ -20,17 +20,29 @@ using std::string;
 
 static bool do_playfile(const string &file)
 {
+  bool isFile = false;
   string path;
 
   if (file.find("http://www.shoutcast.com/sbin/tunein-station.pls") != string::npos) 
     path = Shoutcast::get_instance()->get_playlist(file).second;
   else if (file.find("://") != string::npos) 
     path = file;
-  else
+  else {
+    isFile = true;
     path = "file://" + file;
+  }
 
   printf("[RTDAUD]do_playfile %s\n", path.c_str());
   if (g_pb->LoadMedia((char*)path.c_str()) == S_OK) {
+    if (!isFile) {
+      long startupfullness = 16 * 1024;
+      g_pb->m_pSource->SetGetProperty(NAVPROP_NAV_SET_STARTUP_FULLNESS,
+				      (void*)&startupfullness,
+				      sizeof(startupfullness),
+				      NULL,
+				      0,
+				      NULL);
+    }
     g_bRunning = true;
     g_pb->m_pFManager->SetRate(256);
     g_pb->m_pAudioOut->SetFocus();

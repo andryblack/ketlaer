@@ -514,13 +514,15 @@ static void apply_zoom()
 
 static void play_stream()
 {
-  g_pb->LoadMedia(conn_url,
-		  NULL,
-		  MEDIATYPE_None,
-		  PLAYBACK_TYPE_NORMAL,
-		  NULL,
-		  NULL,
-		  256 * 1024);
+  long startupfullness = 16 * 1024;
+
+  g_pb->LoadMedia(conn_url);
+  g_pb->m_pSource->SetGetProperty(NAVPROP_NAV_SET_STARTUP_FULLNESS,
+				  (void*)&startupfullness,
+				  sizeof(startupfullness),
+				  NULL,
+				  0,
+				  NULL);
   g_pb->m_pFManager->SetRate(256);
   g_pb->m_pAudioOut->SetFocus();
   g_pb->m_pAudioOut->SetVolume(0);
