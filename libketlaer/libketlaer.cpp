@@ -46,7 +46,7 @@ extern "C" HRESULT *VIDEO_RPC_ToSystem_VideoHaltDone_0_svc(long *reserved, RPC_S
 
 static void LoadTvConfig()
 {
-  printf("LoadTVConfig..\n");
+  printf("[LIBKETLAER]LoadTvConfig\n");
   VO_COLOR bgColor;
   bgColor.c1 = 0x00; // red
   bgColor.c2 = 0x00; // green
