@@ -230,6 +230,24 @@ bool ConfigFile::ReadFile(char *name)
 	fprintf(stderr,"[ConfigFile]'SpdifMode' setting in configuration file is wrong.\n");
 	goto EXIT_READFILE;
       }       
+      if (config_lookup_int(&cfg, "Brightness", &int_v)) {
+	if ((int_v>=0)&&(int_v<=31)) 
+	  setup->SetBrightness(int_v);
+	printf("[ConfigFile]Brightness is set to %d \n",setup->GetBrightness());
+      }
+      else {
+	fprintf(stderr,"[ConfigFile]'Brightness' setting in configuration file is wrong.\n");
+	goto EXIT_READFILE;
+      }       
+      if (config_lookup_int(&cfg, "Contrast", &int_v)) {
+	if ((int_v>=0)&&(int_v<=31)) 
+	  setup->SetContrast(int_v);
+	printf("[ConfigFile]Contrast is set to %d \n",setup->GetContrast());
+      }
+      else {
+	fprintf(stderr,"[ConfigFile]'Contrast' setting in configuration file is wrong.\n");
+	goto EXIT_READFILE;
+      }       
     }
     else {
       fprintf(stderr,"[ConfigFile]'name' setting in configuration file is wrong --> '%s'.\n",str);
