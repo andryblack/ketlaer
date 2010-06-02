@@ -25,6 +25,8 @@ private:
   ENUM_SPEAKER_OUT    speaker_out;
   ENUM_AUDIO_AGC_MODE agc_mode;
   ENUM_SPDIF_MODE     spdif_mode;
+  int                 saturation;
+  int                 hue;
 
 public:
   static SetupClass *m_ptr;
@@ -279,4 +281,8 @@ public:
   /*
    * HERE YOU CAN ADD NEW FUNCTIONS
    */
+  virtual int GetSaturation();
+  virtual void SetSaturation(int);
+  virtual int GetHue();
+  virtual void SetHue(int);
 };

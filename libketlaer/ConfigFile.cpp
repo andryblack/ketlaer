@@ -248,6 +248,24 @@ bool ConfigFile::ReadFile(char *name)
 	fprintf(stderr,"[ConfigFile]'Contrast' setting in configuration file is wrong.\n");
 	goto EXIT_READFILE;
       }       
+      if (config_lookup_int(&cfg, "Saturation", &int_v)) {
+	if ((int_v>=0)&&(int_v<=31)) 
+	  setup->SetSaturation(int_v);
+	printf("[ConfigFile]Saturation is set to %d \n",setup->GetSaturation());
+      }
+      else {
+	fprintf(stderr,"[ConfigFile]'Saturation' setting in configuration file is wrong.\n");
+	goto EXIT_READFILE;
+      }       
+      if (config_lookup_int(&cfg, "Hue", &int_v)) {
+	if ((int_v>=0)&&(int_v<=31)) 
+	  setup->SetHue(int_v);
+	printf("[ConfigFile]Hue is set to %d \n",setup->GetHue());
+      }
+      else {
+	fprintf(stderr,"[ConfigFile]'Hue' setting in configuration file is wrong.\n");
+	goto EXIT_READFILE;
+      }       
     }
     else {
       fprintf(stderr,"[ConfigFile]'name' setting in configuration file is wrong --> '%s'.\n",str);

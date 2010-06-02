@@ -60,6 +60,8 @@ static void LoadTvConfig()
   g_vo->SetDeintMode(VO_VIDEO_PLANE_V2, VO_DEINT_MODE_AUTO);
   g_vo->SetBrightness(setup->GetBrightness());
   g_vo->SetContrast(setup->GetContrast());
+  g_vo->SetHue(setup->GetHue());
+  g_vo->SetSaturation(setup->GetSaturation());
   VO_RECTANGLE rectNTSC = { 0, 0, 720,  480  };
   VO_RECTANGLE rectPAL  = { 0, 0, 720,  576  };
   VO_RECTANGLE rect720  = { 0, 0, 1280, 720  };

@@ -35,6 +35,8 @@ SetupClass::SetupClass()
   speaker_out    = TWO_CHANNEL;
   agc_mode       = AUDIO_AGC_DRC_OFF;
   spdif_mode     = SPDIF_LPCM;
+  saturation     = 31;
+  hue            = 31;
 }
 SetupClass::~SetupClass()
 {
@@ -1208,6 +1210,37 @@ bool SetupClass::GetDivXCode(char **code)
 void SetupClass::SetDivXCode(char*)
 {
   TRACENI;
+}
+
+/*
+ * HERE YOU CAN ADD NEW FUNCTIONS
+ */
+
+int SetupClass::GetSaturation()
+{
+  /*USED*/
+  TRACEOK;
+  return saturation;
+}
+void SetupClass::SetSaturation(int a1)
+{
+  /*USED*/
+  TRACEOK;
+  saturation = a1;
+}
+
+int SetupClass::GetHue()
+{
+  /*USED*/
+  TRACEOK;
+  return hue;
+}
+
+void SetupClass::SetHue(int a1)
+{
+  /*USED*/
+  TRACEOK;
+  hue = a1;
 }
 
 
