@@ -49,6 +49,13 @@ static int do_play(const char *file)
 
   if (pb->LoadMedia((char*)file) == S_OK) {
     printf("[RTDMOV]media loaded.\n");
+    DG_DrawRectangle(getScreenSurface(), 
+		     0, 
+		     0, 
+		     getScreenRect()->width, 
+		     getScreenRect()->height, 
+		     RESERVED_COLOR_KEY, 
+		     NULL);
     pFManager = pb->m_pFManager;
     pFManager->SetRate(256);
     pb->m_pAudioOut->SetFocus();
@@ -196,13 +203,6 @@ static void play_file(const string& file, bool isList)
   S_SSaverobj::get_instance()->StopCounter();
   run::aquire_exclusive_access();
   S_Render::get_instance()->device->unlock();
-  DG_DrawRectangle(getScreenSurface(), 
-		   0, 
-		   0, 
-		   getScreenRect()->width, 
-		   getScreenRect()->height, 
-		   RESERVED_COLOR_KEY, 
-		   NULL);
   if (isList)
     do_playlist(file);
   else

@@ -517,6 +517,13 @@ static void play_stream()
   long startupfullness = 16 * 1024;
 
   g_pb->LoadMedia(conn_url);
+  DG_DrawRectangle(getScreenSurface(), 
+		   0, 
+		   0, 
+		   getScreenRect()->width, 
+		   getScreenRect()->height, 
+		   RESERVED_COLOR_KEY, 
+		   NULL);
   g_pb->m_pSource->SetGetProperty(NAVPROP_NAV_SET_STARTUP_FULLNESS,
 				  (void*)&startupfullness,
 				  sizeof(startupfullness),
@@ -719,13 +726,6 @@ static bool init(const char *args)
   g_bOSD = false;
   g_bStop = false;
   g_bZoom = false;
-  DG_DrawRectangle(getScreenSurface(), 
-		   0, 
-		   0, 
-		   getScreenRect()->width, 
-		   getScreenRect()->height, 
-		   RESERVED_COLOR_KEY, 
-		   NULL);
   g_pb = getVideoPlayback();
   play_stream();
   free(str);
