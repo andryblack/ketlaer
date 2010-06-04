@@ -135,18 +135,27 @@ static void split_list(const string& list, filearray &files)
 {
   string element;
   const char *s = list.c_str();
+  bool is_string = false;
 
   while(*s) {
-    if (*s == ' ') {
+    if (*s == ' ' && !is_string) {
       if (element.length())
 	add_element(element, files);
       element = "";
       s++;
     }
     else {
-      if (*s == '\\' && s[1]) 
+      if (*s == '\\' && s[1]) {
 	s++;
-      element += *s++;
+	element += *s++;
+      }
+      else if (*s == '"') {
+	is_string = !is_string;
+	s++;
+      }
+      else {
+	element += *s++;
+      }
     }
   }
   if (element.length())
