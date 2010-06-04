@@ -23,6 +23,6 @@ export CXX="mipsel-linux-g++ -mips32"
 export AR=mipsel-linux-ar
 export RANLIB=mipsel-linux-ranlib
 
-./configure --host=mipsel-linux --build=i686-pc-linuc --prefix=$KETLAER --enable-shared --enable-unicode
+./configure --host=mipsel-linux --build=i686-pc-linuc --prefix=$KETLAER --enable-shared --enable-unicode=ucs4
 
 make HOSTPYTHON=./hostpython HOSTPGEN=./Parser/hostpgen BLDSHARED="mipsel-linux-gcc -shared $CFLAGS" CROSS_COMPILE=mipsel-linux- CROSS_COMPILE_TARGET=yes install

@@ -80,7 +80,12 @@ void Py_PulseReturnEvent()
 
 int Py_wCharToChar(std::string& s, PyObject* pObject)
 {
-#if 0 //ADI
+/*
+  printf("type=%lx\n", pObject->ob_type);
+  PyObject_Print(pObject, stdout, 0);
+  printf("type=%lx\n", pObject->ob_type);
+  printf("\n");
+*/
   if(PyUnicode_Check(pObject)) {
     Py_ssize_t size = PyUnicode_GET_DATA_SIZE(pObject);
     char buf[size];
@@ -98,8 +103,4 @@ int Py_wCharToChar(std::string& s, PyObject* pObject)
     }
     else
       return 0;
-#else
-  s = PyString_AsString(pObject);
-  return 1;
-#endif
 }

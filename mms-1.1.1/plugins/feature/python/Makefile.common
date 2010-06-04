@@ -3,6 +3,6 @@
 # MMSDIR = ../../.., do NOT add traling slash.
 
 PYTHON_INCLUDE_PATH =$(KETLAER)/include/python$(PYTHON_VERSION)
-PYTHON_CFLAGS=-DPy_DEBUG
+PYTHON_CFLAGS=
 PYTHON_LIB=-L$(KETLAER)/lib -lpython$(PYTHON_VERSION)
 OBJS = $(SRCS:.cpp=.o)
