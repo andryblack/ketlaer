@@ -120,7 +120,7 @@ static PyObject* Player_play(Player *self, PyObject *args)
     self->pyPlayList->pPlayList->copy(*(pyPlayList->pPlayList));
 
   }
-  else if(pObject && PyString_Check(pObject))
+  else if(pObject && (PyString_Check(pObject) || PyUnicode_Check(pObject)))
   {
     if(self->pThread)
     {
