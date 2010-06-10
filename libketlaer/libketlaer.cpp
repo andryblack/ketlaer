@@ -264,7 +264,7 @@ static void Init()
   g_pb = new VideoPlayback(MEDIATYPE_None);
   g_pb->LoadMedia("file:///file_not_found.wmv");
   //pli_listAllMemory();
-  setSpdifSampleRate(44100*4);
+  setSpdifSampleRate(setup->GetSpdifRate());
 }
 
 static void UnInit()
