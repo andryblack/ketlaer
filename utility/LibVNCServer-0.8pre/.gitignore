@@ -1,0 +1,11 @@
+LibVNCServer.spec
+Makefile
+_configs.sed
+.deps/
+*.o
+*.a
+config.log
+config.status
+rfbconfig.h
+stamp-h1
+libvncserver-config
