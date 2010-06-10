@@ -27,6 +27,7 @@ private:
   ENUM_SPDIF_MODE     spdif_mode;
   int                 saturation;
   int                 hue;
+  int                 spdif_rate;
 
 public:
   static SetupClass *m_ptr;
@@ -285,4 +286,6 @@ public:
   virtual void SetSaturation(int);
   virtual int GetHue();
   virtual void SetHue(int);
+  virtual int GetSpdifRate();
+  virtual void SetSpdifRate(int);
 };

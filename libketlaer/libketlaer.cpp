@@ -263,7 +263,8 @@ static void Init()
 		  RESERVED_COLOR_KEY);
   g_pb = new VideoPlayback(MEDIATYPE_None);
   g_pb->LoadMedia("file:///file_not_found.wmv");
-  pli_listAllMemory();
+  //pli_listAllMemory();
+  setSpdifSampleRate(44100*4);
 }
 
 static void UnInit()
@@ -352,4 +353,47 @@ void zoomVideo(VO_RECTANGLE *pRect)
   if (!pRect)
     pRect = &rect;
   g_vo->Zoom(VO_VIDEO_PLANE_V1, *pRect);
+}
+
+void setSpdifSampleRate(int rate)
+{
+  AUDIO_CONFIG_DAC_I2S   dac_i2s_config;
+  AUDIO_CONFIG_DAC_SPDIF dac_spdif_config;
+
+  HRESULT *ret;
+  CLNT_STRUCT clnt = prepareCLNT(BLOCK_MODE | USE_INTR_BUF | SEND_AUDIO_CPU,
+				 AUDIO_SYSTEM, VERSION);
+
+  printf("[LIBKETLAER]spdif=%dkHz\n", rate);
+
+  //config i2s
+  dac_i2s_config.instanceID = g_pb->m_pAudioOut->m_aoutInstanceID;
+  dac_i2s_config.dacConfig.audioGeneralConfig.interface_en = 1;
+  dac_i2s_config.dacConfig.audioGeneralConfig.channel_out = ADC0_LEFT_CHANNEL_EN|ADC0_RIGHT_CHANNEL_EN;
+  dac_i2s_config.dacConfig.audioGeneralConfig.count_down_play_en = 0;
+  dac_i2s_config.dacConfig.audioGeneralConfig.count_down_play_cyc = 0;
+  dac_i2s_config.dacConfig.sampleInfo.sampling_rate = rate;
+  dac_i2s_config.dacConfig.sampleInfo.PCM_bitnum = 24;
+  //config spdif
+  dac_spdif_config.instanceID = g_pb->m_pAudioOut->m_aoutInstanceID;
+  dac_spdif_config.spdifConfig.audioGeneralConfig.interface_en = 1;
+  dac_spdif_config.spdifConfig.audioGeneralConfig.channel_out = SPDIF_LEFT_CHANNEL_EN|SPDIF_RIGHT_CHANNEL_EN;
+  dac_spdif_config.spdifConfig.audioGeneralConfig.count_down_play_en = 0;
+  dac_spdif_config.spdifConfig.audioGeneralConfig.count_down_play_cyc = 0;
+  dac_spdif_config.spdifConfig.sampleInfo.sampling_rate = rate;
+  dac_spdif_config.spdifConfig.sampleInfo.PCM_bitnum = 24;
+  dac_spdif_config.spdifConfig.out_cs_info.non_pcm_valid = 0;
+  dac_spdif_config.spdifConfig.out_cs_info.non_pcm_format = 0;
+  dac_spdif_config.spdifConfig.out_cs_info.audio_format = 0;
+  dac_spdif_config.spdifConfig.out_cs_info.spdif_consumer_use = 0;
+  dac_spdif_config.spdifConfig.out_cs_info.copy_right = 0;
+  dac_spdif_config.spdifConfig.out_cs_info.pre_emphasis = 0;
+  dac_spdif_config.spdifConfig.out_cs_info.stereo_channel = 0;
+
+  printf("[LIBKETLAER]start ao rpc config\n");
+  ret = AUDIO_RPC_ToAgent_DAC_I2S_Config_0(&dac_i2s_config,&clnt);
+  free(ret);
+  printf("[LIBKETLAER]start ao rpc config spdif \n");
+  ret = AUDIO_RPC_ToAgent_DAC_SPDIF_Config_0(&dac_spdif_config,&clnt);
+  free(ret);
 }

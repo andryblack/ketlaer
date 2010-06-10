@@ -2,9 +2,6 @@
 #include <signal.h>
 #include <semaphore.h>
 
-#define private   public
-#define protected public
-
 /*common/IPC/include/rpc_common.h*/
 class _tagMastership {
 public:

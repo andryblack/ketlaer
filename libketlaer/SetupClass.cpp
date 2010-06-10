@@ -37,6 +37,7 @@ SetupClass::SetupClass()
   spdif_mode     = SPDIF_LPCM;
   saturation     = 31;
   hue            = 31;
+  spdif_rate     = 48000;
 }
 SetupClass::~SetupClass()
 {
@@ -1243,5 +1244,18 @@ void SetupClass::SetHue(int a1)
   hue = a1;
 }
 
+int SetupClass::GetSpdifRate()
+{
+  /*USED*/
+  TRACEOK;
+  return spdif_rate;
+}
+
+void SetupClass::SetSpdifRate(int a1)
+{
+  /*USED*/
+  TRACEOK;
+  spdif_rate = a1;
+}
 
 

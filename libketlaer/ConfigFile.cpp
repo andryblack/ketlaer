@@ -266,6 +266,15 @@ bool ConfigFile::ReadFile(char *name)
 	fprintf(stderr,"[ConfigFile]'Hue' setting in configuration file is wrong.\n");
 	goto EXIT_READFILE;
       }       
+      if (config_lookup_int(&cfg, "SpdifRate", &int_v)) {
+	if ((int_v>=0)) 
+	  setup->SetSpdifRate(int_v);
+	printf("[ConfigFile]Hue is set to %d \n",setup->GetSpdifRate());
+      }
+      else {
+	fprintf(stderr,"[ConfigFile]'SpdifRate' setting in configuration file is wrong.\n");
+	goto EXIT_READFILE;
+      }       
     }
     else {
       fprintf(stderr,"[ConfigFile]'name' setting in configuration file is wrong --> '%s'.\n",str);
