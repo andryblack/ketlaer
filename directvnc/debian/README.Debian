@@ -1,0 +1,12 @@
+directvnc for Debian
+--------------------
+
+To be able to run this software you need access to the /dev/fb0 device
+so the user needs to be in the video group. The user will also need
+access to /dev/mouse or /dev/psaux to be able to run directvnc.
+
+Also note that access to /dev/tty0 will be needed if more than one
+directFB app is used at the same time.
+
+Originally by Ola Lundqvist <opal@debian.org>
+Modified by Loris Boillet <lboillet69@gmail.com>

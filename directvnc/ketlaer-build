@@ -1,0 +1,8 @@
+export PKG_CONFIG_PATH="$KETLAER/lib/pkgconfig"
+export PATH="$KETLAER/bin:$PATH"
+export CFLAGS="-mips32 -O3 -I$KETLAER/include" 
+export CPPFLAGS="$CFLAGS"
+export LDFLAGS="-L$KETLAER/lib"
+export LIBS=""
+./configure --prefix=$KETLAER --host=mipsel-linux 
+make -i install
