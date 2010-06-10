@@ -1,1 +1,9 @@
 autom4te.cache/
+Makefile
+config.h
+config.log
+config.status
+libtool
+.deps/
+*.o
+stamp-h1
