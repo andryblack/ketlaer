@@ -46,7 +46,6 @@ using std::vector;
 #include <time.h>
 
 pthread_mutex_t Render::singleton_mutex = PTHREAD_MUTEX_INITIALIZER;
-
 void Render::clear()
 {
   imlib_image_clear_color(0,0,0,255);
@@ -614,7 +613,6 @@ bool Render::intersect(GObj *lhs, GObj *rhs, rect& r)
     return false;
 }
 
-#define IMGCACHE
 
 Imlib_Image Render::image_loader(const string& path, Scaling scaleable, double scale_factor_h,
 				 double scale_factor_w, int orientation)
@@ -623,7 +621,6 @@ Imlib_Image Render::image_loader(const string& path, Scaling scaleable, double s
 
   bool found_match = false;
 
-#ifdef IMGCACHE
   foreach (queue_obj& obj, scaled_images)
     if (obj.path == path && obj.orientation == orientation
 	&& obj.scaleable == scaleable && obj.scale_width == scale_factor_w
@@ -643,7 +640,6 @@ Imlib_Image Render::image_loader(const string& path, Scaling scaleable, double s
 
       break;
     }
-#endif
 
   if (!found_match) {
 
@@ -697,7 +693,6 @@ Imlib_Image Render::image_loader(const string& path, Scaling scaleable, double s
     print_debug(out.str(), "RENDER");
 #endif
 
-#ifdef IMGCACHE
     if (scaled_images.size() > conf->p_image_cache()) {
       int min = scaled_images.front().count + 1;
       image_queue::iterator iter_kick;
@@ -718,7 +713,6 @@ Imlib_Image Render::image_loader(const string& path, Scaling scaleable, double s
     }
 
     scaled_images.push_back(queue_obj(path, new_image, orientation, scaleable, scale_factor_w, scale_factor_h));
-#endif
   }
 
   if (!new_image){ /* note, the imlib image context isn't really restored after
@@ -1094,7 +1088,7 @@ Render::Render()
   imlib_context_set_image(current.image_data);
 
   // cache
-  imlib_set_cache_size(2096 * 1024);
+  imlib_set_cache_size(1024 * 1024);
   imlib_set_font_cache_size(512 * 1024);
 
   // nicer scaling
