@@ -1,0 +1,27 @@
+immediate:
+----------
+
+LibVNCClient cleanup: prefix with "rfbClient", and make sure it does
+	not deliberately die() or exit() anywhere!
+ANSIfy tightvnc-filetransfer
+VisualNaCro testing
+test IRIX -overlay (x11vnc)
+java vncviewer doesn't do colour cursors?
+MinGW32 doesn't do fcntl on sockets; use setsockopt instead...
+make corre work again (libvncclient or libvncserver?)
+teach SDLvncviewer about capitals...
+teach SDLvncviewer about CopyRect...
+implement "-record" in libvncclient
+libtoolize
+come up with an alpha cursor patch for Windows vncviewer
+
+later:
+------
+
+selectbox: scroll bars
+authentification schemes (secure vnc)
+	IO function ptr exists; now explain how to tunnel and implement a
+	client address restriction scheme.
+using Hermes library for fast colour translations.
+CORBA
+
