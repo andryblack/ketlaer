@@ -390,10 +390,12 @@ void setSpdifSampleRate(int rate)
   dac_spdif_config.spdifConfig.out_cs_info.pre_emphasis = 0;
   dac_spdif_config.spdifConfig.out_cs_info.stereo_channel = 0;
 
-  printf("[LIBKETLAER]start ao rpc config\n");
+  printf("[LIBKETLAER]start ao rpc config ");
   ret = AUDIO_RPC_ToAgent_DAC_I2S_Config_0(&dac_i2s_config,&clnt);
+  printf(*ret == S_OK ? "ok\n" : "%lx\n", *ret); 
   free(ret);
-  printf("[LIBKETLAER]start ao rpc config spdif \n");
+  printf("[LIBKETLAER]start ao rpc config spdif ");
   ret = AUDIO_RPC_ToAgent_DAC_SPDIF_Config_0(&dac_spdif_config,&clnt);
+  printf(*ret == S_OK ? "ok\n" : "%lx\n", *ret); 
   free(ret);
 }

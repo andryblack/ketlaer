@@ -269,7 +269,7 @@ bool ConfigFile::ReadFile(char *name)
       if (config_lookup_int(&cfg, "SpdifRate", &int_v)) {
 	if ((int_v>=0)) 
 	  setup->SetSpdifRate(int_v);
-	printf("[ConfigFile]Hue is set to %d \n",setup->GetSpdifRate());
+	printf("[ConfigFile]SpdifRate is set to %d \n",setup->GetSpdifRate());
       }
       else {
 	fprintf(stderr,"[ConfigFile]'SpdifRate' setting in configuration file is wrong.\n");
