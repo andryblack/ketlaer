@@ -549,7 +549,7 @@ int main(int argc,char* argv[])
     if(!runasuser(user, resetenv))
       exit(1);
   
-  //init_libketlaer();
+  init_libketlaer();
 
   if (dumpenv){
     print_info(gettext("Full list of environment variables:\n"));
@@ -787,7 +787,7 @@ int main(int argc,char* argv[])
 
   clean_up(true);
 
-  //uninit_libketlaer();
+  uninit_libketlaer();
 
   mmsSleep(5000); /* wait to be killed */
 
