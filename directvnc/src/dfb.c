@@ -289,6 +289,7 @@ _dfb_handle_key_event(DFBInputEvent evt, int press_or_release)
    if (evt.modifiers & DIMM_CONTROL)
       ctrl = 1;
    keysym = _translate_with_modmap(&entry, level, lkst, ctrl);
+   printf("adi keysym %d\n", keysym);
    rfb_send_key_event(keysym, press_or_release); 	     
 }
 
@@ -511,98 +512,95 @@ DirectFBTranslateSymbol (DFBInputDeviceKeymapEntry *entry, int index)
   DFBInputDeviceKeySymbol     symbol = entry->symbols[diksi[index]];
   DFBInputDeviceKeyIdentifier id     = entry->identifier;
 
-  if (id >= DIKI_KP_DIV && id <= DIKI_KP_9)
-    {
-      if (symbol >= DIKS_0 && symbol <= DIKS_9)
-        return XK_KP_0 + symbol - DIKS_0;
+  if (id >= DIKI_KP_DIV && id <= DIKI_KP_9) {
+    if (symbol >= DIKS_0 && symbol <= DIKS_9)
+      return XK_KP_0 + symbol - DIKS_0;
 
-      switch (symbol)
-        {
-        case DIKS_HOME:
-          return XK_KP_Home;
+    switch (symbol) {
+    case DIKS_HOME:
+      return XK_KP_Home;
 
-        case DIKS_CURSOR_LEFT:
-          return XK_KP_Left;
+    case DIKS_CURSOR_LEFT:
+      return XK_KP_Left;
 
-        case DIKS_CURSOR_UP:
-          return XK_KP_Up;
+    case DIKS_CURSOR_UP:
+      return XK_KP_Up;
 
-        case DIKS_CURSOR_RIGHT:
-          return XK_KP_Right;
+    case DIKS_CURSOR_RIGHT:
+      return XK_KP_Right;
 
-        case DIKS_CURSOR_DOWN:
-          return XK_KP_Down;
+    case DIKS_CURSOR_DOWN:
+      return XK_KP_Down;
 
-        case DIKS_PAGE_UP:
-          return XK_KP_Page_Up;
+    case DIKS_PAGE_UP:
+      return XK_KP_Page_Up;
 
-        case DIKS_PAGE_DOWN:
-          return XK_KP_Page_Down;
+    case DIKS_PAGE_DOWN:
+      return XK_KP_Page_Down;
 
-        case DIKS_END:
-          return XK_KP_End;
+    case DIKS_END:
+      return XK_KP_End;
 
-        case DIKS_BEGIN:
-          return XK_KP_Begin;
+    case DIKS_BEGIN:
+      return XK_KP_Begin;
 
-        case DIKS_INSERT:
-          return XK_KP_Insert;
+    case DIKS_INSERT:
+      return XK_KP_Insert;
 
-        case DIKS_DELETE:
-          return XK_KP_Delete;
+    case DIKS_DELETE:
+      return XK_KP_Delete;
 
-        default:
-          ;
-        }
-
-      switch (id)
-        {
-        case DIKI_KP_DIV:
-          return XK_KP_Divide;
-
-        case DIKI_KP_MULT:
-          return XK_KP_Multiply;
-
-        case DIKI_KP_MINUS:
-          return XK_KP_Subtract;
-
-        case DIKI_KP_PLUS:
-          return XK_KP_Add;
-
-        case DIKI_KP_ENTER:
-          return XK_KP_Enter;
-
-        case DIKI_KP_SPACE:
-          return XK_KP_Space;
-
-        case DIKI_KP_TAB:
-          return XK_KP_Tab;
-
-        case DIKI_KP_F1:
-          return XK_KP_F1;
-
-        case DIKI_KP_F2:
-          return XK_KP_F2;
-
-        case DIKI_KP_F3:
-          return XK_KP_F3;
-
-        case DIKI_KP_F4:
-          return XK_KP_F4;
-
-        case DIKI_KP_EQUAL:
-          return XK_KP_Equal;
-
-        case DIKI_KP_DECIMAL:
-          return XK_KP_Decimal;
-
-        case DIKI_KP_SEPARATOR:
-          return XK_KP_Separator;
-
-        default:
-          ;
-        }
+    default:
+      ;
     }
+
+    switch (id) {
+    case DIKI_KP_DIV:
+      return XK_KP_Divide;
+
+    case DIKI_KP_MULT:
+      return XK_KP_Multiply;
+
+    case DIKI_KP_MINUS:
+      return XK_KP_Subtract;
+
+    case DIKI_KP_PLUS:
+      return XK_KP_Add;
+
+    case DIKI_KP_ENTER:
+      return XK_KP_Enter;
+
+    case DIKI_KP_SPACE:
+      return XK_KP_Space;
+
+    case DIKI_KP_TAB:
+      return XK_KP_Tab;
+
+    case DIKI_KP_F1:
+      return XK_KP_F1;
+
+    case DIKI_KP_F2:
+      return XK_KP_F2;
+
+    case DIKI_KP_F3:
+      return XK_KP_F3;
+
+    case DIKI_KP_F4:
+      return XK_KP_F4;
+
+    case DIKI_KP_EQUAL:
+      return XK_KP_Equal;
+
+    case DIKI_KP_DECIMAL:
+      return XK_KP_Decimal;
+
+    case DIKI_KP_SEPARATOR:
+      return XK_KP_Separator;
+
+    default:
+      ;
+    }
+  }
 
   if (symbol == DIKS_TAB && (index & 1))
     return XK_ISO_Left_Tab;
@@ -613,123 +611,121 @@ DirectFBTranslateSymbol (DFBInputDeviceKeymapEntry *entry, int index)
   if (DFB_KEY_TYPE (symbol) == DIKT_FUNCTION && symbol < DFB_FUNCTION_KEY(36))
     return XK_F1 + symbol - DIKS_F1;
 
-  switch (id)
-    {
-    case DIKI_SHIFT_L:
-      return XK_Shift_L;
+  switch (id) {
+  case DIKI_SHIFT_L:
+    return XK_Shift_L;
 
-    case DIKI_SHIFT_R:
-      return XK_Shift_R;
+  case DIKI_SHIFT_R:
+    return XK_Shift_R;
 
-    case DIKI_CONTROL_L:
-      return XK_Control_L;
+  case DIKI_CONTROL_L:
+    return XK_Control_L;
 
-    case DIKI_CONTROL_R:
-      return XK_Control_R;
+  case DIKI_CONTROL_R:
+    return XK_Control_R;
 
-    default:
-      ;
-    }
-
-
-  switch (symbol)
-    {
-    case DIKS_CURSOR_LEFT:
-      return XK_Left;
-
-    case DIKS_CURSOR_RIGHT:
-      return XK_Right;
-
-    case DIKS_CURSOR_UP:
-      return XK_Up;
-
-    case DIKS_CURSOR_DOWN:
-      return XK_Down;
-
-    case DIKS_INSERT:
-      return XK_Insert;
-
-    case DIKS_HOME:
-      return XK_Home;
-
-    case DIKS_END:
-      return XK_End;
-
-    case DIKS_PAGE_UP:
-      return XK_Page_Up;
-
-    case DIKS_PAGE_DOWN:
-      return XK_Page_Down;
-
-    case DIKS_PRINT:
-      return XK_Print;
-
-    case DIKS_PAUSE:
-      return XK_Pause;
-
-    case DIKS_OK:
-      return XK_Return;
-
-    case DIKS_SELECT:
-      return XK_Select;
-
-    case DIKS_CLEAR:
-      return XK_Clear;
-
-    case DIKS_MENU:
-      return XK_Menu;
-
-    case DIKS_HELP:
-      return XK_Help;
+  default:
+    ;
+  }
 
 
-    case DIKS_ALT:
-      return XK_Alt_L;
+  switch (symbol) {
+  case DIKS_CURSOR_LEFT:
+    return XK_Left;
 
-    case DIKS_ALTGR:
-      return XK_Mode_switch;
+  case DIKS_CURSOR_RIGHT:
+    return XK_Right;
 
-    case DIKS_META:
-      return XK_Meta_L;
+  case DIKS_CURSOR_UP:
+    return XK_Up;
 
-    case DIKS_SUPER:
-      return XK_Super_L;
+  case DIKS_CURSOR_DOWN:
+    return XK_Down;
 
-    case DIKS_HYPER:
-      return XK_Hyper_L;
+  case DIKS_INSERT:
+    return XK_Insert;
+
+  case DIKS_HOME:
+    return XK_Home;
+
+  case DIKS_END:
+    return XK_End;
+
+  case DIKS_PAGE_UP:
+    return XK_Page_Up;
+
+  case DIKS_PAGE_DOWN:
+    return XK_Page_Down;
+
+  case DIKS_PRINT:
+    return XK_Print;
+
+  case DIKS_PAUSE:
+    return XK_Pause;
+
+  case DIKS_OK:
+    return XK_Return;
+
+  case DIKS_SELECT:
+    return XK_Select;
+
+  case DIKS_CLEAR:
+    return XK_Clear;
+
+  case DIKS_MENU:
+    return XK_Menu;
+
+  case DIKS_HELP:
+    return XK_Help;
 
 
-    case DIKS_CAPS_LOCK:
-      return XK_Caps_Lock;
+  case DIKS_ALT:
+    return XK_Alt_L;
 
-    case DIKS_NUM_LOCK:
-      return XK_Num_Lock;
+  case DIKS_ALTGR:
+    return XK_Mode_switch;
 
-    case DIKS_SCROLL_LOCK:
-      return XK_Scroll_Lock;
+  case DIKS_META:
+    return XK_Meta_L;
+
+  case DIKS_SUPER:
+    return XK_Super_L;
+
+  case DIKS_HYPER:
+    return XK_Hyper_L;
 
 
-    case DIKS_DEAD_GRAVE:
-      return XK_dead_grave;
+  case DIKS_CAPS_LOCK:
+    return XK_Caps_Lock;
 
-    case DIKS_DEAD_ACUTE:
-      return XK_dead_acute;
+  case DIKS_NUM_LOCK:
+    return XK_Num_Lock;
 
-    case DIKS_DEAD_CIRCUMFLEX:
-      return XK_dead_circumflex;
+  case DIKS_SCROLL_LOCK:
+    return XK_Scroll_Lock;
 
-    case DIKS_DEAD_TILDE:
-      return XK_dead_tilde;
 
-    case DIKS_DEAD_DIAERESIS:
-      return XK_dead_diaeresis;
+  case DIKS_DEAD_GRAVE:
+    return XK_dead_grave;
 
-    case DIKS_DEAD_CEDILLA:
-      return XK_dead_cedilla;
+  case DIKS_DEAD_ACUTE:
+    return XK_dead_acute;
 
-    default:
-      ;
-    }
+  case DIKS_DEAD_CIRCUMFLEX:
+    return XK_dead_circumflex;
+
+  case DIKS_DEAD_TILDE:
+    return XK_dead_tilde;
+
+  case DIKS_DEAD_DIAERESIS:
+    return XK_dead_diaeresis;
+
+  case DIKS_DEAD_CEDILLA:
+    return XK_dead_cedilla;
+
+  default:
+    ;
+  }
 
   return 0;
 }

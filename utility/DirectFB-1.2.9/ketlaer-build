@@ -4,5 +4,5 @@ export CFLAGS="-mips32 -O3 -I$KETLAER/include -I$KETLAER_DIR/libketlaer"
 export CPPFLAGS="$CFLAGS"
 export LDFLAGS="-L$KETLAER/lib"
 export LIBS=""
-./configure --prefix=$KETLAER --host=mipsel-linux --disable-devmem --enable-rtd --disable-fbdev --with-gfxdrivers=none --with-inputdrivers=linuxinput --disable-video4linux
+./configure --prefix=$KETLAER --host=mipsel-linux --disable-devmem --enable-rtd --disable-fbdev --with-gfxdrivers=none --with-inputdrivers=linuxinput --disable-video4linux --enable-debug
 make -i install

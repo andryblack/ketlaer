@@ -71,7 +71,6 @@ typedef unsigned long kernel_ulong_t;
 
 #include <linux/keyboard.h>
 
-
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
@@ -378,7 +377,6 @@ translate_key( unsigned short code )
      return DIKI_UNKNOWN;
 }
 
-#ifdef LINUX_INPUT_USE_FBDEV
 static DFBInputDeviceKeySymbol
 keyboard_get_symbol( int                             code,
                      unsigned short                  value,
@@ -569,6 +567,7 @@ keyboard_get_identifier( int code, unsigned short value )
      return DIKI_UNKNOWN;
 }
 
+#ifdef LINUX_INPUT_USE_FBDEV
 static unsigned short
 keyboard_read_value( const LinuxInputData *data,
                      unsigned char table, unsigned char index )
@@ -587,6 +586,37 @@ keyboard_read_value( const LinuxInputData *data,
 
      return entry.kb_value;
 }
+#else
+
+#include "keymap.h"
+
+static unsigned short
+keyboard_read_value( const LinuxInputData *data,
+                     unsigned char table, unsigned char index )
+{
+  unsigned short ret;
+
+  switch(table) {
+  case K_NORMTAB:
+    ret = plain_map[index];
+    break;
+  case K_SHIFTTAB:
+    ret = shift_map[index];
+    break;
+  case K_ALTTAB:
+    ret = altgr_map[index];
+    break;
+  case K_ALTSHIFTTAB:
+    ret = shift_alt_map[index];
+    break;
+  default:
+    printf("(notable)\n");
+    ret =  0;
+    break;
+  }
+  printf("adi read_value = 0x%x\n", ret);
+}
+
 #endif /* LINUX_INPUT_USE_FBDEV */
 
 /*
@@ -833,7 +863,7 @@ linux_input_EventThread( DirectThread *thread, void *driver_data )
           }
           else {
                status = select( data->fd + 1, &set, NULL, NULL, NULL );
-          }
+         }
 
           if (status < 0 && errno != EINTR)
                break;
@@ -1322,14 +1352,15 @@ driver_get_keymap_entry( CoreInputDevice           *device,
                          void                      *driver_data,
                          DFBInputDeviceKeymapEntry *entry )
 {
-#ifdef LINUX_INPUT_USE_FBDEV
      LinuxInputData             *data = (LinuxInputData*) driver_data;
      int                         code = entry->code;
      unsigned short              value;
      DFBInputDeviceKeyIdentifier identifier;
 
+#ifdef LINUX_INPUT_USE_FBDEV
      if (!data->vt)
           return DFB_UNSUPPORTED;
+#endif
 
      /* fetch the base level */
      value = keyboard_read_value( driver_data, K_NORMTAB, code );
@@ -1375,9 +1406,6 @@ driver_get_keymap_entry( CoreInputDevice           *device,
                                                             DIKSI_ALT_SHIFT );
 
      return DFB_OK;
-#else
-     return DFB_UNSUPPORTED;
-#endif
 }
 
 /*
