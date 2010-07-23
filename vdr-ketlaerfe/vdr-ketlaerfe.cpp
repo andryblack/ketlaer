@@ -8,5 +8,6 @@ int main(int argc, char **argv)
     fprintf(stderr, "usage: %s vdrhost:port\n", argv[0]);
     exit(1);
   }
+  set_local_powerdown();
   return run_vdr_frontend(argv[1]);
 }

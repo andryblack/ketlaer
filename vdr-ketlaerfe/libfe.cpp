@@ -10,6 +10,7 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <assert.h>
+#include <pthread.h>
 
 #include <libketlaer.h>
 #include <qtkeys.h>
@@ -159,6 +160,7 @@ static VideoPlayback *g_pb = NULL;
 static bool           g_bOSD = false;
 static bool           g_bStop = false;
 static bool           g_bZoom = false;
+static bool           g_bLocalPowerdown = false;
 
 static void write_control(const char *str, size_t len)
 {
@@ -511,12 +513,12 @@ static void apply_zoom()
   else
     zoomVideo(NULL);
 }
-
 static void play_stream()
 {
-  long startupfullness = 16 * 1024;
+  long startupfullness = 10; //16 * 1024;
 
   g_pb->LoadMedia(conn_url);
+   
   DG_DrawRectangle(getScreenSurface(), 
 		   0, 
 		   0, 
@@ -589,6 +591,9 @@ static void process_keyboard()
     apply_zoom();
     return;
   }
+
+  if ((key == Key_PowerOff) && g_bLocalPowerdown) 
+    exit(99);
 
   while(vdr_keymap[idx].str) {
     if (vdr_keymap[idx].key == key) {
@@ -751,6 +756,11 @@ static void deinit()
   g_bZoom = false;
   apply_zoom();
   uninit_libketlaer();
+}
+
+void set_local_powerdown()
+{
+  g_bLocalPowerdown = true;
 }
 
 int run_vdr_frontend(const char *args)

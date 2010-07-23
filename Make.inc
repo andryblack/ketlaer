@@ -14,5 +14,5 @@ LDFLAGS = -L $(TOP)/AsusLIB -L $(TOP)/AsusRPC
 
 
 CFLAGS   = -mips32 -O2 $(INCLUDES) -fPIC
-CXXFLAGS = -mips32 -O2 $(INCLUDES) -fPIC
+CXXFLAGS = -mips32 -O2 -fno-exceptions $(INCLUDES) -fPIC
 

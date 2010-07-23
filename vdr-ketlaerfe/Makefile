@@ -42,10 +42,11 @@ LIBS_STATIC += -Wl,--end-group
 
 OBJS = vdr-ketlaerfe.o libfe.o
 
-PROG        = vdr-ketlaerfe
-PROG_STATIC = vdr-ketlaerfe-static
+PROG          = vdr-ketlaerfe
+PROG_STATIC   = vdr-ketlaerfe-static
+PROG_ROOTAPP2 = rootapp2
 
-all : $(PROG) $(PROG_STATIC)
+all : $(PROG) $(PROG_STATIC) $(PROG_ROOTAPP2)
 
 $(PROG) : $(OBJS)
 	$(CXX) -g -o $(PROG) $(OBJS) $(LIBS)
@@ -54,8 +55,17 @@ $(PROG_STATIC) : $(OBJS)
 	$(CXX) -static -o $(PROG_STATIC) $(OBJS) $(LIBS_STATIC)
 	mipsel-linux-strip $(PROG_STATIC)
 
+$(PROG_ROOTAPP2) : rootapp2.cpp
+	$(CXX) -static -o $(PROG_ROOTAPP2) rootapp2.cpp
+	mipsel-linux-strip $(PROG_ROOTAPP2)
+
 install : all
-	cp $(PROG) $(PROG_STATIC) $(KETLAER)/bin
+	cp $(PROG)          $(KETLAER)/bin
+	cp $(PROG_STATIC)   $(KETLAER)/bin
+	cp $(PROG_ROOTAPP2) $(KETLAER)/bin
 
 clean:
-	rm -f *.o *~ $(PROG) $(PROG_STATIC)
+	rm -f *.o *~ 
+	rm -f $(PROG) 
+	rm -f $(PROG_STATIC)
+	rm -f $(PROG_ROOTAPP2)
