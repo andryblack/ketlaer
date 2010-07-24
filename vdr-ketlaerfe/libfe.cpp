@@ -285,17 +285,18 @@ static void hud_fill_img_memory(uint32_t *dst, const struct osd_command_s *cmd)
   int idx = cmd->y * HUD_MAX_WIDTH + cmd->x;
 
   for(i = 0; i < cmd->num_rle; ++i) {
+    int j;
+    uint32_t finalcolor;
+
     uint32_t a = (cmd->palette + (cmd->data + i)->color)->alpha;
     uint32_t r = (cmd->palette + (cmd->data + i)->color)->r;
     uint32_t g = (cmd->palette + (cmd->data + i)->color)->g;
     uint32_t b = (cmd->palette + (cmd->data + i)->color)->b;
-    int j;
-    uint32_t finalcolor = 0;
-    finalcolor |= ((b << 24) & 0xFF000000);
+    finalcolor  = ((b << 24) & 0xFF000000);
     finalcolor |= ((g << 16) & 0x00FF0000);
     finalcolor |= ((r <<  8) & 0x0000FF00);
     finalcolor |= ( a        & 0x000000FF);
-    
+
     for(j = 0; j < (cmd->data + i)->len; ++j) {
       if(pixelcounter >= cmd->w) {
         idx += HUD_MAX_WIDTH - pixelcounter;
@@ -330,10 +331,10 @@ static int hud_osd_command(struct osd_command_s *cmd)
     int h = cmd->dirty_area.y2 - cmd->dirty_area.y1 + 1;
 
     /*fix scaling issues*/
-    x = 0;
-    w = osd_width;
-    //y = 0;
-    //h = osd_height;
+    x = x - 2; if (x < 0) x = 0;
+    y = y - 2; if (y < 0) y = 0;
+    w = w + 2; if (w > osd_width ) w = osd_width;
+    h = h + 2; if (h > osd_height) h = osd_height; 
 
 #define OSD_SCALE_X(x)	(int)((double)x * getScreenRect()->width  / 720)
 #define OSD_SCALE_Y(y)	(int)((double)y * getScreenRect()->height / 576)
@@ -379,6 +380,13 @@ static int hud_osd_command(struct osd_command_s *cmd)
   case OSD_Close: /* Close OSD window */
     printf("HUD osd Close\n");
     g_bOSD = false;
+    DG_DrawRectangle(g_hOSD,
+		     0,
+		     0,
+		     HUD_MAX_WIDTH,
+		     HUD_MAX_HEIGHT,
+		     RESERVED_COLOR_KEY,
+		     NULL);
     DG_DrawRectangle(getScreenSurface(), 
 		     0, 
 		     0, 

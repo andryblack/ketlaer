@@ -170,6 +170,7 @@ HANDLE getSurfaceHandle (int width, int height, PIXEL_FORMAT pixFormat)
   desc.dwSize = sizeof(SURFACEDESC);
   desc.dwHeight = height;
   desc.dwWidth =  width;
+  desc.dwAlphaBitDepth = 8;
   desc.dwColorKey = RESERVED_COLOR_KEY;
   desc.pixelFormat = pixFormat;
   desc.storageMode = 1;
@@ -257,14 +258,15 @@ static void Init()
 		  g_hScreen,
 		  0,
 		  0,
-		  Alpha_Constant,
-		  0xff,
+		  Alpha_SrcMajor,
+		  0,
 		  ColorKey_Src,
 		  RESERVED_COLOR_KEY);
   g_pb = new VideoPlayback(MEDIATYPE_None);
   g_pb->LoadMedia("file:///file_not_found.wmv");
   //pli_listAllMemory();
   setSpdifSampleRate(setup->GetSpdifRate());
+  printf("[LIBKETLAER]init done.\n");
 }
 
 static void UnInit()

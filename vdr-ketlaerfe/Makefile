@@ -2,6 +2,8 @@ TOP = ..
 
 include $(TOP)/Make.inc
 
+CXXFLAGS += -O3
+
 LIBS = -L$(KETLAER)/lib -lketlaer -pthread -lz
 
 LIBS_STATIC  = -Wl,--start-group
