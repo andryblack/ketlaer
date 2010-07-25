@@ -150,8 +150,11 @@ typedef struct osd_command_s {
   cmdP.dirty_area.y2 = ntohs(cmdP.dirty_area.y2);  \
 } while(0)
 
-static char conn_url[256];
-static int  conn_fd = -1;
+static char     conn_url[256];
+static int      conn_fd = -1;
+static unsigned g_haddr = 0;
+static int      g_hport = 0;
+static int      client_id = -1;
 
 static int            osd_width  = OSD_DEF_WIDTH;;
 static int            osd_height = OSD_DEF_HEIGHT;
@@ -162,7 +165,7 @@ static bool           g_bStop = false;
 static bool           g_bZoom = false;
 static bool           g_bLocalPowerdown = false;
 
-static void write_control(const char *str, size_t len)
+static void write_control_fd(int fd, const char *str, size_t len)
 {
   size_t ret;
   while(len>0) {
@@ -170,27 +173,32 @@ static void write_control(const char *str, size_t len)
     timeval select_timeout;
 
     FD_ZERO(&wset);
-    FD_SET(conn_fd, &wset);
+    FD_SET(fd, &wset);
     select_timeout.tv_sec  = 0;
     select_timeout.tv_usec = 500*1000; // 500 ms
     errno = 0;
-    if(select(conn_fd+1, NULL, &wset, NULL, &select_timeout) <= 0) {
+    if(select(fd+1, NULL, &wset, NULL, &select_timeout) <= 0) {
       perror("select()");
       return;
     }
 
     errno = 0;
-    ret = write(conn_fd, str, len);
+    ret = write(fd, str, len);
 
     if(ret <= 0) {
       if(errno == EAGAIN) continue;
       if(errno == EINTR)  continue;
-      perror("write_control()");
+      perror("write_control_fd()");
       return;
     }
     len -= ret;
     str += ret;
   }
+}
+
+static void write_control(const char *str, size_t len)
+{
+  write_control_fd(conn_fd, str, len);
 }
 
 static void write_control(const char *str)
@@ -677,7 +685,6 @@ static void mainloop()
 static bool init_connection(const char *ahost, const char *aport)
 {
   hostent *hent;
-  int port = -1;
   sockaddr_in addr;
   int one = 1;
 
@@ -685,16 +692,18 @@ static bool init_connection(const char *ahost, const char *aport)
     herror(ahost);
     return false;
   }
-  port = atoi(aport);
-  if (port < 0) {
+  memcpy(&g_haddr, hent->h_addr, sizeof(g_haddr));  
+  g_hport = atoi(aport);
+  if (g_hport < 0) {
     fprintf(stderr, "bad port\n");
     return false;
   }
-  snprintf(conn_url, sizeof(conn_url), "http://%s:%d", ahost, port);
+  snprintf(conn_url, sizeof(conn_url), "http://%s:%d", ahost, g_hport);
+  //snprintf(conn_url, sizeof(conn_url), "custom3:/%s:%d", ahost, g_hport);
   memset(&addr, 0, sizeof(addr));
-  addr.sin_port = htons(port);
+  addr.sin_port = htons(g_hport);
   addr.sin_family = AF_INET;
-  memcpy(&addr.sin_addr.s_addr, hent->h_addr, sizeof(addr.sin_addr.s_addr));
+  memcpy(&addr.sin_addr.s_addr, &g_haddr, sizeof(addr.sin_addr.s_addr));
   if ((conn_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
     perror("socket");
     return false;
@@ -708,6 +717,8 @@ static bool init_connection(const char *ahost, const char *aport)
   setsockopt(conn_fd, IPPROTO_TCP, TCP_NODELAY, &one, sizeof(int));
   return true;
 }
+
+static HRESULT openIOPlugin(IOPLUGIN*);
 
 static bool init(const char *args)
 {
@@ -724,6 +735,7 @@ static bool init(const char *args)
   printf("[VDR] %s:%s\n", host, port);
 
   init_libketlaer();
+  setIOPluginOpen(openIOPlugin);
   if (!init_connection(host, port))
     return false;
   write_control("CONTROL\r\n");
@@ -779,4 +791,115 @@ int run_vdr_frontend(const char *args)
     mainloop();
   deinit();
   return ret;
+}
+
+/*************
+ * IO PLUGIN *
+ *************/
+
+#define BUFFSIZE 8192
+
+typedef struct {
+  int fd;
+} MYIODATA;
+
+static void *io_open(char *url, int a)
+{
+  MYIODATA    *io;
+  int          failure = 1;
+  sockaddr_in  addr;
+  socklen_t    len = sizeof(addr);
+  char         msg[128];
+
+  printf("**io_open %s**\n", url);
+  io = (MYIODATA*)calloc(sizeof(MYIODATA), 1);
+  if (!io) {
+    perror("malloc");
+    goto quit;
+  }
+
+  if ((io->fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+    perror("socket");
+    goto quit;
+  }
+  memset(&addr, 0, sizeof(addr));
+  addr.sin_port = htons(g_hport);
+  addr.sin_family = AF_INET;
+  memcpy(&addr.sin_addr.s_addr, &g_haddr, sizeof(addr.sin_addr.s_addr));
+  if (connect(io->fd, (sockaddr*)&addr, sizeof(addr)) < 0) {
+    perror("connect");
+    close(io->fd);
+    goto quit;
+  }
+
+  getsockname(conn_fd, (sockaddr*)&addr, &len);
+  sprintf(msg, 
+	  "DATA %d %x:%d\n", 
+	  client_id, 
+	  addr.sin_addr.s_addr, 
+	  addr.sin_port);
+
+  failure = 0;
+
+ quit:
+
+  if (failure) {
+    if (io) free(io);
+    io = NULL;
+  }
+
+  return io;
+}
+
+static void io_getIOInfo(void *_this, NAVIOINFO *pnavinf)
+{
+  MYIODATA *io = (MYIODATA*)_this;
+}
+
+static void io_setBlockingMode(void *_this, int a1, int a2)
+{
+  MYIODATA *io = (MYIODATA*)_this;
+}
+
+static int io_read(void *_this, unsigned char *pbuf, int len, NAVBUF *pnavbuf)
+{
+  MYIODATA *io = (MYIODATA*)_this;
+  return 0;
+}
+
+static long long io_seek(void *_this, long long offset, int mode)
+{
+  MYIODATA *io = (MYIODATA*)_this;
+  return -1;
+}
+
+static int io_close(void *_this)
+{
+  MYIODATA *io = (MYIODATA*)_this;
+  return 0;
+}
+
+static int io_dispose(void *_this)
+{
+  free(_this);
+}
+
+static int io_getBufferFullness(void *_this, int *a1, int *a2)
+{
+  MYIODATA *io = (MYIODATA*)_this;
+  return 0;
+}
+
+static HRESULT openIOPlugin(IOPLUGIN *plugin)
+{
+  printf("*****open ioplugin*****\n");
+  plugin->open = io_open;
+  plugin->getIOInfo = io_getIOInfo;
+  plugin->setBlockingMode = io_setBlockingMode;
+  plugin->read = io_read;
+  plugin->seek = io_seek;
+  plugin->close = io_close;
+  plugin->dispose = io_dispose;
+  plugin->getBufferFullness = io_getBufferFullness;
+  return S_OK;
 }
