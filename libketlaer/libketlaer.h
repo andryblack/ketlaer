@@ -23,4 +23,8 @@ VideoPlayback *getVideoPlayback();
 void zoomVideo(VO_RECTANGLE*);
 void setSpdifSampleRate(int rate);
 
+typedef HRESULT (*IOPluginOpen)(IOPLUGIN*);
+
+void setIOPluginOpen(IOPluginOpen func);
+
 #endif

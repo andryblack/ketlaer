@@ -33,6 +33,18 @@ protocol = 0;
 ////////////////////////////////////////////////////////////////////////////////
 remotemap =
 (
+  //borrowed from other control to get codes for universal ir
+  { code = "be41ff00"; mappedto = "key_0"; },
+  { code = "f609ff00"; mappedto = "key_1"; },
+  { code = "fa05ff00"; mappedto = "key_2"; },
+  { code = "fe01ff00"; mappedto = "key_3"; },
+  { code = "b44bff00"; mappedto = "key_4"; },
+  { code = "b847ff00"; mappedto = "key_5"; },
+  { code = "bc43ff00"; mappedto = "key_6"; },
+  { code = "b54aff00"; mappedto = "key_7"; },
+  { code = "b946ff00"; mappedto = "key_8"; },
+  { code = "bd42ff00"; mappedto = "key_9"; },
+  //
   { code = "9669e486"; mappedto = "key_Up"; },
   { code = "926de486"; mappedto = "key_Down"; },
   { code = "956ae486"; mappedto = "key_Left"; },

@@ -401,3 +401,20 @@ void setSpdifSampleRate(int rate)
   printf(*ret == S_OK ? "ok\n" : "%lx\n", *ret); 
   free(ret);
 }
+
+static IOPluginOpen iopluginfunc = NULL;
+
+void setIOPluginOpen(IOPluginOpen func)
+{
+  iopluginfunc = func;
+}
+
+extern "C" HRESULT openIOPlugin_Custom3(IOPLUGIN *plugin)
+{
+  printf("[LIBKETLAER]openIOPlugin_Custom3\n");
+  if (iopluginfunc) {
+    printf("[LIBKETLAER]using custom ioplugin\n");
+    return iopluginfunc(plugin);
+  }
+  return -1;
+}
