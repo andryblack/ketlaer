@@ -206,7 +206,7 @@ static void write_control(const char *str)
   write_control(str, strlen(str));
 }
 
-static int read_control(uint8_t *buf, int len)
+static int read_control_fd(int fd, uint8_t *buf, int len)
 {
   int num_bytes, total_bytes = 0, err;
 
@@ -216,8 +216,8 @@ static int read_control(uint8_t *buf, int len)
     tv.tv_sec = 0;
     tv.tv_usec = 500*1000;
     FD_ZERO(&rset);
-    FD_SET(conn_fd, &rset);
-    switch(select(conn_fd+1, &rset, NULL, NULL, &tv)) {
+    FD_SET(fd, &rset);
+    switch(select(fd+1, &rset, NULL, NULL, &tv)) {
     case  0:
       continue;
     case -1:
@@ -226,7 +226,7 @@ static int read_control(uint8_t *buf, int len)
     }
 
     errno = 0;
-    num_bytes = read(conn_fd, buf + total_bytes, len - total_bytes);
+    num_bytes = read(fd, buf + total_bytes, len - total_bytes);
 
     if (num_bytes <= 0) {
       if (errno == EAGAIN) continue;
@@ -238,6 +238,11 @@ static int read_control(uint8_t *buf, int len)
   }
 
   return total_bytes;
+}
+
+static int read_control(uint8_t *buf, int len)
+{
+  return read_control_fd(conn_fd, buf, len);
 }
 
 static int readline_control(char *buf, int maxlen, int timeout)
@@ -510,6 +515,8 @@ static void process_control()
     if (g_pb->m_pSource) {
       //how can we flush?
     }
+  } else if (strncasecmp(line, "CLIENT-ID ", 10) == 0) {
+    sscanf(&line[10], "%d", &client_id);
   }
 }
 
@@ -698,8 +705,11 @@ static bool init_connection(const char *ahost, const char *aport)
     fprintf(stderr, "bad port\n");
     return false;
   }
+#ifdef MYIO
+  snprintf(conn_url, sizeof(conn_url), "custom3://%s:%d", ahost, g_hport);
+#else
   snprintf(conn_url, sizeof(conn_url), "http://%s:%d", ahost, g_hport);
-  //snprintf(conn_url, sizeof(conn_url), "custom3:/%s:%d", ahost, g_hport);
+#endif
   memset(&addr, 0, sizeof(addr));
   addr.sin_port = htons(g_hport);
   addr.sin_family = AF_INET;
@@ -735,10 +745,15 @@ static bool init(const char *args)
   printf("[VDR] %s:%s\n", host, port);
 
   init_libketlaer();
+#ifdef MYIO
   setIOPluginOpen(openIOPlugin);
+#endif
   if (!init_connection(host, port))
     return false;
+  client_id = -1;
   write_control("CONTROL\r\n");
+  while (client_id == -1) 
+    process_control();
   write_control("CONFIG\r\n");
   g_hOSD = getSurfaceHandle(HUD_MAX_WIDTH, HUD_MAX_HEIGHT, Format_32);
   DG_DrawRectangle(g_hOSD, 
@@ -793,6 +808,8 @@ int run_vdr_frontend(const char *args)
   return ret;
 }
 
+#ifdef MYIO
+
 /*************
  * IO PLUGIN *
  *************/
@@ -805,13 +822,15 @@ typedef struct {
 
 static void *io_open(char *url, int a)
 {
-  MYIODATA    *io;
-  int          failure = 1;
-  sockaddr_in  addr;
-  socklen_t    len = sizeof(addr);
-  char         msg[128];
+  MYIODATA     *io;
+  int           failure = 1;
+  sockaddr_in   addr;
+  socklen_t     len = sizeof(addr);
+  int           one = 1;
+  char          msg[128];
+  uint8_t       dummy;
 
-  printf("**io_open %s**\n", url);
+  printf("[VDRFE]io_open %s\n", url);
   io = (MYIODATA*)calloc(sizeof(MYIODATA), 1);
   if (!io) {
     perror("malloc");
@@ -822,6 +841,7 @@ static void *io_open(char *url, int a)
     perror("socket");
     goto quit;
   }
+
   memset(&addr, 0, sizeof(addr));
   addr.sin_port = htons(g_hport);
   addr.sin_family = AF_INET;
@@ -832,12 +852,19 @@ static void *io_open(char *url, int a)
     goto quit;
   }
 
+  fcntl(io->fd, F_SETFL, fcntl(io->fd, F_GETFL) | O_NONBLOCK);
+
   getsockname(conn_fd, (sockaddr*)&addr, &len);
   sprintf(msg, 
-	  "DATA %d %x:%d\n", 
+	  "DATA %d 0x%x:%d\r\n", 
 	  client_id, 
-	  addr.sin_addr.s_addr, 
-	  addr.sin_port);
+	  ntohl(addr.sin_addr.s_addr), 
+	  ntohs(addr.sin_port));
+
+  //should handle errors
+  write_control_fd(io->fd, msg, strlen(msg));
+  read_control_fd(io->fd, (uint8_t*)msg, 6);
+  write_control("CONFIG\r\n");
 
   failure = 0;
 
@@ -854,45 +881,84 @@ static void *io_open(char *url, int a)
 static void io_getIOInfo(void *_this, NAVIOINFO *pnavinf)
 {
   MYIODATA *io = (MYIODATA*)_this;
+
+  printf("[VDRFE]io_getIOInfo\n");
+
+  memset(pnavinf, 0, sizeof(NAVIOINFO));
+  pnavinf->totalBytes = -1;
+  pnavinf->totalSeconds = -1;
+  pnavinf->averageBytesPerSecond = -1;
 }
 
 static void io_setBlockingMode(void *_this, int a1, int a2)
 {
   MYIODATA *io = (MYIODATA*)_this;
+
+  printf("[VDRFE]io_setBlockingMode\n");
 }
 
 static int io_read(void *_this, unsigned char *pbuf, int len, NAVBUF *pnavbuf)
 {
   MYIODATA *io = (MYIODATA*)_this;
-  return 0;
+  int       ret;
+
+  if (len > 8192) 
+    len = 8192;
+
+  for (;;) {
+    fd_set  rset;
+    timeval select_timeout;
+
+    FD_ZERO(&rset);
+    FD_SET(io->fd, &rset);
+    select_timeout.tv_sec  = 0;
+    select_timeout.tv_usec = 500*1000; // 500 ms
+    errno = 0;
+    if(select(io->fd+1, &rset, NULL, NULL, &select_timeout) <= 0) {
+      perror("select()");
+      return -1;
+    }
+    ret = read(io->fd, pbuf, len);
+    return ret;
+  }
 }
 
 static long long io_seek(void *_this, long long offset, int mode)
 {
   MYIODATA *io = (MYIODATA*)_this;
-  return -1;
+  long long ret = 0;
+
+  printf("[VDRFE]io_seek(%lld,%d)=%lld\n", offset, mode, ret);
+  return 0;
 }
 
 static int io_close(void *_this)
 {
   MYIODATA *io = (MYIODATA*)_this;
+
+  printf("[VDRFE]io_close\n");
+  close(io->fd);
+  close(conn_fd);
+  init_connection("192.168.0.50", "37890");
   return 0;
 }
 
 static int io_dispose(void *_this)
 {
+  printf("[VDRFE]io_dispose\n");
   free(_this);
 }
 
 static int io_getBufferFullness(void *_this, int *a1, int *a2)
 {
   MYIODATA *io = (MYIODATA*)_this;
+
+  printf("[VDRFE]io_getBufferFullness\n");
   return 0;
 }
 
 static HRESULT openIOPlugin(IOPLUGIN *plugin)
 {
-  printf("*****open ioplugin*****\n");
   plugin->open = io_open;
   plugin->getIOInfo = io_getIOInfo;
   plugin->setBlockingMode = io_setBlockingMode;
@@ -903,3 +969,5 @@ static HRESULT openIOPlugin(IOPLUGIN *plugin)
   plugin->getBufferFullness = io_getBufferFullness;
   return S_OK;
 }
+
+#endif
