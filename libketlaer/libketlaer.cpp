@@ -319,13 +319,16 @@ int ir_getfd()
 
 int ir_getkey(bool &repeated)
 {
-  int key = 0, rep = 0, qtkey;
+  unsigned key = 0, rep = 0, qtkey;
 
   read(g_irfd, &key, sizeof(key));
+  /*
   read(g_irfd, &rep, sizeof(rep));
   repeated = rep == 1;
+  */
+  if (key <= 1) return -1;
   qtkey = g_pIrMap->GetQtKey(key);
-  printf("[LIBKETLAER]ir %lx %lx %lx\n", key, rep, qtkey);
+  printf("[LIBKETLAER]ir %x %x %x\n", key, rep, qtkey);
   return qtkey;
 }
 
