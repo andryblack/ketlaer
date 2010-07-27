@@ -575,7 +575,7 @@ static struct {
   {Key_5,             "5"        },
   {Key_6,             "6"        },
   {Key_7,             "7"        },
-  {Key_7,             "8"        },
+  {Key_8,             "8"        },
   {Key_9,             "9"        },
   {Key_Up,            "Up"       },
   {Key_Down,          "Down"     },
