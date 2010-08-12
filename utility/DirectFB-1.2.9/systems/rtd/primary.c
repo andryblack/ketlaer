@@ -383,6 +383,7 @@ update_screen( CoreSurface *surface, int x, int y, int w, int h )
 
      src = lock.addr; /* + DFB_BYTES_PER_LINE( surface->config.format, x ) + y * lock.pitch;*/
 
+
      switch(surface->config.format) {
      case DSPF_RGB16:
        libk_copyrect_16(src, lock.pitch, x, y, w, h);
@@ -390,6 +391,9 @@ update_screen( CoreSurface *surface, int x, int y, int w, int h )
      case DSPF_RGB32:
      case DSPF_ARGB:
        libk_copyrect_32(src, lock.pitch, x, y, w, h);
+       break;
+     default:
+       printf("bad pixel format %d\n", surface->config.format);
        break;
      }
 

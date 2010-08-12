@@ -13,7 +13,8 @@ void libk_init()
 
 void libk_uninit()
 {
-  //  uninit_libketlaer();
+  //avoid crash
+  //uninit_libketlaer();
 }
 
 void libk_getscreensize(int *w, int *h)
@@ -27,7 +28,7 @@ unsigned rgb16to32(unsigned pixel)
 {
   return ((((pixel) & 0xF800)      ) |
 	  (((pixel) & 0x07E0) << 13) |
-	  (((pixel) & 0x001F) << 27)   );
+	  (((pixel) & 0x001F) << 27)   ) | 0xff;
 }
 
 static inline 
