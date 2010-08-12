@@ -289,7 +289,6 @@ _dfb_handle_key_event(DFBInputEvent evt, int press_or_release)
    if (evt.modifiers & DIMM_CONTROL)
       ctrl = 1;
    keysym = _translate_with_modmap(&entry, level, lkst, ctrl);
-   printf("adi keysym %d\n", keysym);
    rfb_send_key_event(keysym, press_or_release); 	     
 }
 
