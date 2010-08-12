@@ -568,6 +568,7 @@ keyboard_get_identifier( int code, unsigned short value )
 }
 
 #ifdef LINUX_INPUT_USE_FBDEV
+
 static unsigned short
 keyboard_read_value( const LinuxInputData *data,
                      unsigned char table, unsigned char index )
@@ -614,7 +615,7 @@ keyboard_read_value( const LinuxInputData *data,
     ret =  0;
     break;
   }
-  printf("adi read_value = 0x%x\n", ret);
+  return ret & 0x0fff;
 }
 
 #endif /* LINUX_INPUT_USE_FBDEV */
