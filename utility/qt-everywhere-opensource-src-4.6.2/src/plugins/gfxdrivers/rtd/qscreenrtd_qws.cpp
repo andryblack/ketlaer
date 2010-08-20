@@ -298,7 +298,7 @@ void QrtdScreenPrivate::ScreenConnect()
 void QrtdScreenPrivate::ScreenDisconnect()
 {
   server->terminate();
-  server->wait();
+  //server->wait();
   delete server;
 }
 

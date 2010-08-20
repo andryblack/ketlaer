@@ -84,7 +84,7 @@ qunixsocketserver.cpp
 qunixsocketserver_p.h
 qvfbhdr.h
 qwindowsystem_p.h
-qwindowsystem_qws.cpp
+!qwindowsystem_qws.cpp
 qwindowsystem_qws.h
 qwscommand_qws.cpp
 qwscommand_qws_p.h
