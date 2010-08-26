@@ -1,6 +1,6 @@
-animation
+!animation
 arch
-codecs
+!codecs
 concurrent
 corelib.pro
 eval.pri
